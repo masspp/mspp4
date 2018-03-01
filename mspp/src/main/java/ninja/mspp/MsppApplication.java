@@ -14,7 +14,7 @@ import ninja.mspp.view.main.MainFrame;
 
 @SpringBootApplication
 public class MsppApplication extends Application {
-
+    // context
 	private static ConfigurableApplicationContext context;
 
 	/**
