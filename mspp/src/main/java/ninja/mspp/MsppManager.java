@@ -1,29 +1,41 @@
 package ninja.mspp;
 
 import java.io.File;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.prefs.Preferences;
 
 import ninja.mspp.annotation.Plugin;
+import ninja.mspp.model.PluginMethod;
+import ninja.mspp.model.PluginObject;
 
 /**
  * Mass++ manager (Singleton class)
  */
-public class MsppManager {
+public class MsppManager implements Iterable< Object > {
 	// instance
 	private static MsppManager instance = null;
 
 	// config properties
 	private ResourceBundle config;
 
+	// message properties
+	private ResourceBundle messages;
+
 	// plugins
 	ArrayList< Object > plugins;
+
+	// preferences
+	Preferences preferences;
 
 	/**
 	 * constructor
@@ -37,7 +49,9 @@ public class MsppManager {
 	 */
 	private void initialize() {
 		this.config = ResourceBundle.getBundle( "application" );
+		this.messages = ResourceBundle.getBundle( "messages" );
 		this.plugins = createPluginArray();
+		this.preferences = Preferences.userRoot().node( "mspp4/parameters" );
 	}
 
 	/**
@@ -48,10 +62,18 @@ public class MsppManager {
 		return this.config;
 	}
 
+	/**
+	 * gets the messages
+	 * @return messages
+	 */
+	public ResourceBundle getMessages() {
+		return this.messages;
+	}
+
 	// array list
 	private static ArrayList< Object > createPluginArray() {
 		ArrayList< String > files = getFiles();
-		ArrayList< Object > array = getPlugins( files );
+		ArrayList< Object > array = searchPlugins( files );
 
 		return array;
 	}
@@ -94,11 +116,11 @@ public class MsppManager {
 	}
 
 	/**
-	 * gets plugins
+	 * search plugins
 	 * @param files files
 	 * @return plugins
 	 */
-	private static ArrayList< Object > getPlugins( ArrayList< String > files ) {
+	private static ArrayList< Object > searchPlugins( ArrayList< String > files ) {
 		ArrayList< Object > plugins = new ArrayList< Object >();
 		Set< String > exceptions = new HashSet< String >();
 		exceptions.add( "com.sun.deploy.uitoolkit.impl.fx.Utils" );
@@ -131,7 +153,70 @@ public class MsppManager {
 		}
 
 		return plugins;
+	}
 
+	/**
+	 * gets specified plug-ins
+	 * @param clazz annotation class
+	 * @return plug-in array
+	 */
+	public < A extends Annotation > ArrayList< PluginObject< A > > getPlugins( Class< A > clazz ) {
+		ArrayList< PluginObject< A > > array = new ArrayList< PluginObject< A > >();
+		for( Object plugin : this.plugins ) {
+			A annotation = plugin.getClass().getAnnotation( clazz );
+			if( annotation != null ) {
+				PluginObject< A > object = new PluginObject< A >( plugin, annotation );
+				array.add( object );
+			}
+		}
+
+		return array;
+	}
+
+	/**
+	 * gets plug-in methods
+	 * @param clazz class
+	 * @return plug-in methods
+	 */
+	public < A extends Annotation > ArrayList< PluginMethod< A > > getMethods( Class< A > clazz ) {
+		ArrayList< PluginMethod< A > > array = new ArrayList< PluginMethod< A > >();
+		for( Object plugin : this.plugins ) {
+			Method[] methods = plugin.getClass().getDeclaredMethods();
+			for( Method method : methods ) {
+				A annotation = method.getAnnotation( clazz );
+				if( annotation != null ) {
+					PluginMethod< A > pluginMethod = new PluginMethod< A >( plugin, method, annotation );
+					array.add( pluginMethod );
+				}
+			}
+		}
+
+		return array;
+	}
+
+
+	/**
+	 * save string value
+	 * @param name parameter name
+	 * @param value parameter value
+	 */
+	public void saveString( String name, String value ) {
+		this.preferences.put( name, value );
+	}
+
+	/**
+	 * loads string value
+	 * @param name parameter name
+	 * @param defaultValue default value
+	 * @return parameter value
+	 */
+	public String loadString( String name, String defaultValue ) {
+		return this.preferences.get( name,  defaultValue );
+	}
+
+	@Override
+	public Iterator<Object> iterator() {
+		return this.plugins.iterator();
 	}
 
 	/**

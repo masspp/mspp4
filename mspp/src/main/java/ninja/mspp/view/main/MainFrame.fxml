@@ -5,22 +5,21 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.view.main.MainFrame">
    <top>
       <MenuBar fx:id="menubar" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File" />
-            <Menu mnemonicParsing="false" text="View" />
-          <Menu mnemonicParsing="false" text="Help" />
+          <Menu fx:id="fileMenu" mnemonicParsing="false" text="File" />
+            <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit" />
+            <Menu fx:id="viewMenu" mnemonicParsing="false" text="View" />
+            <Menu fx:id="processingMenu" mnemonicParsing="false" text="Processing" />
+            <Menu fx:id="toolsMenu" mnemonicParsing="false" text="Tools" />
+          <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help" />
         </menus>
       </MenuBar>
    </top>
    <center>
       <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <top>
-            <TabPane fx:id="topTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
-         </top>
          <left>
             <TabPane fx:id="leftTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
          </left>
@@ -30,6 +29,9 @@
          <bottom>
             <TabPane fx:id="bottomTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
          </bottom>
+         <top>
+            <TabPane fx:id="topTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+         </top>
       </BorderPane>
    </center>
 </BorderPane>

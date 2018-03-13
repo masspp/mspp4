@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import ninja.mspp.view.GuiManager;
 import ninja.mspp.view.main.MainFrame;
 
 @SpringBootApplication
@@ -28,6 +29,11 @@ public class MsppApplication extends Application {
 
 	@Override
 	public void start( Stage stage ) throws Exception {
+		MsppManager msppManager = MsppManager.getInstance();
+		GuiManager guiManager = GuiManager.getInstance();
+
+		guiManager.setStage( stage );
+
 		FXMLLoader loader = new FXMLLoader(
 			MainFrame.class.getResource( "MainFrame.fxml" )
 		);
@@ -35,9 +41,9 @@ public class MsppApplication extends Application {
 		Parent root = loader.load();
 
 		MainFrame mainFrame = (MainFrame)loader.getController();
-		mainFrame.initialize();
+		guiManager.setMainFrame( mainFrame );
 
-		String title = MsppManager.getInstance().getConfig().getString( "mspp.title" );
+		String title = msppManager.getConfig().getString( "mspp.title" );
 		stage.setTitle( title );
 
 		Image icon = new Image( getClass().getResourceAsStream( "/images/MS_icon_24.png" ) );
