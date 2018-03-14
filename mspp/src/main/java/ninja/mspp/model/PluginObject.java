@@ -12,7 +12,6 @@ public class PluginObject < A extends Annotation >  {
 	/**
 	 * constructor
 	 * @param plugin plug-in
-	 * @param method method
 	 */
 	public PluginObject( Object plugin ) {
 		this( plugin, null );
@@ -21,7 +20,6 @@ public class PluginObject < A extends Annotation >  {
 	/**
 	 * constructor
 	 * @param plugin plug-in
-	 * @param method method
 	 * @param annotation annotation
 	 */
 	public PluginObject( Object plugin, A annotation ) {
@@ -40,7 +38,7 @@ public class PluginObject < A extends Annotation >  {
 
 	/**
 	 * gets the annotation
-	 * @return
+	 * @return annotation
 	 */
 	public A getAnnotation() {
 		return this.annotation;

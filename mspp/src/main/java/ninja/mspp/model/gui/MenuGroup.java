@@ -34,7 +34,7 @@ public class MenuGroup implements Iterable< MenuInfo > {
 
 	/**
 	 * gets the number of items
-	 * @return
+	 * @return menu item size
 	 */
 	public int size() {
 		return this.items.size();

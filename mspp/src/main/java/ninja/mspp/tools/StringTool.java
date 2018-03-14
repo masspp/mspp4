@@ -7,7 +7,7 @@ public class StringTool {
 	/**
 	 * null value logic
 	 * @param string string
-	 * @param defualtValue default value
+	 * @param defaultValue default value
 	 * @return if string is null returns default value otherwise returns string.
 	 */
 	public static String nvl( String string, String defaultValue ) {

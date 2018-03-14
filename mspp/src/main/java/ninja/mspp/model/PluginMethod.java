@@ -50,7 +50,7 @@ public class PluginMethod< A extends Annotation >  {
 
 	/**
 	 * gets the annotation
-	 * @return
+	 * @return annotation
 	 */
 	public A getAnnotation() {
 		return this.annotation;
