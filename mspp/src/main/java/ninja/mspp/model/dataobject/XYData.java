@@ -145,7 +145,7 @@ public abstract class XYData {
     }
     
     /**
-     *  Not Implemented
+     * TODO: Not Implemented
      * Get list of points, x-value of which ranges from min_x to max_x
      * @param min_x
      * @param max_x
@@ -156,7 +156,7 @@ public abstract class XYData {
     }
     
     /**
-     *  Not Implemented
+     * TODO: Not Implemented
      * Get list of points, y-value of which ranges from min_y to max_y
      * @param min_y
      * @param max_y
@@ -172,34 +172,58 @@ public abstract class XYData {
      * @return sorted shallow copy of xydata by Y
      */
     public List<Point<Double>> softed_by_Y(boolean desc){
-        List<Point<Double>> sorted_y = new ArrayList<Point<Double>>(this.xydata);
+        List<Point<Double>> sorted_y = new ArrayList<>(this.xydata);
         
         Collections.sort(sorted_y , 
                 (p1,p2) -> (int) (p1.getY() - p2.getY())  );
         return sorted_y;
     }
     
-    
+    /**
+     * TODO: Not Implemented
+     * @param idx
+     * @return 
+     */
     public double getY(int idx){
         return xydata.get(idx).getY();
     }
     
+    /**
+     * TODO: Not Implemented
+     * @param min_x
+     * @return 
+     */
     public int getFromIndex_byX(Double min_x){
         // TODO: to be implemented
         return 1;
     }
     
+    /**
+     * TODO: Not Implemented
+     * @param max_x
+     * @return 
+     */
     public int getToIndex_byX(Double max_x){
          // TODO: to be implemented
          return 1;
     }
     
+    /**
+     * TODO: Not Implemented
+     * @param min_y
+     * @return 
+     */
     public int getFromIndex_byY(Double min_y){
          // TODO: to be implemented
          return 1;
         
     }
     
+    /**
+     * TODO: Not Implemented
+     * @param max_y
+     * @return 
+     */
     public  int getToIndex_byY(Double max_y){
          // TODO: to be implemented
          return 1;
