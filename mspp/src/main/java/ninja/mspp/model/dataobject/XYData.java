@@ -13,7 +13,7 @@ import java.util.Collections;
  *
  * @author murasemasaki
  */
-public abstract class XYData {
+public class XYData {
 
     private List< Point<Double> > xydata;
         

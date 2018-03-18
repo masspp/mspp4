@@ -9,23 +9,23 @@ package ninja.mspp.model.dataobject;
  *
  * @author murasemasaki
  */
-public class Point<T extends Number> extends Pair<T>{
+public class Range<T extends Number> extends Pair<T>{
 
     /**
      * 
      * @param x The X coordinate of this Point.
      * @param y The Y coordinate of this Point.
      */
-    public Point(T x, T y){
-        super(x,y);
+    public Range(T start, T end){
+        super(start, end);
     }
     
 
-    public T getX(){
+    public T getStart(){
         return this.getLeft();
     }
     
-    public T getY(){
+    public T getEnd(){
         return this.getRight();
     }
     
