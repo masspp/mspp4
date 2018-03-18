@@ -27,8 +27,6 @@ public class FileInputPlugin {
 	private MenuInfo menu;
 	private ArrayList< PluginMethod< FileInput > > methods;
 
-
-
 	/**
 	 * constructor
 	 */

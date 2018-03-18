@@ -45,10 +45,10 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                   </plugin>
+
                   <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.7.0</version>
                         <configuration>
                             <showDeprecation>false</showDeprecation>
                             <source>1.8</source>
@@ -62,14 +62,14 @@
                     <directory>src/main/java</directory>
                     <includes>
                         <include>**/*.fxml</include>
-                    </includes>             
+                    </includes>
                 </resource>
                 <resource>
                     <filtering>false</filtering>
                     <directory>src/main/resources</directory>
                     <includes>
                         <include>**/*</include>
-                    </includes>             
+                    </includes>
                 </resource>
             </resources>
 

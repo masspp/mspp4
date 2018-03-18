@@ -8,11 +8,13 @@ import java.util.Map;
 import java.util.Set;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import ninja.mspp.MsppManager;
@@ -57,6 +59,50 @@ public class MainFrame {
 	 */
 	public void initialize() throws Exception {
 		this.createMenu();
+	}
+
+	/**
+	 * sets the main pane
+	 * @param node main pane
+	 */
+	public void setMain( Node node ) {
+		this.mainPane.setCenter( node );
+	}
+
+	/**
+	 * adds left tab
+	 * @param title title
+	 * @param node node
+	 */
+	public void addLeftTab( String title, Node node ) {
+		addTab( this.leftTabPane, title, node );
+	}
+
+	/**
+	 * adds right tab
+	 * @param title title
+	 * @param node node
+	 */
+	public void addRightTab( String title, Node node ) {
+		addTab( this.rightTabPane, title, node );
+	}
+
+	/**
+	 * adds top tab
+	 * @param title title
+	 * @param node node
+	 */
+	public void addTopTab( String title, Node node ) {
+		addTab( this.topTabPane, title, node );
+	}
+
+	/**
+	 * adds bottom tab
+	 * @param title title
+	 * @param node node
+	 */
+	public void addBottomTab( String title, Node node ) {
+		addTab( this.bottomTabPane, title, node );
 	}
 
 	/**
@@ -177,4 +223,19 @@ public class MainFrame {
 			}
 		}
 	}
+
+	/**
+	 * adds tab
+	 * @param pane tab pane
+	 * @param title tab title
+	 * @param node tab node
+	 */
+	protected static void addTab( TabPane pane, String title, Node node ) {
+		Tab tab = new Tab();
+		tab.setText( title );;
+		tab.setContent( node );
+		pane.getTabs().add( tab );
+	}
+
+
 }
