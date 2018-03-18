@@ -9,7 +9,7 @@ package ninja.mspp.model.dataobject;
  *
  * @author murasemasaki
  */
-public class Point<T extends Number> implements Comparable<Point<T>>{
+public class Point<T extends Number> implements Comparable<Point<T>>, Cloneable{
     private T x;
     private T y;
     
@@ -41,5 +41,14 @@ public class Point<T extends Number> implements Comparable<Point<T>>{
     public T getY(){
         return this.y;
     }
+    
+    @Override
+    public Point<T> clone() throws CloneNotSupportedException{
+        Point<T> p = (Point<T>) super.clone();
+        p.x = x;
+        p.y = y;
+        return p;
+    }
+    
     
 }

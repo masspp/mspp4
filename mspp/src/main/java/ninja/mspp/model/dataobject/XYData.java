@@ -68,10 +68,6 @@ public abstract class XYData {
         
     }
     
-       
-    public <A extends Number>XYData(ArrayList<Point<A>> xydata)  {
-        
-    }     
     
      /**
      * @return the minX
@@ -169,6 +165,18 @@ public abstract class XYData {
     public List<Point<Double>> filter_by_Y(double min_y, double max_y)
     {
         return this.xydata;
+    }
+    
+    /**
+     * @param desc not yet implemented 
+     * @return sorted shallow copy of xydata by Y
+     */
+    public List<Point<Double>> softed_by_Y(boolean desc){
+        List<Point<Double>> sorted_y = new ArrayList<Point<Double>>(this.xydata);
+        
+        Collections.sort(sorted_y , 
+                (p1,p2) -> (int) (p1.getY() - p2.getY())  );
+        return sorted_y;
     }
     
     
