@@ -171,7 +171,7 @@ public class XYData {
      * @param desc not yet implemented 
      * @return sorted shallow copy of xydata by Y
      */
-    public List<Point<Double>> softed_by_Y(boolean desc){
+    public List<Point<Double>> sorted_by_Y(boolean desc){
         List<Point<Double>> sorted_y = new ArrayList<>(this.xydata);
         
         Collections.sort(sorted_y , 
