@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ninja.mspp.model.dataobject;
+import org.apache.commons.lang3.builder.CompareToBuilder;
 
 /**
  *
@@ -24,14 +25,16 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
     }
     
     /**
-     * 
+     * Compares the pair based on the left element followed by the right element, just like commons.lang3.pair
      * @param other
      * @return 
      */
     @Override
     public int compareTo(Pair<T> other){
-        if (other.left.doubleValue() > this.left.doubleValue()) return -1;
-        return 1;
+        return new CompareToBuilder()
+                .append(getLeft(),other.getLeft())
+                .append(getRight(), other.getRight())
+                .toComparison();
     }
     
     public T getLeft(){
@@ -48,6 +51,10 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
         p.left = left;
         p.right = right;
         return p;
+    }
+    
+    public String toString(final String format){
+        return String.format(format, getRight(),getLeft());
     }
     
     
