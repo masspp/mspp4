@@ -13,7 +13,7 @@ import uk.ac.ebi.jmzml.model.mzml.PrecursorList;
 
 /**
  *
- * @author murasemasaki
+ * @author masakimu
  */
 public abstract class Spectrum {
 

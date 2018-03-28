@@ -5,11 +5,13 @@
  */
 package ninja.mspp.model.dataobject;
 
+
+
 /**
  *
- * @author murasemasaki
+ * @author masakimu
  */
-public class Point<T extends Number> extends Pair<T>{
+public class Point<T extends Number> extends Pair<T> implements XYProvider<T>{
 
     /**
      * 
@@ -20,11 +22,12 @@ public class Point<T extends Number> extends Pair<T>{
         super(x,y);
     }
     
-
+    @Override
     public T getX(){
         return this.getLeft();
     }
     
+    @Override
     public T getY(){
         return this.getRight();
     }

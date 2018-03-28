@@ -7,7 +7,7 @@ package ninja.mspp.math;
 
 /**
  *
- * @author murasemasaki
+ * @author masakimu
  */
 public class Utils {
     /**
@@ -31,12 +31,19 @@ public class Utils {
      * @param a
      * @param b
      * @param rtol
-     * @return 
+     * @return true if a is nearly equal to b with relative tolerance: rtol.
      */
     public static boolean isclose_relative(double a, double b, double rtol){
         return isclose(a, b, rtol, 0.0);
     }
     
+    /**
+     * 
+     * @param a
+     * @param b
+     * @param ppm
+     * @return true if a is nearly equal to b with ppm [ppm].
+     */
     public static boolean isclose_ppm(double a, double b, double ppm){
         return isclose(a, b, 1.0e-6*ppm, 0.0);
     }
@@ -46,7 +53,7 @@ public class Utils {
      * @param a
      * @param b
      * @param atol
-     * @return 
+     * @return true if a is nearly equal to b with absolute tolerance: atol.
      */
     public static boolean isclose_abs(double a, double b, double atol){
         return isclose(a, b, 0.0, atol);

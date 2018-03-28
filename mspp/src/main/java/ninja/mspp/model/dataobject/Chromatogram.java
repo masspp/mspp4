@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author murasemasaki
+ * @author masakimu
  */
 public abstract class Chromatogram {
 

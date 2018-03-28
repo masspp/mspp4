@@ -7,9 +7,9 @@ package ninja.mspp.model.dataobject;
 
 /**
  *
- * @author murasemasaki
+ * @author masakimu
  */
-public class Range<T extends Number> extends Pair<T>{
+public class Range<T extends Number> extends Pair<T> implements RangeProvider<T>{
 
     /**
      * 
@@ -20,11 +20,12 @@ public class Range<T extends Number> extends Pair<T>{
         super(start, end);
     }
     
-
+    @Override
     public T getStart(){
         return this.getLeft();
     }
     
+    @Override
     public T getEnd(){
         return this.getRight();
     }

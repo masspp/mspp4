@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
 
 /**
  *
- * @author murasemasaki
+ * @author masakimu
  */
 public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
     private T left;
