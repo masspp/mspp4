@@ -53,7 +53,7 @@ public class XYDataTest {
         };
         //points.add(new Point( (double)1.0, (double)100.2));
         
-        xydata = new XYData(points, true, false);
+        xydata = new XYData(points, true);
     }
     
     @After
@@ -182,8 +182,8 @@ public class XYDataTest {
         List<Point<Double>> points_sorted_by_x=new ArrayList<Point<Double>>(){
                 {
                     add(new Point((double)1.0, (double)15.1));
-                    add(new Point((double)1.2, (double)18.2));
                     add(new Point((double)1.2, (double)142.9));
+                    add(new Point((double)1.2, (double)18.2));
                     add(new Point((double)3.3, (double)56.4));
                     add(new Point((double)10.4, (double)84.5));
                     add(new Point((double)15.5, (double)93.6));
@@ -250,7 +250,7 @@ public class XYDataTest {
         XYData instance = xydata;
         ArrayList<Integer> expResult = new ArrayList<Integer>(){
                 {
-                    add(1);
+                    add(2);
                 }
         };
         ArrayList<Integer> result = instance.searchIndicies_by_Y(y);
@@ -295,15 +295,30 @@ public class XYDataTest {
     @Test
     public void testFilter_by_X() {
         System.out.println("filter_by_X");
-        double min_x = 0.0;
-        double max_x = 0.0;
-        double atol = 0.0;
-        XYData instance = null;
-        List<Point<Double>> expResult = null;
-        List<Point<Double>> result = instance.filter_by_X(min_x, max_x, atol);
-        assertEquals(expResult, result);
+        double min_x = 1.2;
+        double max_x = 22.8;
+        XYData instance = xydata;
+        List<Point<Double>> expResult = new ArrayList<Point<Double>>(){
+                {
+                    add(new Point((double)1.2, (double)142.9));
+                    add(new Point((double)1.2, (double)18.2));
+                    add(new Point((double)3.3, (double)56.4));
+                    add(new Point((double)10.4, (double)84.5));
+                    add(new Point((double)15.5, (double)93.6));
+                    add(new Point((double)16.6, (double)10.0));
+                    add(new Point((double)22.7, (double)121.7));
+                }
+        };
+        List<Point<Double>> result = instance.filter_by_X(min_x, max_x);
+        int i = 0;
+        for(Point<Double> p: expResult){
+            assertEquals(p.getX(), result.get(i).getX());
+            assertEquals(p.getY(), result.get(i).getY());
+            i++;
+        }
+        
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -404,8 +419,8 @@ public class XYDataTest {
         Double end_x_2 = 10.5;
         Double end_x_3 = 1.2;
         XYData instance = xydata;
-        int expResult12 = 4;
-        int expResult3 = 2;
+        int expResult12 = 5;
+        int expResult3 = 3;
         int result1 = instance.getToIndex_byX(end_x_1);
         assertEquals(expResult12, result1);
         int result2 = instance.getToIndex_byX(end_x_2);

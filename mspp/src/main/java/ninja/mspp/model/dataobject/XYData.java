@@ -45,7 +45,7 @@ public class XYData {
      * @param do_sort
      * @param is_reverse: MUST be false (sorry)
      */
-    public XYData(Object xydata, boolean do_sort, boolean is_reverse){
+    private XYData(Object xydata, boolean do_sort, boolean is_reverse){
         this.xydata = (ArrayList<Point<Double>>) xydata;
         if (do_sort){
             if (is_reverse){
@@ -220,7 +220,7 @@ public class XYData {
      * @param max_x
      * @return 
      */
-    public List<Point<Double>> filter_by_X(final double min_x,final double max_x, double atol){
+    public List<Point<Double>> filter_by_X(double min_x,double max_x){
         
         int start = this.getFromIndex_byX(min_x);
         int end = this.getToIndex_byX(max_x);
@@ -278,7 +278,7 @@ public class XYData {
     
     /**
      * @param max_x
-     * @return index if upper bound was found. -1: if not found
+     * @return next index over upper bound (or  0: if not found)
      */
     public int getToIndex_byX(Double end_x){
          int end = Collections.binarySearch(
@@ -287,9 +287,9 @@ public class XYData {
                 (Point p1,Point p2)->(
                         p1.getX().doubleValue() > p2.getX().doubleValue() )?(int)1:(int)-1);
          if (end<0){ 
-             end = ~end-1;
+             end = ~end;
          }else{
-             end = end-1;
+             end = end;
          }
         return end;
     }
