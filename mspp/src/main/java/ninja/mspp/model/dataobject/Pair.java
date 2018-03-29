@@ -32,8 +32,8 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
     @Override
     public int compareTo(Pair<T> other){
         return new CompareToBuilder()
-                .append(getLeft(),other.getLeft())
-                .append(getRight(), other.getRight())
+                .append(getLeft(), other.getLeft())    //ascending order
+                .append(other.getRight(), getRight())  //descending order
                 .toComparison();
     }
     
