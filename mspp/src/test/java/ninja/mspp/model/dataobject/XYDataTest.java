@@ -43,9 +43,9 @@ public class XYDataTest {
                     add(new Point((double)1.0, (double)15.1));
                     add(new Point((double)1.2, (double)142.9));
                     add(new Point((double)1.2, (double)18.2));
-                    add(new Point((double)23.8, (double)23.3));
+                    add(new Point((double)23.8, (double)18.2)); //23.3
                     add(new Point((double)3.3, (double)56.4));
-                    add(new Point((double)10.4, (double)84.5));
+                    add(new Point((double)10.4, (double)84.5)); 
                     add(new Point((double)15.5, (double)93.6));
                     add(new Point((double)22.7, (double)121.7));
                     add(new Point((double)29.9, (double)130.8));
@@ -189,7 +189,7 @@ public class XYDataTest {
                     add(new Point((double)15.5, (double)93.6));
                     add(new Point((double)16.6, (double)10.0));
                     add(new Point((double)22.7, (double)121.7));
-                    add(new Point((double)23.8, (double)23.3));
+                    add(new Point((double)23.8, (double)18.2));
                     add(new Point((double)29.9, (double)130.8));                    
                 }
         };
@@ -224,18 +224,31 @@ public class XYDataTest {
      * Test of searchIndicies_by_X method, of class XYData.
      */
     @Test
-    public void testSearchIndicies_by_X() {
+    public void testSearchIndex_by_X() {
         System.out.println("searchIndicies_by_X");
-        double x = 1.2;
+        double x1 = 1.2;
+        double x2 = 2.2;
+        double x3 = 1.0;    // for boundary test
+        double x4 = 29.9;   // for boundary test
+        double x5 = 0.2;    // for boundary test
+        double x6 = 30.0;   // for boundary test
         XYData instance = xydata;
-        ArrayList<Integer> expResult = new ArrayList<Integer>(){
-            {
-                add(1);
-                add(2);
-            }
-        };
-        ArrayList<Integer> result = instance.searchIndicies_by_X(x);
-        assertEquals(expResult, result);
+        int expResult1 = 1;
+        int expResult_fail = -1;
+        int expResult3 = 0;
+        int expResult4 = 9;
+        int result1 = instance.searchIndex_by_X(x1);
+        assertEquals(expResult1, result1);
+        int result2 = instance.searchIndex_by_X(x2);
+        assertEquals(expResult_fail, result2);
+        int result3 = instance.searchIndex_by_X(x3);
+        assertEquals(expResult3, result3);
+        int result4 = instance.searchIndex_by_X(x4);
+        assertEquals(expResult4, result4);
+        int result5 = instance.searchIndex_by_X(x5);
+        assertEquals(expResult_fail, result5);
+        int result6 = instance.searchIndex_by_X(x6);
+        assertEquals(expResult_fail, result6);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -246,15 +259,21 @@ public class XYDataTest {
     @Test
     public void testSearchIndicies_by_Y() {
         System.out.println("searchIndicies_by_Y");
-        double y = 18.2;
+        double y1 = 18.2;
+        double y2 = 4.2;
         XYData instance = xydata;
-        ArrayList<Integer> expResult = new ArrayList<Integer>(){
+        ArrayList<Integer> expResult1 = new ArrayList<Integer>(){
                 {
                     add(2);
+                    add(8);
                 }
         };
-        ArrayList<Integer> result = instance.searchIndicies_by_Y(y);
-        assertEquals(expResult, result);
+        ArrayList<Integer> expResult2 = new ArrayList<Integer>(){};
+        
+        ArrayList<Integer> result1 = instance.searchIndicies_by_Y(y1);
+        assertEquals(expResult1, result1);
+        ArrayList<Integer> result2 = instance.searchIndicies_by_Y(y2);
+        assertEquals(expResult2, result2);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -263,37 +282,70 @@ public class XYDataTest {
      * Test of searchNearestIndex_by_X method, of class XYData.
      */
     @Test
-    public void testSearchNearestIndicies_by_X() {
-        System.out.println("searchNearestIndicies_by_X");
-        double x = 0.0;
-        XYData instance = null;
-        ArrayList<Integer> expResult = null;
-        ArrayList<Integer> result = instance.searchNearestIndex_by_X(x);
-        assertEquals(expResult, result);
+    public void testSearchNearestIndex_by_X() {
+        System.out.println("searchNearestIndex_by_X");
+        double x1 = 0.2;
+        double x2 = 1.0;
+        double x3 = 1.2;
+        double x4 = 1.3;
+        double x5 = 3.0;
+        double x6 = 29.9;
+        double x7 = 30.0;        
+        XYData instance = xydata;
+        int expResult1 = 0;
+        int expResult2 = 0;
+        int expResult3 = 1;
+        int expResult4 = 1;
+        int expResult5 = 3;
+        int expResult6 = xydata.getPoints().size()-1;
+        int expResult7 = expResult6;
+        
+        int result1 = instance.searchNearestIndex_by_X(x1);
+        int result2 = instance.searchNearestIndex_by_X(x2);
+        int result3 = instance.searchNearestIndex_by_X(x3);
+        int result4 = instance.searchNearestIndex_by_X(x4);
+        int result5 = instance.searchNearestIndex_by_X(x5);
+        int result6 = instance.searchNearestIndex_by_X(x6);
+        int result7 = instance.searchNearestIndex_by_X(x7);
+        
+        assertEquals(expResult1, result1);
+        assertEquals(expResult2, result2);
+        assertEquals(expResult3, result3);
+        assertEquals(expResult4, result4);
+        assertEquals(expResult5, result5);
+        assertEquals(expResult6, result6);
+        assertEquals(expResult7, result7);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
+     * TODO: add boundary check
      * Test of searchNearestIndex_by_Y method, of class XYData.
      */
     @Test
     public void testSearchNearestIndicies_by_Y() {
         System.out.println("searchNearestIndicies_by_Y");
-        double y = 0.0;
-        XYData instance = null;
-        ArrayList<Integer> expResult = null;
-        ArrayList<Integer> result = instance.searchNearestIndex_by_Y(y);
-        assertEquals(expResult, result);
+        double y1 = 18.8;
+        XYData instance = xydata;
+        ArrayList<Integer> expResult1 = new ArrayList<Integer>(){
+            {
+                add(2);
+                add(8);
+            }
+        };
+        ArrayList<Integer> result1 = instance.searchNearestIndicies_by_Y(y1);
+        assertEquals(expResult1, result1);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // fail("The test case is a prototype.");
     }
 
     /**
+     * TODO: need to test boundary condition
      * Test of filter_by_X method, of class XYData.
      */
     @Test
-    public void testFilter_by_X() {
+    public void testFilter_by_X() {   
         System.out.println("filter_by_X");
         double min_x = 1.2;
         double max_x = 22.8;
@@ -322,19 +374,28 @@ public class XYDataTest {
     }
 
     /**
+     * TODO: need to test boundary condition
      * Test of filter_by_Y method, of class XYData.
      */
     @Test
     public void testFilter_by_Y() {
         System.out.println("filter_by_Y");
-        double min_y = 0.0;
-        double max_y = 0.0;
-        XYData instance = null;
-        List<Point<Double>> expResult = null;
+        double min_y = 30.0;
+        double max_y = 121.7;
+        XYData instance = xydata;
+        List<Point<Double>> expResult = new ArrayList<Point<Double>>(){
+                {
+                    add(xydata.getPoints().get(3));
+                    add(xydata.getPoints().get(4));
+                    add(xydata.getPoints().get(5));
+                    add(xydata.getPoints().get(7));
+                    
+                }
+        };
         List<Point<Double>> result = instance.filter_by_Y(min_y, max_y);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -350,7 +411,7 @@ public class XYDataTest {
                     add(new Point((double)16.6, (double)10.0));
                     add(new Point((double)1.0, (double)15.1));
                     add(new Point((double)1.2, (double)18.2));
-                    add(new Point((double)23.8, (double)23.3));
+                    add(new Point((double)23.8, (double)18.2));
                     add(new Point((double)3.3, (double)56.4));
                     add(new Point((double)10.4, (double)84.5));
                     add(new Point((double)15.5, (double)93.6));
@@ -396,15 +457,30 @@ public class XYDataTest {
         double start_x_1 = 10.3;
         double start_x_2 = 10.4;
         double start_x_3 = 1.2;
+        double start_x_4 = 30.0;
+        double start_x_5 = 29.9;
+        double start_x_6 = 1.0;
+        double start_x_7 = 0.2;
         XYData instance = xydata;
         int expResult12 = 4;
         int expResult3 = 1;
+        int expResult_fail = -1;
+        int expResult5 = xydata.getPoints().size()-1;
+        int expResult67 = 0;
         int result1 = instance.getFromIndex_byX(start_x_1);
         assertEquals(expResult12, result1);
         int result2 = instance.getFromIndex_byX(start_x_2);
         assertEquals(expResult12, result2);
         int result3 = instance.getFromIndex_byX(start_x_3);
         assertEquals(expResult3, result3);
+        int result4 = instance.getFromIndex_byX(start_x_4);
+        assertEquals(expResult_fail, result4);
+        int result5 = instance.getFromIndex_byX(start_x_5);
+        assertEquals(expResult5, result5);
+        int result6 = instance.getFromIndex_byX(start_x_6);
+        assertEquals(expResult67, result6);
+        int result7 = instance.getFromIndex_byX(start_x_7);
+        assertEquals(expResult67, result7);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -418,18 +494,89 @@ public class XYDataTest {
         Double end_x_1 = 10.4;
         Double end_x_2 = 10.5;
         Double end_x_3 = 1.2;
+        Double end_x_4 = 0.5;
         XYData instance = xydata;
         int expResult12 = 5;
         int expResult3 = 3;
+        int expResult4 = -1;
         int result1 = instance.getToIndex_byX(end_x_1);
         assertEquals(expResult12, result1);
         int result2 = instance.getToIndex_byX(end_x_2);
         assertEquals(expResult12, result2);
         int result3 = instance.getToIndex_byX(end_x_3);
         assertEquals(expResult3, result3);
+        int result4 = instance.getToIndex_byX(end_x_4);
+        assertEquals(expResult4, result4);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testBinarySearch_byX_lowerbound(){
+        System.out.println("binarySearch_byX_lowerbound");
+        Double x1 = 0.2;
+        Double x2 = 1.0;
+        Double x3 = 29.9;
+        Double x4 = 30.0;
+        Double x5 = 1.2;
+        Double x6 = 2.2;
+        
+        XYData instance = xydata;
+        int expResult1 = -1; 
+        int expResult2 = expResult1;
+        int expResult3 = -(xydata.getPoints().size()-1)-1;
+        int expResult4 =  expResult3-1; 
+        int expResult5 = -1 -1;
+        int expResult6 = -3-1;  
+        
+        int result1 = instance.binarySearch_byX_lowerbound(x1);
+        int result2 = instance.binarySearch_byX_lowerbound(x2);
+        int result3 = instance.binarySearch_byX_lowerbound(x3);
+        int result4 = instance.binarySearch_byX_lowerbound(x4);
+        int result5 = instance.binarySearch_byX_lowerbound(x5);
+        int result6 = instance.binarySearch_byX_lowerbound(x6);
+        
+        assertEquals(expResult1, result1);
+        assertEquals(expResult2, result2);
+        assertEquals(expResult3, result3);
+        assertEquals(expResult4, result4);
+        assertEquals(expResult5, result5);
+        assertEquals(expResult6, result6);
+        
+    }
+    
+    @Test
+    public void testBinarySearch_byX_upperbound(){
+        System.out.println("binarySearch_byX_upperbound");
+        Double x1 = 0.2;
+        Double x2 = 1.0;
+        Double x3 = 29.9;
+        Double x4 = 30.0;
+        Double x5 = 1.2;
+        Double x6 = 2.2;
+        
+        XYData instance = xydata;
+        int expResult1 = -1;
+        int expResult2 = -2;
+        int expResult3 = -xydata.getPoints().size()-1;
+        int expResult4 = expResult3; 
+        int expResult5 = -4;
+        int expResult6 = -4;
+        
+        int result1 = instance.binarySearch_byX_upperbound(x1);
+        int result2 = instance.binarySearch_byX_upperbound(x2);
+        int result3 = instance.binarySearch_byX_upperbound(x3);
+        int result4 = instance.binarySearch_byX_upperbound(x4);
+        int result5 = instance.binarySearch_byX_upperbound(x5);
+        int result6 = instance.binarySearch_byX_upperbound(x6);
+        
+        assertEquals(expResult1, result1);
+        assertEquals(expResult2, result2);
+        assertEquals(expResult3, result3);
+        assertEquals(expResult4, result4);
+        assertEquals(expResult5, result5);
+        assertEquals(expResult6, result6);
+    }
+    
 
 }
