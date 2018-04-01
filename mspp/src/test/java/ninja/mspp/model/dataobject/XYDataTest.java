@@ -464,7 +464,7 @@ public class XYDataTest {
         XYData instance = xydata;
         int expResult12 = 4;
         int expResult3 = 1;
-        int expResult_fail = -1;
+        int expResult4 = xydata.getPoints().size();
         int expResult5 = xydata.getPoints().size()-1;
         int expResult67 = 0;
         int result1 = instance.getFromIndex_byX(start_x_1);
@@ -474,7 +474,7 @@ public class XYDataTest {
         int result3 = instance.getFromIndex_byX(start_x_3);
         assertEquals(expResult3, result3);
         int result4 = instance.getFromIndex_byX(start_x_4);
-        assertEquals(expResult_fail, result4);
+        assertEquals(expResult4, result4);
         int result5 = instance.getFromIndex_byX(start_x_5);
         assertEquals(expResult5, result5);
         int result6 = instance.getFromIndex_byX(start_x_6);
@@ -498,7 +498,7 @@ public class XYDataTest {
         XYData instance = xydata;
         int expResult12 = 5;
         int expResult3 = 3;
-        int expResult4 = -1;
+        int expResult4 = 0;
         int result1 = instance.getToIndex_byX(end_x_1);
         assertEquals(expResult12, result1);
         int result2 = instance.getToIndex_byX(end_x_2);
@@ -512,8 +512,8 @@ public class XYDataTest {
     }
 
     @Test
-    public void testBinarySearch_byX_lowerbound(){
-        System.out.println("binarySearch_byX_lowerbound");
+    public void testBinarySearch_byX_least_closed_upperbounds(){
+        System.out.println("binarySearch_byX_least_closed_upperbounds");
         Double x1 = 0.2;
         Double x2 = 1.0;
         Double x3 = 29.9;
@@ -529,12 +529,12 @@ public class XYDataTest {
         int expResult5 = -1 -1;
         int expResult6 = -3-1;  
         
-        int result1 = instance.binarySearch_byX_lowerbound(x1);
-        int result2 = instance.binarySearch_byX_lowerbound(x2);
-        int result3 = instance.binarySearch_byX_lowerbound(x3);
-        int result4 = instance.binarySearch_byX_lowerbound(x4);
-        int result5 = instance.binarySearch_byX_lowerbound(x5);
-        int result6 = instance.binarySearch_byX_lowerbound(x6);
+        int result1 = instance.binarySearch_byX_inclusive_least_upperbounds(x1);
+        int result2 = instance.binarySearch_byX_inclusive_least_upperbounds(x2);
+        int result3 = instance.binarySearch_byX_inclusive_least_upperbounds(x3);
+        int result4 = instance.binarySearch_byX_inclusive_least_upperbounds(x4);
+        int result5 = instance.binarySearch_byX_inclusive_least_upperbounds(x5);
+        int result6 = instance.binarySearch_byX_inclusive_least_upperbounds(x6);
         
         assertEquals(expResult1, result1);
         assertEquals(expResult2, result2);
@@ -545,9 +545,10 @@ public class XYDataTest {
         
     }
     
+
     @Test
-    public void testBinarySearch_byX_upperbound(){
-        System.out.println("binarySearch_byX_upperbound");
+    public void testBinarySearch_byX_least_open_upperbound(){
+        System.out.println("binarySearch_byX_least_open_upperbound");
         Double x1 = 0.2;
         Double x2 = 1.0;
         Double x3 = 29.9;
@@ -563,12 +564,12 @@ public class XYDataTest {
         int expResult5 = -4;
         int expResult6 = -4;
         
-        int result1 = instance.binarySearch_byX_upperbound(x1);
-        int result2 = instance.binarySearch_byX_upperbound(x2);
-        int result3 = instance.binarySearch_byX_upperbound(x3);
-        int result4 = instance.binarySearch_byX_upperbound(x4);
-        int result5 = instance.binarySearch_byX_upperbound(x5);
-        int result6 = instance.binarySearch_byX_upperbound(x6);
+        int result1 = instance.binarySearch_byX_exclusive_least_upperbounds(x1);
+        int result2 = instance.binarySearch_byX_exclusive_least_upperbounds(x2);
+        int result3 = instance.binarySearch_byX_exclusive_least_upperbounds(x3);
+        int result4 = instance.binarySearch_byX_exclusive_least_upperbounds(x4);
+        int result5 = instance.binarySearch_byX_exclusive_least_upperbounds(x5);
+        int result6 = instance.binarySearch_byX_exclusive_least_upperbounds(x6);
         
         assertEquals(expResult1, result1);
         assertEquals(expResult2, result2);

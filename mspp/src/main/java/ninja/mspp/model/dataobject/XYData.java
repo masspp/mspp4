@@ -157,7 +157,7 @@ public class XYData {
      */
     public int searchIndex_by_X(double x){
         if (x > xydata.get(xydata.size()-1).getX()) return -1;
-        int idx = ~(this.binarySearch_byX_lowerbound(x));
+        int idx = ~(this.binarySearch_byX_inclusive_least_upperbounds(x));
         if ( xydata.get(idx).getX()==x ) return idx;
         return -1;
     }
@@ -189,10 +189,10 @@ public class XYData {
      */
     public int searchNearestIndex_by_X(double x){
         
-        int idx = ~(this.binarySearch_byX_lowerbound(x));
+        int idx = ~(this.binarySearch_byX_inclusive_least_upperbounds(x));
         // x is greater than maximum x-value
         if (idx == xydata.size()) return this.searchIndex_by_X(xydata.get(idx-1).getX());  
-        if (idx == 0) return idx;   // x is lower than or equal to minimum x-value
+        if (idx == 0) return idx;   // x is lower than or equal to minimum x-value of points in the xydata
         // the point which has exactly same x-value as x and highest y-value.
         if ( xydata.get(idx).getX()==x ) return idx;
         
@@ -280,35 +280,37 @@ public class XYData {
     
     /**
      * @param x
-     * @return lower bound index where Point has x-value near start_x if found, 
-     *                otherwise -1 .
+     * @return infemum of set in which element has nearest x-value to x. 
+     *              otherwise -1 (if list is empty).
      */
     public int getFromIndex_byX(double start_x){
-        if (xydata.size()==0) return -1;
-        if (start_x > xydata.get( xydata.size()-1 ).getX()) return -1;
-        int start = ~(binarySearch_byX_lowerbound(start_x));
+        if (xydata.isEmpty()) return -1;
+        //if (start_x > xydata.get( xydata.size()-1 ).getX()) return -1;
+        int start = ~(binarySearch_byX_inclusive_least_upperbounds(start_x));
         return start;
     }
     
     /**
      * @param max_x
-     * @return next index at upper bound if found, otherwise -1
+     * @return least index in open upper bounds in which elements has x-value greater than x, 
+     *             otherwise -1 (if list is empty)
      */
     public int getToIndex_byX(Double end_x){
-        if (xydata.size()==0) return -1;
-        if (end_x < xydata.get(0).getX()) return -1;
-        int end = ~(binarySearch_byX_upperbound(end_x));
+        if (xydata.isEmpty()) return -1;
+        //if (end_x >= xydata.get( xydata.size()-1 ).getX()) return -1;
+        int end = ~(binarySearch_byX_exclusive_least_upperbounds(end_x));
         return end;
     }
 
 
     /**
-     * 
+     * binary searching for least index in closed upper bounds in which elements has
+     *    x-value greater than or equal to given x. If multiple points has x-value 
+     *    equal to x, then index of lower bound is selected.
      * @param x
-     * @return first found index where Point.get(index).getX()==x,
-     *             otherwise, (-(insertion point as lower bound) - 1) 
+     * @return -(found index)-1
      */
-    protected int binarySearch_byX_lowerbound(double x){
+    protected int binarySearch_byX_inclusive_least_upperbounds(double x){
         int idx = Collections.binarySearch(
         this.xydata, 
         new Point(x,0.0),
@@ -316,14 +318,14 @@ public class XYData {
                 p1.getX().doubleValue() >= p2.getX().doubleValue())?(int)1:(int)-1);
         return idx;
     }
-    
+  
     /**
-     * 
+     * binary searching for least index in open upper bounds in which elements has
+     *    greater x-value to given x.
      * @param x
-     * @return index + 1 where Point.get(index).getX() >= x ,
-     *             otherwise, (-(insertion point as upper bound) - 1) 
+     * @return -(found index) -1
      */
-    protected int binarySearch_byX_upperbound(double x){
+    protected int binarySearch_byX_exclusive_least_upperbounds(double x){
         int idx = Collections.binarySearch(
                 this.xydata, 
                 new Point(x,0.0),
