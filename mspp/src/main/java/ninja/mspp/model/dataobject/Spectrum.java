@@ -7,7 +7,6 @@ package ninja.mspp.model.dataobject;
 
 import java.util.ArrayList;
 
-import uk.ac.ebi.jmzml.model.mzml.Precursor;
 import uk.ac.ebi.jmzml.model.mzml.PrecursorList;
 
 
@@ -97,14 +96,14 @@ public abstract class Spectrum {
     /**
      * @return the is_centroid
      */
-    public boolean getCentroid() {
+    public boolean IsCentroid() {
         return is_centroid;
     }
 
     /**
      * @param is_centroid the is_centroid to set
      */
-    public void setCentroid(boolean is_centroid) {
+    public void setIsCentroid(boolean is_centroid) {
         this.is_centroid = is_centroid;
     }
 
@@ -188,28 +187,28 @@ public abstract class Spectrum {
     /**
      * @return the min_x
      */
-    public double getMin_x() {
+    public double getMinX() {
         return min_x;
     }
 
     /**
      * @return the max_x
      */
-    public double getMax_x() {
+    public double getMaxX() {
         return max_x;
     }
 
     /**
      * @return the min_y
      */
-    public double getMin_y() {
+    public double getMinY() {
         return min_y;
     }
 
     /**
      * @return the max_y
      */
-    public double getMax_y() {
+    public double getMaxY() {
         return max_y;
     }
 
@@ -230,14 +229,14 @@ public abstract class Spectrum {
     /**
      * @return the mz of base peak
      */
-    public double getBasepeakmass() {
+    public double getBasepeakMz() {
         return basepeakmz;
     }
 
     /**
      * @param basepeakmass set the mz of base peak
      */
-    public void setBasepeakmass(double basepeakmz) {
+    public void setBasepeakMz(double basepeakmz) {
         this.basepeakmz = basepeakmz;
     }
 
@@ -255,11 +254,29 @@ public abstract class Spectrum {
         this.parent = parent;
     }
     
+    
+       /**
+     * @return the is_identified
+     */
+    public boolean IsIdentified() {
+        return is_identified;
+    }
+
+    /**
+     * @param is_identified the is_identified to set
+     */
+    public void setIsIdentified(boolean is_identified) {
+        this.is_identified = is_identified;
+    }
+    
+    
     private Sample sample;
     private int id;
     private boolean is_centroid;
     private String title;
     private int ms_stage;
+    private boolean is_identified;
+    //private List<Peptide> PeptideCandidates;  // getPeptideCandidates;
 
     private Range<Double> rt;
     
@@ -307,6 +324,7 @@ public abstract class Spectrum {
         this.title="";
         this.polarity=Polarity.Unknown;
         this.precursorlist=null;
+        this.is_identified=false;
     }
     
     public void setRt(double rt){
@@ -321,5 +339,5 @@ public abstract class Spectrum {
     public abstract double  onGetTotalIntensity(double min_x, double max_x);
     
     public abstract Range<Double> onGetXRange(); // required?
-    
+
 }

@@ -149,21 +149,21 @@ public abstract class Sample {
     /**
      * @return the num_spectra
      */
-    public int getNum_spectra() {
+    public int getNumberOfSpectra() {
         return num_spectra;
     }
 
     /**
      * @return the num_chromatograms
      */
-    public int getNum_chromatograms() {
+    public int getNumberOfChromatograms() {
         return num_chromatograms;
     }
 
     /**
      * @return the is_opend
      */
-    public boolean isIs_opend() {
+    public boolean isOpened() {
         return is_opend;
     }
 
