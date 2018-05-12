@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -67,6 +68,12 @@ public class MainFrame {
 	 */
 	public void setMain( Node node ) {
 		this.mainPane.setCenter( node );
+
+		if( node instanceof Canvas ) {
+			Canvas canvas = (Canvas)node;
+			canvas.widthProperty().bind( this.mainPane.widthProperty() );
+			canvas.heightProperty().bind( this.mainPane.heightProperty() );
+		}
 	}
 
 	/**

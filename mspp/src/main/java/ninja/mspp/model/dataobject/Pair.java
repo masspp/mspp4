@@ -4,18 +4,20 @@
  * and open the template in the editor.
  */
 package ninja.mspp.model.dataobject;
+import java.io.Serializable;
+
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
 /**
  *
  * @author masakimu
  */
-public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
+public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable, Serializable {
     private T left;
     private T right;
-    
+
     /**
-     * 
+     *
      * @param x The X coordinate of this Point.
      * @param y The Y coordinate of this Point.
      */
@@ -23,11 +25,11 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
         this.left = x;
         this.right = y;
     }
-    
+
     /**
      * Compares the pair based on the left element followed by the right element, just like commons.lang3.pair
      * @param other
-     * @return 
+     * @return
      */
     @Override
     public int compareTo(Pair<T> other){
@@ -36,15 +38,15 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
                 .append(other.getRight(), getRight())  //descending order
                 .toComparison();
     }
-    
+
     public T getLeft(){
         return this.left;
     }
-    
+
     public T getRight(){
         return this.right;
     }
-    
+
     @Override
     public Pair<T> clone() throws CloneNotSupportedException{
         Pair<T> p = (Pair<T>) super.clone();
@@ -52,10 +54,10 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable{
         p.right = right;
         return p;
     }
-    
+
     public String toString(final String format){
         return String.format(format, getRight(),getLeft());
     }
-    
-    
+
+
 }
