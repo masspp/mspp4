@@ -30,7 +30,7 @@ public abstract class Spectrum {
     }
 
     /**
-     * @param rt the rt to set
+     * @param rt the rt to set (time unit is "second")
      */
     public void setRt(Range rt) {
         this.rt = rt;
@@ -349,6 +349,11 @@ public abstract class Spectrum {
     public void setRt(double rt){
         this.setRt(new Range<>(rt,rt));
     }
+    
+    /**
+     * get retention time in "second"
+     * @return 
+     */
     public double getRt(){
         return (rt.getStart() + rt.getEnd())/2.0;
     }

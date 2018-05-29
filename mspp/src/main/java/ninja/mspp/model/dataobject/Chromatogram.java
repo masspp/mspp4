@@ -149,7 +149,7 @@ public abstract class Chromatogram {
     }
     
     
-    public abstract void onGetChromatogram(XYData chromatogramData);
+    public abstract XYData onGetChromatogram();
     
     /***
      *   TODO: still considering specification for viewer GUI.
