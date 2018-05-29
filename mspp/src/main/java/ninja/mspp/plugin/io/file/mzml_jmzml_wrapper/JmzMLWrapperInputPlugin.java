@@ -7,46 +7,17 @@ package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
 import java.io.File;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.ArrayList;
-
-import uk.ac.ebi.jmzml.model.mzml.IndexList;
-import uk.ac.ebi.jmzml.model.mzml.Index;
 
 import uk.ac.ebi.jmzml.xml.io.MzMLObjectIterator;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
-import uk.ac.ebi.jmzml.model.mzml.CVParam;
 import uk.ac.ebi.jmzml.model.mzml.Scan;
 import uk.ac.ebi.jmzml.model.mzml.Spectrum;
 import uk.ac.ebi.jmzml.model.mzml.Chromatogram;
-import uk.ac.ebi.jmzml.model.mzml.PrecursorList;
-//import uk.ac.ebi.jmzml.model.mzml.Precursor;
 import uk.ac.ebi.jmzml.model.mzml.ParamGroup;
-import uk.ac.ebi.jmzml.model.mzml.SelectedIonList;
-import uk.ac.ebi.jmzml.model.mzml.params.ScanListCVParam;
 import uk.ac.ebi.jmzml.model.mzml.CVParam;
 
-//import uk.ac.ebi.pride.utilities.data.controller.DataAccessController;
-//import uk.ac.ebi.pride.utilities.data.controller.DataAccessException;
-//import uk.ac.ebi.pride.utilities.data.controller.DataAccessMode;
-//import uk.ac.ebi.pride.utilities.data.controller.DataAccessUtilities;
-//import uk.ac.ebi.pride.utilities.data.controller.cache.CacheEntry;
-//import uk.ac.ebi.pride.utilities.data.controller.cache.strategy.MzMlCachingStrategy;
-//import uk.ac.ebi.pride.utilities.data.controller.impl.Transformer.MzMLTransformer;
-//import uk.ac.ebi.pride.utilities.data.controller.impl.ControllerImpl.MzMLControllerImpl;
-//import uk.ac.ebi.pride.utilities.data.core.*;
-//import uk.ac.ebi.pride.utilities.data.core.Chromatogram;
-//import uk.ac.ebi.pride.utilities.data.core.DataProcessing;
-//import uk.ac.ebi.pride.utilities.data.core.InstrumentConfiguration;
-//import uk.ac.ebi.pride.utilities.data.core.ParamGroup;
-//import uk.ac.ebi.pride.utilities.data.core.ReferenceableParamGroup;
-//import uk.ac.ebi.pride.utilities.data.core.Sample;
-//import uk.ac.ebi.pride.utilities.data.core.Software;
-//import uk.ac.ebi.pride.utilities.data.core.SourceFile;
-//import uk.ac.ebi.pride.utilities.data.core.Spectrum;
-//import uk.ac.ebi.pride.utilities.data.io.file.MzMLUnmarshallerAdaptor;
-//
 import ninja.mspp.annotation.FileInput;
 import ninja.mspp.annotation.Plugin;
 import ninja.mspp.utils.MD5Utils;
