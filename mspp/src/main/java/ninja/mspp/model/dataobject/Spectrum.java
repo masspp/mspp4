@@ -7,7 +7,6 @@ package ninja.mspp.model.dataobject;
 
 import java.util.ArrayList;
 
-import uk.ac.ebi.jmzml.model.mzml.PrecursorList;
 
 
 /**
@@ -40,17 +39,37 @@ public abstract class Spectrum {
     /**
      * @return the precursorlist
      */
-    public PrecursorList getPrecursorlist() {
+    public ArrayList<Precursor> getPrecursorlist() {
         return precursorlist;
     }
 
     /**
      * @param precursorlist the precursorlist to set
      */
-    public void setPrecursorlist(PrecursorList precursorlist) {
+    public void setPrecursorlist(ArrayList<Precursor> precursorlist) {
         this.precursorlist = precursorlist;
     }
+    
+    /**
+     * 
+     * @return 
+     */
+    public double getPrecursorMz(){
+        return precursorlist.get(0).getMz();
+    }
 
+    /**
+     * 
+     * @return 
+     */
+    public double getPrecursorIntensity(){
+        return precursorlist.get(0).getIntensity();
+    }
+    
+    public int getPrecursorCharge(){
+        return precursorlist.get(0).getCharge();
+    }
+    
     /**
      * @return the polarity
      */
@@ -82,14 +101,14 @@ public abstract class Spectrum {
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -271,7 +290,7 @@ public abstract class Spectrum {
     
     
     private Sample sample;
-    private int id;
+    private String id;
     private boolean is_centroid;
     private String title;
     private int ms_stage;
@@ -291,7 +310,7 @@ public abstract class Spectrum {
     }
     private Polarity polarity;
     
-    private PrecursorList precursorlist;
+    private ArrayList<Precursor> precursorlist;
     private XYData MassIntensityData;
     private double min_x;
     private double max_x;
@@ -306,7 +325,7 @@ public abstract class Spectrum {
     public Spectrum(Sample sample){
         //Initialize
         this.sample = sample;
-        this.id = 0;
+        this.id = null;
         this.is_centroid=false;
         this.MassIntensityData=null;
         this.basepeakmz=0.0;

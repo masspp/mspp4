@@ -30,14 +30,14 @@ public abstract class Chromatogram {
     /**
      * @return the id
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -79,7 +79,7 @@ public abstract class Chromatogram {
     /**
      * @param ms_stage the ms_stage to set
      */
-    public void setMs_stage(double ms_stage) {
+    public void setMs_stage(int ms_stage) {
         this.ms_stage = ms_stage;
     }
 
@@ -112,10 +112,11 @@ public abstract class Chromatogram {
     }
     
     private Sample sample;
-    private int id;
+    private String id;
     private XYData chromatogramData;
     private double mz;
-    private double ms_stage;
+    private Range<Double> mzrange;
+    private int ms_stage;
     private String name;
     private String title;
     
@@ -125,13 +126,59 @@ public abstract class Chromatogram {
         SEARCH_Near
     }
     
+    /***
+     * 
+     * @param sample 
+     */
+    public Chromatogram(Sample sample, Range mzrange){
+        this.sample = sample;
+        this.mzrange = mzrange;
+        this.id = null;
+        this.mz = 0.0;
+        this.ms_stage = 1;
+        this.name = "";
+        this.title = "";
+    }
+    
+    public Chromatogram(Sample sample, double mz){
+        this(sample,new Range<Double>(mz,mz));
+    }
+    
+    public Chromatogram(Sample sample){
+        this(sample, 0.0); 
+    }
+    
+    
     public abstract void onGetChromatogram(XYData chromatogramData);
     
+    /***
+     *   TODO: still considering specification for viewer GUI.
+     * @param startRt
+     * @param endRt
+     * @param startSearchType
+     * @param endSearchType
+     * @return 
+     */
     public abstract ArrayList<Spectrum> onGetSpectra(double startRt, double endRt, SearchType startSearchType, SearchType endSearchType);
     
+    /**
+     * TODO: still considering specification for viewer GUI.
+     * @param idx
+     * @return 
+     */
     public abstract double onGetMass(int idx);
     
+    /**
+     * TODO: still considering specification for viewer GUI.
+     * @param idx
+     * @return 
+     */
     public abstract int onGetMsStage(int idx);
     
-    public abstract int onGetPrecursor(int idx);
+    /**
+     * TODO: still considering specification for viewer GUI.
+     * @param idx
+     * @return 
+     */
+    public abstract double onGetMz(int idx);
 }

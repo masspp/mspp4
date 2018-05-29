@@ -11,35 +11,19 @@ import java.util.ArrayList;
  *
  * @author masakimu
  */
-public abstract class Sample {
-
-    /**
-     * @return the has_chromatogram
-     */
-    public boolean getHasChromatogram() {
-        return has_chromatogram;
-    }
-
-    /**
-     * @param has_chromatogram the has_chromatogram to set
-     */
-    public void setHasChromatogram(boolean has_chromatogram) {
-        this.has_chromatogram = has_chromatogram;
-    }
-
- 
-    private int sampleid;
+public abstract class Sample { 
+    private String sampleid;
     private String filename;
     private String filepath;
-    private ArrayList<Spectrum> spectra;
-    private ArrayList<Chromatogram> chromatograms;
+    private ArrayList<Spectrum> spectra=new ArrayList<>();
+    private ArrayList<Chromatogram> chromatograms=new ArrayList<>()                                                                                                                                                                                                                                                                                                                                   ;
     private String acquisitionsoftware;
     private String instrumentvendor;
     private String name;
-    private int num_spectra;
+    private int num_spectra=0;
     private boolean has_chromatogram;
-    private int num_chromatograms;
-    private boolean is_opend;
+    private int num_chromatograms=0;
+    private boolean is_opened;
     
     
     /**
@@ -58,15 +42,15 @@ public abstract class Sample {
         /**
      * @return the SampleId
      */
-    public int getSampleId() {
+    public String getSampleId() {
         return sampleid;
     }
 
     /**
      * @param SampleId the SampleId to set
      */
-    public void setSampleId(int SampleId) {
-        this.sampleid = SampleId;
+    public void setSampleId(String uid) {
+        this.sampleid = uid;
     }
 
     /**
@@ -90,6 +74,13 @@ public abstract class Sample {
         this.filepath = FilePath;
     }
 
+    /**
+     * @param FileName the FileName to set
+     */
+    public void setFileName(String FileName) {
+        this.filename = FileName;
+    }
+    
     /**
      * @return the spectra
      */
@@ -161,10 +152,10 @@ public abstract class Sample {
     }
 
     /**
-     * @return the is_opend
+     * @return the is_opened
      */
     public boolean isOpened() {
-        return is_opend;
+        return is_opened;
     }
 
     
@@ -174,10 +165,12 @@ public abstract class Sample {
      */
     public void addChromatogram(Chromatogram chr){
         this.getChromatograms().add(chr);
+        this.num_chromatograms++;
     }
     
     public void addSpectrum(Spectrum spec){
         this.getSpectra().add(spec);
+        this.num_spectra++;
     }
     
     public void insertChromagogram(Chromatogram chr, int idx){
@@ -213,6 +206,18 @@ public abstract class Sample {
         this.spectra = null;
     }
     
-    
+     /**
+     * @return the has_chromatogram
+     */
+    public boolean getHasChromatogram() {
+        return has_chromatogram;
+    }
+
+    /**
+     * @param has_chromatogram the has_chromatogram to set
+     */
+    public void setHasChromatogram(boolean has_chromatogram) {
+        this.has_chromatogram = has_chromatogram;
+    }   
     
 }

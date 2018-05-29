@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ninja.mspp.math;
+package ninja.mspp.utils;
 
 /**
  *
  * @author masakimu
  */
-public class Utils {
+public class MSUtils {
     /**
      * 
      * Compares a and b with given relative tolerance(rtol) and absolute tolerance(atol):
