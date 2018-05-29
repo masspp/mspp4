@@ -32,10 +32,13 @@ public class MsppManager implements Iterable< Object > {
 	private ResourceBundle messages;
 
 	// plugins
-	ArrayList< Object > plugins;
+	private ArrayList< Object > plugins;
 
 	// preferences
-	Preferences preferences;
+	private Preferences preferences;
+
+	// temporary directory
+	File tmpDir;
 
 	/**
 	 * constructor
@@ -212,6 +215,21 @@ public class MsppManager implements Iterable< Object > {
 	 */
 	public String loadString( String name, String defaultValue ) {
 		return this.preferences.get( name,  defaultValue );
+	}
+
+
+	/**
+	 * gets the temporary directory
+	 * @return temporary directory
+	 */
+	public File getTmpDir() {
+		if( this.tmpDir == null ) {
+			File tmpDir = new File( System.getProperty( "java.io.tmpdir" ) );
+			this.tmpDir = new File( tmpDir, "mspp" + Long.toString( System.currentTimeMillis() ) );
+			this.tmpDir.mkdir();
+		}
+
+		return this.tmpDir;
 	}
 
 	@Override

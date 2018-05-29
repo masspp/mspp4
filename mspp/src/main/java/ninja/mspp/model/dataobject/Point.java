@@ -5,31 +5,29 @@
  */
 package ninja.mspp.model.dataobject;
 
-
-
 /**
  *
  * @author masakimu
  */
-public class Point<T extends Number> extends Pair<T> implements XYProvider<T>{
+public class Point<T extends Number> extends Pair<T> implements XYProvider<T> {
 
     /**
-     * 
+     *
      * @param x The X coordinate of this Point.
      * @param y The Y coordinate of this Point.
      */
     public Point(T x, T y){
         super(x,y);
     }
-    
+
     @Override
     public T getX(){
         return this.getLeft();
     }
-    
+
     @Override
     public T getY(){
         return this.getRight();
     }
-    
+
 }

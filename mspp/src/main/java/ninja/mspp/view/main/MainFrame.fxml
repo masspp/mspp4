@@ -21,16 +21,16 @@
    <center>
       <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <left>
-            <TabPane fx:id="leftTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+            <TabPane fx:id="leftTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <TabPane fx:id="rightTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+            <TabPane fx:id="rightTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
-            <TabPane fx:id="bottomTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+            <TabPane fx:id="bottomTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
          </bottom>
          <top>
-            <TabPane fx:id="topTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+            <TabPane fx:id="topTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
    </center>

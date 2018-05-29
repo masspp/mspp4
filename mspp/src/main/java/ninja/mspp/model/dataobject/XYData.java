@@ -6,41 +6,42 @@
 package ninja.mspp.model.dataobject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
  * @author masakimu
  */
-public class XYData {
+public class XYData implements Iterable< Point< Double > > {
 
     private List< Point<Double> > xydata;
-        
+
     private double minX=Double.MAX_VALUE;
     private double maxX=0.0;
     private double minY=Double.MAX_VALUE;
     private double maxY=Double.MIN_VALUE;
-    
+
     /**
-     * 
+     *
      * @param xydata MUST be sorted in descending order
      */
     public XYData(Object xydata){
         this( xydata, false, false);
     }
-    
+
     /**
-     * 
+     *
      * @param xydata
      * @param do_sort if not true, xydata MUST be sorted in descending order
      */
     public XYData(Object xydata, boolean do_sort){
         this( xydata, do_sort, false);
     }
-    
+
     /**
-     * 
+     *
      * @param xydata
      * @param do_sort
      * @param is_reverse: MUST be false (sorry)
@@ -54,10 +55,10 @@ public class XYData {
                 Collections.<Point<Double>>sort( this.xydata);
             }
         }
-        
+
         if (is_reverse){
             this.minX=this.xydata.get(this.xydata.size()-1).getX();
-            this.maxX = this.xydata.get(0).getX();          
+            this.maxX = this.xydata.get(0).getX();
         }else{
             this.maxX=this.xydata.get(this.xydata.size()-1).getX();
             this.minX = this.xydata.get(0).getX();
@@ -71,10 +72,10 @@ public class XYData {
                 this.minY = py;
             }
         }
-        
+
     }
-    
-    
+
+
      /**
      * @return the minX
      */
@@ -123,33 +124,33 @@ public class XYData {
     public double getMaxY() {
         return maxY;
     }
-    
-    
+
+
 
     /**
      * @param maxY the maxY to set
      */
     public void setMaxY(double maxY) {
         this.maxY = maxY;
-    }   
-    
+    }
+
     /**
-     * 
+     *
      * @return List of all points
      */
     public List<Point<Double>> getPoints( ){
         return this.xydata;
     }
-    
+
     /**
-     * 
+     *
      * @param idx
      * @return X-value at idx
      */
     public double getX(int idx){
         return xydata.get(idx).getX();
     }
-    
+
     /**
      * @param x
      * @return "first found" index of xydata where Point has X-value eqaul to x with highest Y-value.
@@ -161,9 +162,9 @@ public class XYData {
         if ( xydata.get(idx).getX()==x ) return idx;
         return -1;
     }
-    
+
     /**
-     * 
+     *
      * @param y
      * @return list of all indicies where P.getY()==y
      */
@@ -176,26 +177,26 @@ public class XYData {
            }
            i++;
        }
-      
-       return answer;  
+
+       return answer;
     }
-    
+
     /**
-     * 
+     *
      * @param x
      * @return index of point which has x-value nearest to x.
      *           if multiple points are nearest, the point which has largest Y-value is selected.
-     *           
+     *
      */
     public int searchNearestIndex_by_X(double x){
-        
+
         int idx = ~(this.binarySearch_byX_inclusive_least_upperbounds(x));
         // x is greater than maximum x-value
-        if (idx == xydata.size()) return this.searchIndex_by_X(xydata.get(idx-1).getX());  
+        if (idx == xydata.size()) return this.searchIndex_by_X(xydata.get(idx-1).getX());
         if (idx == 0) return idx;   // x is lower than or equal to minimum x-value of points in the xydata
         // the point which has exactly same x-value as x and highest y-value.
         if ( xydata.get(idx).getX()==x ) return idx;
-        
+
         // find the point with largest y and nearest to x between left and right points
         double x_left = xydata.get(idx-1).getX();
         double x_right = xydata.get(idx).getX();
@@ -204,9 +205,9 @@ public class XYData {
         // if differences are same, left point is selected.
         return (diff_left<=diff_right)?this.searchIndex_by_X(x_left):this.searchIndex_by_X(x_right);
     }
-    
+
     /**
-     * 
+     *
      * @param y
      * @return list of index of points which has nearest y-value to given y
      */
@@ -221,25 +222,25 @@ public class XYData {
        }
        return this.searchIndicies_by_Y(nearest_y); //TODO: improve efficacy
     }
-        
+
     /**
      * Get list of points of which x-value ranges from min_x to max_x
      * @param min_x
      * @param max_x
-     * @return 
+     * @return
      */
     public List<Point<Double>> filter_by_X(double min_x,double max_x){
-        
+
         int start = this.getFromIndex_byX(min_x);
         int end = this.getToIndex_byX(max_x);
         if (start <0 || end <0) return  new ArrayList<Point<Double>>(){};
         return this.xydata.subList(start, end);
-        
+
     }
-   
-    
+
+
     /**
-     * 
+     *
      * Get list of points of which y-value ranges from min_y to max_y
      * @param min_y
      * @param max_y
@@ -247,7 +248,7 @@ public class XYData {
      */
     public List<Point<Double>> filter_by_Y(double min_y, double max_y)
     {
-        
+
         List<Point<Double>> result = new ArrayList<Point<Double>>(){};
         for( Point<Double> p:  xydata ){
             if (p.getY()>= min_y && p.getY()<=max_y){
@@ -256,31 +257,31 @@ public class XYData {
         }
         return result;
     }
-    
+
     /**
-     * @param desc not yet implemented 
+     * @param desc not yet implemented
      * @return sorted shallow copy of xydata by Y
      */
     public List<Point<Double>> sorted_by_Y(boolean desc){
         List<Point<Double>> sorted_y = new ArrayList<>(this.xydata);
-        
+
         Collections.sort(sorted_y ,
                 (p1,p2) ->  ( p1.getY() > p2.getY() )?1:
                         (p1.getY()<p2.getY())?-1:0);
         return sorted_y;
     }
-    
+
     /**
      * @param idx
-     * @return 
+     * @return
      */
     public double getY(int idx){
         return xydata.get(idx).getY();
     }
-    
+
     /**
      * @param x
-     * @return infemum of set in which element has nearest x-value to x. 
+     * @return infemum of set in which element has nearest x-value to x.
      *              otherwise -1 (if list is empty).
      */
     public int getFromIndex_byX(double start_x){
@@ -289,10 +290,10 @@ public class XYData {
         int start = ~(binarySearch_byX_inclusive_least_upperbounds(start_x));
         return start;
     }
-    
+
     /**
      * @param max_x
-     * @return least index in open upper bounds in which elements has x-value greater than x, 
+     * @return least index in open upper bounds in which elements has x-value greater than x,
      *             otherwise -1 (if list is empty)
      */
     public int getToIndex_byX(Double end_x){
@@ -305,20 +306,20 @@ public class XYData {
 
     /**
      * binary searching for least index in closed upper bounds in which elements has
-     *    x-value greater than or equal to given x. If multiple points has x-value 
+     *    x-value greater than or equal to given x. If multiple points has x-value
      *    equal to x, then index of lower bound is selected.
      * @param x
      * @return -(found index)-1
      */
     protected int binarySearch_byX_inclusive_least_upperbounds(double x){
         int idx = Collections.binarySearch(
-        this.xydata, 
+        this.xydata,
         new Point(x,0.0),
         (Point p1,Point p2)->(
                 p1.getX().doubleValue() >= p2.getX().doubleValue())?(int)1:(int)-1);
         return idx;
     }
-  
+
     /**
      * binary searching for least index in open upper bounds in which elements has
      *    greater x-value to given x.
@@ -327,12 +328,17 @@ public class XYData {
      */
     protected int binarySearch_byX_exclusive_least_upperbounds(double x){
         int idx = Collections.binarySearch(
-                this.xydata, 
+                this.xydata,
                 new Point(x,0.0),
                 (Point p1,Point p2)->(
                         p1.getX().doubleValue() > p2.getX().doubleValue() )?(int)1:(int)-1);
-        
+
         return idx;
     }
+
+	@Override
+	public Iterator< Point< Double > > iterator() {
+		return this.xydata.iterator();
+	}
 
 }
