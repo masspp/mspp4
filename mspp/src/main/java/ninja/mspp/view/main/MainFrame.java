@@ -1,13 +1,16 @@
 package ninja.mspp.view.main;
 
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.CheckMenuItem;
@@ -15,6 +18,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
@@ -33,13 +37,15 @@ import ninja.mspp.tools.PluginTool;
  * @author Satoshi Tanaka
  *
  */
-public class MainFrame {
+public class MainFrame implements Initializable {
 	@FXML private MenuBar menubar;
 	@FXML private BorderPane mainPane;
 	@FXML private TabPane topTabPane;
 	@FXML private TabPane leftTabPane;
 	@FXML private TabPane rightTabPane;
 	@FXML private TabPane bottomTabPane;
+	@FXML private SplitPane horizontalSplit;
+	@FXML private SplitPane verticalSplit;
 	@FXML private Menu fileMenu;
 	@FXML private Menu editMenu;
 	@FXML private Menu viewMenu;
@@ -82,6 +88,15 @@ public class MainFrame {
 	 * @param node node
 	 */
 	public void addLeftTab( String title, Node node ) {
+		if( this.leftTabPane == null ) {
+			BorderPane pane = new BorderPane();
+			TabPane tabPane = new TabPane();
+			pane.setCenter( tabPane );
+			this.horizontalSplit.getItems().add( 0, pane );
+			this.horizontalSplit.setDividerPosition( 0,  0.2 );
+			this.leftTabPane = tabPane;
+		}
+
 		addTab( this.leftTabPane, title, node );
 	}
 
@@ -150,6 +165,19 @@ public class MainFrame {
 			MenuInfo info = (MenuInfo)array[ 1 ];
 			info.sort();
 			createMenu( menu, info, pluginMap, checkables );
+		}
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources)  {
+		this.verticalSplit.setDividerPositions( 0.0, 1.0 );
+		this.horizontalSplit.setDividerPositions( 0.0, 1.0 );
+
+		try {
+			this.createMenu();
+		}
+		catch( Exception e ) {
+			e.printStackTrace();
 		}
 	}
 
@@ -243,6 +271,4 @@ public class MainFrame {
 		tab.setContent( node );
 		pane.getTabs().add( tab );
 	}
-
-
 }

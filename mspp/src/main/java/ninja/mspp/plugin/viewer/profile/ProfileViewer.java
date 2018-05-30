@@ -8,8 +8,10 @@ import java.util.StringTokenizer;
 import ninja.mspp.annotation.Menu;
 import ninja.mspp.annotation.MenuAction;
 import ninja.mspp.annotation.MenuPosition;
+import ninja.mspp.annotation.OpenSpectrum;
 import ninja.mspp.annotation.Plugin;
 import ninja.mspp.model.dataobject.Point;
+import ninja.mspp.model.dataobject.Spectrum;
 import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.model.gui.MenuInfo;
 import ninja.mspp.view.GuiManager;
@@ -26,6 +28,16 @@ public class ProfileViewer {
 	 */
 	public ProfileViewer() {
 		this.menu = MenuInfo.TOOLS_MENU.item( "Profile Viewer Test" );
+	}
+
+	@OpenSpectrum( view = "profile ")
+	public void openSpectrumCanvas( Spectrum spectrum ) {
+		GuiManager gui = GuiManager.getInstance();
+		MainFrame mainFrame = gui.getMainFrame();
+
+		XYData xyData = spectrum.getXYData();
+		ProfileCanvas canvas = new ProfileCanvas( xyData, "m/z", "Int." );
+		mainFrame.setMain( canvas );
 	}
 
 	@MenuPosition

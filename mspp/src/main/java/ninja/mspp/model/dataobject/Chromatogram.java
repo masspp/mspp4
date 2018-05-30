@@ -24,7 +24,7 @@ public abstract class Chromatogram {
     /**
      * @param sample the sample to set
      */
-    public void setSample(String sample_path) {
+    public void setSamplePath(String sample_path) {
         this.sample_path = sample_path;
     }
 

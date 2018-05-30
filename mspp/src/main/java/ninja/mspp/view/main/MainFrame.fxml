@@ -2,10 +2,10 @@
 
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.view.main.MainFrame">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.view.main.MainFrame">
    <top>
       <MenuBar fx:id="menubar" BorderPane.alignment="CENTER">
         <menus>
@@ -19,19 +19,18 @@
       </MenuBar>
    </top>
    <center>
-      <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <left>
-            <TabPane fx:id="leftTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
-         </left>
-         <right>
-            <TabPane fx:id="rightTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
-         </right>
-         <bottom>
-            <TabPane fx:id="bottomTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
-         </bottom>
-         <top>
-            <TabPane fx:id="topTabPane" prefHeight="0.0" prefWidth="0.0" tabClosingPolicy="UNAVAILABLE" visible="false" BorderPane.alignment="CENTER" />
-         </top>
-      </BorderPane>
+      <SplitPane fx:id="verticalSplit" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <SplitPane fx:id="horizontalSplit" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <items>
+                        <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" />
+                     </items>
+                  </SplitPane>
+               </center>
+            </BorderPane>
+         </items>
+      </SplitPane>
    </center>
 </BorderPane>

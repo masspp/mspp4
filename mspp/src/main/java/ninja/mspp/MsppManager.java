@@ -17,6 +17,7 @@ import java.util.prefs.Preferences;
 import ninja.mspp.annotation.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.PluginObject;
+import ninja.mspp.model.dataobject.Sample;
 
 /**
  * Mass++ manager (Singleton class)
@@ -40,6 +41,9 @@ public class MsppManager implements Iterable< Object > {
 	// temporary directory
 	File tmpDir;
 
+	// samples
+	ArrayList< Sample > samples;
+
 	/**
 	 * constructor
 	 */
@@ -55,6 +59,8 @@ public class MsppManager implements Iterable< Object > {
 		this.messages = ResourceBundle.getBundle( "messages" );
 		this.plugins = createPluginArray();
 		this.preferences = Preferences.userRoot().node( "mspp4/parameters" );
+
+		this.samples = new ArrayList< Sample >();
 	}
 
 	/**
@@ -230,6 +236,22 @@ public class MsppManager implements Iterable< Object > {
 		}
 
 		return this.tmpDir;
+	}
+
+	/**
+	 * adds sample
+	 * @param sample sample
+	 */
+	public void addSample( Sample sample ) {
+		this.samples.add( sample );
+	}
+
+	/**
+	 * removes sample
+	 * @param sample sample
+	 */
+	public void removeSample( Sample sample ) {
+		this.samples.remove( sample );
 	}
 
 	@Override

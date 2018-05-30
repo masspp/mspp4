@@ -9,22 +9,21 @@ import java.io.File;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-import uk.ac.ebi.jmzml.xml.io.MzMLObjectIterator;
-import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
-import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
-import uk.ac.ebi.jmzml.model.mzml.Scan;
-import uk.ac.ebi.jmzml.model.mzml.Spectrum;
-import uk.ac.ebi.jmzml.model.mzml.Chromatogram;
-import uk.ac.ebi.jmzml.model.mzml.ParamGroup;
-import uk.ac.ebi.jmzml.model.mzml.CVParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ninja.mspp.annotation.FileInput;
 import ninja.mspp.annotation.Plugin;
-import ninja.mspp.utils.MD5Utils;
 import ninja.mspp.model.dataobject.Precursor;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import ninja.mspp.model.dataobject.Sample;
+import ninja.mspp.utils.MD5Utils;
+import uk.ac.ebi.jmzml.model.mzml.CVParam;
+import uk.ac.ebi.jmzml.model.mzml.Chromatogram;
+import uk.ac.ebi.jmzml.model.mzml.ParamGroup;
+import uk.ac.ebi.jmzml.model.mzml.Scan;
+import uk.ac.ebi.jmzml.model.mzml.Spectrum;
+import uk.ac.ebi.jmzml.xml.io.MzMLObjectIterator;
+import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
 
 /**
  *
@@ -32,12 +31,12 @@ import org.slf4j.LoggerFactory;
 */
 @Plugin( name = "mzML Input Plugin" )
 public class JmzMLWrapperInputPlugin {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(JmzMLWrapperInputPlugin.class);
-    
+
     @FileInput( title = "mzML", ext = "mzML")
-    public Object openMzML(String path) throws Exception {
-        jmzMLSample sample = new jmzMLSample(); 
+    public Sample openMzML(String path) throws Exception {
+        jmzMLSample sample = new jmzMLSample();
         System.out.println("file path: " + path);
         File filepath=new File(path);
         sample.setFileName(filepath.getName());
@@ -50,31 +49,31 @@ public class JmzMLWrapperInputPlugin {
             String msg = "Failed to generate unique id for mzML file";
             logger.error(msg, e);
         }
-        
+
         MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(filepath);
         getSpectra(unmarshaller, sample);
         getChromatograms(unmarshaller, sample);
-        
-        return sample; 
-        
+
+        return sample;
+
     }
-    
+
     public void getCvListContents(){}
-    
+
     public void getFileDesciptionContents(){}
-    
+
     public void getReferenceParamGroupListContens(){}
-    
+
     public void getSampleListContentes(){}
-    
+
     public void getInstrumentCOnfigurationListContents(){}
-    
+
     public void getSoftwareListContents(){}
-    
+
     public void getDataProcessingListContents(){}
-    
+
     public void getAcquisitionSettingsList(){}
-    
+
     public void getSpectra(MzMLUnmarshaller unmarshaller, jmzMLSample sample){
         MzMLObjectIterator<Spectrum> specIterator = unmarshaller.unmarshalCollectionFromXpath(
                 "/run/spectrumList/spectrum", Spectrum.class);
@@ -125,7 +124,7 @@ public class JmzMLWrapperInputPlugin {
                                 break;
                             default:
                                 break;
-                        
+
                         }
                     }
                 }
@@ -140,21 +139,21 @@ public class JmzMLWrapperInputPlugin {
             if (jmzmlspec.getPrecursorList()!=null){
                 spec.setPrecursorlist(getPrecursorList(jmzmlspec.getPrecursorList().getPrecursor().get(0)));
             }
-            
+
             logger.info(msg);
             sample.addSpectrum(spec);
         }
         System.out.println("Count of spectra: " + String.valueOf(specCount));
-                
+
     }
-    
-    
+
+
     public void getChromatograms(MzMLUnmarshaller unmarshaller, jmzMLSample sample){
         MzMLObjectIterator<Chromatogram> chromatogramIterator = unmarshaller.unmarshalCollectionFromXpath(
                 "/run/chromatogramList/chromatogram", Chromatogram.class);
         int chrmtCount =0;
         while(chromatogramIterator.hasNext()){
-            
+
             chrmtCount++;
             Chromatogram jmzmlchrmt = chromatogramIterator.next();
             String id = sample.getSampleId() + "_c" + Integer.valueOf(chrmtCount).toString();
@@ -165,10 +164,11 @@ public class JmzMLWrapperInputPlugin {
             chrmtgrm.setMz(getPrecursorMz( jmzmlchrmt.getPrecursor()));
             
             sample.addChromatogram(chrmtgrm);
+
         }
         System.out.println("Count of chromatogram: " + String.valueOf(chrmtCount));
     }
- 
+
     public ArrayList<Precursor> getPrecursorList( uk.ac.ebi.jmzml.model.mzml.Precursor jmzmlprec){
         Precursor default_prec = new Precursor(0.0);
         ArrayList<Precursor> preclst = new ArrayList<>();
@@ -196,15 +196,15 @@ public class JmzMLWrapperInputPlugin {
         
         return preclst;
     }
-    
+
     /**
      * obtain precursor mz  eeeeeeefirst SelectedIon tag
      * @param jmzmlpreclst
-     * @return 
+     * @return
      */
     private double getPrecursorMz(uk.ac.ebi.jmzml.model.mzml.Precursor jmzmlprec){
         return getPrecursorList(jmzmlprec).get(0).getMz();
     }
 }
-      
+
 
