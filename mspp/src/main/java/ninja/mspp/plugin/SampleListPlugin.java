@@ -68,7 +68,7 @@ public class SampleListPlugin {
 		table.setEditable( false );
 
 		TableColumn< Spectrum, String > nameColumn = new TableColumn< Spectrum, String >( "Name" );
-		nameColumn.setCellValueFactory( new PropertyValueFactory< Spectrum, String >( "title" ) );
+		nameColumn.setCellValueFactory( new PropertyValueFactory< Spectrum, String >( "name" ) );
 		table.getColumns().add( nameColumn );
 
 		TableColumn< Spectrum, Double > rtColumn = new TableColumn< Spectrum, Double >( "RT" );
