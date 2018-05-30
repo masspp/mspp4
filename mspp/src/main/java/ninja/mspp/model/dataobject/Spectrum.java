@@ -49,27 +49,27 @@ public abstract class Spectrum {
     public void setPrecursorlist(ArrayList<Precursor> precursorlist) {
         this.precursorlist = precursorlist;
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public double getPrecursorMz(){
         return precursorlist.get(0).getMz();
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public double getPrecursorIntensity(){
         return precursorlist.get(0).getIntensity();
     }
-    
+
     public int getPrecursorCharge(){
         return precursorlist.get(0).getCharge();
     }
-    
+
     /**
      * @return the polarity
      */
@@ -272,8 +272,8 @@ public abstract class Spectrum {
     public void setParent(Spectrum parent) {
         this.parent = parent;
     }
-    
-    
+
+
        /**
      * @return the is_identified
      */
@@ -287,8 +287,8 @@ public abstract class Spectrum {
     public void setIsIdentified(boolean is_identified) {
         this.is_identified = is_identified;
     }
-    
-    
+
+
     private Sample sample;
     private String id;
     private boolean is_centroid;
@@ -298,30 +298,30 @@ public abstract class Spectrum {
     //private List<Peptide> PeptideCandidates;  // getPeptideCandidates;
 
     private Range<Double> rt;
-    
+
     private boolean has_chromatogram;
-        
+
     private String spotid; // MALDI/SELDI, etc.
-    
+
     protected enum Polarity {
         Positive,
         Negative,
         Unknown
     }
     private Polarity polarity;
-    
+
     private ArrayList<Precursor> precursorlist;
     private XYData MassIntensityData;
     private double min_x;
     private double max_x;
     private double min_y;
     private double max_y;
-    private double totalintensity; 
+    private double totalintensity;
     private double basepeakmz;
-    
+
     private Spectrum parent;
     private ArrayList<Spectrum> children;
-    
+
     public Spectrum(Sample sample){
         //Initialize
         this.sample = sample;
@@ -345,23 +345,32 @@ public abstract class Spectrum {
         this.precursorlist=null;
         this.is_identified=false;
     }
-    
+
     public void setRt(double rt){
         this.setRt(new Range<>(rt,rt));
     }
-    
+
     /**
      * get retention time in "second"
-     * @return 
+     * @return
      */
     public double getRt(){
         return (rt.getStart() + rt.getEnd())/2.0;
     }
 
+    /**
+     * gets the xy data
+     * @return xy data
+     */
+    public XYData getXYData() {
+    	XYData xyData = this.onGetXYData( -1.0,  -1.0 );
+    	return xyData;
+    }
+
     public abstract XYData onGetXYData(double min_x, double max_x);
-    
+
     public abstract double  onGetTotalIntensity(double min_x, double max_x);
-    
+
     public abstract Range<Double> onGetXRange(); // required?
 
 }

@@ -13,8 +13,10 @@ import ninja.mspp.annotation.FileInput;
 import ninja.mspp.annotation.Menu;
 import ninja.mspp.annotation.MenuAction;
 import ninja.mspp.annotation.MenuPosition;
+import ninja.mspp.annotation.OnOpenSample;
 import ninja.mspp.annotation.Plugin;
 import ninja.mspp.model.PluginMethod;
+import ninja.mspp.model.dataobject.Sample;
 import ninja.mspp.model.gui.MenuInfo;
 import ninja.mspp.model.gui.MenuInfo.Order;
 import ninja.mspp.tools.FileTool;
@@ -74,8 +76,8 @@ public class FileInputPlugin {
 
 		file = chooser.showOpenDialog( guiManager.getStage() );
 		if( file != null ) {
-			Object data = openFile( file );
-			if( data == null ) {
+			Sample sample = openFile( file );
+			if( sample == null ) {
 				Alert alert = new Alert( AlertType.ERROR );
 				alert.setTitle( "Error" );
 				alert.setHeaderText( messages.getString( "file.open.error.header" ) );
@@ -83,6 +85,17 @@ public class FileInputPlugin {
 				alert.showAndWait();
 			}
 			else {
+				ArrayList< PluginMethod< OnOpenSample > > onOpenMethods = msppManager.getMethods( OnOpenSample.class );
+				for( PluginMethod< OnOpenSample > method : onOpenMethods ) {
+					Object plugin = method.getPlugin();
+					try {
+						method.getMethod().invoke( plugin, sample );
+					}
+					catch( Exception e ) {
+						e.printStackTrace();
+					}
+				}
+				msppManager.addSample( sample );
 				msppManager.saveString( RECENT_FILE_KEY,  file.getAbsolutePath() );
 			}
 		}
@@ -93,17 +106,17 @@ public class FileInputPlugin {
 	 * @param file file
 	 * @return file data
 	 */
-	protected Object openFile( File file ) {
+	protected Sample openFile( File file ) {
 		String path = file.getAbsolutePath();
 		String ext = FileTool.getExtension( path );
-		Object sample = null;
+		Sample sample = null;
 
 		for( PluginMethod< FileInput > method: this.methods ) {
 			Object plugin = method.getPlugin();
 			FileInput annotation = method.getAnnotation();
 			if( sample == null && annotation.ext().compareToIgnoreCase( ext ) == 0 ) {
 				try {
-					sample = method.getMethod().invoke( plugin,  path );
+					sample = (Sample)method.getMethod().invoke( plugin,  path );
 				}
 				catch( Exception e ) {
 					e.printStackTrace();
