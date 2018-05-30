@@ -5,7 +5,6 @@
  */
 package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
-import uk.ac.ebi.jmzml.xml.io.MzMLObjectIterator;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
 
@@ -14,33 +13,7 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
  * @author masakimu
  */
 public class jmzMLSample extends ninja.mspp.model.dataobject.Sample {
-        /**
-     * @return the spectrumiterator
-     */
-    public MzMLObjectIterator getSpectrumiterator() {
-        return spectrumiterator;
-    }
 
-    /**
-     * @param spectrumiterator the spectrumiterator to set
-     */
-    public void setSpectrumiterator(MzMLObjectIterator spectrumiterator) {
-        this.spectrumiterator = spectrumiterator;
-    }
-
-    /**
-     * @return the chromatogramiterator
-     */
-    public MzMLObjectIterator getChromatogramiterator() {
-        return chromatogramiterator;
-    }
-
-    /**
-     * @param chromatogramiterator the chromatogramiterator to set
-     */
-    public void setChromatogramiterator(MzMLObjectIterator chromatogramiterator) {
-        this.chromatogramiterator = chromatogramiterator;
-    }
     
        /**
      * @return the unmarshaller
@@ -56,8 +29,6 @@ public class jmzMLSample extends ninja.mspp.model.dataobject.Sample {
         this.unmarshaller = unmarshaller;
     }
     
-    private MzMLObjectIterator spectrumiterator;
-    private MzMLObjectIterator chromatogramiterator;
     private MzMLUnmarshaller unmarshaller;
     
     public jmzMLSample(){

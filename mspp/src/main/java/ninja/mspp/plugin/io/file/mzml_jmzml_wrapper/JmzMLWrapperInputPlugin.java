@@ -83,7 +83,7 @@ public class JmzMLWrapperInputPlugin {
             jmzMLSpectrum spec = new jmzMLSpectrum(sample);
             specCount++;
             Spectrum jmzmlspec = specIterator.next();
-            String uid = jmzmlspec.getId();
+            String uid = sample.getSampleId()+"_s"+Integer.valueOf(specCount).toString();
             for(CVParam cvparam: jmzmlspec.getCvParam()){
                 switch(cvparam.getName()){
                     case "ms level":
@@ -117,9 +117,9 @@ public class JmzMLWrapperInputPlugin {
                     for(CVParam cvparam: scan.getCvParam()){
                         switch(cvparam.getName()){
                             case "scan start time":
-                                if(cvparam.getUnitName()=="minute"){
-                                    spec.setRt(Double.parseDouble(cvparam.getValue())/60.0);
-                                }else if(cvparam.getUnitName()=="second"){
+                                if("minute".equals(cvparam.getUnitName())){
+                                    spec.setRt(Double.parseDouble(cvparam.getValue())*60.0);
+                                }else if("second".equals(cvparam.getUnitName())){
                                     spec.setRt(Double.parseDouble(cvparam.getValue()));
                                 }
                                 break;
@@ -131,7 +131,9 @@ public class JmzMLWrapperInputPlugin {
                 }
             }
             spec.setId( uid );
-            spec.setTitle( sample.getFileName() + " ("+ uid + ")");
+            spec.setName( jmzmlspec.getId());
+            spec.setTitle( sample.getFileName() + " ("+ spec.getName() + ")");
+            
             String msg = "loaded Spectrum(Id: " + uid + 
                     ", Title: " + spec.getTitle() +  ")";
             // TODO: check next line.
@@ -143,9 +145,7 @@ public class JmzMLWrapperInputPlugin {
             sample.addSpectrum(spec);
         }
         System.out.println("Count of spectra: " + String.valueOf(specCount));
-        
-        sample.setSpectrumiterator(specIterator);
-        
+                
     }
     
     
@@ -157,13 +157,14 @@ public class JmzMLWrapperInputPlugin {
             
             chrmtCount++;
             Chromatogram jmzmlchrmt = chromatogramIterator.next();
-            String id = jmzmlchrmt.getId();
+            String id = sample.getSampleId() + "_c" + Integer.valueOf(chrmtCount).toString();
             jmzMLChromatogram chrmtgrm = new jmzMLChromatogram(sample);
             chrmtgrm.setId(id);
-            chrmtgrm.setTitle(sample.getFileName() + " (" + id + ")");           
-            chrmtgrm.setName(chrmtgrm.getTitle());
-            chrmtgrm.setMz(getPrecursorMz( jmzmlchrmt.getPrecursor())); 
-        
+            chrmtgrm.setName(jmzmlchrmt.getId());
+            chrmtgrm.setTitle(sample.getFileName() + " (" + chrmtgrm.getName() + ")");           
+            chrmtgrm.setMz(getPrecursorMz( jmzmlchrmt.getPrecursor()));
+            
+            sample.addChromatogram(chrmtgrm);
         }
         System.out.println("Count of chromatogram: " + String.valueOf(chrmtCount));
     }
@@ -171,23 +172,27 @@ public class JmzMLWrapperInputPlugin {
     public ArrayList<Precursor> getPrecursorList( uk.ac.ebi.jmzml.model.mzml.Precursor jmzmlprec){
         Precursor default_prec = new Precursor(0.0);
         ArrayList<Precursor> preclst = new ArrayList<>();
-        if(jmzmlprec!=null){
-            for(ParamGroup jmzmlselectedion : jmzmlprec.getSelectedIonList().getSelectedIon()){
+        if(jmzmlprec!=null ){
+            if (jmzmlprec.getSelectedIonList()!=null ){
+                
+                for(ParamGroup jmzmlselectedion : jmzmlprec.getSelectedIonList().getSelectedIon()){
 
-                for(CVParam cvparam: jmzmlselectedion.getCvParam()){
-                    switch(cvparam.getName()){
-                        case "selected ion m/z":
-                            Precursor prec = new Precursor( Double.parseDouble(cvparam.getValue()) );
-                            preclst.add(prec);
-                            break;        
+                    for(CVParam cvparam: jmzmlselectedion.getCvParam()){
+                        switch(cvparam.getName()){
+                            case "selected ion m/z":
+                                Precursor prec = new Precursor( Double.parseDouble(cvparam.getValue()) );
+                                preclst.add(prec);
+                                break;        
+                        }
                     }
                 }
-
             }
             
-        }else{
+        }
+        if(preclst.size()<1){
             preclst.add(default_prec);
         }
+        
         
         return preclst;
     }

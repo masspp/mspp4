@@ -18,6 +18,7 @@ import uk.ac.ebi.jmzml.model.mzml.CVParam;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
 
+
 /**
  *
  * @author masakimu
@@ -31,9 +32,7 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
     
     @Override
     public XYData onGetChromatogram() {
-        Sample sample = this.getSample();
-        String path = sample.getFilePath() + File.separator + sample.getName();
-        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(path));
+        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
         uk.ac.ebi.jmzml.model.mzml.Chromatogram chrmtgrm= getJmzmlChromatogram(unmarshaller, this.getId());
         ArrayList<Point<Double>> points = new ArrayList<>();
         int arraylength=chrmtgrm.getBinaryDataArrayList().getBinaryDataArray().get(0).getArrayLength();
@@ -46,7 +45,7 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
             boolean flg_time=false;
             boolean flg_intensity = false;
             boolean flg_min2sec = false;
-            double ratio_min2sec = 1.0/60;
+            double ratio_min2sec = 60.0;
             double time_ratio = 1.0;
             
             
