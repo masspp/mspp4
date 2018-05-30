@@ -116,6 +116,7 @@ public class JmzMLWrapperInputPlugin {
                     for(CVParam cvparam: scan.getCvParam()){
                         switch(cvparam.getName()){
                             case "scan start time":
+                            case "elution time":
                                 if("minute".equals(cvparam.getUnitName())){
                                     spec.setRt(Double.parseDouble(cvparam.getValue())*60.0);
                                 }else if("second".equals(cvparam.getUnitName())){
