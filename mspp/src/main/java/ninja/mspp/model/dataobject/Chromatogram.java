@@ -132,7 +132,7 @@ public abstract class Chromatogram {
      * @param sample 
      */
     public Chromatogram(Sample sample, Range mzrange){
-        this.sample_path = sample.getFilePath() + File.separator + sample.getName();
+        this.sample_path = sample.getFilePath();
         this.mzrange = mzrange;
         this.id = "";
         this.mz = 0.0;

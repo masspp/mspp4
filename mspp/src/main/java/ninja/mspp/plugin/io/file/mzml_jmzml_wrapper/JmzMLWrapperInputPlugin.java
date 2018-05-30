@@ -130,7 +130,8 @@ public class JmzMLWrapperInputPlugin {
                 }
             }
             spec.setId( uid );
-            spec.setName( jmzmlspec.getId());
+            spec.setId_jmzml(jmzmlspec.getId());
+            spec.setName( spec.getId_jmzml());
             spec.setTitle( sample.getFileName() + " ("+ spec.getName() + ")");
             
             String msg = "loaded Spectrum(Id: " + uid + 

@@ -25,6 +25,22 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
  */
 public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
 
+    /**
+     * @return the id_jmzml
+     */
+    public String getId_jmzml() {
+        return id_jmzml;
+    }
+
+    /**
+     * @param id_jmzml the id_jmzml to set
+     */
+    public void setId_jmzml(String id_jmzml) {
+        this.id_jmzml = id_jmzml;
+    }
+    
+    private String id_jmzml;
+    
     public jmzMLChromatogram(Sample sample) {
         super(sample);
     }
@@ -33,7 +49,7 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
     @Override
     public XYData onGetChromatogram() {
         MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
-        uk.ac.ebi.jmzml.model.mzml.Chromatogram chrmtgrm= getJmzmlChromatogram(unmarshaller, this.getId());
+        uk.ac.ebi.jmzml.model.mzml.Chromatogram chrmtgrm= getJmzmlChromatogram(unmarshaller, this.getId_jmzml());
         ArrayList<Point<Double>> points = new ArrayList<>();
         int arraylength=chrmtgrm.getBinaryDataArrayList().getBinaryDataArray().get(0).getArrayLength();
         

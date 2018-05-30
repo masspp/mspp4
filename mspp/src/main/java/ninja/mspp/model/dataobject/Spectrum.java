@@ -326,7 +326,7 @@ public abstract class Spectrum {
 
     public Spectrum(Sample sample){
         //Initialize
-        this.sample_path = sample.getFilePath() + File.separator + sample.getName();
+        this.sample_path = sample.getFilePath();
         this.id = "";
         this.name = "";
         this.is_centroid=false;
