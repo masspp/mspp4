@@ -2,6 +2,7 @@ package ninja.mspp.view.control.canvas;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
@@ -68,6 +69,9 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @return points
 	 */
 	protected ArrayList< FastDrawData.Element > getPoints( FastDrawData data, Integer width, Range< Double > xRange ) {
+		if( data == null ) {
+			return null;
+		}
 		Integer level = FastDrawData.getLevel( width, xRange.getEnd() - xRange.getStart() );
 		ArrayList< FastDrawData.Element > points = data.getPoints( level );
 		return points;
@@ -101,6 +105,31 @@ public abstract class ProfileCanvas extends Canvas {
 		}
 
 		Range< Double > yRange = new Range< Double >( minY, maxY );
+		return yRange;
+	}
+
+	/**
+	 * gets the y range
+	 * @param arrays arrays
+	 * @param xRange x range
+	 * @return y range
+	 */
+	protected Range< Double > getYRange( List< ArrayList< FastDrawData.Element > > arrays, Range< Double > xRange ) {
+		Range< Double > yRange = null;
+		for( ArrayList< FastDrawData.Element > array : arrays ) {
+			if( array != null ) {
+				Range< Double > tmpRange = this.getYRange( array, xRange );
+				if( yRange == null ) {
+					yRange = tmpRange;
+				}
+				else {
+					yRange = new Range< Double >(
+						Math.min( yRange.getStart(), tmpRange.getStart() ),
+						Math.max( yRange.getEnd(), tmpRange.getEnd() )
+					);
+				}
+			}
+		}
 		return yRange;
 	}
 
@@ -372,13 +401,12 @@ public abstract class ProfileCanvas extends Canvas {
 	 */
 	protected Integer getMaxYValueWidth(
 			GraphicsContext g,
-			Range< Double > xRange,
 			Range< Double > yRange,
 			Integer height,
 			Integer topMargin,
 			Integer bottomMargin
 	) {
-		Integer level = this.getScaleLevel( xRange.getEnd() - xRange.getStart(),  height - topMargin - bottomMargin );
+		Integer level = this.getScaleLevel( yRange.getEnd() - yRange.getStart(),  height - topMargin - bottomMargin );
 
 		String maxString = "0.0";
 		if( level < 0 ) {

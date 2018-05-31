@@ -115,6 +115,7 @@ public class SampleListPlugin {
 
 		MsppProperties properties = MsppProperties.getInstance();
 		String view = StringTool.nvl( properties.getProperty( MsppProperties.KEY_SPECTRUM_VIEW ), "" );
+		view = "overlap";
 
 		for( PluginMethod< OpenSpectrum > tmp : methods ) {
 			OpenSpectrum annotation = tmp.getAnnotation();

@@ -17,7 +17,7 @@ public class ProfileViewer {
 	public ProfileViewer() {
 	}
 
-	@OpenSpectrum( view = "profile ")
+	@OpenSpectrum( view = "profile" )
 	public void openSpectrumCanvas( Spectrum spectrum ) {
 		GuiManager gui = GuiManager.getInstance();
 		MainFrame mainFrame = gui.getMainFrame();

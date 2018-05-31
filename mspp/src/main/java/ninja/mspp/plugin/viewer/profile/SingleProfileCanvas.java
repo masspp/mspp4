@@ -83,8 +83,7 @@ public class SingleProfileCanvas extends ProfileCanvas {
 		Integer bottom = 50;
 		Integer left = ProfileCanvas.DEFAULT_MARGIN;
 
-
-		left = left + this.getMaxYValueWidth( g, xRange, yRange, height, top, bottom );
+		left = left + this.getMaxYValueWidth( g, yRange, height, top, bottom );
 
 		Rect< Integer > margin = new Rect< Integer >( top, right, bottom, left );
 		return margin;
@@ -104,6 +103,8 @@ public class SingleProfileCanvas extends ProfileCanvas {
 				margin,
 				MatrixUtils.createRealIdentityMatrix( 3 )
 		);
+		String xTitle = this.xTitle;
+		String yTitle = this.yTitle;
 
 		this.drawProfile( g,  points,  drawMatrix,  Color.RED );
 		this.drawScale( g,  xRange,  yRange,  width, height, margin, drawMatrix, xTitle, yTitle );

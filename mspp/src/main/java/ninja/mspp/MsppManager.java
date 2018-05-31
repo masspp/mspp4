@@ -254,6 +254,18 @@ public class MsppManager implements Iterable< Object > {
 		this.samples.remove( sample );
 	}
 
+	/**
+	 * gets the sample
+	 * @param index index
+	 * @return sample
+	 */
+	public Sample getSample( int index ) {
+		if( index < 0 || index >= this.samples.size() ) {
+			return null;
+		}
+		return this.samples.get( index );
+	}
+
 	@Override
 	public Iterator<Object> iterator() {
 		return this.plugins.iterator();

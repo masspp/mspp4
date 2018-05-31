@@ -1,4 +1,4 @@
-package ninja.mspp.plugin.viewer.mirror;
+package ninja.mspp.plugin.viewer.overlap;
 
 import ninja.mspp.annotation.OpenSpectrum;
 import ninja.mspp.annotation.Plugin;
@@ -7,28 +7,28 @@ import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.view.GuiManager;
 import ninja.mspp.view.main.MainFrame;
 
-@Plugin( name = "mirror canvas" )
-public class MirrorViewer {
+@Plugin( name = "overlap canvas")
+public class OverlapViewer {
 	/** canvas */
-	private static MirrorCanvas canvas = null;
+	private static OverlapCanvas canvas = null;
 
 	/**
 	 * constructor
 	 */
-	public MirrorViewer() {
+	public OverlapViewer() {
 	}
 
-	@OpenSpectrum( view = "mirror" )
+	@OpenSpectrum( view = "overlap" )
 	public void addSpectrum( Spectrum spectrum ) {
-		if( MirrorViewer.canvas == null ) {
-			MirrorCanvas canvas = new MirrorCanvas( "m/z", "Int." );
+		if( OverlapViewer.canvas == null ) {
+			OverlapCanvas canvas = new OverlapCanvas( "m/z", "Int." );
 			GuiManager gui = GuiManager.getInstance();
 			MainFrame mainFrame = gui.getMainFrame();
 			mainFrame.setMain( canvas );
-			MirrorViewer.canvas = canvas;
+			OverlapViewer.canvas = canvas;
 		}
 
 		XYData xyData = spectrum.getXYData();
-		MirrorViewer.canvas.addXYData( xyData );
+		OverlapViewer.canvas.addXYData( xyData );
 	}
 }
