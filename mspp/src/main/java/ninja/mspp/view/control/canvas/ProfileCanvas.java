@@ -1,4 +1,4 @@
-package ninja.mspp.plugin.viewer.profile;
+package ninja.mspp.view.control.canvas;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,12 +15,11 @@ import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
-import ninja.mspp.model.dataobject.XYData;
 
 /**
  * profile canvas
  */
-public class ProfileCanvas extends Canvas {
+public abstract class ProfileCanvas extends Canvas {
 	/** default margin */
 	public static final Integer DEFAULT_MARGIN = 25;
 
@@ -28,64 +27,28 @@ public class ProfileCanvas extends Canvas {
 
 	public static final Integer SCALE_LENGTH = 5;
 
-	/** draw data */
-	private FastDrawData drawData;
-
-	/** xy data */
-	XYData xyData;
-
-	/** x range */
-	Range< Double > xRange;
-
-	/** x title */
-	String xTitle;
-
-	/** y title */
-	String yTitle;
-
 	/**
 	 * constructor
 	 * @param xyData xy data
 	 */
-	public ProfileCanvas( XYData xyData, String xTitle, String yTitle ) {
-		this.xyData = xyData;
-		this.drawData = new FastDrawData( xyData );
-		this.xTitle = xTitle;
-		this.yTitle = yTitle;
-
-		double minX = Math.max( xyData.getMinX(), 0.0 );
-		double maxX = Math.max( xyData.getMaxX(), minX + 0.0001 );
-		this.xRange = new Range< Double >( minX, maxX );
-
+	public ProfileCanvas() {
 		this.widthProperty().addListener( evt -> draw() );
 		this.heightProperty().addListener( evt -> draw() );
-		draw();
 	}
 
 	/**
-	 * gets the draw data
-	 * @return draw data
-	 */
-	public FastDrawData getDrawData() {
-		return this.drawData;
-	}
-
-	/**
-	 * draw
-	 */
-	private void draw() {
-		this.draw( this.getGraphicsContext2D(), this.getDrawData() );
-	}
-
-	/**
-	 * draw
+	 * on draw
 	 * @param g graphics
-	 * @param data data
 	 */
-	private void draw( GraphicsContext g, FastDrawData data ) {
+	protected abstract void onDraw( GraphicsContext g, Integer width, Integer height );
+
+	/**
+	 * draw
+	 */
+	public void draw() {
+		GraphicsContext g = this.getGraphicsContext2D();
 		Double width = this.getWidth();
 		Double height = this.getHeight();
-		System.out.println( "width = " + width + ", height = " + height );
 
 		g.beginPath();
 		g.setFill( Color.WHITE );
@@ -94,20 +57,31 @@ public class ProfileCanvas extends Canvas {
 		g.closePath();
 		g.fill();
 
-		Integer level = FastDrawData.getLevel( (int)Math.round( width ), this.xRange.getEnd() - this.xRange.getStart() );
-		ArrayList< FastDrawData.Element > points = this.drawData.getPoints( level );
-
-		this.draw( g, points, (int)Math.round( width ), (int)Math.round( height ) );
+		this.onDraw( g, (int)Math.round( width ), (int)Math.round( height ) );
 	}
 
 	/**
-	 * draw
-	 * @param g graphics
-	 * @param points points
+	 * gets the draw points
+	 * @param data fast draw data
+	 * @param width window width
+	 * @param xRange x range
+	 * @return points
 	 */
-	private void draw( GraphicsContext g, ArrayList< FastDrawData.Element > points, Integer width, Integer height ) {
-		FastDrawData.Element startElement = new FastDrawData.Element( this.xRange.getStart(), 0.0 );
-		FastDrawData.Element endElement = new FastDrawData.Element( this.xRange.getEnd(), 0.0 );
+	protected ArrayList< FastDrawData.Element > getPoints( FastDrawData data, Integer width, Range< Double > xRange ) {
+		Integer level = FastDrawData.getLevel( width, xRange.getEnd() - xRange.getStart() );
+		ArrayList< FastDrawData.Element > points = data.getPoints( level );
+		return points;
+	}
+
+	/**
+	 * gets the y range
+	 * @param points points
+	 * @param xRange xrange
+	 * @return y range
+	 */
+	protected Range< Double > getYRange( ArrayList< FastDrawData.Element > points, Range< Double > xRange ) {
+		FastDrawData.Element startElement = new FastDrawData.Element( xRange.getStart(), 0.0 );
+		FastDrawData.Element endElement = new FastDrawData.Element( xRange.getEnd(), 0.0 );
 
 		int startIndex = Collections.binarySearch( points, startElement );
 		if( startIndex < 0 ) {
@@ -127,29 +101,27 @@ public class ProfileCanvas extends Canvas {
 		}
 
 		Range< Double > yRange = new Range< Double >( minY, maxY );
-
-		this.draw( g, points, this.xRange, yRange, width, height );
+		return yRange;
 	}
 
 	/**
-	 * draw
-	 * @param g graphics
-	 * @param points points
+	 * gets the draw matrix
+	 * @param width width
+	 * @param height height
 	 * @param xRange x range
 	 * @param yRange y range
-	 * @param width window width
-	 * @param height window height
+	 * @param margin margin
+	 * @param translation translation
+	 * @return draw matrix
 	 */
-	private void draw(
-			GraphicsContext g,
-			ArrayList< FastDrawData.Element > points,
+	protected RealMatrix getDrawMatrix(
+			Integer width,
+			Integer height,
 			Range< Double > xRange,
 			Range< Double > yRange,
-			Integer width,
-			Integer height
+			Rect< Integer > margin,
+			RealMatrix translation
 	) {
-		Rect< Integer > margin = this.getMargin( g, xRange, yRange, width, height );
-
 		double[][] i2data = {
 			{ xRange.getEnd() - xRange.getStart(), 0.0, xRange.getStart() },
 			{ 0.0, yRange.getEnd() - yRange.getStart(), yRange.getStart() },
@@ -163,11 +135,12 @@ public class ProfileCanvas extends Canvas {
 			{ 0.0, 0.0, 1.0 }
 		};
 		RealMatrix i2WindowMatrix = MatrixUtils.createRealMatrix( i2Window );
+		RealMatrix drawMatrix = i2WindowMatrix.multiply( MatrixUtils.inverse( i2dataMatrix ) );
 
-		RealMatrix transformMatrix = i2WindowMatrix.multiply( MatrixUtils.inverse( i2dataMatrix ) );
-
-		this.drawProfile( g, Color.RED, points, transformMatrix );
-		this.drawScale( g, xRange, yRange, width, height, margin, transformMatrix );
+		if( translation != null ) {
+			drawMatrix = translation.multiply( drawMatrix );
+		}
+		return drawMatrix;
 	}
 
 	/**
@@ -176,21 +149,21 @@ public class ProfileCanvas extends Canvas {
 	 * @param points points
 	 * @param matrix transform matrix
 	 */
-	private void drawProfile( GraphicsContext g, Paint paint, ArrayList< FastDrawData.Element > points, RealMatrix matrix ) {
+	protected void drawProfile( GraphicsContext g, ArrayList< FastDrawData.Element > points, RealMatrix drawMatrix, Paint paint ) {
 		g.beginPath();
 		g.setStroke( paint );
 
 		Point< Integer > previousPoint = null;
 		for( FastDrawData.Element point : points ) {
 			if( previousPoint != null ) {
-				Point< Integer > left = this.getPoint( point.getLeft(), matrix );
+				Point< Integer > left = this.getPoint( point.getLeft(), drawMatrix );
 				this.drawLine( g, previousPoint, left );
 			}
-			Point< Integer > top = this.getPoint( point.getMax(), matrix );
-			Point< Integer > bottom = this.getPoint( point.getMin(), matrix );
+			Point< Integer > top = this.getPoint( point.getMax(), drawMatrix );
+			Point< Integer > bottom = this.getPoint( point.getMin(), drawMatrix );
 			this.drawLine( g,  top,  bottom );
 
-			previousPoint = this.getPoint( point.getRight(), matrix );
+			previousPoint = this.getPoint( point.getRight(), drawMatrix );
 		}
 
 		g.closePath();
@@ -207,23 +180,19 @@ public class ProfileCanvas extends Canvas {
 	 * @param margin margin
 	 * @param transformMatrix transform matrix
 	 */
-	private void drawScale(
+	protected void drawScale(
 			GraphicsContext g,
 			Range< Double > xRange,
 			Range< Double > yRange,
 			Integer width,
 			Integer height,
 			Rect< Integer > margin,
-			RealMatrix transformMatrix
+			RealMatrix drawMatrix,
+			String xTitle,
+			String yTitle
 	) {
-		g.beginPath();
-		g.setStroke( Color.BLACK );
-
-		drawXScale( g, xRange, width, height, margin, transformMatrix );
-		drawYScale( g, yRange, width, height, margin, transformMatrix );
-
-		g.closePath();
-		g.stroke();
+		this.drawXScale( g, xRange, width, height, margin, drawMatrix, xTitle, Color.BLACK );
+		this.drawYScale( g, yRange, width, height, margin, drawMatrix, yTitle, Color.BLACK );
 	}
 
 	/**
@@ -234,14 +203,19 @@ public class ProfileCanvas extends Canvas {
 	 * @param margin margin
 	 * @param transformMatrix transform matrix
 	 */
-	private void drawXScale(
+	protected void drawXScale(
 			GraphicsContext g,
 			Range< Double > xRange,
 			Integer width,
 			Integer height,
 			Rect< Integer > margin,
-			RealMatrix transformMatrix
+			RealMatrix transformMatrix,
+			String xTitle,
+			Paint paint
 	) {
+		g.beginPath();
+		g.setStroke( paint );
+
 		Integer left = margin.getLeft();
 		Integer right = width - margin.getRight();
 		Integer py = height - margin.getBottom();
@@ -284,11 +258,14 @@ public class ProfileCanvas extends Canvas {
 			index++;
 		}
 
-		Integer stringWidth = this.getTextWidth( g,  this.xTitle );
-		g.strokeText( this.xTitle, ( width - stringWidth ) / 2, py + ProfileCanvas.SCALE_LENGTH + fontHeight * 2 + 3 );
+		Integer stringWidth = this.getTextWidth( g,  xTitle );
+		g.strokeText( xTitle, ( width - stringWidth ) / 2, py + ProfileCanvas.SCALE_LENGTH + fontHeight * 2 + 3 );
 
 		g.moveTo( left,  py );
 		g.lineTo( right,  py );
+
+		g.closePath();
+		g.stroke();
 	}
 
 	/**
@@ -305,8 +282,13 @@ public class ProfileCanvas extends Canvas {
 			Integer width,
 			Integer height,
 			Rect< Integer > margin,
-			RealMatrix transformMatrix
+			RealMatrix transformMatrix,
+			String yTitle,
+			Paint paint
 	) {
+		g.beginPath();
+		g.setStroke( paint );
+
 		Integer top = margin.getTop();
 		Integer bottom = height - margin.getBottom();
 		Integer px = margin.getLeft();
@@ -343,11 +325,14 @@ public class ProfileCanvas extends Canvas {
 			index++;
 		}
 
-		Integer stringWidth = this.getTextWidth( g,  this.yTitle );
-		g.strokeText( this.yTitle, px - stringWidth / 2, top - 1 );
+		Integer stringWidth = this.getTextWidth( g,  yTitle );
+		g.strokeText( yTitle, px - stringWidth / 2, top - 1 );
 
 		g.moveTo( px,  top );
 		g.lineTo( px,  bottom );
+
+		g.closePath();
+		g.stroke();
 	}
 
 	/**
@@ -376,21 +361,24 @@ public class ProfileCanvas extends Canvas {
 	}
 
 	/**
-	 *
+	 * gets the max y value width
 	 * @param g
 	 * @param xRange
 	 * @param yRange
-	 * @param width
 	 * @param height
+	 * @param topMargin
+	 * @param bottomMargin
 	 * @return
 	 */
-	Rect< Integer > getMargin( GraphicsContext g, Range< Double > xRange, Range< Double > yRange, Integer width, Integer height ) {
-		Integer top = ProfileCanvas.DEFAULT_MARGIN;
-		Integer right = ProfileCanvas.DEFAULT_MARGIN;
-		Integer bottom = 50;
-		Integer left = ProfileCanvas.DEFAULT_MARGIN;
-
-		Integer level = this.getScaleLevel( xRange.getEnd() - xRange.getStart(),  height - top - bottom );
+	protected Integer getMaxYValueWidth(
+			GraphicsContext g,
+			Range< Double > xRange,
+			Range< Double > yRange,
+			Integer height,
+			Integer topMargin,
+			Integer bottomMargin
+	) {
+		Integer level = this.getScaleLevel( xRange.getEnd() - xRange.getStart(),  height - topMargin - bottomMargin );
 
 		String maxString = "0.0";
 		if( level < 0 ) {
@@ -401,10 +389,8 @@ public class ProfileCanvas extends Canvas {
 			maxString = String.format( "%d", (int)Math.round( yRange.getEnd() ) );
 		}
 
-		left = left + this.getTextWidth( g,  maxString );
+		return this.getTextWidth( g,  maxString );
 
-		Rect< Integer > margin = new Rect< Integer >( top, right, bottom, left );
-		return margin;
 	}
 
 	/**
