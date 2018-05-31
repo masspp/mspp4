@@ -28,6 +28,20 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
 public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
 
     /**
+     * @return the id_jmzml
+     */
+    public String getId_jmzml() {
+        return id_jmzml;
+    }
+
+    /**
+     * @param id_jmzml the id_jmzml to set
+     */
+    public void setId_jmzml(String id_jmzml) {
+        this.id_jmzml = id_jmzml;
+    }
+
+    /**
      * @return the iteroffset
      */
     public int getIterOffset() {
@@ -43,6 +57,7 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
 
 
     private int iteroffset;
+    private String id_jmzml;
 
 
     public jmzMLSpectrum(Sample sample) {
@@ -70,12 +85,10 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
      */
     @Override
     public XYData onGetXYData(double min_x, double max_x) {
-        Sample sample = this.getSample();
-//        String path = sample.getFilePath() + File.separator + sample.getName();
-        String path = sample.getFilePath();
-        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(path));
-
-        uk.ac.ebi.jmzml.model.mzml.Spectrum spec = getJmzmlSpectrum(unmarshaller, this.getId());
+       
+        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
+        
+        uk.ac.ebi.jmzml.model.mzml.Spectrum spec = getJmzmlSpectrum(unmarshaller, this.getId_jmzml()); 
         ArrayList<Point<Double>> points = new ArrayList<>();
         int arraylength=spec.getBinaryDataArrayList().getBinaryDataArray().get(0).getArrayLength();
         double[] xarray=new double[arraylength];

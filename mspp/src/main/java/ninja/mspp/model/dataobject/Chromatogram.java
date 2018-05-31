@@ -5,6 +5,7 @@
  */
 package ninja.mspp.model.dataobject;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -16,15 +17,15 @@ public abstract class Chromatogram {
     /**
      * @return the sample
      */
-    public Sample getSample() {
-        return sample;
+    public String getSamplePath() {
+        return sample_path;
     }
 
     /**
      * @param sample the sample to set
      */
-    public void setSample(Sample sample) {
-        this.sample = sample;
+    public void setSamplePath(String sample_path) {
+        this.sample_path = sample_path;
     }
 
     /**
@@ -111,7 +112,7 @@ public abstract class Chromatogram {
         this.title = title;
     }
     
-    private Sample sample;
+    private String sample_path;
     private String id;
     private XYData chromatogramData;
     private double mz;
@@ -131,9 +132,9 @@ public abstract class Chromatogram {
      * @param sample 
      */
     public Chromatogram(Sample sample, Range mzrange){
-        this.sample = sample;
+        this.sample_path = sample.getFilePath();
         this.mzrange = mzrange;
-        this.id = null;
+        this.id = "";
         this.mz = 0.0;
         this.ms_stage = 1;
         this.name = "";

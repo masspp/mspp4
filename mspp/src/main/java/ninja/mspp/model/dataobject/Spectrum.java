@@ -5,6 +5,7 @@
  */
 package ninja.mspp.model.dataobject;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -87,15 +88,15 @@ public abstract class Spectrum {
     /**
      * @return the sample
      */
-    public Sample getSample() {
-        return sample;
+    public String getSamplePath() {
+        return sample_path;
     }
 
     /**
      * @param sample the sample to set
      */
-    public void setSample(Sample sample) {
-        this.sample = sample;
+    public void setSamplePath(String sample_path) {
+        this.sample_path = sample_path;
     }
 
     /**
@@ -287,10 +288,11 @@ public abstract class Spectrum {
     public void setIsIdentified(boolean is_identified) {
         this.is_identified = is_identified;
     }
-
-
-    private Sample sample;
+    
+    
+    private String sample_path;
     private String id;
+    private String name;
     private boolean is_centroid;
     private String title;
     private int ms_stage;
@@ -324,8 +326,9 @@ public abstract class Spectrum {
 
     public Spectrum(Sample sample){
         //Initialize
-        this.sample = sample;
-        this.id = null;
+        this.sample_path = sample.getFilePath();
+        this.id = "";
+        this.name = "";
         this.is_centroid=false;
         this.MassIntensityData=null;
         this.basepeakmz=0.0;
@@ -372,5 +375,19 @@ public abstract class Spectrum {
     public abstract double  onGetTotalIntensity(double min_x, double max_x);
 
     public abstract Range<Double> onGetXRange(); // required?
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }
