@@ -173,23 +173,38 @@ public abstract class ProfileCanvas extends Canvas {
 	}
 
 	/**
+	 * draws profile
+	 * @param g graphics
+	 * @param points points
+	 * @param drawMatrix draw matrix
+	 * @param paint paint
+	 */
+	protected void drawProfile( GraphicsContext g, ArrayList< FastDrawData.Element > points, RealMatrix drawMatrix, Paint paint	) {
+		this.drawProfile( g, points, drawMatrix, paint, true );
+	}
+
+	/**
 	 * draw
 	 * @param g graphics
 	 * @param points points
 	 * @param matrix transform matrix
 	 */
-	protected void drawProfile( GraphicsContext g, ArrayList< FastDrawData.Element > points, RealMatrix drawMatrix, Paint paint ) {
+	protected void drawProfile( GraphicsContext g, ArrayList< FastDrawData.Element > points, RealMatrix drawMatrix, Paint paint, boolean centroid ) {
 		g.beginPath();
 		g.setStroke( paint );
 
 		Point< Integer > previousPoint = null;
 		for( FastDrawData.Element point : points ) {
-			if( previousPoint != null ) {
+			if( previousPoint != null && !centroid ) {
 				Point< Integer > left = this.getPoint( point.getLeft(), drawMatrix );
 				this.drawLine( g, previousPoint, left );
 			}
 			Point< Integer > top = this.getPoint( point.getMax(), drawMatrix );
 			Point< Integer > bottom = this.getPoint( point.getMin(), drawMatrix );
+			if( centroid ) {
+				Point< Double > zero = new Point< Double >( point.getMax().getX(), 0.0 );
+				bottom = this.getPoint( zero,  drawMatrix );
+			}
 			this.drawLine( g,  top,  bottom );
 
 			previousPoint = this.getPoint( point.getRight(), drawMatrix );
@@ -198,6 +213,7 @@ public abstract class ProfileCanvas extends Canvas {
 		g.closePath();
 		g.stroke();
 	}
+
 
 	/**
 	 * draw scales

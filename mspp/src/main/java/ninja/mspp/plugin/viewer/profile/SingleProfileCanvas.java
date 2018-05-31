@@ -7,6 +7,9 @@ import org.apache.commons.math3.linear.RealMatrix;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import ninja.mspp.MsppManager;
+import ninja.mspp.annotation.DrawSpectrumForeground;
+import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
@@ -89,6 +92,40 @@ public class SingleProfileCanvas extends ProfileCanvas {
 		return margin;
 	}
 
+	/**
+	 * draws foreground
+	 * @param g graphics
+	 * @param points points
+	 * @param xRange x range
+	 * @param yRange y range
+	 * @param width width
+	 * @param height height
+	 * @param margin margin
+	 * @param drawMatrix draw matrix
+	 */
+	void drawForeGround(
+			GraphicsContext g,
+			ArrayList< FastDrawData.Element > points,
+			Range< Double > xRange,
+			Range< Double > yRange,
+			Integer width,
+			Integer height,
+			Rect< Integer > margin,
+			RealMatrix drawMatrix
+	) {
+		MsppManager manager = MsppManager.getInstance();
+		ArrayList< PluginMethod< DrawSpectrumForeground > > methods = manager.getMethods( DrawSpectrumForeground.class );
+		for( PluginMethod< DrawSpectrumForeground > method : methods ) {
+			Object plugin = method.getPlugin();
+			try {
+				method.getMethod().invoke( plugin,  g, points, xRange, yRange, width, height, margin, drawMatrix );
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	@Override
 	protected void onDraw(GraphicsContext g, Integer width, Integer height) {
 		Range< Double > xRange = this.xRange;
@@ -107,6 +144,9 @@ public class SingleProfileCanvas extends ProfileCanvas {
 		String yTitle = this.yTitle;
 
 		this.drawProfile( g,  points,  drawMatrix,  Color.RED );
+
+		this.drawForeGround( g, points, xRange, yRange, width, height, margin, drawMatrix );
+
 		this.drawScale( g,  xRange,  yRange,  width, height, margin, drawMatrix, xTitle, yTitle );
 	}
 }
