@@ -87,7 +87,7 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
     public XYData onGetXYData(double min_x, double max_x) {
        
         MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
-        
+
         uk.ac.ebi.jmzml.model.mzml.Spectrum spec = getJmzmlSpectrum(unmarshaller, this.getId_jmzml()); 
         ArrayList<Point<Double>> points = new ArrayList<>();
         int arraylength=spec.getBinaryDataArrayList().getBinaryDataArray().get(0).getArrayLength();
@@ -105,8 +105,9 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
                     case INT32BIT:
                     case INT64BIT:
                     case FLOAT64BIT:
+                        Number[] numarray = binaryDataArray.getBinaryDataAsNumberArray();
                         for (int i = 0; i < length; i++){
-                            xarray[i]=binaryDataArray.getBinaryDataAsNumberArray()[i].doubleValue() ;
+                            xarray[i]=numarray[i].doubleValue() ;
                         }
                         break;
                     default:
@@ -123,9 +124,13 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
                     case INT32BIT:
                     case INT64BIT:
                     case FLOAT64BIT:
+                        //long time_intensity1 = System.currentTimeMillis();
+                        Number[] numarray = binaryDataArray.getBinaryDataAsNumberArray();
                         for (int i = 0; i < length; i++){
-                            yarray[i]=binaryDataArray.getBinaryDataAsNumberArray()[i].doubleValue();
+                            yarray[i]=numarray[i].doubleValue();
                         }
+                        //long time_intensity2 = System.currentTimeMillis();
+                        //System.out.println("Duration to convert Intensity to array:"+Long.toString(time_intensity2- time_intensity1));
                         break;
                     default:
                         break;
@@ -138,7 +143,7 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
             Point p = new Point(xarray[i],yarray[i]);
             points.add(p);
         }
-
+      
         XYData xydata = new XYData(points, true);
 
         return xydata;
