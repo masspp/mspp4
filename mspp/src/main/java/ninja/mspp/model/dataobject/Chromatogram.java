@@ -27,8 +27,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author: Mass++ User Group
- * @since: 2018
+ * @author Mass++ Users Group
+ * @author Masaki Murase
+ * @since 2018-03-18 21:36:07+09:00
  *
  * Copyright (c) 2018, Mass++ Users Group
  * All rights reserved.
