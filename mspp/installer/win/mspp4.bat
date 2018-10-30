@@ -1,0 +1,1 @@
+jre8\bin\java.exe -jar mspp-4.0.0_alpha.jar

@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -73,6 +75,7 @@ import ninja.mspp.tools.PluginTool;
  * @author Satoshi Tanaka
  *
  */
+@Component
 public class MainFrame implements Initializable {
 	@FXML private MenuBar menubar;
 	@FXML private BorderPane mainPane;
@@ -238,7 +241,6 @@ public class MainFrame implements Initializable {
 				menu.getItems().add( separator );
 			}
 			for( MenuInfo child : group ) {
-				System.out.println( group.getName() );
 				if( child.isLeaf() ) {
 					Object plugin = pluginMap.get( child );
 					boolean checkable = checkables.contains( child );

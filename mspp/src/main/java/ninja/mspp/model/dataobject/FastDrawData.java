@@ -63,7 +63,6 @@ public class FastDrawData {
 	 * @param level level
 	 * @return points
 	 */
-	@SuppressWarnings("unchecked")
 	public ArrayList< FastDrawData.Element > getPoints( Integer level ) {
 		if( level < 0 || level >= this.points.size() ) {
 			return null;

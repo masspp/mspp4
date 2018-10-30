@@ -41,7 +41,6 @@
  */
 package ninja.mspp.model.dataobject;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -147,7 +146,7 @@ public abstract class Chromatogram {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     private String sample_path;
     private String id;
     private XYData chromatogramData;
@@ -156,18 +155,18 @@ public abstract class Chromatogram {
     private int ms_stage;
     private String name;
     private String title;
-    
+
     protected enum SearchType{
         SEARCH_PREV,
         SEARCH_NEXT,
         SEARCH_Near
     }
-    
+
     /***
-     * 
-     * @param sample 
+     *
+     * @param sample
      */
-    public Chromatogram(Sample sample, Range mzrange){
+    public Chromatogram(Sample sample, Range< Double > mzrange){
         this.sample_path = sample.getFilePath();
         this.mzrange = mzrange;
         this.id = "";
@@ -176,46 +175,46 @@ public abstract class Chromatogram {
         this.name = "";
         this.title = "";
     }
-    
+
     public Chromatogram(Sample sample, double mz){
         this(sample,new Range<Double>(mz,mz));
     }
-    
+
     public Chromatogram(Sample sample){
-        this(sample, 0.0); 
+        this(sample, 0.0);
     }
-    
-    
+
+
     public abstract XYData onGetChromatogram();
-    
+
     /***
      *   TODO: still considering specification for viewer GUI.
      * @param startRt
      * @param endRt
      * @param startSearchType
      * @param endSearchType
-     * @return 
+     * @return
      */
     public abstract ArrayList<Spectrum> onGetSpectra(double startRt, double endRt, SearchType startSearchType, SearchType endSearchType);
-    
+
     /**
      * TODO: still considering specification for viewer GUI.
      * @param idx
-     * @return 
+     * @return
      */
     public abstract double onGetMass(int idx);
-    
+
     /**
      * TODO: still considering specification for viewer GUI.
      * @param idx
-     * @return 
+     * @return
      */
     public abstract int onGetMsStage(int idx);
-    
+
     /**
      * TODO: still considering specification for viewer GUI.
      * @param idx
-     * @return 
+     * @return
      */
     public abstract double onGetMz(int idx);
 }

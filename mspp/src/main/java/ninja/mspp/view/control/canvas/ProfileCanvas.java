@@ -64,6 +64,8 @@ public abstract class ProfileCanvas extends Canvas {
 
 	public static final Integer SCALE_LENGTH = 5;
 
+	public static final Integer SCALE_SPACING = 10;
+
 	/**
 	 * constructor
 	 * @param xyData xy data
@@ -325,17 +327,16 @@ public abstract class ProfileCanvas extends Canvas {
 
 			Integer stringWidth = this.getTextWidth( g,  string );
 
-
 			if( px >= left && px <= right ) {
 				g.moveTo( px,  py );
 				g.lineTo( px, py + ProfileCanvas.SCALE_LENGTH );
 
-				if(  px - stringWidth / 2 > prevPx ) {
+				if(  px - stringWidth / 2 > prevPx + ProfileCanvas.SCALE_SPACING ) {
 					g.strokeText( string,  px - stringWidth / 2,  py + ProfileCanvas.SCALE_LENGTH + 1 + fontHeight );
+					prevPx = px + stringWidth / 2;
 				}
 			}
 
-			prevPx = px + stringWidth / 2;
 			index++;
 		}
 
@@ -387,6 +388,8 @@ public abstract class ProfileCanvas extends Canvas {
 		Integer index = (int)Math.floor( yRange.getStart() / unit );
 		Integer py = Integer.MAX_VALUE;
 
+		Integer prevPy = bottom;
+
 		while( py >= top ) {
 			double y = unit * (double)index;
 			py = (int)Math.round( 0.0 * transformMatrix.getEntry( 1,  0 ) + y * transformMatrix.getEntry( 1,  1 ) + transformMatrix.getEntry( 1,  2 ) );
@@ -400,7 +403,10 @@ public abstract class ProfileCanvas extends Canvas {
 			if( py >= top && py <= bottom ) {
 				g.moveTo( px,  py );
 				g.lineTo( px - ProfileCanvas.SCALE_LENGTH, py );
-				g.strokeText( string,  px - ProfileCanvas.SCALE_LENGTH - stringWidth - 1, py + fontHeight / 2 );
+				if( py < prevPy - ( fontHeight / 2 ) - ProfileCanvas.SCALE_SPACING  ) {
+					g.strokeText( string,  px - ProfileCanvas.SCALE_LENGTH - stringWidth - 1, py + fontHeight / 2 );
+					prevPy = py;
+				}
 			}
 
 			index++;

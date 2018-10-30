@@ -172,6 +172,7 @@ public class MsppManager implements Iterable< Object > {
 
 		for( String file : files ) {
 			if( file.endsWith( ".class" ) ) {
+				file = file.replace( "BOOT-INF/classes/", "" );
 				String className = file.replace( ".class", "" );
 				className = className.replace( "/",  "." );
 				int index = className.indexOf( "$" );
