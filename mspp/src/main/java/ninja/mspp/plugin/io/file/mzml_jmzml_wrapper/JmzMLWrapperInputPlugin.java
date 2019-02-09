@@ -42,6 +42,7 @@
 package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
 import java.io.File;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
@@ -52,7 +53,7 @@ import ninja.mspp.annotation.FileInput;
 import ninja.mspp.annotation.Plugin;
 import ninja.mspp.model.dataobject.Precursor;
 import ninja.mspp.model.dataobject.Sample;
-import ninja.mspp.utils.MD5Utils;
+import software.amazon.awssdk.utils.Md5Utils;
 import uk.ac.ebi.jmzml.model.mzml.CVParam;
 import uk.ac.ebi.jmzml.model.mzml.Chromatogram;
 import uk.ac.ebi.jmzml.model.mzml.ParamGroup;
@@ -79,9 +80,9 @@ public class JmzMLWrapperInputPlugin {
         sample.setName(sample.getFileName());
         sample.setFilePath(filepath.getPath());
         try {
-            String uid = MD5Utils.generateHash(path);
+            String uid = Md5Utils.md5AsBase64(new File(path));
             sample.setSampleId( uid );
-        }catch(NoSuchAlgorithmException e){
+        }catch(Exception e){
             String msg = "Failed to generate unique id for mzML file";
             logger.error(msg, e);
         }
