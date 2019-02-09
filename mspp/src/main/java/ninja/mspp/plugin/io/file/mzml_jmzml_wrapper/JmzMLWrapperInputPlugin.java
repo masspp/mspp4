@@ -34,11 +34,7 @@
  * Copyright (c) 2018, Mass++ Users Group
  * All rights reserved.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
 import java.io.File;

@@ -91,11 +91,6 @@
 		<scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>uk.ac.ebi.jmzml</groupId>
-                <artifactId>jmzml</artifactId>
-                <version>1.7.9</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>1.3.2</version>
@@ -115,7 +110,17 @@
                 <artifactId>utils</artifactId>
                 <version>2.4.4</version>
             </dependency>
-            
+            <dependency>
+                <groupId>uk.ac.ebi.jmzml</groupId>
+                <artifactId>jmzml</artifactId>
+                <version>1.7.9</version>
+            </dependency>
+            <dependency>
+                <!-- put this later than commons-math3 -->
+                <groupId>uk.ac.ebi.pride.utilities</groupId>
+                <artifactId>ms-data-core-api</artifactId>
+                <version>2.0.18</version>
+            </dependency>                       
 	</dependencies>
 	<build>
             <plugins>
@@ -152,13 +157,20 @@
                                 <exclude>.mvn/**</exclude>
                                 <exclude>.git/**</exclude>
                             </excludes>
+                            <mapping>
+                                <java>SLASHSTAR_STYLE</java>
+                            </mapping>
                         </configuration>
                         <executions>
-                            <execution>
+<!--                            <execution>
                                 <goals>
                                     <goal>check</goal>
                                 </goals>
-                            </execution>
+                                <configuration>
+                                    <strictCheck>false</strictCheck>
+                                    <failIfMissing>false</failIfMissing>
+                                </configuration>
+                            </execution>-->
                         </executions>
                     </plugin>
             </plugins>
