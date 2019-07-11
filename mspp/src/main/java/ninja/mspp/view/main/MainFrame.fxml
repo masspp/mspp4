@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
 
     BSD 3-Clause License
@@ -37,37 +38,24 @@
     All rights reserved.
 
 -->
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.SplitPane?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.view.main.MainFrame">
-   <top>
-      <MenuBar fx:id="menubar" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu fx:id="fileMenu" mnemonicParsing="false" text="File" />
-            <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit" />
-            <Menu fx:id="viewMenu" mnemonicParsing="false" text="View" />
-            <Menu fx:id="processingMenu" mnemonicParsing="false" text="Processing" />
-            <Menu fx:id="toolsMenu" mnemonicParsing="false" text="Tools" />
-          <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help" />
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.view.main.MainFrame">
    <center>
-      <SplitPane fx:id="verticalSplit" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
-         <items>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <SplitPane fx:id="horizontalSplit" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <items>
-                        <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" />
-                     </items>
-                  </SplitPane>
-               </center>
-            </BorderPane>
-         </items>
-      </SplitPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab closable="false" text="Raw data">
+               <content>
+                  <BorderPane fx:id="rawDataPane" prefHeight="200.0" prefWidth="200.0" />
+               </content></Tab>
+          <Tab closable="false" text="Project">
+               <content>
+                  <BorderPane fx:id="projectPane" prefHeight="200.0" prefWidth="200.0" />
+               </content></Tab>
+        </tabs>
+      </TabPane>
    </center>
 </BorderPane>

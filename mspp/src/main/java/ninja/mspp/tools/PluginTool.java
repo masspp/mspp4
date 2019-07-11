@@ -79,7 +79,7 @@ public class PluginTool {
 	) {
 		boolean value = defaultValue;
 		try {
-			Object ret = PluginTool.invoke( plugin,  clazz, args );
+			Object ret = PluginTool.invoke( plugin, clazz, args );
 			if( ret == null ) {
 				value = defaultValue;
 			}

@@ -38,6 +38,12 @@ package ninja.mspp.model;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+import ninja.mspp.ObjectManager;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
+import ninja.mspp.annotation.parameter.MainFrameParam;
 
 /**
  * plug-in method
@@ -90,5 +96,64 @@ public class PluginMethod< A extends Annotation >  {
 	 */
 	public A getAnnotation() {
 		return this.annotation;
+	}
+
+	/**
+	 * invokes method
+	 * @param args arguments
+	 * @return return value
+	 */
+	public Object invoke( Object... args ) {
+		ObjectManager manager = ObjectManager.getInstane();
+
+		Object ret = null;
+		try {
+			Annotation[][] allAnnotations = this.method.getParameterAnnotations();
+			List< Object > parameters = new ArrayList< Object >();
+			int index = 0;
+
+			for( Annotation[] annotations : allAnnotations ) {
+				if( this.hasAnnotation( annotations, MainFrameParam.class ) ) {
+					parameters.add( manager.getMainFrame() );
+				}
+				else if( this.hasAnnotation( annotations, FxmlLoaderParam.class ) ) {
+					parameters.add( manager.getFxmlLoader() );
+				}
+				else {
+					parameters.add( args[ index ] );
+					index++;
+				}
+			}
+
+			Object[] array = null;
+			if( !parameters.isEmpty() ) {
+				array = parameters.toArray( new Object[ parameters.size() ] );
+			}
+			ret = this.method.invoke( this.plugin, array );
+		}
+		catch( Exception e ) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	/**
+	 * judges whether the array has specified annotation
+	 * @param annotations annotations
+	 * @param clazz annotations class
+	 * @return
+	 */
+	private boolean hasAnnotation( Annotation[] annotations, Class< ? > clazz ) {
+		boolean found = false;
+		if( annotations == null || clazz == null ) {
+			return found;
+		}
+
+		for( Annotation annotation : annotations ) {
+			if( clazz.equals( annotation.annotationType() ) ) {
+				found = true;
+			}
+		}
+		return found;
 	}
 }

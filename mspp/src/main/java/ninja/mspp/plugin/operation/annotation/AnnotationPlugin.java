@@ -48,32 +48,30 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import ninja.mspp.annotation.DrawSpectrumForeground;
-import ninja.mspp.annotation.Menu;
-import ninja.mspp.annotation.MenuAction;
-import ninja.mspp.annotation.MenuPosition;
-import ninja.mspp.annotation.Plugin;
-import ninja.mspp.model.dataobject.FastDrawData;
+import ninja.mspp.annotation.method.DrawSpectrumForeground;
+import ninja.mspp.annotation.method.MenuAction;
+import ninja.mspp.annotation.method.MenuPosition;
+import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.model.dataobject.DrawPoint;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
-import ninja.mspp.model.gui.MenuInfo;
+import ninja.mspp.model.gui.MenuNode;
 
-@Plugin( name = "annotation")
-@Menu
+@Plugin( "annotation")
 public class AnnotationPlugin {
-	MenuInfo menu;
+	MenuNode menu;
 	ArrayList< Annotation > annotations;
 
 	/**
 	 * constructor
 	 */
 	public AnnotationPlugin() {
-		this.menu = MenuInfo.TOOLS_MENU.item( "Annotation" );
+		this.menu = MenuNode.TOOLS_MENU.item( "Annotation" );
 		this.annotations  = new ArrayList< Annotation >();
 	}
 
 	@MenuPosition
-	public MenuInfo getMenuPosition() {
+	public MenuNode getMenuPosition() {
 		return this.menu;
 	}
 
@@ -91,7 +89,7 @@ public class AnnotationPlugin {
 	@DrawSpectrumForeground
 	public void drawAnnotation(
 			GraphicsContext g,
-			ArrayList< FastDrawData.Element > points,
+			ArrayList< DrawPoint > points,
 			Range< Double > xRange,
 			Range< Double > yRange,
 			Integer width,

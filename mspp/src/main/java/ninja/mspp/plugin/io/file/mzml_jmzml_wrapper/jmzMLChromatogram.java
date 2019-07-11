@@ -46,8 +46,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ninja.mspp.model.dataobject.Point;
-import ninja.mspp.model.dataobject.Sample;
-import ninja.mspp.model.dataobject.Spectrum;
+import ninja.mspp.model.dataobject.SampleObject;
+import ninja.mspp.model.dataobject.SpectrumObject;
 import ninja.mspp.model.dataobject.XYData;
 import uk.ac.ebi.jmzml.model.mzml.BinaryDataArray;
 import uk.ac.ebi.jmzml.model.mzml.CVParam;
@@ -59,7 +59,7 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
  *
  * @author masakimu
  */
-public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
+public class jmzMLChromatogram extends ninja.mspp.model.dataobject.ChromatogramObject{
 
     /**
      * @return the id_jmzml
@@ -76,8 +76,8 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
     }
     
     private String id_jmzml;
-    
-    public jmzMLChromatogram(Sample sample) {
+
+    public jmzMLChromatogram(SampleObject sample) {
         super(sample);
     }
 
@@ -158,7 +158,7 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
         }
         
         for(int i = 0; i < xarray.length; i++){
-            Point p = new Point(xarray[i],yarray[i]);
+            Point< Double > p = new Point< Double >(xarray[i],yarray[i]);
             points.add(p);
         }
     
@@ -173,7 +173,7 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
     }
 
     @Override
-    public ArrayList<Spectrum> onGetSpectra(double startRt, double endRt, SearchType startSearchType, SearchType endSearchType) {
+    public ArrayList<SpectrumObject> onGetSpectra(double startRt, double endRt, SearchType startSearchType, SearchType endSearchType) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -205,4 +205,9 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.Chromatogram{
         }
         
     }
+
+	@Override
+	public XYData getXYData() {
+		return this.getChromatogramData();
+	}
 }

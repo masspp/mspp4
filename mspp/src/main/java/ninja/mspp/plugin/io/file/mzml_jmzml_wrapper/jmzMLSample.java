@@ -48,7 +48,7 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
  *
  * @author masakimu
  */
-public class jmzMLSample extends ninja.mspp.model.dataobject.Sample {
+public class jmzMLSample extends ninja.mspp.model.dataobject.SampleObject {
 
     
        /**

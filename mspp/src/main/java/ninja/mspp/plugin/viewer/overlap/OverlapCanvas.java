@@ -37,6 +37,7 @@
 package ninja.mspp.plugin.viewer.overlap;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
@@ -44,6 +45,7 @@ import org.apache.commons.math3.linear.RealMatrix;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import ninja.mspp.model.dataobject.DrawPoint;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
@@ -78,9 +80,9 @@ public class OverlapCanvas extends ProfileCanvas {
 	 * adds xy data
 	 * @param xyData xy data
 	 */
-	public void addXYData( XYData xyData ) {
+	public void addXYData( XYData xyData, FastDrawData data ) {
 		this.xyDataArray.add( xyData );
-		this.drawArray.add( new FastDrawData( xyData ) );
+		this.drawArray.add( data );
 
 		this.xRange = this.getXRange( this.xyDataArray );
 
@@ -149,12 +151,12 @@ public class OverlapCanvas extends ProfileCanvas {
 
 		Range< Double > xRange = this.xRange;
 
-		ArrayList< ArrayList< FastDrawData.Element > > arrays = new ArrayList< ArrayList< FastDrawData.Element > >();
+		List< List< DrawPoint > > arrays = new ArrayList< List< DrawPoint > >();
 		for( FastDrawData data : this.drawArray ) {
 			arrays.add( this.getPoints( data,  width,  xRange ) );
 		}
 
-		Range< Double > yRange = this.getYRange( arrays,  xRange );
+		Range< Double > yRange = this.getYRangeFromArray( arrays,  xRange );
 
 		Rect< Integer > margin = this.getMargin( g,  yRange,  width,  height );
 

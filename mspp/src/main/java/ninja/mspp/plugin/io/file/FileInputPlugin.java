@@ -37,68 +37,65 @@
 package ninja.mspp.plugin.io.file;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.List;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
-import ninja.mspp.annotation.FileInput;
-import ninja.mspp.annotation.Menu;
-import ninja.mspp.annotation.MenuAction;
-import ninja.mspp.annotation.MenuPosition;
-import ninja.mspp.annotation.OnOpenSample;
-import ninja.mspp.annotation.Plugin;
+import ninja.mspp.annotation.method.FileInput;
+import ninja.mspp.annotation.method.MenuAction;
+import ninja.mspp.annotation.method.MenuPosition;
+import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
-import ninja.mspp.model.dataobject.Sample;
-import ninja.mspp.model.gui.MenuInfo;
-import ninja.mspp.model.gui.MenuInfo.Order;
+import ninja.mspp.model.dataobject.SampleObject;
+import ninja.mspp.model.gui.MenuNode;
+import ninja.mspp.model.gui.MenuNode.Order;
+import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FileTool;
-import ninja.mspp.view.GuiManager;
 
-@Plugin( name = "File IO" )
-@Menu
+
+
+@Plugin( "File IO" )
+@Component
 public class FileInputPlugin {
-	private static String RECENT_FILE_KEY = "Rectn Open File";
-	private MenuInfo menu;
-	private ArrayList< PluginMethod< FileInput > > methods;
+	private static String RECENT_FILE_KEY = "Recent Open File";
+	private MenuNode menu;
+
+	@Autowired
+	private RawDataService rawDataService;
 
 	/**
 	 * constructor
 	 */
 	public FileInputPlugin() {
-		this.menu = MenuInfo.FILE_MENU.item( "Open...", "file", Order.HIGHEST );
-		this.methods = null;
+		this.menu = MenuNode.FILE_MENU.item( "Open...", "file", Order.HIGHEST );
 	}
 
 	@MenuPosition
-	public MenuInfo getMenuItem() {
+	public MenuNode getMenuItem() {
 		return this.menu;
 	}
 
 	@MenuAction
 	public void action() {
-		MsppManager msppManager = MsppManager.getInstance();
-		GuiManager guiManager = GuiManager.getInstance();
-		ResourceBundle messages = msppManager.getMessages();
-
-		if( this.methods == null ) {
-			this.methods = msppManager.getMethods( FileInput.class );
-		}
-
-		String path = msppManager.loadString( RECENT_FILE_KEY, "" );
+		MsppManager manager = MsppManager.getInstance();
+		String path = manager.loadString( RECENT_FILE_KEY, "" );
 		File file = null;
 		if( !path.isEmpty() ) {
 			file = new File( path );
 		}
 
+		List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
+
 		FileChooser chooser = new FileChooser();
 		chooser.setTitle( "Open File" );
 		chooser.getExtensionFilters().clear();
 		chooser.getExtensionFilters().add( new ExtensionFilter( "All Files", "*.*" ) );
-		for( PluginMethod< FileInput > method: this.methods ) {
+		for( PluginMethod< FileInput > method: methods ) {
 			FileInput annotation = method.getAnnotation();
 			chooser.getExtensionFilters().add(
 				new ExtensionFilter( annotation.title(), "*." + annotation.ext() )
@@ -110,49 +107,35 @@ public class FileInputPlugin {
 			chooser.setInitialFileName( file.getName() );
 		}
 
-		file = chooser.showOpenDialog( guiManager.getStage() );
+		Stage stage = new Stage();
+		file = chooser.showOpenDialog( stage );
 		if( file != null ) {
-			Sample sample = openFile( file );
-			if( sample == null ) {
-				Alert alert = new Alert( AlertType.ERROR );
-				alert.setTitle( "Error" );
-				alert.setHeaderText( messages.getString( "file.open.error.header" ) );
-				alert.setContentText( messages.getString( "file.open.error.content" ) );
-				alert.showAndWait();
-			}
-			else {
-				ArrayList< PluginMethod< OnOpenSample > > onOpenMethods = msppManager.getMethods( OnOpenSample.class );
-				for( PluginMethod< OnOpenSample > method : onOpenMethods ) {
-					Object plugin = method.getPlugin();
-					try {
-						method.getMethod().invoke( plugin, sample );
-					}
-					catch( Exception e ) {
-						e.printStackTrace();
-					}
-				}
-				msppManager.addSample( sample );
-				msppManager.saveString( RECENT_FILE_KEY,  file.getAbsolutePath() );
-			}
+			SampleObject sampleObject = this.openFile( file );
+			this.rawDataService.register( sampleObject, null );
 		}
 	}
+
 
 	/**
 	 * opens file
 	 * @param file file
 	 * @return file data
 	 */
-	protected Sample openFile( File file ) {
+	protected SampleObject openFile( File file ) {
+		MsppManager manager = MsppManager.getInstance();
+
 		String path = file.getAbsolutePath();
 		String ext = FileTool.getExtension( path );
-		Sample sample = null;
+		SampleObject sample = null;
 
-		for( PluginMethod< FileInput > method: this.methods ) {
+		List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
+
+		for( PluginMethod< FileInput > method: methods ) {
 			Object plugin = method.getPlugin();
 			FileInput annotation = method.getAnnotation();
 			if( sample == null && annotation.ext().compareToIgnoreCase( ext ) == 0 ) {
 				try {
-					sample = (Sample)method.getMethod().invoke( plugin,  path );
+					sample = (SampleObject)method.getMethod().invoke( plugin,  path );
 				}
 				catch( Exception e ) {
 					e.printStackTrace();

@@ -42,9 +42,9 @@ import java.util.Iterator;
 /**
  * menu group
  */
-public class MenuGroup implements Iterable< MenuInfo > {
+public class MenuGroup implements Iterable< MenuNode > {
 	private String name;
-	private ArrayList< MenuInfo > items;
+	private ArrayList< MenuNode > items;
 
 	/**
 	 * constructor
@@ -52,11 +52,11 @@ public class MenuGroup implements Iterable< MenuInfo > {
 	 */
 	public MenuGroup( String name ) {
 		this.name = name;
-		this.items = new ArrayList< MenuInfo >();
+		this.items = new ArrayList< MenuNode >();
 	}
 
 	@Override
-	public Iterator< MenuInfo > iterator() {
+	public Iterator< MenuNode > iterator() {
 		return this.items.iterator();
 	}
 
@@ -81,8 +81,8 @@ public class MenuGroup implements Iterable< MenuInfo > {
 	 * @param index item index
 	 * @return item
 	 */
-	public MenuInfo getItem( int index ) {
-		MenuInfo item = null;
+	public MenuNode getItem( int index ) {
+		MenuNode item = null;
 		if( index >= 0 && index < this.items.size() ) {
 			item = this.items.get( index );
 		}
@@ -94,9 +94,9 @@ public class MenuGroup implements Iterable< MenuInfo > {
 	 * @param name menu name
 	 * @return menu item
 	 */
-	public MenuInfo searchItem( String name ) {
-		MenuInfo item = null;
-		for( MenuInfo tmp : this.items ) {
+	public MenuNode searchItem( String name ) {
+		MenuNode item = null;
+		for( MenuNode tmp : this.items ) {
 			if( tmp.getName().equals( name ) ) {
 				item = tmp;
 			}
@@ -109,7 +109,7 @@ public class MenuGroup implements Iterable< MenuInfo > {
 	 * adds item
 	 * @param item item
 	 */
-	public void addItem( MenuInfo item ) {
+	public void addItem( MenuNode item ) {
 		if( item != null ) {
 			this.items.add( item );
 		}
@@ -141,7 +141,7 @@ public class MenuGroup implements Iterable< MenuInfo > {
 		double value = 0.0;
 
 		if( this.items.size() > 0 ) {
-			for( MenuInfo item : this.items ) {
+			for( MenuNode item : this.items ) {
 				value += (double)item.getOrder().ordinal();
 			}
 			value /= (double)this.items.size();

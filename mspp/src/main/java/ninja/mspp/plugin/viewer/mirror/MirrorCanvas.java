@@ -37,12 +37,14 @@
 package ninja.mspp.plugin.viewer.mirror;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import ninja.mspp.model.dataobject.DrawPoint;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
@@ -54,7 +56,6 @@ import ninja.mspp.view.control.canvas.ProfileCanvas;
  */
 public class MirrorCanvas extends ProfileCanvas {
 	private String xTitle;
-	private String yTitle;
 	private Range< Double > xRange;
 
 	FastDrawData[] drawArray;
@@ -67,7 +68,6 @@ public class MirrorCanvas extends ProfileCanvas {
 	 */
 	public MirrorCanvas( String xTitle, String yTitle ) {
 		this.xTitle = xTitle;
-		this.yTitle = yTitle;
 
 		this.drawArray = new FastDrawData[ 2 ];
 		this.xyDataArray = new XYData[ 2 ];
@@ -77,11 +77,11 @@ public class MirrorCanvas extends ProfileCanvas {
 	 * adds xy data
 	 * @param xyData
 	 */
-	public void addXYData( XYData xyData ) {
+	public void addXYData( XYData xyData, FastDrawData data ) {
 		xyDataArray[ 1 ] = xyDataArray[ 0 ];
 		xyDataArray[ 0 ] = xyData;
 		drawArray[ 1 ] = drawArray[ 0 ];
-		drawArray[ 0 ] = new FastDrawData( xyData );
+		drawArray[ 0 ] = data;
 
 		Double minX = xyDataArray[ 0 ].getMinX();
 		Double maxX = xyDataArray[ 0 ].getMaxX();
@@ -154,12 +154,12 @@ public class MirrorCanvas extends ProfileCanvas {
 
 		Range< Double > xRange = this.xRange;
 
-		ArrayList< ArrayList< FastDrawData.Element > > arrays = new ArrayList< ArrayList< FastDrawData.Element > >();
-		ArrayList< FastDrawData.Element > points0 = this.getPoints( this.drawArray[ 0 ], width, xRange );
-		ArrayList< FastDrawData.Element > points1 = this.getPoints( this.drawArray[ 1 ], width, xRange );
+		List< List< DrawPoint > > arrays = new ArrayList< List< DrawPoint > >();
+		List< DrawPoint > points0 = this.getPoints( this.drawArray[ 0 ], width, xRange );
+		List< DrawPoint > points1 = this.getPoints( this.drawArray[ 1 ], width, xRange );
 		arrays.add( points0 );
 		arrays.add( points1 );
-		Range< Double > yRange = this.getYRange( arrays,  xRange );
+		Range< Double > yRange = this.getYRangeFromArray( arrays,  xRange );
 		if( yRange == null ) {
 			return;
 		}
@@ -167,7 +167,7 @@ public class MirrorCanvas extends ProfileCanvas {
 		Rect< Integer > margin = this.getMargin( g,  yRange,  width,  height );
 
 		String xTitle = this.xTitle;
-		String yTitle = this.yTitle;
+//		String yTitle = this.yTitle;
 
 		Rect< Integer > margin0 = new Rect< Integer >(
 			margin.getTop(),

@@ -89,7 +89,7 @@ public class Heatmap {
 	 * constructor
 	 * @param spectra spectra
 	 */
-	public Heatmap( List< Spectrum > spectra ) {
+	public Heatmap( List< SpectrumObject > spectra ) {
 		if( spectra == null || spectra.isEmpty() ) {
 			return;
 		}
@@ -103,7 +103,7 @@ public class Heatmap {
 		double startMz = Double.POSITIVE_INFINITY;
 		double endMz = Double.NEGATIVE_INFINITY;
 		double maxIntensity = 0.001;
-		for( Spectrum spectrum : spectra ) {
+		for( SpectrumObject spectrum : spectra ) {
 			XYData xyData = spectrum.getXYData();
 			startMz = Math.min( startMz,  xyData.getMinX() );
 			endMz = Math.max( endMz,  xyData.getMaxX() );
@@ -123,7 +123,7 @@ public class Heatmap {
 	 * @param mzRange mz range
 	 * @return data
 	 */
-	protected double[][] createData( List< Spectrum > spectra, Range< Double > rtRange, Range< Double > mzRange, double maxIntensity ) {
+	protected double[][] createData( List< SpectrumObject > spectra, Range< Double > rtRange, Range< Double > mzRange, double maxIntensity ) {
 		double[][] data = new double[ MZ_SIZE ][ RT_SIZE ];
 		for( double[] array : data ) {
 			Arrays.fill( array,  0.0 );
@@ -134,7 +134,7 @@ public class Heatmap {
 
 		int prevRtIndex = -1;
 		double prevRt = -100.0;
-		for( Spectrum spectrum : spectra ) {
+		for( SpectrumObject spectrum : spectra ) {
 			double rt = spectrum.getRt();
 			int rtIndex = (int)Math.round( ( rt - rtRange.getStart() ) / rtUnit );
 

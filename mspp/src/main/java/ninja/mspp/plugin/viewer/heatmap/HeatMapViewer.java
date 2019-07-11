@@ -38,62 +38,60 @@ package ninja.mspp.plugin.viewer.heatmap;
 
 import java.util.ArrayList;
 
-import ninja.mspp.MsppManager;
-import ninja.mspp.annotation.Menu;
-import ninja.mspp.annotation.MenuAction;
-import ninja.mspp.annotation.MenuPosition;
-import ninja.mspp.annotation.Plugin;
-import ninja.mspp.model.dataobject.Heatmap;
-import ninja.mspp.model.dataobject.Sample;
-import ninja.mspp.model.dataobject.Spectrum;
-import ninja.mspp.model.gui.MenuInfo;
-import ninja.mspp.view.GuiManager;
-import ninja.mspp.view.main.MainFrame;
+import ninja.mspp.annotation.method.MenuAction;
+import ninja.mspp.annotation.method.MenuPosition;
+import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.model.dataobject.SampleObject;
+import ninja.mspp.model.dataobject.SpectrumObject;
+import ninja.mspp.model.gui.MenuNode;
 
-@Plugin( name = "heatmap viewer" )
-@Menu
+@Plugin( "heatmap viewer" )
 public class HeatMapViewer {
-	private MenuInfo menu;
+	private MenuNode menu;
 
 	/**
 	 * constructor
 	 */
 	public HeatMapViewer() {
-		this.menu = MenuInfo.TOOLS_MENU.item( "Heatmap" );
+		this.menu = MenuNode.TOOLS_MENU.item( "Heatmap" );
 	}
 
 	@MenuPosition
-	public MenuInfo getPosition() {
+	public MenuNode getPosition() {
 		return this.menu;
 	}
 
 	@MenuAction
 	public void action() {
+/*
 		MsppManager manager = MsppManager.getInstance();
-		Sample sample = manager.getSample( 0 );
+		SampleObject sample = manager.getSample( 0 );
+
 		if( sample == null ) {
 			return;
 		}
 
 		this.openHeatmap( sample );
+*/
 	}
 
 	/**
 	 * opens heatmap
 	 * @param sample sample
 	 */
-	protected void openHeatmap( Sample sample ) {
-		ArrayList< Spectrum > spectra = this.getSpectra( sample );
+	protected void openHeatmap( SampleObject sample ) {
+		ArrayList< SpectrumObject > spectra = this.getSpectra( sample );
 		if( spectra.size() == 0 ) {
 			return;
 		}
-
+/*
 		GuiManager gui = GuiManager.getInstance();
 		MainFrame mainFrame = gui.getMainFrame();
 
 		Heatmap heatmap = new Heatmap( spectra );
 		HeatmapCanvas canvas = new HeatmapCanvas( heatmap, "RT", "m/z" );
-		mainFrame.setMain( canvas );
+		mainFrame.addMapWindow( "Heatmap",  canvas );
+*/
 	}
 
 	/**
@@ -101,10 +99,10 @@ public class HeatMapViewer {
 	 * @param sample sample
 	 * @return spectra
 	 */
-	protected ArrayList< Spectrum > getSpectra( Sample sample ) {
-		ArrayList< Spectrum > spectra = new ArrayList< Spectrum >();
+	protected ArrayList< SpectrumObject > getSpectra( SampleObject sample ) {
+		ArrayList< SpectrumObject > spectra = new ArrayList< SpectrumObject >();
 
-		for( Spectrum spectrum : sample.getSpectra() ) {
+		for( SpectrumObject spectrum : sample.getSpectra() ) {
 			if( spectrum.getMsStage() > 1 && spectrum.getRt() > 0.0 ) {
 				spectra.add( spectrum );
 			}

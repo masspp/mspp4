@@ -41,12 +41,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import ninja.mspp.view.GuiManager;
+import ninja.mspp.view.SpringFXMLLoader;
 import ninja.mspp.view.main.MainFrame;
 
 @SpringBootApplication
@@ -65,27 +64,22 @@ public class MsppApplication extends Application {
 
 	@Override
 	public void start( Stage stage ) throws Exception {
-		MsppManager msppManager = MsppManager.getInstance();
-		GuiManager guiManager = GuiManager.getInstance();
+		MsppManager manager = MsppApplication.context.getBean( MsppManager.class );
+		ObjectManager objectManager = ObjectManager.getInstane();
 
-		guiManager.setStage( stage );
+		manager.initialize();
 
-		FXMLLoader loader = new FXMLLoader(
-			MainFrame.class.getResource( "MainFrame.fxml" )
-		);
+		SpringFXMLLoader loader = manager.getFxmlLoader();
+		objectManager.setFxmlLoader( loader );
+		Parent parent = loader.load( MainFrame.class,  "MainFrame.fxml" );
 
-		Parent root = loader.load();
-
-		MainFrame mainFrame = (MainFrame)loader.getController();
-		guiManager.setMainFrame( mainFrame );
-
-		String title = msppManager.getConfig().getString( "mspp.title" );
+		String title = manager.getConfig().getString( "mspp.title" );
 		stage.setTitle( title );
 
 		Image icon = new Image( getClass().getResourceAsStream( "/images/MS_icon_24.png" ) );
 		stage.getIcons().add( icon );
 
-		Scene scene = new Scene( root );
+		Scene scene = new Scene( parent );
 		stage.setScene( scene );;
 
 		stage.show();

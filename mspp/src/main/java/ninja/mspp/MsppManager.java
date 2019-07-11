@@ -36,29 +36,40 @@
  */
 package ninja.mspp;
 
-import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.StringTokenizer;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 import java.util.prefs.Preferences;
 
-import ninja.mspp.annotation.Plugin;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
+import org.springframework.core.type.filter.AnnotationTypeFilter;
+import org.springframework.stereotype.Component;
+
+import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.PluginObject;
-import ninja.mspp.model.dataobject.Sample;
+import ninja.mspp.view.SpringFXMLLoader;
 
 /**
  * Mass++ manager (Singleton class)
  */
+@Component
 public class MsppManager implements Iterable< Object > {
+	@Autowired
+	private ApplicationContext context;
+
+	@Autowired
+	SpringFXMLLoader fxmlLoader;
+
 	// instance
 	private static MsppManager instance = null;
 
@@ -69,34 +80,27 @@ public class MsppManager implements Iterable< Object > {
 	private ResourceBundle messages;
 
 	// plugins
-	private ArrayList< Object > plugins;
+	private List< Object > plugins;
 
 	// preferences
 	private Preferences preferences;
-
-	// temporary directory
-	File tmpDir;
-
-	// samples
-	ArrayList< Sample > samples;
 
 	/**
 	 * constructor
 	 */
 	private MsppManager() {
-		initialize();
 	}
 
 	/**
 	 * initializes object
 	 */
-	private void initialize() {
-		this.config = ResourceBundle.getBundle( "application" );
-		this.messages = ResourceBundle.getBundle( "messages" );
-		this.plugins = createPluginArray();
-		this.preferences = Preferences.userRoot().node( "mspp4/parameters" );
+	public void initialize() {
+		MsppManager.instance = this;
 
-		this.samples = new ArrayList< Sample >();
+		this.config = ResourceBundle.getBundle( "config" );
+		this.messages = ResourceBundle.getBundle( "messages" );
+		this.plugins = this.createPluginArray();
+		this.preferences = Preferences.userRoot().node( "mspp4/parameters" );
 	}
 
 	/**
@@ -115,131 +119,9 @@ public class MsppManager implements Iterable< Object > {
 		return this.messages;
 	}
 
-	// array list
-	private static ArrayList< Object > createPluginArray() {
-		ArrayList< String > files = getFiles();
-		ArrayList< Object > array = searchPlugins( files );
-
-		return array;
+	public SpringFXMLLoader getFxmlLoader() {
+		return fxmlLoader;
 	}
-
-	/**
-	 * get classpath files
-	 * @return files
-	 */
-	private static ArrayList< String > getFiles() {
-		ArrayList< String > paths = new ArrayList< String >();
-
-		String classPaths = System.getProperty( "java.class.path" );
-		StringTokenizer tokenizer = new StringTokenizer( classPaths, File.pathSeparator );
-
-		while( tokenizer.hasMoreTokens() ) {
-			String token = tokenizer.nextToken();
-			File file = new File( token );
-
-			if( file.isDirectory() ) {
-				ArrayList< String > files = getFiles( file, "" );
-				paths.addAll( files );
-			}
-			else {
-				try {
-					JarFile jar = new JarFile( file );
-					Enumeration< JarEntry > entries = jar.entries();
-					while( entries.hasMoreElements() ) {
-						JarEntry entry = entries.nextElement();
-						paths.add( entry.getName() );
-					}
-					jar.close();
-				}
-				catch( Exception e ) {
-					e.printStackTrace();
-				}
-			}
-		}
-
-		return paths;
-	}
-
-	/**
-	 * search plugins
-	 * @param files files
-	 * @return plugins
-	 */
-	private static ArrayList< Object > searchPlugins( ArrayList< String > files ) {
-		ArrayList< Object > plugins = new ArrayList< Object >();
-		Set< String > exceptions = new HashSet< String >();
-		exceptions.add( "com.sun.deploy.uitoolkit.impl.fx.Utils" );
-
-		for( String file : files ) {
-			if( file.endsWith( ".class" ) ) {
-				file = file.replace( "BOOT-INF/classes/", "" );
-				String className = file.replace( ".class", "" );
-				className = className.replace( "/",  "." );
-				int index = className.indexOf( "$" );
-
-				if( index >= 0 ) {
-					className = className.substring( 0, index );
-					exceptions.add( className );
-				}
-				else if( !exceptions.contains( className ) ) {
-					try {
-						Class< ? > clazz = Class.forName( className );
-						Plugin annotation = clazz.getAnnotation( Plugin.class );
-						if( annotation != null ) {
-							Object object = clazz.newInstance();
-							plugins.add( object );
-						}
-					}
-					catch( Exception e ) {
-					}
-					catch( Error e ) {
-					}
-				}
-			}
-		}
-
-		return plugins;
-	}
-
-	/**
-	 * gets specified plug-ins
-	 * @param clazz annotation class
-	 * @return plug-in array
-	 */
-	public < A extends Annotation > ArrayList< PluginObject< A > > getPlugins( Class< A > clazz ) {
-		ArrayList< PluginObject< A > > array = new ArrayList< PluginObject< A > >();
-		for( Object plugin : this.plugins ) {
-			A annotation = plugin.getClass().getAnnotation( clazz );
-			if( annotation != null ) {
-				PluginObject< A > object = new PluginObject< A >( plugin, annotation );
-				array.add( object );
-			}
-		}
-
-		return array;
-	}
-
-	/**
-	 * gets plug-in methods
-	 * @param clazz class
-	 * @return plug-in methods
-	 */
-	public < A extends Annotation > ArrayList< PluginMethod< A > > getMethods( Class< A > clazz ) {
-		ArrayList< PluginMethod< A > > array = new ArrayList< PluginMethod< A > >();
-		for( Object plugin : this.plugins ) {
-			Method[] methods = plugin.getClass().getDeclaredMethods();
-			for( Method method : methods ) {
-				A annotation = method.getAnnotation( clazz );
-				if( annotation != null ) {
-					PluginMethod< A > pluginMethod = new PluginMethod< A >( plugin, method, annotation );
-					array.add( pluginMethod );
-				}
-			}
-		}
-
-		return array;
-	}
-
 
 	/**
 	 * save string value
@@ -260,47 +142,110 @@ public class MsppManager implements Iterable< Object > {
 		return this.preferences.get( name,  defaultValue );
 	}
 
+	// array list
+	private List< Object > createPluginArray() {
+		List< Object > array = this.searchPlugins();
+
+		return array;
+	}
 
 	/**
-	 * gets the temporary directory
-	 * @return temporary directory
+	 * search plugins
+	 * @param files files
+	 * @return plugins
 	 */
-	public File getTmpDir() {
-		if( this.tmpDir == null ) {
-			File tmpDir = new File( System.getProperty( "java.io.tmpdir" ) );
-			this.tmpDir = new File( tmpDir, "mspp" + Long.toString( System.currentTimeMillis() ) );
-			this.tmpDir.mkdir();
+	private List< Object > searchPlugins() {
+		List< Object > list = new ArrayList< Object >();
+		ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider( false );
+		provider.addIncludeFilter( new AnnotationTypeFilter( Plugin.class ) );
+		Set< BeanDefinition > beans = provider.findCandidateComponents( "ninja.mspp" );
+
+		Map< Object, Integer > orderMap = new HashMap< Object, Integer >();;
+		for( BeanDefinition bean : beans ) {
+			Object object = null;
+			try {
+				Class< ? > clazz = Class.forName( bean.getBeanClassName() );
+				Plugin annotation = clazz.getDeclaredAnnotation( Plugin.class );
+				try {
+					object = this.context.getBean( clazz );
+				}
+				catch( Exception e1 ) {
+					try {
+						object = clazz.newInstance();
+					}
+					catch( Exception e2 ) {
+						e1.printStackTrace();
+						e2.printStackTrace();
+					}
+				}
+				if( object != null ) {
+					orderMap.put( object,  annotation.order() );
+					list.add( object );
+				}
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
 		}
 
-		return this.tmpDir;
+		list.sort(
+			( object1, object2 ) -> {
+				int order1 = orderMap.get( object1 );
+				int order2 = orderMap.get( object2 );
+				return ( order1 - order2 );
+			}
+		);
+		return list;
 	}
 
 	/**
-	 * adds sample
-	 * @param sample sample
+	 * gets specified plug-ins
+	 * @param clazz annotation class
+	 * @return plug-in array
 	 */
-	public void addSample( Sample sample ) {
-		this.samples.add( sample );
-	}
-
-	/**
-	 * removes sample
-	 * @param sample sample
-	 */
-	public void removeSample( Sample sample ) {
-		this.samples.remove( sample );
-	}
-
-	/**
-	 * gets the sample
-	 * @param index index
-	 * @return sample
-	 */
-	public Sample getSample( int index ) {
-		if( index < 0 || index >= this.samples.size() ) {
-			return null;
+	public < A extends Annotation > List< PluginObject< A > > getPlugins( Class< A > clazz ) {
+		ArrayList< PluginObject< A > > array = new ArrayList< PluginObject< A > >();
+		for( Object plugin : this.plugins ) {
+			A annotation = plugin.getClass().getAnnotation( clazz );
+			if( annotation != null ) {
+				PluginObject< A > object = new PluginObject< A >( plugin, annotation );
+				array.add( object );
+			}
 		}
-		return this.samples.get( index );
+
+		return array;
+	}
+
+	/**
+	 * gets plug-in methods
+	 * @param clazz class
+	 * @return plug-in methods
+	 */
+	public < A extends Annotation > List< PluginMethod< A > > getMethods( Class< A > clazz ) {
+		ArrayList< PluginMethod< A > > array = new ArrayList< PluginMethod< A > >();
+		for( Object plugin : this.plugins ) {
+			Method[] methods = plugin.getClass().getDeclaredMethods();
+			for( Method method : methods ) {
+				A annotation = method.getAnnotation( clazz );
+				if( annotation != null ) {
+					PluginMethod< A > pluginMethod = new PluginMethod< A >( plugin, method, annotation );
+					array.add( pluginMethod );
+				}
+			}
+		}
+
+		return array;
+	}
+
+	/**
+	 * invokes methods
+	 * @return
+	 */
+	public < A extends Annotation > void invokeAll( Class< A > clazz, Object... args ) {
+		List< PluginMethod< A > > methods = this.getMethods( clazz );
+		for( PluginMethod< A > method : methods ) {
+			method.invoke( args );
+		}
 	}
 
 	@Override
@@ -309,40 +254,10 @@ public class MsppManager implements Iterable< Object > {
 	}
 
 	/**
-	 * gets files
-	 * @param dir directory
-	 * @return file array
-	 */
-	private static ArrayList< String > getFiles( File dir, String packageName ) {
-		ArrayList< String > array = new ArrayList< String >();
-
-		File[] files = dir.listFiles();
-		for( File file : files ) {
-			String name = file.getName();
-			if( !packageName.isEmpty() ) {
-				name = packageName + "/" + name;
-			}
-
-			if( file.isDirectory() ) {
-				ArrayList< String > children = getFiles( file, name );
-				array.addAll( children );
-			}
-			else {
-				array.add( name );
-			}
-		}
-
-		return array;
-	}
-
-	/**
 	 * gets the instance
 	 * @return MsppManager instance (This is the only object.)
 	 */
 	public static MsppManager getInstance() {
-		if( MsppManager.instance == null ) {
-			MsppManager.instance = new MsppManager();
-		}
 		return MsppManager.instance;
 	}
 }

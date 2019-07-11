@@ -45,7 +45,7 @@ import java.util.logging.Logger;
 
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.Range;
-import ninja.mspp.model.dataobject.Sample;
+import ninja.mspp.model.dataobject.SampleObject;
 import ninja.mspp.model.dataobject.XYData;
 import uk.ac.ebi.jmzml.model.mzml.BinaryDataArray;
 import uk.ac.ebi.jmzml.model.mzml.BinaryDataArray.Precision;
@@ -56,7 +56,7 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
  *
  * @author masakimu
  */
-public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
+public class jmzMLSpectrum extends ninja.mspp.model.dataobject.SpectrumObject{
 
     /**
      * @return the id_jmzml
@@ -91,7 +91,7 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.Spectrum{
     private String id_jmzml;
 
 
-    public jmzMLSpectrum(Sample sample) {
+    public jmzMLSpectrum(SampleObject sample) {
         super(sample);
     }
 

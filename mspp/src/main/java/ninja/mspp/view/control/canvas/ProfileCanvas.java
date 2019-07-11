@@ -36,7 +36,6 @@
  */
 package ninja.mspp.view.control.canvas;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,6 +47,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import ninja.mspp.model.dataobject.DrawPoint;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.Range;
@@ -106,12 +106,12 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param xRange x range
 	 * @return points
 	 */
-	protected ArrayList< FastDrawData.Element > getPoints( FastDrawData data, Integer width, Range< Double > xRange ) {
+	protected List< DrawPoint > getPoints( FastDrawData data, Integer width, Range< Double > xRange ) {
 		if( data == null ) {
 			return null;
 		}
 		Integer level = FastDrawData.getLevel( width, xRange.getEnd() - xRange.getStart() );
-		ArrayList< FastDrawData.Element > points = data.getPoints( level );
+		List< DrawPoint > points = data.getPoints( level );
 		return points;
 	}
 
@@ -121,15 +121,15 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param xRange xrange
 	 * @return y range
 	 */
-	protected Range< Double > getYRange( ArrayList< FastDrawData.Element > points, Range< Double > xRange ) {
-		FastDrawData.Element startElement = new FastDrawData.Element( xRange.getStart(), 0.0 );
-		FastDrawData.Element endElement = new FastDrawData.Element( xRange.getEnd(), 0.0 );
+	protected Range< Double > getYRange( List< DrawPoint > points, Range< Double > xRange ) {
+		DrawPoint startElement = new DrawPoint( xRange.getStart(), 0.0 );
+		DrawPoint endElement = new DrawPoint( xRange.getEnd(), 0.0 );
 
 		int startIndex = Collections.binarySearch( points, startElement );
 		if( startIndex < 0 ) {
 			startIndex = - startIndex - 1;
 		}
-		int endIndex = Collections.binarySearch( points,  endElement );
+		int endIndex = Collections.binarySearch( points, endElement );
 		if( endIndex < 0 ) {
 			endIndex = - endIndex - 2;
 		}
@@ -137,9 +137,9 @@ public abstract class ProfileCanvas extends Canvas {
 		double minY = 0.0;
 		double maxY = 0.0001;
 		for( int i = startIndex; i <= endIndex; i++ ) {
-			FastDrawData.Element element = points.get( i );
-			minY = Math.min( minY,  element.getMin().getY() );
-			maxY = Math.max( maxY,  element.getMax().getY() );
+			DrawPoint element = points.get( i );
+			minY = Math.min( minY,  element.getMinY() );
+			maxY = Math.max( maxY,  element.getMaxY() );
 		}
 
 		Range< Double > yRange = new Range< Double >( minY, maxY );
@@ -152,9 +152,9 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param xRange x range
 	 * @return y range
 	 */
-	protected Range< Double > getYRange( List< ArrayList< FastDrawData.Element > > arrays, Range< Double > xRange ) {
+	protected Range< Double > getYRangeFromArray( List< List< DrawPoint > > arrays, Range< Double > xRange ) {
 		Range< Double > yRange = null;
-		for( ArrayList< FastDrawData.Element > array : arrays ) {
+		for( List< DrawPoint > array : arrays ) {
 			if( array != null ) {
 				Range< Double > tmpRange = this.getYRange( array, xRange );
 				if( yRange == null ) {
@@ -217,7 +217,7 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param drawMatrix draw matrix
 	 * @param paint paint
 	 */
-	protected void drawProfile( GraphicsContext g, ArrayList< FastDrawData.Element > points, RealMatrix drawMatrix, Paint paint	) {
+	protected void drawProfile( GraphicsContext g, List< DrawPoint > points, RealMatrix drawMatrix, Paint paint ) {
 		this.drawProfile( g, points, drawMatrix, paint, true );
 	}
 
@@ -227,25 +227,31 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param points points
 	 * @param matrix transform matrix
 	 */
-	protected void drawProfile( GraphicsContext g, ArrayList< FastDrawData.Element > points, RealMatrix drawMatrix, Paint paint, boolean centroid ) {
+	protected void drawProfile( GraphicsContext g, List< DrawPoint > points, RealMatrix drawMatrix, Paint paint, boolean centroid ) {
 		g.beginPath();
 		g.setStroke( paint );
 
 		Point< Integer > previousPoint = null;
-		for( FastDrawData.Element point : points ) {
+		for( DrawPoint point : points ) {
 			if( previousPoint != null && !centroid ) {
-				Point< Integer > left = this.getPoint( point.getLeft(), drawMatrix );
+				Point< Double > leftPoint = new Point< Double >( point.getX(), point.getLeftY() );
+				Point< Integer > left = this.getPoint( leftPoint, drawMatrix );
 				this.drawLine( g, previousPoint, left );
 			}
-			Point< Integer > top = this.getPoint( point.getMax(), drawMatrix );
-			Point< Integer > bottom = this.getPoint( point.getMin(), drawMatrix );
+
+			Point< Double > maxPoint = new Point< Double >( point.getX(), point.getMaxY() );
+			Point< Integer > top = this.getPoint( maxPoint, drawMatrix );
+
+			Point< Double > minPoint = new Point< Double >( point.getX(), point.getMinY() );
+			Point< Integer > bottom = this.getPoint( minPoint, drawMatrix );
 			if( centroid ) {
-				Point< Double > zero = new Point< Double >( point.getMax().getX(), 0.0 );
+				Point< Double > zero = new Point< Double >( maxPoint.getX(), 0.0 );
 				bottom = this.getPoint( zero,  drawMatrix );
 			}
 			this.drawLine( g,  top,  bottom );
 
-			previousPoint = this.getPoint( point.getRight(), drawMatrix );
+			Point< Double > rightPoint = new Point< Double >( point.getX(), point.getRightY() );
+			previousPoint = this.getPoint( rightPoint, drawMatrix );
 		}
 
 		g.closePath();

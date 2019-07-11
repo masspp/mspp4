@@ -45,10 +45,10 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ninja.mspp.annotation.FileInput;
-import ninja.mspp.annotation.Plugin;
+import ninja.mspp.annotation.method.FileInput;
+import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.Precursor;
-import ninja.mspp.model.dataobject.Sample;
+import ninja.mspp.model.dataobject.SampleObject;
 import software.amazon.awssdk.utils.Md5Utils;
 import uk.ac.ebi.jmzml.model.mzml.CVParam;
 import uk.ac.ebi.jmzml.model.mzml.Chromatogram;
@@ -62,13 +62,13 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
  *
  * @author masakimu
 */
-@Plugin( name = "mzML Input Plugin" )
+@Plugin( "mzML Input Plugin" )
 public class JmzMLWrapperInputPlugin {
 
     private static final Logger logger = LoggerFactory.getLogger(JmzMLWrapperInputPlugin.class);
 
     @FileInput( title = "mzML", ext = "mzML")
-    public Sample openMzML(String path) throws Exception {
+    public SampleObject openMzML(String path) throws Exception {
         jmzMLSample sample = new jmzMLSample();
         System.out.println("file path: " + path);
         File filepath=new File(path);

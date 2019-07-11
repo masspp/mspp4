@@ -63,7 +63,7 @@ public class XYData implements Iterable< Point< Double > > {
      *
      * @param xydata MUST be sorted in descending order
      */
-    public XYData(Object xydata){
+    public XYData( List< Point< Double > > xydata){
         this( xydata, false, false);
     }
 
@@ -72,7 +72,7 @@ public class XYData implements Iterable< Point< Double > > {
      * @param xydata
      * @param do_sort if not true, xydata MUST be sorted in descending order
      */
-    public XYData(Object xydata, boolean do_sort){
+    public XYData( List< Point< Double > > xydata, boolean do_sort){
         this( xydata, do_sort, false);
     }
 
@@ -82,9 +82,8 @@ public class XYData implements Iterable< Point< Double > > {
      * @param do_sort
      * @param is_reverse: MUST be false (sorry)
      */
-    private XYData(Object xydata, boolean do_sort, boolean is_reverse){
-        
-        this.xydata = (ArrayList<Point<Double>>) xydata;
+    private XYData( List< Point< Double > > xydata, boolean do_sort, boolean is_reverse){
+        this.xydata = xydata;
 //        if (  this.xydata.isEmpty() ){
 //            this.xydata = new ArrayList<Point<Double>>(){
 //                {
@@ -92,7 +91,7 @@ public class XYData implements Iterable< Point< Double > > {
 //                }
 //            };
 //        }
-                
+
         if (do_sort){
             if (is_reverse){
                 Collections.<Point<Double>>sort( this.xydata,Collections.reverseOrder() );
@@ -103,13 +102,13 @@ public class XYData implements Iterable< Point< Double > > {
 
         if (is_reverse){
             this.minX=this.xydata.get(this.xydata.size()-1).getX();
-            this.maxX = this.xydata.get(0).getX();     
+            this.maxX = this.xydata.get(0).getX();
         }else{
             this.maxX=this.xydata.get(this.xydata.size()-1).getX();
             this.minX = this.xydata.get(0).getX();
         }
-        
-        for(  Point  p: this.xydata){
+
+        for(  Point< Double >  p: this.xydata){
             double py = p.getY().doubleValue();
             if (this.maxY < py){
                 this.maxY = py;
@@ -118,7 +117,7 @@ public class XYData implements Iterable< Point< Double > > {
                 this.minY = py;
             }
         }
-    
+
     }
      /**
      * @return the minX
@@ -358,8 +357,8 @@ public class XYData implements Iterable< Point< Double > > {
     protected int binarySearch_byX_inclusive_least_upperbounds(double x){
         int idx = Collections.binarySearch(
         this.xydata,
-        new Point(x,0.0),
-        (Point p1,Point p2)->(
+        new Point< Double >(x,0.0),
+        (Point< Double > p1,Point< Double > p2)->(
                 p1.getX().doubleValue() >= p2.getX().doubleValue())?(int)1:(int)-1);
         return idx;
     }
@@ -373,8 +372,8 @@ public class XYData implements Iterable< Point< Double > > {
     protected int binarySearch_byX_exclusive_least_upperbounds(double x){
         int idx = Collections.binarySearch(
                 this.xydata,
-                new Point(x,0.0),
-                (Point p1,Point p2)->(
+                new Point< Double >(x,0.0),
+                (Point< Double > p1,Point< Double > p2)->(
                         p1.getX().doubleValue() > p2.getX().doubleValue() )?(int)1:(int)-1);
 
         return idx;
@@ -384,5 +383,4 @@ public class XYData implements Iterable< Point< Double > > {
 	public Iterator< Point< Double > > iterator() {
 		return this.xydata.iterator();
 	}
-
 }
