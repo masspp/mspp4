@@ -84,7 +84,9 @@ public class jmzMLChromatogram extends ninja.mspp.model.dataobject.ChromatogramO
     
     @Override
     public XYData onGetChromatogram() {
-        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
+        jmzMLUnmarshallerFactory factory = jmzMLUnmarshallerFactory.getInstance();
+        MzMLUnmarshaller unmarshaller = factory.getUnmarshaller(new File(this.getSamplePath()));
+        //MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
         uk.ac.ebi.jmzml.model.mzml.Chromatogram chrmtgrm= getJmzmlChromatogram(unmarshaller, this.getId_jmzml());
         ArrayList<Point<Double>> points = new ArrayList<>();
         int arraylength=chrmtgrm.getBinaryDataArrayList().getBinaryDataArray().get(0).getArrayLength();

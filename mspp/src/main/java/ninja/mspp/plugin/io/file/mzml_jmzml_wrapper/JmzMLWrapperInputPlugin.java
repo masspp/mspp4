@@ -82,8 +82,10 @@ public class JmzMLWrapperInputPlugin {
             String msg = "Failed to generate unique id for mzML file";
             logger.error(msg, e);
         }
-
-        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(filepath);
+        
+        jmzMLUnmarshallerFactory factory = jmzMLUnmarshallerFactory.getInstance();
+        MzMLUnmarshaller unmarshaller = factory.getUnmarshaller(filepath);
+        //MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(filepath);
         getSpectra(unmarshaller, sample);
         getChromatograms(unmarshaller, sample);
 

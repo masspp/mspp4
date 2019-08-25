@@ -41,6 +41,7 @@
  */
 package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
+import java.io.File;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
 import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
 
@@ -49,36 +50,27 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshallerException;
  * @author masakimu
  */
 public class jmzMLSample extends ninja.mspp.model.dataobject.SampleObject {
-
     
-       /**
-     * @return the unmarshaller
-     */
-    public MzMLUnmarshaller getUnmarshaller() {
-        return unmarshaller;
-    }
-
-    /**
-     * @param unmarshaller the unmarshaller to set
-     */
-    public void setUnmarshaller(MzMLUnmarshaller unmarshaller) {
-        this.unmarshaller = unmarshaller;
-    }
-    
-    private MzMLUnmarshaller unmarshaller;
-    
+    private String filepath = null ;
+            
     public jmzMLSample(){
            
     }
 
     @Override
     public boolean onOpenFile(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        filepath=path;
+        return true;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean onCloseFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jmzMLUnmarshallerFactory factory = jmzMLUnmarshallerFactory.getInstance();
+        if (this.filepath != null){
+            factory.removeUnmarshaller(new File(this.filepath));
+        }
+        return true;
     }
 
  
