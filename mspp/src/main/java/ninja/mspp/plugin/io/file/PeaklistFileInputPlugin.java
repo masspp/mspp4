@@ -46,12 +46,8 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.method.PeaklistFileInput;
-import ninja.mspp.annotation.method.MenuAction;
-import ninja.mspp.annotation.method.MenuPosition;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
-import ninja.mspp.model.gui.MenuNode;
-import ninja.mspp.model.gui.MenuNode.Order;
 import ninja.mspp.tools.FileTool;
 
 
@@ -63,56 +59,9 @@ public class PeaklistFileInputPlugin {
 
         
 	private static String RECENT_PEAKLIST_FILE_KEY = "Recent Open Peaklist File";
-	private MenuNode menu;
 
 	//@Autowired
 	//private PeakListService PeakListService;
-
-	/**
-	 * constructor
-	 */
-	public PeaklistFileInputPlugin() {
-		this.menu = MenuNode.PEAKLIST_FILE_MENU.item( "Open...", "peaklistfile", Order.HIGHEST );
-	}
-
-	@MenuPosition
-	public MenuNode getMenuItem() {
-		return this.menu;
-	}
-
-	@MenuAction
-	public void action() {
-		MsppManager manager = MsppManager.getInstance();
-		String path = manager.loadString( RECENT_PEAKLIST_FILE_KEY, "" );
-		File file = null;
-		if( !path.isEmpty() ) {
-			file = new File( path );
-		}
-
-		List< PluginMethod< PeaklistFileInput > > methods = manager.getMethods( PeaklistFileInput.class );
-
-		FileChooser chooser = new FileChooser();
-		chooser.setTitle( "Open Peaklist File" );
-		chooser.getExtensionFilters().clear();
-		chooser.getExtensionFilters().add( new ExtensionFilter( "All Files", "*.*" ) );
-		for( PluginMethod< PeaklistFileInput > method: methods ) {
-			PeaklistFileInput annotation = method.getAnnotation();
-			chooser.getExtensionFilters().add(
-				new ExtensionFilter( annotation.title(), "*." + annotation.extensions())
-			);
-		}
-
-		if( file != null ) {
-			chooser.setInitialDirectory( file.getParentFile() );
-			chooser.setInitialFileName( file.getName() );
-		}
-
-		Stage stage = new Stage();
-		file = chooser.showOpenDialog( stage );
-		if( file != null ) {
-			this.savePeakList( file );
-		}
-	}
 
 
 	/**

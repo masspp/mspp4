@@ -9,7 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Column;
 
 
 /**
@@ -39,19 +41,19 @@ public class PeakList implements Serializable {
         
         
         //Scan Number (start from 1)
-        private int index;
+        private Integer index;
         
-        @Column(name="MS_STAGE", nullable=true)
-        private int msStage;
+        @Column(nullable=true)
+        private Integer msStage;
         
-        @Column(name="RT", nullable=true)
+        @Column(nullable=true)
         private String rt;
         
-        @Column(name="PRECURSOR_MZ", nullable=true)
-        private double precursorMz;
+        @Column(nullable=true)
+        private Double precursorMz;
         
-        @Column(name="PRECURSOR_CHARGE", nullable=true)
-        private int precursorCharge;
+        @Column(nullable=true)
+        private Integer precursorCharge;
         
         private String title;
 
@@ -92,42 +94,42 @@ public class PeakList implements Serializable {
         /**
          * @return the index
          */
-        public int getIndex() {
+        public Integer getIndex() {
             return index;
         }
 
         /**
          * @param index the index to set
          */
-        public void setIndex(int index) {
+        public void setIndex(Integer index) {
             this.index = index;
         }
 
         /**
          * @return the precursorCharge
          */
-        public int getPrecursorCharge() {
+        public Integer getPrecursorCharge() {
             return precursorCharge;
         }
 
         /**
          * @param precursorCharge the precursorCharge to set
          */
-        public void setPrecursorCharge(int precursorCharge) {
+        public void setPrecursorCharge(Integer precursorCharge) {
             this.precursorCharge = precursorCharge;
         }
 
         /**
          * @return the precursorMz
          */
-        public double getPrecursorMz() {
+        public Double getPrecursorMz() {
             return precursorMz;
         }
 
         /**
          * @param precursorMz the precursorMz to set
          */
-        public void setPrecursorMz(double precursorMz) {
+        public void setPrecursorMz(Double precursorMz) {
             this.precursorMz = precursorMz;
         }
 
@@ -148,14 +150,14 @@ public class PeakList implements Serializable {
             /**
         * @return the msStage
         */
-        public int getMsStage() {
+        public Integer getMsStage() {
             return msStage;
         }
 
         /**
          * @param msStage the msStage to set
          */
-        public void setMsStage(int msStage) {
+        public void setMsStage(Integer msStage) {
             this.msStage = msStage;
         }
         
