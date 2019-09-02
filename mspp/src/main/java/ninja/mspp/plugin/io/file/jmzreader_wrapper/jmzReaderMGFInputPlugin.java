@@ -65,10 +65,8 @@ import ninja.mspp.model.dataobject.Point; // just for test
 public class jmzReaderMGFInputPlugin {
     
     ArrayList<PeakListObject> peaklistobjs = new ArrayList<>();
-    String file_path;
     
     public jmzReaderMGFInputPlugin(){
-        file_path=null;
     }
     
     protected class Property{
@@ -101,7 +99,7 @@ public class jmzReaderMGFInputPlugin {
         
     @PeaklistFileInput( title = "MGF", extensions = {"mgf","txt"})
     public void saveMGFtoDB(String path) throws Exception {
-        MgfFile mgfFile = new MgfFile( new File(file_path));
+        MgfFile mgfFile = new MgfFile( new File(path));
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
             PeakList peaklist = new PeakList();
             
@@ -134,9 +132,8 @@ public class jmzReaderMGFInputPlugin {
     }
     
     public ArrayList<PeakListObject> openMGF(String path) throws Exception{
-        file_path = path;
-        System.out.println("path: " + file_path );
-        MgfFile mgfFile = new MgfFile( new File(file_path));
+
+        MgfFile mgfFile = new MgfFile( new File(path));
 
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
             PeakListObject peaklist=new PeakListObject();

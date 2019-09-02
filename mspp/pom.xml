@@ -77,8 +77,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>
@@ -143,6 +141,11 @@
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 		</dependency>
+                <dependency>
+                    <groupId>com.github.chhh</groupId>
+                    <artifactId>msftbx</artifactId>
+                    <version>1.8.5</version>
+                </dependency>
 	</dependencies>
 	<build>
 		<plugins>
