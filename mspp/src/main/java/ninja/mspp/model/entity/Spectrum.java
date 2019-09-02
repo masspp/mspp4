@@ -1,13 +1,16 @@
 package ninja.mspp.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -20,6 +23,7 @@ import javax.persistence.Table;
 @Table(name="SPECTRA")
 @NamedQuery(name="Spectrum.findAll", query="SELECT s FROM Spectrum s")
 public class Spectrum implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -61,6 +65,9 @@ public class Spectrum implements Serializable {
 	//bi-directional many-to-one association to Sample
 	@ManyToOne
 	private Sample sample;
+        
+        @OneToMany(mappedBy="spectrum")
+        private List<PeakList> peaklists;
 
 	public Spectrum() {
 	}
@@ -185,4 +192,30 @@ public class Spectrum implements Serializable {
 		this.sample = sample;
 	}
 
+        /**
+         * @return the peaklists
+         */
+        public List<PeakList> getPeakLists() {
+            return peaklists;
+        }
+
+        /**
+         * @param peaklists the peaklists to set
+         */
+        public void setPeakLists(List<PeakList> peaklists) {
+            this.peaklists = peaklists;
+        }       
+        
+        public PeakList addPeakList(PeakList peaklist){
+            getPeakLists().add(peaklist);
+            peaklist.setSpectrum(this);
+            return peaklist;
+        }
+        
+        public PeakList removePeakList(PeakList peaklist){
+            getPeakLists().remove(peaklist);
+            peaklist.setSpectrum(null);
+            return peaklist;
+        }
+        
 }

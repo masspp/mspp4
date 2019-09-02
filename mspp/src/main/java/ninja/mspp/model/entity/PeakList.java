@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name="PEAK_LISTS")
 @NamedQuery(name="PeakList.findAll", query="SELECT p FROM PeakList p")
 public class PeakList implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -20,8 +21,32 @@ public class PeakList implements Serializable {
 	private int id;
 
 	//bi-directional many-to-one association to Peak
-	@OneToMany(mappedBy="peakList")
+	@OneToMany(mappedBy="peaklist")
 	private List<Peak> peaks;
+        
+        @ManyToOne
+        private PeakListHeader peaklistheader;
+        
+        @ManyToOne
+        private Spectrum spectrum;
+        
+        
+        //Scan Number (start from 1)
+        private int index;
+        
+        @Column(name="MS_STAGE", nullable=true)
+        private int msStage;
+        
+        @Column(name="RT", nullable=true)
+        private String rt;
+        
+        @Column(name="PRECURSOR_MZ", nullable=true)
+        private double precursorMz;
+        
+        @Column(name="PRECURSOR_CHARGE", nullable=true)
+        private int precursorCharge;
+        
+        private String title;
 
 	public PeakList() {
 	}
@@ -55,5 +80,120 @@ public class PeakList implements Serializable {
 
 		return peak;
 	}
+        
+        
+        /**
+         * @return the index
+         */
+        public int getIndex() {
+            return index;
+        }
 
+        /**
+         * @param index the index to set
+         */
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        /**
+         * @return the precursorCharge
+         */
+        public int getPrecursorCharge() {
+            return precursorCharge;
+        }
+
+        /**
+         * @param precursorCharge the precursorCharge to set
+         */
+        public void setPrecursorCharge(int precursorCharge) {
+            this.precursorCharge = precursorCharge;
+        }
+
+        /**
+         * @return the precursorMz
+         */
+        public double getPrecursorMz() {
+            return precursorMz;
+        }
+
+        /**
+         * @param precursorMz the precursorMz to set
+         */
+        public void setPrecursorMz(double precursorMz) {
+            this.precursorMz = precursorMz;
+        }
+
+        /**
+         * @return the title
+         */
+        public String getTitle() {
+            return title;
+        }
+
+        /**
+         * @param title the title to set
+         */
+        public void setTitle(String title) {
+            this.title = title;
+        }
+        
+            /**
+        * @return the msStage
+        */
+        public int getMsStage() {
+            return msStage;
+        }
+
+        /**
+         * @param msStage the msStage to set
+         */
+        public void setMsStage(int msStage) {
+            this.msStage = msStage;
+        }
+        
+        
+        /**
+         * @return the rt
+         */
+        public String getRt() {
+            return rt;
+        }
+
+        /**
+         * @param rt the rt to set
+         */
+        public void setRt(String rt) {
+            this.rt = rt;
+        }
+        
+        /**
+        * @return the peaklistheader
+        */
+        public PeakListHeader getPeakListHeader() {
+            return peaklistheader;
+        }
+
+        /**
+         * @param peaklistheader the peaklistheader to set
+         */
+        public void setPeakListHeader(PeakListHeader peaklistheader) {
+            this.peaklistheader = peaklistheader;
+        }
+
+        /**
+         * @return the spectrum
+         */
+        public Spectrum getSpectrum() {
+            return spectrum;
+        }
+
+        /**
+         * @param spectrum the spectrum to set
+         */
+        public void setSpectrum(Spectrum spectrum) {
+            this.spectrum = spectrum;
+        }
+
+    
 }

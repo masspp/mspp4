@@ -52,6 +52,26 @@ import java.util.ArrayList;
 public abstract class SpectrumObject extends DrawObject {
 
     /**
+     * @return the index
+     * 
+     * Start from 1..(count of spectra in sample)
+     * 
+     */
+    public String getIndex() {
+        return index;
+    }
+
+    /**
+     * @param index the index to set
+     * 
+     * Start from 1..(count of spectra in sample)
+     * 
+     */
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
+    /**
      * @return the children
      */
     public ArrayList<SpectrumObject> getChildren() {
@@ -323,7 +343,8 @@ public abstract class SpectrumObject extends DrawObject {
 
 
     private String sample_path;
-    private String id;
+    private String id; // uid, osbolete now, instead,  use index
+    private String index; // value of spectrum index of mzML
     private boolean is_centroid;
     private String title;
     private int ms_stage;

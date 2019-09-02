@@ -41,7 +41,7 @@ public class Peak implements Serializable {
 	//bi-directional many-to-one association to PeakList
 	@ManyToOne
 	@JoinColumn(name="PEAK_LIST_ID")
-	private PeakList peakList;
+	private PeakList peaklist;
 
 	public Peak() {
 	}
@@ -133,11 +133,11 @@ public class Peak implements Serializable {
 	}
 
 	public PeakList getPeakList() {
-		return this.peakList;
+		return this.peaklist;
 	}
 
-	public void setPeakList(PeakList peakList) {
-		this.peakList = peakList;
+	public void setPeakList(PeakList peaklist) {
+		this.peaklist = peaklist;
 	}
 
 }

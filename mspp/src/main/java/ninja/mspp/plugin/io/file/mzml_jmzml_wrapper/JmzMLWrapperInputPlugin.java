@@ -165,10 +165,11 @@ public class JmzMLWrapperInputPlugin {
                     }
                 }
             }
-            spec.setId( uid );
+            spec.setId( uid ); //unique id in your PC.
             spec.setId_jmzml(jmzmlspec.getId());
             spec.setName( spec.getId_jmzml());
             spec.setTitle( sample.getFileName() + " ("+ spec.getName() + ")");
+            spec.setIndex(Integer.toString(jmzmlspec.getIndex()+1)); // start from 1
             
             String msg = "loaded Spectrum(Id: " + uid + 
                     ", Title: " + spec.getTitle() +  ")";

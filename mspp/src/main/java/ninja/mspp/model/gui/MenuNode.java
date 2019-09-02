@@ -59,6 +59,7 @@ public class MenuNode implements Iterable< MenuGroup > {
 	private static final String DEFAULT_GROUP = "none";
 
 	public static MenuNode FILE_MENU = new MenuNode( "File" );
+        public static MenuNode PEAKLIST_FILE_MENU = new MenuNode( "Peaklist File" );
 	public static MenuNode EDIT_MENU = new MenuNode( "Edit" );
 	public static MenuNode VIEW_MENU = new MenuNode( "View" );
 	public static MenuNode PROCESSING_MENU = new MenuNode( "Processing" );
