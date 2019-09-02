@@ -100,24 +100,31 @@ public class XYData implements Iterable< Point< Double > > {
             }
         }
 
-        if (is_reverse){
-            this.minX=this.xydata.get(this.xydata.size()-1).getX();
-            this.maxX = this.xydata.get(0).getX();
-        }else{
-            this.maxX=this.xydata.get(this.xydata.size()-1).getX();
-            this.minX = this.xydata.get(0).getX();
+        if( this.xydata.isEmpty() ) {
+        	this.minX = Double.NaN;
+        	this.maxX = Double.NaN;
+        	this.minY = Double.NaN;
+        	this.maxY = Double.NaN;
         }
+        else {
+        	if (is_reverse){
+        		this.minX=this.xydata.get(this.xydata.size()-1).getX();
+        		this.maxX = this.xydata.get(0).getX();
+        	}else {
+        		this.maxX=this.xydata.get(this.xydata.size()-1).getX();
+        		this.minX = this.xydata.get(0).getX();
+        	}
 
-        for(  Point< Double >  p: this.xydata){
-            double py = p.getY().doubleValue();
-            if (this.maxY < py){
-                this.maxY = py;
-            }
-            if (this.minY > py){
-                this.minY = py;
-            }
+        	for(  Point< Double >  p: this.xydata){
+        		double py = p.getY().doubleValue();
+        		if (this.maxY < py){
+        			this.maxY = py;
+        		}
+        		if (this.minY > py){
+        			this.minY = py;
+        		}
+        	}
         }
-
     }
      /**
      * @return the minX

@@ -21,7 +21,6 @@ public class SpectrumChromatogramPlugin {
 		this.controllers = new ArrayList< SpectrumChromatogramPanel >();
 	}
 
-
 	@SamplePanel( "Spectrum / Chromatogram" )
 	public Node createPanel( @FxmlLoaderParam SpringFXMLLoader loader ) throws Exception {
 		Node node = loader.load( SpectrumChromatogramPanel.class, "SpectrumChromatogramPanel.fxml" );

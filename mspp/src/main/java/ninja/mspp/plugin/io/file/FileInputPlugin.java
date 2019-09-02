@@ -42,18 +42,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.method.FileInput;
-import ninja.mspp.annotation.method.MenuAction;
-import ninja.mspp.annotation.method.MenuPosition;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.SampleObject;
-import ninja.mspp.model.gui.MenuNode;
-import ninja.mspp.model.gui.MenuNode.Order;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FileTool;
 
@@ -63,58 +56,9 @@ import ninja.mspp.tools.FileTool;
 @Component
 public class FileInputPlugin {
 	private static String RECENT_FILE_KEY = "Recent Open File";
-	private MenuNode menu;
 
 	@Autowired
 	private RawDataService rawDataService;
-
-	/**
-	 * constructor
-	 */
-	public FileInputPlugin() {
-		this.menu = MenuNode.FILE_MENU.item( "Open...", "file", Order.HIGHEST );
-	}
-
-	@MenuPosition
-	public MenuNode getMenuItem() {
-		return this.menu;
-	}
-
-	@MenuAction
-	public void action() {
-		MsppManager manager = MsppManager.getInstance();
-		String path = manager.loadString( RECENT_FILE_KEY, "" );
-		File file = null;
-		if( !path.isEmpty() ) {
-			file = new File( path );
-		}
-
-		List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
-
-		FileChooser chooser = new FileChooser();
-		chooser.setTitle( "Open File" );
-		chooser.getExtensionFilters().clear();
-		chooser.getExtensionFilters().add( new ExtensionFilter( "All Files", "*.*" ) );
-		for( PluginMethod< FileInput > method: methods ) {
-			FileInput annotation = method.getAnnotation();
-			chooser.getExtensionFilters().add(
-				new ExtensionFilter( annotation.title(), "*." + annotation.ext() )
-			);
-		}
-
-		if( file != null ) {
-			chooser.setInitialDirectory( file.getParentFile() );
-			chooser.setInitialFileName( file.getName() );
-		}
-
-		Stage stage = new Stage();
-		file = chooser.showOpenDialog( stage );
-		if( file != null ) {
-			SampleObject sampleObject = this.openFile( file );
-			this.rawDataService.register( sampleObject, null );
-		}
-	}
-
 
 	/**
 	 * opens file

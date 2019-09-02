@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import ninja.mspp.model.entity.PointList;
 
 @Repository
-public interface PointListRepository  extends JpaRepository< PointList, Integer >,
+public interface PointListRepository  extends JpaRepository< PointList, Long >,
 												QuerydslPredicateExecutor< PointList >{
 
 }

@@ -36,62 +36,20 @@
  */
 package ninja.mspp.plugin.viewer.overlap;
 
-import ninja.mspp.annotation.method.MenuAction;
-import ninja.mspp.annotation.method.MenuCheck;
-import ninja.mspp.annotation.method.MenuPosition;
 import ninja.mspp.annotation.method.OpenSpectrum;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.SpectrumObject;
 import ninja.mspp.model.dataobject.XYData;
-import ninja.mspp.model.gui.MenuNode;
 
 @Plugin( "overlap canvas")
 public class OverlapViewer {
 	/** canvas */
 	private static OverlapCanvas canvas = null;
 
-	/** menu */
-	MenuNode menu;
-
 	/**
 	 * constructor
 	 */
 	public OverlapViewer() {
-		this.menu = MenuNode.VIEW_MENU.item( "Spectrum", "canvas" ).item( "Overlapping" );
-	}
-
-	@MenuPosition
-	public MenuNode getMenu() {
-		return this.menu;
-	}
-
-	@MenuAction
-	public void toggleView() {
-/*
-		MsppManager manager = MsppManager.getInstance();
-		SpectrumObject spectrum = null;
-
-		if( OverlapViewer.canvas == null ) {
-			OverlapCanvas canvas = new OverlapCanvas( "m/z", "Int." );
-			GuiManager gui = GuiManager.getInstance();
-			MainFrame mainFrame = gui.getMainFrame();
-			mainFrame.addSpectrumWindow( "Overlapping",  canvas );
-			OverlapViewer.canvas = canvas;
-
-			if( spectrum != null ) {
-				this.addSpectrum( spectrum );
-			}
-		}
-*/
-	}
-
-	@MenuCheck
-	public boolean isVisible() {
-		OverlapCanvas canvas = OverlapViewer.canvas;
-		if( canvas == null ) {
-			return false;
-		}
-		return canvas.isVisible();
 	}
 
 	@OpenSpectrum

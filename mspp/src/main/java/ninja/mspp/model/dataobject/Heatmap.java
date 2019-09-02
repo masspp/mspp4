@@ -39,12 +39,15 @@ package ninja.mspp.model.dataobject;
 import java.util.Arrays;
 import java.util.List;
 
+import ninja.mspp.model.entity.Spectrum;
+import ninja.mspp.service.RawDataService;
+
 /**
  * heatmap
  */
 public class Heatmap {
-	public static final int RT_SIZE = 256;
-	public static final int MZ_SIZE = 256;
+	public static final int RT_SIZE = 512;
+	public static final int MZ_SIZE = 512;
 	public static final double RT_DULATION = 1.0;
 	public static final double MZ_DULATION = 0.1;
 
@@ -89,13 +92,13 @@ public class Heatmap {
 	 * constructor
 	 * @param spectra spectra
 	 */
-	public Heatmap( List< SpectrumObject > spectra ) {
+	public Heatmap( List< Spectrum > spectra, RawDataService service ) {
 		if( spectra == null || spectra.isEmpty() ) {
 			return;
 		}
 
-		double startRt = spectra.get( 0 ).getRt();
-		double endRt = spectra.get( spectra.size() - 1 ).getRt();
+		double startRt = spectra.get( 0 ).getStartRt();
+		double endRt = spectra.get( spectra.size() - 1 ).getStartRt();
 		endRt = Math.max( endRt,  startRt + 0.0001 );
 		this.rtRange = new Range< Double >( startRt, endRt );
 
@@ -103,17 +106,18 @@ public class Heatmap {
 		double startMz = Double.POSITIVE_INFINITY;
 		double endMz = Double.NEGATIVE_INFINITY;
 		double maxIntensity = 0.001;
-		for( SpectrumObject spectrum : spectra ) {
-			XYData xyData = spectrum.getXYData();
-			startMz = Math.min( startMz,  xyData.getMinX() );
-			endMz = Math.max( endMz,  xyData.getMaxX() );
-			maxIntensity = Math.max( maxIntensity,  xyData.getMaxY() );
+		for( Spectrum spectrum : spectra ) {
+			if( spectrum.getMsStage() == 1 ) {
+				startMz = Math.min( startMz, spectrum.getLowerMz() );
+				endMz = Math.max( endMz, spectrum.getUpperMz() );
+				maxIntensity = Math.max( maxIntensity,  spectrum.getMaxIntensity() );
+			}
 		}
 		endMz = Math.max( endMz,  startMz + 0.0001 );
 		this.mzRange = new Range< Double >( startMz, endMz );
 		this.maxIntensity = maxIntensity;
 
-		this.data = this.createData( spectra, this.rtRange, this.mzRange, maxIntensity );
+		this.data = this.createData( spectra, this.rtRange, this.mzRange, maxIntensity, service );
 	}
 
 	/**
@@ -123,7 +127,14 @@ public class Heatmap {
 	 * @param mzRange mz range
 	 * @return data
 	 */
-	protected double[][] createData( List< SpectrumObject > spectra, Range< Double > rtRange, Range< Double > mzRange, double maxIntensity ) {
+	protected double[][] createData(
+			List< Spectrum > spectra,
+			Range< Double > rtRange,
+			Range< Double > mzRange,
+			double maxIntensity,
+			RawDataService service
+	) {
+		System.out.println( "Creating Heatmap....." );
 		double[][] data = new double[ MZ_SIZE ][ RT_SIZE ];
 		for( double[] array : data ) {
 			Arrays.fill( array,  0.0 );
@@ -134,52 +145,55 @@ public class Heatmap {
 
 		int prevRtIndex = -1;
 		double prevRt = -100.0;
-		for( SpectrumObject spectrum : spectra ) {
-			double rt = spectrum.getRt();
-			int rtIndex = (int)Math.round( ( rt - rtRange.getStart() ) / rtUnit );
+		for( Spectrum spectrum : spectra ) {
+			double rt = spectrum.getStartRt();
+			if( spectrum.getMsStage() == 1 && rt >= rtRange.getStart() && rt <= rtRange.getEnd() ) {
+				System.out.println( "    Reading [" + spectrum.getName() + "]....." );
+				int rtIndex = (int)Math.round( ( rt - rtRange.getStart() ) / rtUnit );
 
-			XYData xyData = spectrum.getXYData();
-			double[] mzArray = new double[ MZ_SIZE ];
-			Arrays.fill( mzArray,  0.0 );
+				XYData xyData = service.findDataPoints( spectrum.getPointListId() );
+				double[] mzArray = new double[ MZ_SIZE ];
+				Arrays.fill( mzArray,  0.0 );
 
-			int prevMzIndex = -1;
-			double prevMz = -100.0;
-			for( Point< Double > point : xyData.getPoints() ) {
-				double mz = point.getX();
-				double intensity = point.getY() / maxIntensity;
+				int prevMzIndex = -1;
+				double prevMz = -100.0;
+				for( Point< Double > point : xyData.getPoints() ) {
+					double mz = point.getX();
+					double intensity = point.getY() / maxIntensity;
 
-				int mzIndex = (int)Math.round( ( mz - mzRange.getStart()  ) / mzUnit );
-				mzArray[ mzIndex ] = Math.max( intensity,  mzArray[ mzIndex ] );
+					int mzIndex = (int)Math.round( ( mz - mzRange.getStart()  ) / mzUnit );
+					mzArray[ mzIndex ] = Math.max( intensity,  mzArray[ mzIndex ] );
 
-				int diff = mzIndex - prevMzIndex;
-				if( diff > 1 && ( mz - prevMz ) <= MZ_DULATION ) {
+					int diff = mzIndex - prevMzIndex;
+					if( diff > 1 && ( mz - prevMz ) <= MZ_DULATION ) {
+						for( int i = 1; i < diff; i++ ) {
+							double prevIntensity = mzArray[ prevMzIndex ];
+							mzArray[ prevMzIndex + i ] = prevIntensity + ( intensity - prevIntensity ) * (double)i / (double)diff;
+						}
+					}
+
+					prevMz = mz;
+					prevMzIndex = mzIndex;
+				}
+
+				for( int i = 0; i < MZ_SIZE; i++ ) {
+					data[ i ][ rtIndex ] = Math.max( data[ i ][ rtIndex ], mzArray[ i ] );
+				}
+
+				int diff = rtIndex - prevRtIndex;
+				if( diff > 1 && ( rt - prevRt ) <= RT_DULATION ) {
 					for( int i = 1; i < diff; i++ ) {
-						double prevIntensity = mzArray[ prevMzIndex ];
-						mzArray[ prevMzIndex + i ] = prevIntensity + ( intensity - prevIntensity ) * (double)i / (double)diff;
+						for( int j = 0; j < MZ_SIZE; j++ ) {
+							double prevIntensity = data[ j ][ prevRtIndex ];
+							double intensity = mzArray[ j ];
+							data[ j ][ prevRtIndex + i ] = prevIntensity + ( intensity - prevIntensity ) * (double)i / (double)diff;
+						}
 					}
 				}
 
-				prevMz = mz;
-				prevMzIndex = mzIndex;
+				prevRtIndex = rtIndex;
+				prevRt = rt;
 			}
-
-			for( int i = 0; i < MZ_SIZE; i++ ) {
-				data[ i ][ rtIndex ] = Math.max( data[ i ][ rtIndex ], mzArray[ i ] );
-			}
-
-			int diff = rtIndex - prevRtIndex;
-			if( diff > 1 && ( rt - prevRt ) <= RT_DULATION ) {
-				for( int i = 1; i < diff; i++ ) {
-					for( int j = 0; j < MZ_SIZE; j++ ) {
-						double prevIntensity = data[ j ][ prevRtIndex ];
-						double intensity = mzArray[ j ];
-						data[ j ][ prevRtIndex + i ] = prevIntensity + ( intensity - prevIntensity ) * (double)i / (double)diff;
-					}
-				}
-			}
-
-			prevRtIndex = rtIndex;
-			prevRt = rt;
 		}
 
 		return data;

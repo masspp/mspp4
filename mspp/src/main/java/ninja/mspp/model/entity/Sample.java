@@ -28,7 +28,9 @@ public class Sample implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
+
+	private Integer spectrumCount;
 
 	private String acquisitionsoftware;
 
@@ -36,7 +38,15 @@ public class Sample implements Serializable {
 
 	private String filepath;
 
-	private String instrumentvendor;
+	private String instrumentVendor;
+
+	private String instrumentModel;
+
+	private String instrumentAnalyzer;
+
+	private String instrimentDetector;
+
+	private String ionization;
 
 	private String md5;
 
@@ -63,12 +73,20 @@ public class Sample implements Serializable {
 	public Sample() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Integer getSpectrumCount() {
+		return spectrumCount;
+	}
+
+	public void setSpectrumCount(Integer spectrumCount) {
+		this.spectrumCount = spectrumCount;
 	}
 
 	public String getAcquisitionsoftware() {
@@ -95,12 +113,44 @@ public class Sample implements Serializable {
 		this.filepath = filepath;
 	}
 
-	public String getInstrumentvendor() {
-		return this.instrumentvendor;
+	public String getInstrumentVendor() {
+		return instrumentVendor;
 	}
 
-	public void setInstrumentvendor(String instrumentvendor) {
-		this.instrumentvendor = instrumentvendor;
+	public void setInstrumentVendor(String instrumentVendor) {
+		this.instrumentVendor = instrumentVendor;
+	}
+
+	public String getInstrumentModel() {
+		return instrumentModel;
+	}
+
+	public void setInstrumentModel(String instrumentModel) {
+		this.instrumentModel = instrumentModel;
+	}
+
+	public String getInstrumentAnalyzer() {
+		return instrumentAnalyzer;
+	}
+
+	public void setInstrumentAnalyzer(String instrumentAnalyzer) {
+		this.instrumentAnalyzer = instrumentAnalyzer;
+	}
+
+	public String getInstrimentDetector() {
+		return instrimentDetector;
+	}
+
+	public void setInstrimentDetector(String instrimentDetector) {
+		this.instrimentDetector = instrimentDetector;
+	}
+
+	public String getIonization() {
+		return ionization;
+	}
+
+	public void setIonization(String ionization) {
+		this.ionization = ionization;
 	}
 
 	public String getMd5() {

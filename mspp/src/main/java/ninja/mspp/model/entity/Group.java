@@ -1,13 +1,21 @@
 package ninja.mspp.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the GROUPS database table.
- * 
+ *
  */
 @Entity
 @Table(name="GROUPS")
@@ -17,7 +25,7 @@ public class Group implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	private String color;
 
@@ -36,11 +44,11 @@ public class Group implements Serializable {
 	public Group() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -97,7 +97,10 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.SpectrumObject{
 
     private uk.ac.ebi.jmzml.model.mzml.Spectrum getJmzmlSpectrum(MzMLUnmarshaller unmarshaller, String id){
         try {
+        	long t0 = System.currentTimeMillis();
             uk.ac.ebi.jmzml.model.mzml.Spectrum spec = unmarshaller.getSpectrumById( id );
+            long t1 = System.currentTimeMillis();
+            System.out.println( "Time Hoge: " + ( t1 - t0 ) );
             return spec;
         } catch (MzMLUnmarshallerException ex) {
             // TODO: fix lator by Masaki Murase
@@ -116,12 +119,11 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.SpectrumObject{
      */
     @Override
     public XYData onGetXYData(double min_x, double max_x) {
-       
+
         jmzMLUnmarshallerFactory factory = jmzMLUnmarshallerFactory.getInstance();
         MzMLUnmarshaller unmarshaller = factory.getUnmarshaller(new File(this.getSamplePath()));
-        //MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
 
-        uk.ac.ebi.jmzml.model.mzml.Spectrum spec = getJmzmlSpectrum(unmarshaller, this.getId_jmzml()); 
+        uk.ac.ebi.jmzml.model.mzml.Spectrum spec = getJmzmlSpectrum(unmarshaller, this.getId_jmzml());
         ArrayList<Point<Double>> points = new ArrayList<>();
         int arraylength=spec.getBinaryDataArrayList().getBinaryDataArray().get(0).getArrayLength();
         double[] xarray=new double[arraylength];
@@ -176,7 +178,7 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.SpectrumObject{
             Point p = new Point(xarray[i],yarray[i]);
             points.add(p);
         }
-      
+
         XYData xydata = new XYData(points, true);
 
         return xydata;

@@ -36,80 +36,36 @@
  */
 package ninja.mspp.plugin.viewer.heatmap;
 
-import java.util.ArrayList;
-
-import ninja.mspp.annotation.method.MenuAction;
-import ninja.mspp.annotation.method.MenuPosition;
+import javafx.scene.Node;
+import ninja.mspp.annotation.method.OnRawdataSample;
+import ninja.mspp.annotation.method.SamplePanel;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.dataobject.SampleObject;
-import ninja.mspp.model.dataobject.SpectrumObject;
-import ninja.mspp.model.gui.MenuNode;
+import ninja.mspp.model.entity.Sample;
+import ninja.mspp.view.SpringFXMLLoader;
 
 @Plugin( "heatmap viewer" )
 public class HeatMapViewer {
-	private MenuNode menu;
+	private HeatmapPanel panel;
 
 	/**
 	 * constructor
 	 */
 	public HeatMapViewer() {
-		this.menu = MenuNode.TOOLS_MENU.item( "Heatmap" );
+		this.panel = null;
 	}
 
-	@MenuPosition
-	public MenuNode getPosition() {
-		return this.menu;
+	@SamplePanel( "Heatmap" )
+	public Node createPanel( @FxmlLoaderParam SpringFXMLLoader loader ) throws Exception {
+		Node node = loader.load( HeatmapPanel.class, "HeatmapPanel.fxml" );
+		this.panel = ( HeatmapPanel )loader.getController();
+		return node;
 	}
 
-	@MenuAction
-	public void action() {
-/*
-		MsppManager manager = MsppManager.getInstance();
-		SampleObject sample = manager.getSample( 0 );
-
-		if( sample == null ) {
-			return;
+	@OnRawdataSample
+	public void onRawDataSample( Sample sample ) {
+		if( this.panel != null ) {
+			this.panel.setSample( sample );
 		}
-
-		this.openHeatmap( sample );
-*/
 	}
-
-	/**
-	 * opens heatmap
-	 * @param sample sample
-	 */
-	protected void openHeatmap( SampleObject sample ) {
-		ArrayList< SpectrumObject > spectra = this.getSpectra( sample );
-		if( spectra.size() == 0 ) {
-			return;
-		}
-/*
-		GuiManager gui = GuiManager.getInstance();
-		MainFrame mainFrame = gui.getMainFrame();
-
-		Heatmap heatmap = new Heatmap( spectra );
-		HeatmapCanvas canvas = new HeatmapCanvas( heatmap, "RT", "m/z" );
-		mainFrame.addMapWindow( "Heatmap",  canvas );
-*/
-	}
-
-	/**
-	 * gets the spectra
-	 * @param sample sample
-	 * @return spectra
-	 */
-	protected ArrayList< SpectrumObject > getSpectra( SampleObject sample ) {
-		ArrayList< SpectrumObject > spectra = new ArrayList< SpectrumObject >();
-
-		for( SpectrumObject spectrum : sample.getSpectra() ) {
-			if( spectrum.getMsStage() > 1 && spectrum.getRt() > 0.0 ) {
-				spectra.add( spectrum );
-			}
-		}
-
-		return spectra;
-	}
-
-
 }

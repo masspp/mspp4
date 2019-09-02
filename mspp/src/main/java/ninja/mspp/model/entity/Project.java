@@ -1,14 +1,22 @@
 package ninja.mspp.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the PROJECTS database table.
- * 
+ *
  */
 @Entity
 @Table(name="PROJECTS")
@@ -18,13 +26,13 @@ public class Project implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	private String description;
 
 	private String name;
 
-	@Column(name="REGISTRATION_DATE")
+	@Column
 	private Timestamp registrationDate;
 
 	//bi-directional many-to-one association to Group
@@ -34,11 +42,11 @@ public class Project implements Serializable {
 	public Project() {
 	}
 
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

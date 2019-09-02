@@ -1,5 +1,7 @@
 package ninja.mspp.model.entity;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import ninja.mspp.model.dataobject.DrawPoint;
-import ninja.mspp.tools.DbTool;
 
 
 /**
@@ -29,57 +30,68 @@ public class DrawElementList implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	private int level;
+	private Integer level;
 
-	@Column(name="POINT_LIST_ID")
-	private int pointListId;
+	@Column
+	private Long pointListId;
+
+	@Column
+	private Integer dataLength;
 
 	@Lob
-	@Column( name = "X_ARRAY" )
+	@Column
 	private byte[] xArray;
 
 	@Lob
-	@Column( name = "MIN_Y_ARRAY" )
+	@Column
 	private byte[] minYArray;
 
 	@Lob
-	@Column( name = "MAX_Y_ARRAY" )
+	@Column
 	private byte[] maxYArray;
 
 	@Lob
-	@Column( name = "LEFT_Y_ARRAY" )
+	@Column
 	private byte[] leftYArray;
 
 	@Lob
-	@Column( name = "RIGHT_Y_ARRAY" )
+	@Column
 	private byte[] rightYArray;
 
 	public DrawElementList() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public int getLevel() {
-		return this.level;
+	public Integer getLevel() {
+		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 
-	public int getPointListId() {
-		return this.pointListId;
+	public Integer getDataLength() {
+		return dataLength;
 	}
 
-	public void setPointListId(int pointListId) {
+	public void setDataLength(Integer dataLength) {
+		this.dataLength = dataLength;
+	}
+
+	public Long getPointListId() {
+		return pointListId;
+	}
+
+	public void setPointListId(Long pointListId) {
 		this.pointListId = pointListId;
 	}
 
@@ -123,72 +135,42 @@ public class DrawElementList implements Serializable {
 		this.rightYArray = rightYArray;
 	}
 
+
 	/**
-	 * gets the draw points
+	 * gets draw points
 	 * @return
 	 */
-	public List< DrawPoint > getDrawPoints() {
-		List< DrawPoint > points = new ArrayList< DrawPoint >();
-		try {
-			double[] xArray = DbTool.createDoubleArrayFromBytes( this.getxArray() );
-			double[] minYArray = DbTool.createDoubleArrayFromBytes( this.getMinYArray() );
-			double[] maxYArray = DbTool.createDoubleArrayFromBytes( this.getMaxYArray() );
-			double[] leftYArray = DbTool.createDoubleArrayFromBytes( this.getLeftYArray() );
-			double[] rightYArray = DbTool.createDoubleArrayFromBytes( this.getRightYArray() );
+	public List< DrawPoint > getDrawPoints() throws Exception {
+		List< DrawPoint > list = new ArrayList< DrawPoint >();
 
-			for(
-					int i = 0;
-					i < xArray.length && i < minYArray.length && i < maxYArray.length
-						&& i < leftYArray.length && i < rightYArray.length;
-					i++
-			) {
-				DrawPoint point = new DrawPoint();
-				point.setX( xArray[ i ] );
-				point.setMinY( minYArray[ i ] );
-				point.setMaxY( maxYArray[ i ] );
-				point.setLeftY( leftYArray[ i ] );
-				point.setRightY( rightYArray[ i ] );
-				points.add( point );
-			}
-		}
-		catch( Exception e ) {
-			e.printStackTrace();
-		}
-		return points;
-	}
+		DataInputStream xIn = new DataInputStream( new ByteArrayInputStream( this.xArray ) );
+		DataInputStream maxIn = new DataInputStream( new ByteArrayInputStream( this.maxYArray ) );
+		DataInputStream minIn = new DataInputStream( new ByteArrayInputStream( this.minYArray ) );
+		DataInputStream leftIn = new DataInputStream( new ByteArrayInputStream( this.leftYArray ) );
+		DataInputStream rightIn = new DataInputStream( new ByteArrayInputStream( this.rightYArray ) );
 
-	/**
-	 * sets the draw points
-	 * @param points draw points
-	 */
-	public void setDrawPoints( List< DrawPoint > points ) {
-		int length = points.size();
-		double[] xArray = new double[ length ];
-		double[] minYArray = new double[ length ];
-		double[] maxYArray = new double[ length ];
-		double[] leftYArray = new double[ length ];
-		double[] rightYArray = new double[ length ];
+		for( int i = 0; i < this.dataLength; i++ ) {
+			double x = xIn.readDouble();
+			double maxY = maxIn.readDouble();
+			double minY = minIn.readDouble();
+			double leftY = leftIn.readDouble();
+			double rightY = rightIn.readDouble();
 
-		int index = 0;
-		for( DrawPoint point : points ) {
-			xArray[ index ] = point.getX();
-			minYArray[ index ] = point.getMinY();
-			maxYArray[ index ] = point.getMaxY();
-			leftYArray[ index ] = point.getLeftY();
-			rightYArray[ index ] = point.getRightY();
-			index++;
+			DrawPoint point = new DrawPoint();
+			point.setX( x );
+			point.setMinY( minY );
+			point.setMaxY( maxY );
+			point.setLeftY( leftY );
+			point.setRightY( rightY );
+			list.add( point );
 		}
 
+		xIn.close();
+		maxIn.close();
+		minIn.close();
+		leftIn.close();
+		rightIn.close();
 
-		try {
-			this.setxArray( DbTool.createBytesFromDoubleArray( xArray ) );
-			this.setMinYArray( DbTool.createBytesFromDoubleArray( minYArray ) );
-			this.setMaxYArray( DbTool.createBytesFromDoubleArray( maxYArray ) );
-			this.setLeftYArray( DbTool.createBytesFromDoubleArray( leftYArray ) );
-			this.setRightYArray( DbTool.createBytesFromDoubleArray( rightYArray ) );
-		}
-		catch( Exception e ) {
-			e.printStackTrace();
-		}
+		return list;
 	}
 }
