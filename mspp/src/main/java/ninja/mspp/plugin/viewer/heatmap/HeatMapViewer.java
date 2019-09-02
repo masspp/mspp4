@@ -36,48 +36,36 @@
  */
 package ninja.mspp.plugin.viewer.heatmap;
 
-import java.util.ArrayList;
-
+import javafx.scene.Node;
+import ninja.mspp.annotation.method.OnRawdataSample;
+import ninja.mspp.annotation.method.SamplePanel;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.dataobject.SampleObject;
-import ninja.mspp.model.dataobject.SpectrumObject;
+import ninja.mspp.model.entity.Sample;
+import ninja.mspp.view.SpringFXMLLoader;
 
 @Plugin( "heatmap viewer" )
 public class HeatMapViewer {
+	private HeatmapPanel panel;
 
 	/**
 	 * constructor
 	 */
 	public HeatMapViewer() {
+		this.panel = null;
 	}
 
-	/**
-	 * opens heatmap
-	 * @param sample sample
-	 */
-	protected void openHeatmap( SampleObject sample ) {
-		ArrayList< SpectrumObject > spectra = this.getSpectra( sample );
-		if( spectra.size() == 0 ) {
-			return;
+	@SamplePanel( "Heatmap" )
+	public Node createPanel( @FxmlLoaderParam SpringFXMLLoader loader ) throws Exception {
+		Node node = loader.load( HeatmapPanel.class, "HeatmapPanel.fxml" );
+		this.panel = ( HeatmapPanel )loader.getController();
+		return node;
+	}
+
+	@OnRawdataSample
+	public void onRawDataSample( Sample sample ) {
+		if( this.panel != null ) {
+			this.panel.setSample( sample );
 		}
 	}
-
-	/**
-	 * gets the spectra
-	 * @param sample sample
-	 * @return spectra
-	 */
-	protected ArrayList< SpectrumObject > getSpectra( SampleObject sample ) {
-		ArrayList< SpectrumObject > spectra = new ArrayList< SpectrumObject >();
-
-		for( SpectrumObject spectrum : sample.getSpectra() ) {
-			if( spectrum.getMsStage() > 1 && spectrum.getRt() > 0.0 ) {
-				spectra.add( spectrum );
-			}
-		}
-
-		return spectra;
-	}
-
-
 }

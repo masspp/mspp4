@@ -72,6 +72,9 @@ public class Spectrum implements Serializable {
 	@Column
 	private Double upperMz;
 
+	@Column
+	private Double maxIntensity;
+
 	//bi-directional many-to-one association to Sample
 	@ManyToOne
 	private Sample sample;
@@ -213,6 +216,14 @@ public class Spectrum implements Serializable {
 
 	public void setUpperMz(Double upperMz) {
 		this.upperMz = upperMz;
+	}
+
+	public Double getMaxIntensity() {
+		return maxIntensity;
+	}
+
+	public void setMaxIntensity(Double maxIntensity) {
+		this.maxIntensity = maxIntensity;
 	}
 
 	public Sample getSample() {

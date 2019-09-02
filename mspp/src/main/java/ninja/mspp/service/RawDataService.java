@@ -114,6 +114,7 @@ public class RawDataService {
 		return points;
 	}
 
+
 	/**
 	 * finds fast draw data
 	 * @param pointListId point list ID
@@ -182,7 +183,6 @@ public class RawDataService {
 
 			double t = ( double )count / ( double ) total;
 			double position = ( 1.0 - t ) * start + t * end;
-			System.out.println( "Position: " + position );
 			progress.setProgress( position );
 			count++;
 		}
@@ -273,6 +273,7 @@ public class RawDataService {
 		spectrum.setMsStage( scan.getMsLevel() );
 		spectrum.setLowerMz( scan.getScanMzWindowLower() );
 		spectrum.setUpperMz( scan.getScanMzWindowUpper() );
+		spectrum.setMaxIntensity( pointList.getMaxY() );
 		if( polarity != null ) {
 			spectrum.setPolarity( polarity.getSign() );
 		}

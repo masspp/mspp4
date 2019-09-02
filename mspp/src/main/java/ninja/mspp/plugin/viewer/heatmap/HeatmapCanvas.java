@@ -58,10 +58,25 @@ public class HeatmapCanvas extends ProfileCanvas {
 	private String rtTitle;
 	private String mzTitle;
 
+	/**
+	 * constructor
+	 * @param heatmap heatmap data
+	 * @param rtTitle RT title
+	 * @param mzTitle m/z title
+	 */
 	public HeatmapCanvas( Heatmap heatmap, String rtTitle, String mzTitle ) {
 		this.heatmap = heatmap;
 		this.rtTitle = rtTitle;
 		this.mzTitle = mzTitle;
+		this.draw();
+	}
+
+	/**
+	 * constructor
+	 * @param heatmap heatmap data
+	 */
+	public HeatmapCanvas( Heatmap heatmap ) {
+		this( heatmap, "RT", "m/z" );
 	}
 
 	/**
@@ -106,26 +121,43 @@ public class HeatmapCanvas extends ProfileCanvas {
 			for( int j = 0; j < rtSize; j++ ) {
 				int index = i * rtSize + j;
 				double intensity = Math.sqrt( data[ i ][ j ] );
+				intensity = Math.max( 0.0, Math.min( 1.0,  intensity ) );
 
-				int red = 255;
-				if( intensity < 0.5 ) {
-					red = (int)Math.round( 255.0 * intensity / 0.5 );
-				}
-
+				int red = 0;
 				int green = 0;
-				if( intensity > 0.5 ) {
-					green = (int)Math.round( 255.0 * ( intensity - 0.5 ) / 0.5 );
-				}
-
 				int blue = 0;
 				int alpha = 255;
+
+				if( intensity < 0.1 ) {    // black -> blue
+					double value = intensity / 0.1;
+					blue = ( int )Math.round( 255.0 * value );
+				}
+				else if( intensity < 0.25 ) {    // blue -> cyan
+					double value = ( intensity - 0.1 ) / 0.15;
+					blue = 255;
+					green = ( int )Math.round( 255.0 * value );
+				}
+				else if( intensity < 0.45 ) {    // cyan -> green
+					double value = ( intensity - 0.25 ) / 0.2;
+					green = 255;
+					blue = ( int )Math.round( 255.0 * ( 1.0 - value ) );
+				}
+				else if( intensity < 0.7 ) {    // green -> yeallow
+					double value = ( intensity - 0.45 ) / 0.25;
+					green = 255;
+					red = ( int )Math.round( 255.0 * value );
+				}
+				else {    // yeallow -> red
+					double value = ( intensity - 0.7) / 0.3;
+					red = 255;
+					green = ( int )Math.round( 255.0 * ( 1.0 - value ) );
+				}
 
 				int pixel = ( alpha << 24 ) | ( red << 16 ) | ( green << 8 ) | blue;
 				pixels[ index ] = pixel;
 			}
 		}
 		writer.setPixels( 0,  0,  rtSize,  mzSize, format, pixels, 0, rtSize );
-
 
 		g.drawImage(
 			image,
@@ -156,7 +188,6 @@ public class HeatmapCanvas extends ProfileCanvas {
 		);
 
 		this.drawImage( g, width, height, margin, heatmap.getData() );
-
 
 		this.drawScale(
 				g,
