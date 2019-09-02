@@ -326,9 +326,12 @@ public abstract class ProfileCanvas extends Canvas {
 		while( px <= right ) {
 			double x = unit * (double)index;
 			px = (int)Math.round( x * transformMatrix.getEntry( 0,  0 ) + 0.0 * transformMatrix.getEntry( 0,  1 ) + transformMatrix.getEntry( 0,  2 ) );
-			String string = String.format( format, Math.round( x ) );
+			String string = "";
 			if( level < 0 ) {
 				string = String.format( format,  x );
+			}
+			else {
+				string = String.format( format, Math.round( x ) );
 			}
 
 			Integer stringWidth = this.getTextWidth( g,  string );

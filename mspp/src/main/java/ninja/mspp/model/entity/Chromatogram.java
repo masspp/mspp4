@@ -1,12 +1,20 @@
 package ninja.mspp.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the CHROMATOGRAMS database table.
- * 
+ *
  */
 @Entity
 @Table(name="CHROMATOGRAMS")
@@ -16,17 +24,17 @@ public class Chromatogram implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	@Column(name="MS_STAGE")
-	private int msStage;
+	@Column
+	private Integer msStage;
 
-	private double mz;
+	private Double mz;
 
 	private String name;
 
-	@Column(name="POINT_LIST_ID")
-	private int pointListId;
+	@Column
+	private Long pointListId;
 
 	private String title;
 
@@ -37,48 +45,48 @@ public class Chromatogram implements Serializable {
 	public Chromatogram() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public int getMsStage() {
-		return this.msStage;
+	public Integer getMsStage() {
+		return msStage;
 	}
 
-	public void setMsStage(int msStage) {
+	public void setMsStage(Integer msStage) {
 		this.msStage = msStage;
 	}
 
-	public double getMz() {
-		return this.mz;
+	public Double getMz() {
+		return mz;
 	}
 
-	public void setMz(double mz) {
+	public void setMz(Double mz) {
 		this.mz = mz;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getPointListId() {
-		return this.pointListId;
+	public Long getPointListId() {
+		return pointListId;
 	}
 
-	public void setPointListId(int pointListId) {
+	public void setPointListId(Long pointListId) {
 		this.pointListId = pointListId;
 	}
 
 	public String getTitle() {
-		return this.title;
+		return title;
 	}
 
 	public void setTitle(String title) {
@@ -86,11 +94,10 @@ public class Chromatogram implements Serializable {
 	}
 
 	public Sample getSample() {
-		return this.sample;
+		return sample;
 	}
 
 	public void setSample(Sample sample) {
 		this.sample = sample;
 	}
-
 }

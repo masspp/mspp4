@@ -1,5 +1,7 @@
 package ninja.mspp.model.entity;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,6 @@ import javax.persistence.Table;
 
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.XYData;
-import ninja.mspp.tools.DbTool;
 
 
 /**
@@ -30,96 +31,84 @@ public class PointList implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	@Column(name="MAX_X")
-	private double maxX;
+	@Column
+	private Double maxX;
 
-	@Column(name="MAX_Y")
-	private double maxY;
+	@Column
+	private Double maxY;
 
-	@Column(name="MIN_X")
-	private double minX;
+	@Column
+	private Double minX;
 
-	@Column(name="MIN_Y")
-	private double minY;
+	@Column
+	private Double minY;
+
+	@Column
+	private Integer dataLength;
 
 	@Lob
-	@Column( name = "X_ARRAY" )
+	@Column
 	private byte[] xArray;
 
 	@Lob
-	@Column( name = "Y_ARRAY" )
+	@Column
 	private byte[] yArray;
 
-	private String xunit;
-
-	private String yunit;
-
-	public PointList() {
+	public Long getId() {
+		return id;
 	}
 
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public double getMaxX() {
-		return this.maxX;
+	public Double getMaxX() {
+		return maxX;
 	}
 
-	public void setMaxX(double maxX) {
+	public void setMaxX(Double maxX) {
 		this.maxX = maxX;
 	}
 
-	public double getMaxY() {
-		return this.maxY;
+	public Double getMaxY() {
+		return maxY;
 	}
 
-	public void setMaxY(double maxY) {
+	public void setMaxY(Double maxY) {
 		this.maxY = maxY;
 	}
 
-	public double getMinX() {
-		return this.minX;
+	public Double getMinX() {
+		return minX;
 	}
 
-	public void setMinX(double minX) {
+	public void setMinX(Double minX) {
 		this.minX = minX;
 	}
 
-	public double getMinY() {
-		return this.minY;
+	public Double getMinY() {
+		return minY;
 	}
 
-	public void setMinY(double minY) {
+	public void setMinY(Double minY) {
 		this.minY = minY;
 	}
 
-	public String getXunit() {
-		return this.xunit;
+	public Integer getDataLength() {
+		return dataLength;
 	}
 
-	public void setXunit(String xunit) {
-		this.xunit = xunit;
-	}
-
-	public String getYunit() {
-		return this.yunit;
-	}
-
-	public void setYunit(String yunit) {
-		this.yunit = yunit;
+	public void setDataLength(Integer dataLength) {
+		this.dataLength = dataLength;
 	}
 
 	public byte[] getxArray() {
 		return xArray;
 	}
 
-	public void setxArray( byte[] xArray) {
+	public void setxArray(byte[] xArray) {
 		this.xArray = xArray;
 	}
 
@@ -127,57 +116,49 @@ public class PointList implements Serializable {
 		return yArray;
 	}
 
-	public void setyArray( byte[] yArray) {
+	public void setyArray(byte[] yArray) {
 		this.yArray = yArray;
 	}
 
 	/**
-	 * gets the xy data
+	 * gets the xy data;
 	 * @return xy data
 	 */
 	public XYData getXYData() {
-		List< Point< Double > > points = new ArrayList< Point< Double > >();
-		try {
-			double[] xArray = DbTool.createDoubleArrayFromBytes( this.getxArray() );
-			double[] yArray = DbTool.createDoubleArrayFromBytes( this.getyArray() );
+		DataInputStream xIn = new DataInputStream( new ByteArrayInputStream( this.xArray ) );
+		DataInputStream yIn = new DataInputStream( new ByteArrayInputStream( this.yArray ) );
 
-			for( int i = 0; i < xArray.length && i < yArray.length; i++ ) {
-				double x = xArray[ i ];
-				double y = yArray[ i ];
+		List< Point< Double > > points = new ArrayList< Point< Double > >();
+
+		try {
+			for( int i = 0; i < this.dataLength; i++ ) {
+				double x = xIn.readDouble();
+				double y = yIn.readDouble();
 				Point< Double > point = new Point< Double >( x, y );
 				points.add( point );
 			}
+			xIn.close();
+			yIn.close();
 		}
 		catch( Exception e ) {
 			e.printStackTrace();
+			return null;
 		}
-		XYData xyData = new XYData( points );
+
+		XYData xyData = new XYData( points, false );
+		if( this.minX != null ) {
+			xyData.setMinX( this.minX );
+		}
+		if( this.maxX != null ) {
+			xyData.setMaxX( this.maxX );
+		}
+		if( this.minY != null ) {
+			xyData.setMinY( this.minY );
+		}
+		if( this.maxY != null ) {
+			xyData.setMaxY( this.maxY );
+		}
+
 		return xyData;
-	}
-
-	/**
-	 * sets the xy data
-	 * @param xyData xy data
-	 */
-	public void setXYData( XYData xyData ) {
-		int length = xyData.getPoints().size();
-
-		double[] xArray = new double[ length ];
-		double[] yArray = new double[ length ];
-
-		int index = 0;
-		for( Point< Double > point : xyData ) {
-			xArray[ index ] = point.getX();
-			yArray[ index ] = point.getY();
-			index++;
-		}
-
-		try {
-			this.setxArray( DbTool.createBytesFromDoubleArray( xArray ) );
-			this.setyArray( DbTool.createBytesFromDoubleArray( yArray ) );
-		}
-		catch( Exception e ) {
-			e.printStackTrace();
-		}
 	}
 }

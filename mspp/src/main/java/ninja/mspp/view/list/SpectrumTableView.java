@@ -25,22 +25,10 @@ public class SpectrumTableView extends TableView< Spectrum > {
 	protected void initialize() {
 		this.getColumns().clear();
 
-		// ID
-		TableColumn< Spectrum, String > stringColumn = new TableColumn< Spectrum, String >( "ID" );
-		stringColumn.setPrefWidth( 150.0 );
-		stringColumn.setCellValueFactory( new PropertyValueFactory< Spectrum, String >( "spectrumid" ) );
-		this.getColumns().add( stringColumn );
-
 		// Name
-		stringColumn = new TableColumn< Spectrum, String >( "Name" );
+		TableColumn< Spectrum, String > stringColumn = new TableColumn< Spectrum, String >( "Name" );
 		stringColumn.setPrefWidth( 150.0 );
 		stringColumn.setCellValueFactory( new PropertyValueFactory< Spectrum, String >( "name" )  );
-		this.getColumns().add( stringColumn );
-
-		// Title
-		stringColumn = new TableColumn< Spectrum, String >( "Title" );
-		stringColumn.setPrefWidth( 150.0 );
-		stringColumn.setCellValueFactory( new PropertyValueFactory< Spectrum, String >( "title" )  );
 		this.getColumns().add( stringColumn );
 
 		// RT
@@ -50,7 +38,6 @@ public class SpectrumTableView extends TableView< Spectrum > {
 		FXTools.setTableColumnRightAlign( doubleColumn );
 		FXTools.setDoubleTableColumnAccuracy( doubleColumn,  3 );
 		this.getColumns().add( doubleColumn );
-
 
 		// Stage
 		TableColumn< Spectrum, Integer > intColumn = new TableColumn< Spectrum, Integer >( "Stage" );
@@ -77,6 +64,14 @@ public class SpectrumTableView extends TableView< Spectrum > {
 			}
 		);
 		this.getColumns().add( stringColumn );
+
+		// precursor
+		doubleColumn = new TableColumn< Spectrum, Double >( "Precursor" );
+		doubleColumn.setPrefWidth( 100.0 );
+		doubleColumn.setCellValueFactory( new PropertyValueFactory< Spectrum, Double >( "precursor" ) );
+		FXTools.setTableColumnRightAlign( doubleColumn );
+		FXTools.setDoubleTableColumnAccuracy( doubleColumn,  3 );
+		this.getColumns().add( doubleColumn );
 
 		// TIC
 		doubleColumn = new TableColumn< Spectrum, Double >( "TIC" );

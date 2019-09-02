@@ -5,7 +5,7 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 import ninja.mspp.model.entity.Chromatogram;
 
-public interface ChromatogramRepository extends JpaRepository< Chromatogram, Integer >,
+public interface ChromatogramRepository extends JpaRepository< Chromatogram, Long >,
 												  QuerydslPredicateExecutor< Chromatogram >{
 
 }

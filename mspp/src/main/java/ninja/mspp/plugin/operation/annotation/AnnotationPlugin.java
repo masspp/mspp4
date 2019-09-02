@@ -46,44 +46,21 @@ import org.apache.commons.math3.linear.RealMatrix;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import ninja.mspp.annotation.method.DrawSpectrumForeground;
-import ninja.mspp.annotation.method.MenuAction;
-import ninja.mspp.annotation.method.MenuPosition;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.DrawPoint;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
-import ninja.mspp.model.gui.MenuNode;
 
 @Plugin( "annotation")
 public class AnnotationPlugin {
-	MenuNode menu;
 	ArrayList< Annotation > annotations;
 
 	/**
 	 * constructor
 	 */
 	public AnnotationPlugin() {
-		this.menu = MenuNode.TOOLS_MENU.item( "Annotation" );
 		this.annotations  = new ArrayList< Annotation >();
-	}
-
-	@MenuPosition
-	public MenuNode getMenuPosition() {
-		return this.menu;
-	}
-
-	@MenuAction
-	public void action() throws Exception {
-		FileChooser chooser = new FileChooser();
-		File file = chooser.showOpenDialog( new Stage() );
-		if( file == null ) {
-			return;
-		}
-
-		this.annotations = this.readAnnotations( file );
 	}
 
 	@DrawSpectrumForeground

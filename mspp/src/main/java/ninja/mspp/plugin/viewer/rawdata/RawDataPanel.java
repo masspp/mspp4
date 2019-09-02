@@ -20,7 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -38,12 +38,10 @@ import ninja.mspp.annotation.method.FileInput;
 import ninja.mspp.annotation.method.OnRawdataSample;
 import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.model.PluginMethod;
-import ninja.mspp.model.dataobject.SampleObject;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FXTools;
-import ninja.mspp.tools.FileTool;
 
 
 @Component
@@ -73,6 +71,9 @@ public class RawDataPanel implements Initializable {
 
 	@FXML
 	private TableColumn< Sample, String  > commentColumn;
+
+	@FXML
+	private BorderPane upperPane;
 
 	@FXML
 	private Button importButton;
@@ -110,13 +111,34 @@ public class RawDataPanel implements Initializable {
 			chooser.setInitialFileName( file.getName() );
 		}
 
+		ProgressBar progress = new ProgressBar();
+		progress.setProgress( 0.0 );
+		progress.setPrefHeight( 15.0 );
+		progress.prefWidthProperty().bind( this.upperPane.widthProperty().subtract( 10.0 ) );
+		this.upperPane.setBottom( progress );
+
 		Stage stage = new Stage();
-		file = chooser.showOpenDialog( stage );
-		if( file != null ) {
-			SampleObject sampleObject = this.openFile( file );
-			this.rawDataService.register( sampleObject, new ProgressIndicator() );
+		List< File > files = chooser.showOpenMultipleDialog( stage );
+		stage.close();
+
+		if( files != null && !files.isEmpty() ) {
+			int count = files.size();
+
+			try {
+				for( int i = 0; i < files.size(); i++ ) {
+					file = files.get( i );
+					double start = ( double )i / ( double )count;
+					double end = ( double )( i + 1 ) / ( double )count;
+					this.rawDataService.register( file.getAbsolutePath(), progress, start, end );
+				}
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
 			this.updateTable();
 		}
+
+		this.upperPane.setBottom( null );
 	}
 
 	@FXML
@@ -142,35 +164,6 @@ public class RawDataPanel implements Initializable {
 				this.table.refresh();
 			}
 		}
-	}
-
-	/**
-	 * opens file
-	 * @param file file
-	 * @return file data
-	 */
-	private SampleObject openFile( File file ) {
-		MsppManager manager = MsppManager.getInstance();
-
-		String path = file.getAbsolutePath();
-		String ext = FileTool.getExtension( path );
-		SampleObject sample = null;
-
-		List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
-
-		for( PluginMethod< FileInput > method: methods ) {
-			Object plugin = method.getPlugin();
-			FileInput annotation = method.getAnnotation();
-			if( sample == null && annotation.ext().compareToIgnoreCase( ext ) == 0 ) {
-				try {
-					sample = (SampleObject)method.getMethod().invoke( plugin,  path );
-				}
-				catch( Exception e ) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return sample;
 	}
 
 	/**
@@ -228,8 +221,8 @@ public class RawDataPanel implements Initializable {
 
 		this.setSamplePanels();
 
-		this.nameColomn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "name" ) );
-		this.instrumentColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "instrumentvendor" ) );
+		this.nameColomn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "filename" ) );
+		this.instrumentColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "instrumentVendor" ) );
 		this.acquisitionColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "acquisitionsoftware" ) );
 		this.dateColumn.setCellValueFactory( new PropertyValueFactory< Sample, Timestamp >( "registrationDate" ) );
 		this.commentColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "userComment" ) );

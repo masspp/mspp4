@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import ninja.mspp.model.entity.Sample;
 
 @Repository
-public interface SampleRepository extends JpaRepository< Sample, Integer >,
+public interface SampleRepository extends JpaRepository< Sample, Long >,
 											QuerydslPredicateExecutor< Sample >{
 
 }

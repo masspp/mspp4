@@ -14,10 +14,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.XYData;
-import ninja.mspp.model.entity.PointList;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
-import ninja.mspp.service.PointsService;
+import ninja.mspp.service.RawDataService;
 import ninja.mspp.view.list.SpectrumTableView;
 
 @Scope( BeanDefinition.SCOPE_PROTOTYPE )
@@ -30,7 +29,7 @@ public class SingleSpectrumPanel implements Initializable {
 	private BorderPane listPane;
 
 	@Autowired
-	private PointsService service;
+	private RawDataService service;
 
 	// table
 	private SpectrumTableView table;
@@ -52,15 +51,14 @@ public class SingleSpectrumPanel implements Initializable {
 
 	// on spectrum
 	private void onSpectrum( Spectrum spectrum ) {
-		int pointId = spectrum.getPointListId();
-		PointList list = this.service.findPointList( pointId );
-		XYData xyData = list.getXYData();
-		FastDrawData data = this.service.getFastDrawData( list );
+		Long pointId = spectrum.getPointListId();
+		XYData xyData = this.service.findDataPoints( pointId );
+		FastDrawData data = this.service.findFastDrawdata( pointId );
 		SingleProfileCanvas canvas = new SingleProfileCanvas(
 			xyData,
 			data,
-			list.getXunit(),
-			list.getYunit(),
+			"m/z",
+			"RT",
 			Color.RED,
 			spectrum.getCentroidMode() > 0
 		);

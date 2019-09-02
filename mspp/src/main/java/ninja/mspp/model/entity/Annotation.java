@@ -1,12 +1,20 @@
 package ninja.mspp.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the ANNOTATIONS database table.
- * 
+ *
  */
 @Entity
 @Table(name="ANNOTATIONS")
@@ -16,8 +24,9 @@ public class Annotation implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
+	@Column
 	private String description;
 
 	//bi-directional many-to-one association to Peak
@@ -27,16 +36,16 @@ public class Annotation implements Serializable {
 	public Annotation() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public String getDescription() {
-		return this.description;
+		return description;
 	}
 
 	public void setDescription(String description) {
@@ -44,11 +53,10 @@ public class Annotation implements Serializable {
 	}
 
 	public Peak getPeak() {
-		return this.peak;
+		return peak;
 	}
 
 	public void setPeak(Peak peak) {
 		this.peak = peak;
 	}
-
 }

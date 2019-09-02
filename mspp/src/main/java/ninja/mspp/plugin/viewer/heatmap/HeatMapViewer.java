@@ -38,41 +38,17 @@ package ninja.mspp.plugin.viewer.heatmap;
 
 import java.util.ArrayList;
 
-import ninja.mspp.annotation.method.MenuAction;
-import ninja.mspp.annotation.method.MenuPosition;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.SampleObject;
 import ninja.mspp.model.dataobject.SpectrumObject;
-import ninja.mspp.model.gui.MenuNode;
 
 @Plugin( "heatmap viewer" )
 public class HeatMapViewer {
-	private MenuNode menu;
 
 	/**
 	 * constructor
 	 */
 	public HeatMapViewer() {
-		this.menu = MenuNode.TOOLS_MENU.item( "Heatmap" );
-	}
-
-	@MenuPosition
-	public MenuNode getPosition() {
-		return this.menu;
-	}
-
-	@MenuAction
-	public void action() {
-/*
-		MsppManager manager = MsppManager.getInstance();
-		SampleObject sample = manager.getSample( 0 );
-
-		if( sample == null ) {
-			return;
-		}
-
-		this.openHeatmap( sample );
-*/
 	}
 
 	/**
@@ -84,14 +60,6 @@ public class HeatMapViewer {
 		if( spectra.size() == 0 ) {
 			return;
 		}
-/*
-		GuiManager gui = GuiManager.getInstance();
-		MainFrame mainFrame = gui.getMainFrame();
-
-		Heatmap heatmap = new Heatmap( spectra );
-		HeatmapCanvas canvas = new HeatmapCanvas( heatmap, "RT", "m/z" );
-		mainFrame.addMapWindow( "Heatmap",  canvas );
-*/
 	}
 
 	/**

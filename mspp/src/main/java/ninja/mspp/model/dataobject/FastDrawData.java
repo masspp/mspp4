@@ -40,19 +40,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ninja.mspp.model.entity.DrawElementList;
-import ninja.mspp.model.entity.PointList;
-import ninja.mspp.service.PointsService;
 
 public class FastDrawData {
-	private XYData xyData;
 	private List< List< DrawPoint > > array;
+
+	public static final double MIN_RANGE = 0.01;
+	public static final int MAX_LEVEL = 10;
 
 	/**
 	 * constructor
 	 * @param xyData xyData
 	 */
-	public FastDrawData( PointList points, List< DrawElementList > lists ) {
-		this.xyData = points.getXYData();
+	public FastDrawData( List< DrawElementList > lists ) {
 		lists.sort(
 			( list1, list2 ) -> {
 				return ( list1.getLevel() - list2.getLevel() );
@@ -60,15 +59,13 @@ public class FastDrawData {
 		);
 
 		this.array = new ArrayList< List< DrawPoint > >();
-		List< DrawPoint > firstList = new ArrayList< DrawPoint >();
-		for( Point< Double > point : xyData ) {
-			DrawPoint element = new DrawPoint( point.getX(), point.getY() );
-			firstList.add( element );
+		try {
+			for( DrawElementList list : lists ) {
+				this.array.add( list.getDrawPoints() );
+			}
 		}
-		this.array.add( firstList );
-
-		for( DrawElementList list : lists ) {
-			this.array.add( list.getDrawPoints() );
+		catch( Exception e ) {
+			e.printStackTrace();
 		}
 	}
 
@@ -106,9 +103,9 @@ public class FastDrawData {
 	 */
 	public static Integer getLevel( Integer width, Double range ) {
 		Double rangePerPixel = range / (double)Math.max( 1,  width );
-		Double log = Math.log( rangePerPixel / PointsService.MIN_RANGE ) / Math.log( 2.0 );
+		Double log = Math.log( rangePerPixel / MIN_RANGE / Math.log( 2.0 ) );
 		Integer level = (int)Math.floor( log );
-		level = Math.max( 0,  Math.min( PointsService.MAX_LEVEL,  level ) );
+		level = Math.max( 0,  Math.min( MAX_LEVEL,  level ) );
 		return level;
 	}
 }

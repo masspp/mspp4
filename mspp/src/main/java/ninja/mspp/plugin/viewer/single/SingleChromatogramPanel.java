@@ -16,9 +16,7 @@ import javafx.scene.paint.Color;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.model.entity.Chromatogram;
-import ninja.mspp.model.entity.PointList;
 import ninja.mspp.model.entity.Sample;
-import ninja.mspp.service.PointsService;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.view.list.ChromatogramTableView;
 
@@ -30,9 +28,6 @@ public class SingleChromatogramPanel implements Initializable {
 
 	@FXML
 	private BorderPane listPane;
-
-	@Autowired
-	private PointsService pointsService;
 
 	@Autowired
 	private RawDataService rawDataService;
@@ -54,15 +49,14 @@ public class SingleChromatogramPanel implements Initializable {
 
 	// on chromatogram
 	private void onChromatogram( Chromatogram chromatogram ) {
-		int pointId = chromatogram.getPointListId();
-		PointList list = this.pointsService.findPointList( pointId );
-		XYData xyData = list.getXYData();
-		FastDrawData data = this.pointsService.getFastDrawData( list );
+		Long pointId = chromatogram.getPointListId();
+		XYData xyData = this.rawDataService.findDataPoints( pointId );
+		FastDrawData data = this.rawDataService.findFastDrawdata( pointId );
 		SingleProfileCanvas canvas = new SingleProfileCanvas(
 			xyData,
 			data,
-			list.getXunit(),
-			list.getYunit(),
+			"RT",
+			"Int.",
 			Color.BLUE,
 			false
 		);

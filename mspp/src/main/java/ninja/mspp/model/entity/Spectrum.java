@@ -24,39 +24,53 @@ public class Spectrum implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	private double bpi;
+	private Double bpi;
 
-	private double bpm;
+	private Double bpm;
 
-	@Column(name="CENTROID_MODE")
-	private int centroidMode;
+	@Column
+	private Integer centroidMode;
 
-	@Column(name="END_RT")
-	private double endRt;
+	@Column
+	private Double endRt;
 
-	@Column(name="MS_STAGE")
-	private int msStage;
+	@Column
+	private Integer msStage;
 
+	@Column
 	private String name;
 
-	@Column(name="PARENT_SPECTRUM_ID")
-	private int parentSpectrumId;
+	@Column
+	private Long parentSpectrumId;
 
-	@Column(name="POINT_LIST_ID")
-	private int pointListId;
+	@Column
+	private Double precursor;
 
-	private int polarity;
+	@Column
+	private Long pointListId;
 
-	private String spectrumid;
+	@Column
+	private Integer polarity;
 
-	@Column(name="START_RT")
+	@Column
+	private String spectrumId;
+
+	@Column
 	private double startRt;
 
+	@Column
 	private double tic;
 
+	@Column
 	private String title;
+
+	@Column
+	private Double lowerMz;
+
+	@Column
+	private Double upperMz;
 
 	//bi-directional many-to-one association to Sample
 	@ManyToOne
@@ -65,96 +79,104 @@ public class Spectrum implements Serializable {
 	public Spectrum() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public double getBpi() {
-		return this.bpi;
+	public Double getBpi() {
+		return bpi;
 	}
 
-	public void setBpi(double bpi) {
+	public void setBpi(Double bpi) {
 		this.bpi = bpi;
 	}
 
-	public double getBpm() {
-		return this.bpm;
+	public Double getBpm() {
+		return bpm;
 	}
 
-	public void setBpm(double bpm) {
+	public void setBpm(Double bpm) {
 		this.bpm = bpm;
 	}
 
-	public int getCentroidMode() {
-		return this.centroidMode;
+	public Integer getCentroidMode() {
+		return centroidMode;
 	}
 
-	public void setCentroidMode(int centroidMode) {
+	public void setCentroidMode(Integer centroidMode) {
 		this.centroidMode = centroidMode;
 	}
 
-	public double getEndRt() {
-		return this.endRt;
+	public Double getEndRt() {
+		return endRt;
 	}
 
-	public void setEndRt(double endRt) {
+	public void setEndRt(Double endRt) {
 		this.endRt = endRt;
 	}
 
-	public int getMsStage() {
-		return this.msStage;
+	public Integer getMsStage() {
+		return msStage;
 	}
 
-	public void setMsStage(int msStage) {
+	public void setMsStage(Integer msStage) {
 		this.msStage = msStage;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getParentSpectrumId() {
-		return this.parentSpectrumId;
+	public Long getParentSpectrumId() {
+		return parentSpectrumId;
 	}
 
-	public void setParentSpectrumId(int parentSpectrumId) {
+	public void setParentSpectrumId(Long parentSpectrumId) {
 		this.parentSpectrumId = parentSpectrumId;
 	}
 
-	public int getPointListId() {
-		return this.pointListId;
+	public Double getPrecursor() {
+		return precursor;
 	}
 
-	public void setPointListId(int pointListId) {
+	public void setPrecursor(Double precursor) {
+		this.precursor = precursor;
+	}
+
+	public Long getPointListId() {
+		return pointListId;
+	}
+
+	public void setPointListId(Long pointListId) {
 		this.pointListId = pointListId;
 	}
 
-	public int getPolarity() {
-		return this.polarity;
+	public Integer getPolarity() {
+		return polarity;
 	}
 
-	public void setPolarity(int polarity) {
+	public void setPolarity(Integer polarity) {
 		this.polarity = polarity;
 	}
 
-	public String getSpectrumid() {
-		return this.spectrumid;
+	public String getSpectrumId() {
+		return spectrumId;
 	}
 
-	public void setSpectrumid(String spectrumid) {
-		this.spectrumid = spectrumid;
+	public void setSpectrumId(String spectrumId) {
+		this.spectrumId = spectrumId;
 	}
 
 	public double getStartRt() {
-		return this.startRt;
+		return startRt;
 	}
 
 	public void setStartRt(double startRt) {
@@ -162,7 +184,7 @@ public class Spectrum implements Serializable {
 	}
 
 	public double getTic() {
-		return this.tic;
+		return tic;
 	}
 
 	public void setTic(double tic) {
@@ -170,11 +192,27 @@ public class Spectrum implements Serializable {
 	}
 
 	public String getTitle() {
-		return this.title;
+		return title;
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Double getLowerMz() {
+		return lowerMz;
+	}
+
+	public void setLowerMz(Double lowerMz) {
+		this.lowerMz = lowerMz;
+	}
+
+	public Double getUpperMz() {
+		return upperMz;
+	}
+
+	public void setUpperMz(Double upperMz) {
+		this.upperMz = upperMz;
 	}
 
 	public Sample getSample() {

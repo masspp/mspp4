@@ -1,13 +1,23 @@
 package ninja.mspp.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the PEAKS database table.
- * 
+ *
  */
 @Entity
 @Table(name="PEAKS")
@@ -17,22 +27,28 @@ public class Peak implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	private double area;
+	@Column
+	private Double area;
 
-	private double endx;
+	@Column
+	private Double endX;
 
-	private double endy;
+	@Column
+	private Double endY;
 
-	private double intensity;
+	@Column
+	private Double intensity;
 
-	@Column(name="PEAK_POSITION")
-	private double peakPosition;
+	@Column
+	private Double peakPosition;
 
-	private double startx;
+	@Column
+	private Double startx;
 
-	private double starty;
+	@Column
+	private Double starty;
 
 	//bi-directional many-to-one association to Annotation
 	@OneToMany(mappedBy="peak")
@@ -46,67 +62,67 @@ public class Peak implements Serializable {
 	public Peak() {
 	}
 
-	public int getId() {
-		return this.id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public double getArea() {
-		return this.area;
+	public Double getArea() {
+		return area;
 	}
 
-	public void setArea(double area) {
+	public void setArea(Double area) {
 		this.area = area;
 	}
 
-	public double getEndx() {
-		return this.endx;
+	public Double getEndX() {
+		return endX;
 	}
 
-	public void setEndx(double endx) {
-		this.endx = endx;
+	public void setEndX(Double endX) {
+		this.endX = endX;
 	}
 
-	public double getEndy() {
-		return this.endy;
+	public Double getEndY() {
+		return endY;
 	}
 
-	public void setEndy(double endy) {
-		this.endy = endy;
+	public void setEndY(Double endY) {
+		this.endY = endY;
 	}
 
-	public double getIntensity() {
-		return this.intensity;
+	public Double getIntensity() {
+		return intensity;
 	}
 
-	public void setIntensity(double intensity) {
+	public void setIntensity(Double intensity) {
 		this.intensity = intensity;
 	}
 
-	public double getPeakPosition() {
-		return this.peakPosition;
+	public Double getPeakPosition() {
+		return peakPosition;
 	}
 
-	public void setPeakPosition(double peakPosition) {
+	public void setPeakPosition(Double peakPosition) {
 		this.peakPosition = peakPosition;
 	}
 
-	public double getStartx() {
-		return this.startx;
+	public Double getStartx() {
+		return startx;
 	}
 
-	public void setStartx(double startx) {
+	public void setStartx(Double startx) {
 		this.startx = startx;
 	}
 
-	public double getStarty() {
-		return this.starty;
+	public Double getStarty() {
+		return starty;
 	}
 
-	public void setStarty(double starty) {
+	public void setStarty(Double starty) {
 		this.starty = starty;
 	}
 
