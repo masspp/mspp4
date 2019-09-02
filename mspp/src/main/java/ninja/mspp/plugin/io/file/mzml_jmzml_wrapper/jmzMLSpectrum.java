@@ -120,7 +120,8 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.SpectrumObject{
     @Override
     public XYData onGetXYData(double min_x, double max_x) {
 
-        MzMLUnmarshaller unmarshaller = new MzMLUnmarshaller(new File(this.getSamplePath()));
+        jmzMLUnmarshallerFactory factory = jmzMLUnmarshallerFactory.getInstance();
+        MzMLUnmarshaller unmarshaller = factory.getUnmarshaller(new File(this.getSamplePath()));
 
         uk.ac.ebi.jmzml.model.mzml.Spectrum spec = getJmzmlSpectrum(unmarshaller, this.getId_jmzml());
         ArrayList<Point<Double>> points = new ArrayList<>();
