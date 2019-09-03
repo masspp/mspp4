@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,9 +36,11 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.method.FileInput;
+import ninja.mspp.annotation.method.OnHeatmap;
 import ninja.mspp.annotation.method.OnRawdataSample;
 import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.model.PluginMethod;
+import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
@@ -214,6 +217,26 @@ public class RawDataPanel implements Initializable {
 		}
 	}
 
+	/**
+	 * creates heatmap
+	 * @param sample sample
+	 */
+	private void createHeatmap( Sample sample ) {
+		MsppManager manager = MsppManager.getInstance();
+		RawDataPanel me = this;
+		Thread thread = new Thread(
+			() -> {
+				Heatmap heatmap = new Heatmap( sample.getSpectras(), me.rawDataService );
+				Platform.runLater(
+					() -> {
+						manager.invokeAll( OnHeatmap.class, heatmap );
+					}
+				);
+			}
+		);
+		thread.start();
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.setImportButtonIcon();
@@ -241,9 +264,11 @@ public class RawDataPanel implements Initializable {
 
 		MsppManager manager = MsppManager.getInstance();
 
+		RawDataPanel me = this;
 		this.table.getSelectionModel().selectedItemProperty().addListener(
 			( observable, oldValue, newValue ) -> {
 				manager.invokeAll( OnRawdataSample.class, newValue );
+				me.createHeatmap( newValue );
 			}
 		);
 	}

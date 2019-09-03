@@ -56,6 +56,9 @@ public class Heatmap {
 	private Range< Double > rtRange;
 	private double maxIntensity;
 
+	private List< Spectrum > spectra;
+	private RawDataService service;
+
 	public double[][] getData() {
 		return data;
 	}
@@ -93,6 +96,9 @@ public class Heatmap {
 	 * @param spectra spectra
 	 */
 	public Heatmap( List< Spectrum > spectra, RawDataService service ) {
+		this.spectra = spectra;
+		this.service = service;
+
 		if( spectra == null || spectra.isEmpty() ) {
 			return;
 		}
