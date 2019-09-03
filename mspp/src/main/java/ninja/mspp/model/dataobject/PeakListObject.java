@@ -50,6 +50,20 @@ import java.util.ArrayList;
 public class PeakListObject {
 
     /**
+     * @return the index_positional
+     */
+    public int getIndex_positional() {
+        return index_positional;
+    }
+
+    /**
+     * @param index_positional the index_positional to set
+     */
+    public void setIndex_positional(int index_positional) {
+        this.index_positional = index_positional;
+    }
+
+    /**
      * @return the id
      */
     public int getId() {
@@ -193,7 +207,15 @@ public class PeakListObject {
 
     private XYData peaks;
 
+    /**
+     *  Scan Number of  Spectrum (1,2, ...)
+     */
     private int index;
+    
+    /**
+     * Position in Paklist File (1, 2, ...)
+     */
+    private int index_positional;
 
     private int msStage;
 

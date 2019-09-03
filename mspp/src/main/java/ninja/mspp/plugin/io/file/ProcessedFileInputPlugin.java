@@ -54,7 +54,7 @@ import ninja.mspp.tools.FileTool;
 
 @Plugin( "Peaklist File IO" )
 @Component
-public class PeaklistFileInputPlugin {
+public class ProcessedFileInputPlugin {
     
 
         

@@ -23,6 +23,7 @@ import javax.persistence.Column;
 @NamedQuery(name="PeakList.findAll", query="SELECT p FROM PeakList p")
 public class PeakList implements Serializable {
 
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -40,8 +41,15 @@ public class PeakList implements Serializable {
         private Spectrum spectrum;
         
         
-        //Scan Number (start from 1)
+        /**
+         * Scan Number of spectrum (start from 1)
+         */
         private Integer index;
+        
+        /**
+         * position index in peaklist file (start from 1)
+         */
+        private Integer index_positional;
         
         @Column(nullable=true)
         private Integer msStage;
@@ -203,6 +211,20 @@ public class PeakList implements Serializable {
         public void setSpectrum(Spectrum spectrum) {
             this.spectrum = spectrum;
         }
+        
+   /**
+     * @return the index_positional
+     */
+    public Integer getIndex_positional() {
+        return index_positional;
+    }
+
+    /**
+     * @param index_positional the index_positional to set
+     */
+    public void setIndex_positional(Integer index_positional) {
+        this.index_positional = index_positional;
+    }
 
     
 }

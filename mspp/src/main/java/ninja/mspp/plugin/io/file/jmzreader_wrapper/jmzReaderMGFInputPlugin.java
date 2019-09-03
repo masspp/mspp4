@@ -99,13 +99,17 @@ public class jmzReaderMGFInputPlugin {
     @PeaklistFileInput( title = "MGF", extensions = {"mgf","txt"})
     public void saveMGFtoDB(String path) throws Exception {
         MgfFile mgfFile = new MgfFile( new File(path));
+        
+        int count =0;
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
+            count++;
             PeakList peaklist = new PeakList();
             
             // Obtain Peaklist Properties
             Property props = getPropertiesbyTitle(q.getTitle());
             props = UpdatePropertiesByAPI(q, props);          
             peaklist.setIndex(props.index);
+            peaklist.setIndex_positional(count);
             peaklist.setMsStage(props.msStage);
             peaklist.setRt(props.rt);
             peaklist.setPrecursorMz(props.precursorMz);
@@ -134,13 +138,16 @@ public class jmzReaderMGFInputPlugin {
 
         MgfFile mgfFile = new MgfFile( new File(path));
 
+        int count = 0;
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
+            count++;
             PeakListObject peaklist=new PeakListObject();
             
             // Obtain Peaklist Properties
             Property props = getPropertiesbyTitle(q.getTitle());
             props = UpdatePropertiesByAPI(q, props);          
             peaklist.setIndex(props.index);
+            peaklist.setIndex_positional(count);
             peaklist.setMsStage(props.msStage);
             peaklist.setRt(props.rt);
             peaklist.setPrecursorMz(props.precursorMz);
