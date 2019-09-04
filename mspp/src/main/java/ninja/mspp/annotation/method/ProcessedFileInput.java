@@ -43,7 +43,7 @@ import java.lang.annotation.Target;
 
 @Retention( RetentionPolicy.RUNTIME )
 @Target( ElementType.METHOD )
-public @interface PeaklistFileInput {
+public @interface ProcessedFileInput {
  	String title();
 	String[] extensions();   
 }

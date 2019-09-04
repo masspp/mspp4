@@ -45,10 +45,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
-import ninja.mspp.annotation.method.PeaklistFileInput;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.tools.FileTool;
+import ninja.mspp.annotation.method.ProcessedFileInput;
 
 
 
@@ -75,13 +75,13 @@ public class ProcessedFileInputPlugin {
 		String path = file.getAbsolutePath();
 		String ext = FileTool.getExtension( path );
 		//SampleObject sample = null; 
-                // Need to prevent to register same peaklist(same path?) repeatedly. 
+                // Need to prevent to register file with same path or checksum. 
 
-		List< PluginMethod< PeaklistFileInput > > methods = manager.getMethods( PeaklistFileInput.class );
+		List< PluginMethod< ProcessedFileInput > > methods = manager.getMethods(ProcessedFileInput.class );
 
-		for( PluginMethod< PeaklistFileInput > method: methods ) {
+		for( PluginMethod< ProcessedFileInput > method: methods ) {
 			Object plugin = method.getPlugin();
-			PeaklistFileInput annotation = method.getAnnotation();
+			ProcessedFileInput annotation = method.getAnnotation();
                         boolean is_ext_matched=false;
                         for(String annotation_ext: annotation.extensions()){
                             if (annotation_ext.compareToIgnoreCase(ext)==0){

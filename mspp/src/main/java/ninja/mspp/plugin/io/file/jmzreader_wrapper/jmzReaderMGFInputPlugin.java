@@ -45,7 +45,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.ac.ebi.pride.tools.mgf_parser.MgfFile;
 import uk.ac.ebi.pride.tools.mgf_parser.model.Ms2Query;
 
-import ninja.mspp.annotation.method.PeaklistFileInput;
 import ninja.mspp.annotation.type.Plugin;
 
 import ninja.mspp.model.entity.PeakList;
@@ -55,6 +54,7 @@ import ninja.mspp.repository.PeakListRepository;
 import ninja.mspp.model.dataobject.PeakListObject; // just for test
 import ninja.mspp.model.dataobject.XYData; //just for test
 import ninja.mspp.model.dataobject.Point; // just for test
+import ninja.mspp.annotation.method.ProcessedFileInput;
 
 /**
  *
@@ -96,7 +96,7 @@ public class jmzReaderMGFInputPlugin {
     @Autowired
     PeakListRepository peaklistRepository;
         
-    @PeaklistFileInput( title = "MGF", extensions = {"mgf","txt"})
+    @ProcessedFileInput( title = "MGF", extensions = {"mgf","txt"})
     public void saveMGFtoDB(String path) throws Exception {
         MgfFile mgfFile = new MgfFile( new File(path));
         
@@ -104,12 +104,13 @@ public class jmzReaderMGFInputPlugin {
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
             count++;
             PeakList peaklist = new PeakList();
-            
+            peaklist.setIndex_positional(count);
+             
             // Obtain Peaklist Properties
             Property props = getPropertiesbyTitle(q.getTitle());
-            props = UpdatePropertiesByAPI(q, props);          
+            props = UpdatePropertiesByAPI(q, props);  
+            
             peaklist.setIndex(props.index);
-            peaklist.setIndex_positional(count);
             peaklist.setMsStage(props.msStage);
             peaklist.setRt(props.rt);
             peaklist.setPrecursorMz(props.precursorMz);
@@ -124,7 +125,7 @@ public class jmzReaderMGFInputPlugin {
                 peaklist.addPeak(peak);
             });
 
-            peaklistRepository.save(peaklist);
+            peaklistRepository.saveAndFlush(peaklist);
         }
  
     }
@@ -142,12 +143,13 @@ public class jmzReaderMGFInputPlugin {
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
             count++;
             PeakListObject peaklist=new PeakListObject();
+            peaklist.setIndex_positional(count);
             
             // Obtain Peaklist Properties
             Property props = getPropertiesbyTitle(q.getTitle());
-            props = UpdatePropertiesByAPI(q, props);          
+            props = UpdatePropertiesByAPI(q, props);     
+            
             peaklist.setIndex(props.index);
-            peaklist.setIndex_positional(count);
             peaklist.setMsStage(props.msStage);
             peaklist.setRt(props.rt);
             peaklist.setPrecursorMz(props.precursorMz);
