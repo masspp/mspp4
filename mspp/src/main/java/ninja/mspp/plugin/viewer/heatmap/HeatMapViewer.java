@@ -37,11 +37,11 @@
 package ninja.mspp.plugin.viewer.heatmap;
 
 import javafx.scene.Node;
-import ninja.mspp.annotation.method.OnRawdataSample;
+import ninja.mspp.annotation.method.OnHeatmap;
 import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.entity.Sample;
+import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.view.SpringFXMLLoader;
 
 @Plugin( "heatmap viewer" )
@@ -62,10 +62,10 @@ public class HeatMapViewer {
 		return node;
 	}
 
-	@OnRawdataSample
-	public void onRawDataSample( Sample sample ) {
+	@OnHeatmap
+	public void onRawDataSample( Heatmap heatmap ) {
 		if( this.panel != null ) {
-			this.panel.setSample( sample );
+			this.panel.setHeatmap( heatmap );
 		}
 	}
 }

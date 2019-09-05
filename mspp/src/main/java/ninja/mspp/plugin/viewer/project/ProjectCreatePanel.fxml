@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.plugin.viewer.project.ProjectCreatePanel">
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#onOk" text="OK" />
+            <Button mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+   <top>
+      <GridPane prefHeight="120.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="80.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="400.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Name" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Description" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="nameText" prefHeight="25.0" prefWidth="361.0" />
+               </children>
+            </HBox>
+            <TextArea fx:id="descriptionText" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
+      </GridPane>
+   </top>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <right>
+            <VBox spacing="5.0" BorderPane.alignment="TOP_CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddGroup" text="Button" />
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <ScrollPane prefHeight="350.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+               <content>
+                  <HBox fx:id="groupsBox" alignment="CENTER_LEFT" prefHeight="350.0" />
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

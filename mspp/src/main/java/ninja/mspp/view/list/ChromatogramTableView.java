@@ -30,12 +30,6 @@ public class ChromatogramTableView extends TableView< Chromatogram > {
 		stringColumn.setCellValueFactory( new PropertyValueFactory< Chromatogram, String >( "name" ) );
 		this.getColumns().add( stringColumn );
 
-		// title
-		stringColumn = new TableColumn< Chromatogram, String >( "Title" );
-		stringColumn.setPrefWidth( 180.0 );
-		stringColumn.setCellValueFactory( new PropertyValueFactory< Chromatogram, String >( "title" ) );
-		this.getColumns().add( stringColumn );
-
 		// m/z
 		TableColumn< Chromatogram, Double > doubleColumn = new TableColumn< Chromatogram, Double >( "m/z" );
 		doubleColumn.setPrefWidth( 100.0 );
