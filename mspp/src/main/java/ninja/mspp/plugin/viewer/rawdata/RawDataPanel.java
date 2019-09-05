@@ -2,7 +2,6 @@ package ninja.mspp.plugin.viewer.rawdata;
 
 import java.io.File;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.application.Platform;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,11 +22,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Tooltip;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -42,9 +38,8 @@ import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.entity.Sample;
-import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
-import ninja.mspp.tools.FXTools;
+import ninja.mspp.view.list.SampleTableView;
 
 
 @Component
@@ -56,24 +51,6 @@ public class RawDataPanel implements Initializable {
 
 	@FXML
 	private TabPane tabPane;
-
-	@FXML
-	private TableColumn< Sample, String > nameColomn;
-
-	@FXML
-	private TableColumn< Sample, String > acquisitionColumn;
-
-	@FXML
-	private TableColumn< Sample, String > instrumentColumn;
-
-	@FXML
-	private TableColumn< Sample, Timestamp > dateColumn;
-
-	@FXML
-	private TableColumn< Sample, Number > spectraColumn;
-
-	@FXML
-	private TableColumn< Sample, String  > commentColumn;
 
 	@FXML
 	private BorderPane upperPane;
@@ -186,7 +163,7 @@ public class RawDataPanel implements Initializable {
 		Text icon = GlyphsDude.createIcon( FontAwesomeIcon.UPLOAD );
 		this.importButton.setText( "" );
 		this.importButton.setGraphic( icon );
-		this.importButton.setTooltip( new Tooltip( "Import from file." ) );
+		this.importButton.setTooltip( new Tooltip( "Import from file ..." ) );
 	}
 
 	/**
@@ -196,7 +173,7 @@ public class RawDataPanel implements Initializable {
 		Text icon = GlyphsDude.createIcon( FontAwesomeIcon.COMMENT );
 		this.commentButton.setText( "" );
 		this.commentButton.setGraphic( icon );
-		this.commentButton.setTooltip( new Tooltip( "Comment" ) );
+		this.commentButton.setTooltip( new Tooltip( "Comment ..." ) );
 	}
 
 	/**
@@ -244,22 +221,10 @@ public class RawDataPanel implements Initializable {
 
 		this.setSamplePanels();
 
-		this.nameColomn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "filename" ) );
-		this.instrumentColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "instrumentVendor" ) );
-		this.acquisitionColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "acquisitionsoftware" ) );
-		this.dateColumn.setCellValueFactory( new PropertyValueFactory< Sample, Timestamp >( "registrationDate" ) );
-		this.commentColumn.setCellValueFactory( new PropertyValueFactory< Sample, String >( "userComment" ) );
-		this.spectraColumn.setCellValueFactory(
-			( cellData ) -> {
-				Integer num = 0;
-				List< Spectrum > spectra = cellData.getValue().getSpectras();
-				if( spectra != null ) {
-					num = spectra.size();
-				}
-				return new ReadOnlyIntegerWrapper( num );
-			}
-		);
-		FXTools.setTableColumnRightAlign( this.spectraColumn );
+		SampleTableView table = new SampleTableView();
+		this.table = table;
+		this.upperPane.setCenter( table );
+
 		this.updateTable();
 
 		MsppManager manager = MsppManager.getInstance();

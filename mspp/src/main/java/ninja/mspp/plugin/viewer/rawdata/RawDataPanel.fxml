@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -14,17 +12,6 @@
       <SplitPane dividerPositions="0.3" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
          <items>
             <BorderPane fx:id="upperPane">
-               <center>
-                  <TableView fx:id="table" BorderPane.alignment="CENTER">
-                     <columns>
-                        <TableColumn fx:id="nameColomn" editable="false" prefWidth="150.0" text="Name" />
-                        <TableColumn fx:id="instrumentColumn" editable="false" prefWidth="150.0" text="Instrument Vendor" />
-                        <TableColumn fx:id="acquisitionColumn" editable="false" minWidth="150.0" prefWidth="150.0" text="Acquisition Software" />
-                        <TableColumn fx:id="dateColumn" editable="false" prefWidth="150.0" text="Registration Date" />
-                        <TableColumn fx:id="spectraColumn" prefWidth="100.0" text="# Spectra" />
-                        <TableColumn fx:id="commentColumn" editable="false" prefWidth="250.0" text="Comment" />
-                     </columns></TableView>
-               </center>
                <right>
                   <VBox alignment="TOP_CENTER" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
