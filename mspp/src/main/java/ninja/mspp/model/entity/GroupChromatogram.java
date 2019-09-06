@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -33,13 +32,10 @@ public class GroupChromatogram implements Serializable {
 	@Column(name="POINT_LIST_ID")
 	private Long pointListId;
 
-	//uni-directional many-to-one association to Chromatogram
 	@ManyToOne
 	private Chromatogram chromatogram;
 
-	//bi-directional many-to-one association to GroupSample
 	@ManyToOne
-	@JoinColumn(name="GROUP_SAMPLE_ID")
 	private GroupSample groupSample;
 
 	public GroupChromatogram() {

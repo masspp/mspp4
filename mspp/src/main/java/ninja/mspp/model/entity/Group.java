@@ -3,6 +3,7 @@ package ninja.mspp.model.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,10 +28,13 @@ public class Group implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
+	@Column
 	private String color;
 
+	@Column
 	private String description;
 
+	@Column
 	private String name;
 
 	//bi-directional many-to-one association to Project

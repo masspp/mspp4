@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -59,9 +60,11 @@ public class SampleSelectPanel implements Initializable {
 	private void initTable() {
 		this.srcTable = new SampleTableView();
 		this.srcSamplePane.setCenter( this.srcTable );
+		this.srcTable.getSelectionModel().setSelectionMode( SelectionMode.MULTIPLE );
 
 		this.dstTable = new SampleTableView();
 		this.dstSamplePane.setCenter( this.dstTable );
+		this.dstTable.getSelectionModel().setSelectionMode( SelectionMode.MULTIPLE );
 
 		for( Sample sample : this.service.findSamples() ) {
 			this.srcTable.getItems().add( sample );

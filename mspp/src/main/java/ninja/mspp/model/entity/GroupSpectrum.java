@@ -40,8 +40,7 @@ public class GroupSpectrum implements Serializable {
 
 	//uni-directional many-to-one association to Spectrum
 	@ManyToOne
-	@JoinColumn(name="SPECTRUM_ID")
-	private Spectrum spectra;
+	private Spectrum spectrum;
 
 	public GroupSpectrum() {
 	}
@@ -78,12 +77,12 @@ public class GroupSpectrum implements Serializable {
 		this.groupSample = groupSample;
 	}
 
-	public Spectrum getSpectra() {
-		return this.spectra;
+	public Spectrum getSpectrum() {
+		return this.spectrum;
 	}
 
-	public void setSpectra(Spectrum spectra) {
-		this.spectra = spectra;
+	public void setSpectrum(Spectrum spectrum ) {
+		this.spectrum = spectrum;
 	}
 
 }

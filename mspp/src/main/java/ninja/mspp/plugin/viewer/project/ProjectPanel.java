@@ -19,6 +19,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
+import ninja.mspp.MsppManager;
+import ninja.mspp.annotation.method.OnProject;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.service.ProjectService;
 import ninja.mspp.tools.FXTools;
@@ -55,6 +57,9 @@ public class ProjectPanel implements Initializable {
 	 * creates table
 	 */
 	private void createTable() {
+		ProjectPanel me = this;
+		MsppManager manager = MsppManager.getInstance();
+
 		TableColumn< Project, String > stringColumn = new TableColumn< Project, String >( "Name" );
 		stringColumn.setPrefWidth( 200.0 );
 		stringColumn.setCellValueFactory( new PropertyValueFactory< Project, String >( "name" ) );
@@ -69,6 +74,22 @@ public class ProjectPanel implements Initializable {
 		stringColumn.setPrefWidth( 400.0 );
 		stringColumn.setCellValueFactory( new PropertyValueFactory< Project, String >( "description" ) );
 		this.table.getColumns().add( stringColumn );
+
+		this.table.setOnMouseClicked(
+			( event ) -> {
+				if( event.getClickCount() >= 2 ) {
+					Project project = me.table.getSelectionModel().getSelectedItem();
+					if( project != null ) {
+						try {
+							manager.invokeAll( OnProject.class, project );
+						}
+						catch( Exception e ) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		);
 	}
 
 
