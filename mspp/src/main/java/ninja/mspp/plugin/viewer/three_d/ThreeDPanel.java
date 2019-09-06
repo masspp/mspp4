@@ -98,8 +98,8 @@ public class ThreeDPanel implements Initializable {
 		for( int i = 0; i < rtCount; i++ ) {
 			double x = ( ( double )i / ( double )rtCount - 0.5 ) * 200.0;
 			for( int j = 0; j < mzCount; j++ ) {
-				double y = ( ( double )j / ( double )mzCount - 0.5 ) * 200.0;
-				double intensity = data[ j ][ i ];
+				double y = ( ( double )( mzCount - 1 - j ) / ( double )mzCount - 0.5 ) * 200.0;
+				double intensity = data[ i ][ j ];
 
 				double z = - 50.0 * intensity;
 
@@ -123,8 +123,8 @@ public class ThreeDPanel implements Initializable {
 				int texture3 = textures.get( index3 );
 
 				mesh.getFaces().addAll(
-					index0, texture0, index1, texture1, index2, texture2,
-					index3, texture3, index2, texture2, index1, texture1
+					index2, texture2, index1, texture1, index0, texture0,
+					index1, texture1, index2, texture2, index3, texture3
 				);
 			}
 		}

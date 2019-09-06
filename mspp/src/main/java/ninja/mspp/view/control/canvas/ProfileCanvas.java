@@ -402,9 +402,12 @@ public abstract class ProfileCanvas extends Canvas {
 		while( py >= top ) {
 			double y = unit * (double)index;
 			py = (int)Math.round( 0.0 * transformMatrix.getEntry( 1,  0 ) + y * transformMatrix.getEntry( 1,  1 ) + transformMatrix.getEntry( 1,  2 ) );
-			String string = String.format( format, Math.round( y ) );
+			String string = "";
 			if( level < 0 ) {
 				string = String.format( format,  y );
+			}
+			else {
+				string = String.format( format, Math.round( y ) );
 			}
 
 			Integer stringWidth = this.getTextWidth( g,  string );
@@ -437,13 +440,32 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param matrix matrix
 	 * @return point
 	 */
-	Point< Integer > getPoint( Point< Double > data, RealMatrix matrix ) {
+	protected Point< Integer > getPoint( Point< Double > data, RealMatrix matrix ) {
 		double x = data.getX() * matrix.getEntry( 0,  0 ) + data.getY() * matrix.getEntry( 0, 1 ) + matrix.getEntry( 0,  2 );
 		double y = data.getX() * matrix.getEntry( 1,  0 ) + data.getY() * matrix.getEntry( 1, 1 ) + matrix.getEntry( 1,  2 );
 
 		Point< Integer > point = new Point< Integer >( (int)Math.round( x ), (int)Math.round( y ) );
 		return point;
 	}
+
+	/**
+	 * inverse point
+	 * @param point mouse point
+	 * @param matrix matrix
+	 * @return data point
+	 */
+	protected Point< Double > inversePoint( Point< Integer > point, RealMatrix matrix ) {
+		RealMatrix inversedMatrix = MatrixUtils.inverse( matrix );
+		double px = point.getX().doubleValue();
+		double py = point.getY().doubleValue();
+
+		double x = px * inversedMatrix.getEntry( 0,  0 ) + py * inversedMatrix.getEntry( 0,  1 ) + inversedMatrix.getEntry( 0,  2 );
+		double y = px * inversedMatrix.getEntry( 1,  0 ) + py * inversedMatrix.getEntry( 1,  1 ) + inversedMatrix.getEntry( 1,  2 );
+
+		Point< Double > data = new Point< Double >( x, y );
+		return data;
+	}
+
 
 	/**
 	 * draws line
