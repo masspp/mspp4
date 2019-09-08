@@ -205,51 +205,7 @@ public class jmzReaderMGFInputPlugin {
     
         return props;
     }
-    
-    /**
-     * 
-     * Just for UnitTest
-     * 
-     * @param path
-     * @return
-     * @throws Exception 
-     */
-    public ArrayList<PeakList> generatePeaklistfromMGF(String path) throws Exception {
-        MgfFile mgfFile = new MgfFile( new File(path));
-        ArrayList<PeakList> peaklists = new ArrayList<>();
-        
-        int count =0;
-        for (Ms2Query q: mgfFile.getMs2QueryIterator()){
-            count++;
-            PeakList peaklist = new PeakList();
-            peaklist.setIndex_positional(count);
-             
-            // Obtain Peaklist Properties
-            Property props = getPropertiesbyTitle(q.getTitle());
-            props = UpdatePropertiesByAPI(q, props);  
-            
-            peaklist.setIndex(props.index);
-            peaklist.setMsStage(props.msStage);
-            peaklist.setRt(props.rt);
-            peaklist.setPrecursorMz(props.precursorMz);
-            peaklist.setPrecursorCharge(props.charge);
-            peaklist.setTitle(props.title);
-            
-            // Obtain Peaklist Data
-            q.getPeakList().entrySet().forEach((mgfpeak) -> {
-                Peak peak = new Peak();
-                peak.setPeakPosition(mgfpeak.getKey());
-                peak.setIntensity(mgfpeak.getValue());
-                peaklist.addPeak(peak);
-            });
-
-            //peaklistRepository.save(peaklist);
-            peaklists.add(peaklist);
-        }
-        return peaklists;
  
-    }
-
     /**
      * extract meta information from peaklist title
      * 
