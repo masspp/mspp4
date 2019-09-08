@@ -95,7 +95,12 @@ public class jmzReaderMGFInputPlugin {
 
     @Autowired
     PeakListRepository peaklistRepository;
-        
+       
+    /**
+     * 
+     * @param path
+     * @throws Exception 
+     */
     @ProcessedFileInput( title = "MGF", extensions = {"mgf","txt"})
     public void saveMGFtoDB(String path) throws Exception {
         MgfFile mgfFile = new MgfFile( new File(path));
@@ -116,25 +121,29 @@ public class jmzReaderMGFInputPlugin {
             peaklist.setPrecursorMz(props.precursorMz);
             peaklist.setPrecursorCharge(props.charge);
             peaklist.setTitle(props.title);
-            
-            // Obtain Peaklist Data
+
+            // Set Peak Data            
+            peaklist.setPeaks(new ArrayList<Peak>());
             q.getPeakList().entrySet().forEach((mgfpeak) -> {
                 Peak peak = new Peak();
-                peak.setArea(mgfpeak.getKey());
+                peak.setPeakPosition(mgfpeak.getKey());
                 peak.setIntensity(mgfpeak.getValue());
-                peaklist.addPeak(peak);
+                peaklist.addPeak(peak); 
             });
 
-            peaklistRepository.saveAndFlush(peaklist);
+            peaklistRepository.save(peaklist);
         }
  
     }
     
     
-    public void test_print(String str){
-        System.out.println("given string: " + str);
-    }
-    
+    /**
+     * Just for Test
+     * 
+     * @param path
+     * @return
+     * @throws Exception 
+     */
     public ArrayList<PeakListObject> openMGF(String path) throws Exception{
 
         MgfFile mgfFile = new MgfFile( new File(path));
@@ -170,6 +179,12 @@ public class jmzReaderMGFInputPlugin {
  
     }
     
+    /**
+     * 
+     * @param q
+     * @param props
+     * @return 
+     */
     private Property UpdatePropertiesByAPI(Ms2Query q, Property props){
 
         if (props.index ==null){
@@ -190,7 +205,57 @@ public class jmzReaderMGFInputPlugin {
     
         return props;
     }
+    
+    /**
+     * 
+     * Just for UnitTest
+     * 
+     * @param path
+     * @return
+     * @throws Exception 
+     */
+    public ArrayList<PeakList> generatePeaklistfromMGF(String path) throws Exception {
+        MgfFile mgfFile = new MgfFile( new File(path));
+        ArrayList<PeakList> peaklists = new ArrayList<>();
+        
+        int count =0;
+        for (Ms2Query q: mgfFile.getMs2QueryIterator()){
+            count++;
+            PeakList peaklist = new PeakList();
+            peaklist.setIndex_positional(count);
+             
+            // Obtain Peaklist Properties
+            Property props = getPropertiesbyTitle(q.getTitle());
+            props = UpdatePropertiesByAPI(q, props);  
+            
+            peaklist.setIndex(props.index);
+            peaklist.setMsStage(props.msStage);
+            peaklist.setRt(props.rt);
+            peaklist.setPrecursorMz(props.precursorMz);
+            peaklist.setPrecursorCharge(props.charge);
+            peaklist.setTitle(props.title);
+            
+            // Obtain Peaklist Data
+            q.getPeakList().entrySet().forEach((mgfpeak) -> {
+                Peak peak = new Peak();
+                peak.setPeakPosition(mgfpeak.getKey());
+                peak.setIntensity(mgfpeak.getValue());
+                peaklist.addPeak(peak);
+            });
 
+            //peaklistRepository.save(peaklist);
+            peaklists.add(peaklist);
+        }
+        return peaklists;
+ 
+    }
+
+    /**
+     * extract meta information from peaklist title
+     * 
+     * @param title
+     * @return 
+     */
     private Property getPropertiesbyTitle(String title){
  
         if (title ==null){
@@ -201,7 +266,7 @@ public class jmzReaderMGFInputPlugin {
         props.title = title;
         
         // extract sepc_id
-        String spec_id_str = "spec_id: ";
+        String spec_id_str = "spec_id: ";  // TODO: use property file to specify matching strings
         int spec_id_start = title.indexOf(spec_id_str)+spec_id_str.length();
         int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
         if (spec_id_start > -1 && spec_id_end >-1){

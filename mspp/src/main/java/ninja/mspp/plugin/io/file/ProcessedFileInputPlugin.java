@@ -66,7 +66,7 @@ public class ProcessedFileInputPlugin {
 
 	/**
 	 * save peak list file
-	 * @param File file
+	 * @param file
          * 
 	 */
 	protected void savePeakList( File file ) {

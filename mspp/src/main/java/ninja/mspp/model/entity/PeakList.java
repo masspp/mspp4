@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.Lob;
 
 
 /**
@@ -63,6 +64,8 @@ public class PeakList implements Serializable {
         @Column(nullable=true)
         private Integer precursorCharge;
         
+        @Column(columnDefinition="clob") // just for derby to override default settings of clob(255)
+        @Lob
         private String title;
 
 	public PeakList() {
@@ -77,7 +80,8 @@ public class PeakList implements Serializable {
 	}
 
 	public List<Peak> getPeaks() {
-		return this.peaks;
+            this.peaks.sort((p1, p2)-> Double.compare(p1.getPeakPosition(), p2.getPeakPosition()));;
+            return this.peaks;
 	}
 
 	public void setPeaks(List<Peak> peaks) {
@@ -85,7 +89,7 @@ public class PeakList implements Serializable {
 	}
 
 	public Peak addPeak(Peak peak) {
-		getPeaks().add(peak);
+		this.getPeaks().add(peak);
 		peak.setPeakList(this);
 
 		return peak;
