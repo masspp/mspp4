@@ -2,6 +2,7 @@ package ninja.mspp.plugin.viewer.three_d;
 
 import javafx.scene.Node;
 import ninja.mspp.annotation.method.OnHeatmap;
+import ninja.mspp.annotation.method.OnHeatmapRange;
 import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
@@ -29,8 +30,17 @@ public class ThreeDPlugin {
 
 	@OnHeatmap
 	public void onHeatmap( Heatmap heatmap ) {
-		if( panel != null ) {
+		if( this.panel != null ) {
 			this.panel.setHeatmap( heatmap );
+		}
+	}
+
+	@OnHeatmapRange
+	public void onHeatmapRange( Heatmap heatmap ) {
+		if( this.panel != null ) {
+			if( this.panel.getHeatmap() == heatmap ) {
+				this.panel.setHeatmap( heatmap );
+			}
 		}
 	}
 }

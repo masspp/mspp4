@@ -37,16 +37,22 @@
 package ninja.mspp.plugin.viewer.heatmap;
 
 import javafx.scene.Node;
+import ninja.mspp.annotation.method.AnalysisPanel;
 import ninja.mspp.annotation.method.OnHeatmap;
+import ninja.mspp.annotation.method.OnSelectPeak;
 import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.Heatmap;
+import ninja.mspp.model.dataobject.Point;
+import ninja.mspp.model.entity.PeakPosition;
+import ninja.mspp.model.entity.Project;
 import ninja.mspp.view.SpringFXMLLoader;
 
 @Plugin( "heatmap viewer" )
 public class HeatMapViewer {
 	private HeatmapPanel panel;
+	private MultipleHeatmapPanel multiplePanel;
 
 	/**
 	 * constructor
@@ -62,10 +68,34 @@ public class HeatMapViewer {
 		return node;
 	}
 
+	@AnalysisPanel( "Heatmap" )
+	public Node createMultipleHeatmapPanel(
+			@FxmlLoaderParam SpringFXMLLoader loader,
+			Project project
+	) throws Exception {
+		Node node = loader.load( MultipleHeatmapPanel.class,  "MultipleHeatmapPanel.fxml" );
+		MultipleHeatmapPanel panel = ( MultipleHeatmapPanel )loader.getController();
+		this.multiplePanel = panel;
+		panel.setProject( project );
+
+		return node;
+	}
+
 	@OnHeatmap
 	public void onRawDataSample( Heatmap heatmap ) {
 		if( this.panel != null ) {
 			this.panel.setHeatmap( heatmap );
+		}
+	}
+
+	@OnSelectPeak
+	public void onSelectPeak( PeakPosition position ) {
+		if( this.multiplePanel != null ) {
+			Point< Double > point = null;
+			if( position != null ) {
+				point = new Point< Double >( position.getRt(), position.getMz() );
+			}
+			this.multiplePanel.setPoint( point );
 		}
 	}
 }

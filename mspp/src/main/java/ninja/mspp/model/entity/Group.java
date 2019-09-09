@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +43,7 @@ public class Group implements Serializable {
 	private Project project;
 
 	//bi-directional many-to-one association to GroupSample
-	@OneToMany(mappedBy="group")
+	@OneToMany(mappedBy="group", fetch = FetchType.EAGER )
 	private List<GroupSample> groupSamples;
 
 	public Group() {

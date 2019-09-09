@@ -37,6 +37,8 @@
 package ninja.mspp.plugin.viewer.heatmap;
 
 import java.nio.IntBuffer;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import org.apache.commons.math3.linear.MatrixUtils;
@@ -49,6 +51,8 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.image.WritablePixelFormat;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import ninja.mspp.MsppManager;
+import ninja.mspp.annotation.method.OnHeatmapRange;
 import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.Range;
@@ -71,6 +75,8 @@ public class HeatmapCanvas extends ProfileCanvas {
 
 	private Stack< Rect< Double > > rangeStack;
 
+	private List< Point< Double > > displayPoints;
+
 	/**
 	 * constructor
 	 * @param heatmap heatmap data
@@ -82,6 +88,7 @@ public class HeatmapCanvas extends ProfileCanvas {
 		this.rtTitle = rtTitle;
 		this.mzTitle = mzTitle;
 		this.image = null;
+		this.displayPoints = new ArrayList< Point< Double > >();
 
 		this.rangeStack = new Stack< Rect< Double > >();
 
@@ -130,6 +137,14 @@ public class HeatmapCanvas extends ProfileCanvas {
 	 */
 	public HeatmapCanvas( Heatmap heatmap ) {
 		this( heatmap, "RT", "m/z" );
+	}
+
+	public List<Point<Double>> getDisplayPoints() {
+		return displayPoints;
+	}
+
+	public void setDisplayRanges(List<Point<Double>> displayPoints) {
+		this.displayPoints = displayPoints;
 	}
 
 	/**
@@ -229,6 +244,51 @@ public class HeatmapCanvas extends ProfileCanvas {
 	}
 
 	/**
+	 * draws display points
+	 * @param g graphics
+	 * @param matrix matrix
+	 * @param displayPoints display points
+	 * @param margin margin
+	 */
+	private void drawDisplayPoints(
+			GraphicsContext g,
+			RealMatrix matrix,
+			List< Point< Double > > displayPoints,
+			int width,
+			int height,
+			Rect< Integer > margin
+	) {
+		for( Point< Double > point : displayPoints ) {
+			double x = point.getX();
+			double y = point.getY();
+			if( x >= this.heatmap.getRtRange().getStart() && x <= this.heatmap.getRtRange().getEnd()
+					&& y >= this.heatmap.getMzRange().getStart() && y <= this.heatmap.getMzRange().getEnd() ) {
+				Point< Integer > windowPoint = this.getPoint( point, matrix );
+				int windowLeft = margin.getLeft();
+				int windowTop = margin.getTop();
+				int windowRight = width - margin.getRight();
+				int windowBottom = height - margin.getBottom();
+
+				int left = windowPoint.getX() - 2;
+				left = Math.max( windowLeft, Math.min( windowRight, left ) );
+				int right = windowPoint.getX() + 3;
+				right = Math.max( windowLeft, Math.min( windowRight, right ) );
+				int top = windowPoint.getY() - 2;
+				top = Math.max( windowTop,  Math.min( windowBottom, top ) );
+				int bottom = windowPoint.getY() + 3;
+				bottom = Math.max( windowTop,  Math.min( windowBottom, bottom ) );
+
+				double lineWidth = g.getLineWidth();
+				g.setLineWidth( 2.0 );
+				g.setStroke( Color.MAGENTA );
+				g.setFill( Color.TRANSPARENT );
+				g.strokeRect( ( double )left,  ( double )top,  ( double )( right - left ),  ( double )( bottom - top ) );
+				g.setLineWidth( lineWidth );
+			}
+		}
+	}
+
+	/**
 	 * draws rect
 	 * @param g g
 	 * @param matrix matrix
@@ -258,6 +318,8 @@ public class HeatmapCanvas extends ProfileCanvas {
 			return;
 		}
 
+		MsppManager manager = MsppManager.getInstance();
+
 		double startRt = Math.min( this.startPosition.getX(), this.endPosition.getX() );
 		double endRt = Math.max( this.startPosition.getX(), this.endPosition.getX() );
 		double startMz = Math.min( this.startPosition.getY(), this.endPosition.getY() );
@@ -273,6 +335,13 @@ public class HeatmapCanvas extends ProfileCanvas {
 			this.rangeStack.push( range );
 			this.heatmap.changeRange( startRt, endRt, startMz, endMz );
 			this.image = null;
+
+			try {
+				manager.invokeAll( OnHeatmapRange.class, this.heatmap );
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
 		}
 
 		this.startPosition = null;
@@ -401,6 +470,7 @@ public class HeatmapCanvas extends ProfileCanvas {
 		this.matrix = matrix;
 
 		this.drawImage( g, width, height, margin, heatmap.getData() );
+		this.drawDisplayPoints( g, matrix, this.displayPoints, width, height, margin );
 
 		this.drawRect( g, matrix );
 

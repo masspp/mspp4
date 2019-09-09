@@ -26,6 +26,7 @@ import ninja.mspp.model.entity.PeakAnnotation;
 import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.model.entity.QChromatogram;
+import ninja.mspp.model.entity.QGroup;
 import ninja.mspp.model.entity.QPeakPosition;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
@@ -169,6 +170,8 @@ public class ProjectService {
 			for( SpectrumQuery query : queryList ) {
 				double rt = query.getRetentionTimeSec() / 60.0;
 				double mz = query.getPrecursorNeutralMass();
+				int charge = query.getAssumedCharge();
+				mz = mz / ( double )charge;
 
 				PeakPosition position = new PeakPosition();
 				position.setRt( rt );
@@ -223,5 +226,24 @@ public class ProjectService {
 		}
 
 		return positions;
+	}
+
+
+	/**
+	 * finds groups
+	 * @param project project
+	 * @return groups
+	 */
+	public List< Group > findGroups( Project project ) {
+		List< Group > groups = new ArrayList< Group >();
+
+		QGroup qGroup = QGroup.group;
+		BooleanExpression expression = qGroup.project.eq( project );
+
+		for( Group group : this.groupRepository.findAll( expression ) ) {
+			groups.add( group );
+		}
+
+		return groups;
 	}
 }

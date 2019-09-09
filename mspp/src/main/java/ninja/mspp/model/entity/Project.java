@@ -36,7 +36,7 @@ public class Project implements Serializable {
 	private Timestamp registrationDate;
 
 	//bi-directional many-to-one association to Group
-	@OneToMany(mappedBy="project")
+	@OneToMany(mappedBy="project" )
 	private List<Group> groups;
 
 	public Project() {

@@ -31,11 +31,7 @@ import ninja.mspp.model.dataobject.Heatmap;
 
 @Component
 public class ThreeDPanel implements Initializable {
-	@FXML
-	private BorderPane pane;
-
-	@FXML
-	private Slider slider;
+	private Heatmap heatmap;
 
 	private double scale;
 	private Group group;
@@ -48,6 +44,12 @@ public class ThreeDPanel implements Initializable {
 	private double py;
 	private double xAngle;
 	private double zAngle;
+
+	@FXML
+	private BorderPane pane;
+
+	@FXML
+	private Slider slider;
 
 	/**
 	 * translates group
@@ -220,10 +222,20 @@ public class ThreeDPanel implements Initializable {
 	}
 
 	/**
+	 * gets the heatmap
+	 * @return heatmap
+	 */
+	public Heatmap getHeatmap() {
+		return this.heatmap;
+	}
+
+	/**
 	 * sets the heat map
 	 * @param heatmap
 	 */
 	public void setHeatmap( Heatmap heatmap ) {
+		this.heatmap = heatmap;
+
 		Group group = new Group();
 		group.getChildren().clear();
 		this.createHeatmap( heatmap, group );
