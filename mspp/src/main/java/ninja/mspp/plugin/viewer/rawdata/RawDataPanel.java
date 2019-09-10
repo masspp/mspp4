@@ -38,6 +38,7 @@ import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.entity.Sample;
+import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.view.list.SampleTableView;
 
@@ -201,9 +202,10 @@ public class RawDataPanel implements Initializable {
 	private void createHeatmap( Sample sample ) {
 		MsppManager manager = MsppManager.getInstance();
 		RawDataPanel me = this;
+		List< Spectrum > spectra = this.rawDataService.findSpectra( sample );
 		Thread thread = new Thread(
 			() -> {
-				Heatmap heatmap = new Heatmap( sample.getSpectras(), me.rawDataService );
+				Heatmap heatmap = new Heatmap( spectra, me.rawDataService );
 				Platform.runLater(
 					() -> {
 						manager.invokeAll( OnHeatmap.class, heatmap );

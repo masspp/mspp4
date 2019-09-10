@@ -28,6 +28,7 @@ import ninja.mspp.model.entity.Project;
 import ninja.mspp.model.entity.QChromatogram;
 import ninja.mspp.model.entity.QGroup;
 import ninja.mspp.model.entity.QPeakPosition;
+import ninja.mspp.model.entity.QSpectrum;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.repository.ChromatogramRepository;
@@ -38,6 +39,7 @@ import ninja.mspp.repository.GroupSpectrumRepository;
 import ninja.mspp.repository.PeakAnnotationRepository;
 import ninja.mspp.repository.PeakPositionRepository;
 import ninja.mspp.repository.ProjectRepository;
+import ninja.mspp.repository.SpectrumRepository;
 import umich.ms.fileio.filetypes.pepxml.PepXmlParser;
 import umich.ms.fileio.filetypes.pepxml.jaxb.standard.MsmsRunSummary;
 import umich.ms.fileio.filetypes.pepxml.jaxb.standard.NameValueType;
@@ -62,6 +64,9 @@ public class ProjectService {
 
 	@Autowired
 	private PeakAnnotationRepository annotationRepository;
+
+	@Autowired
+	private SpectrumRepository spectrumRepository;
 
 	@Autowired
 	private ChromatogramRepository chromatogramRepository;
@@ -137,7 +142,9 @@ public class ProjectService {
 		groupSample.setSample( sample );
 		groupSample = this.groupSampleRepository.save( groupSample );
 
-		for( Spectrum spectrum : sample.getSpectras() ) {
+		QSpectrum qSpectrum = QSpectrum.spectrum;
+		BooleanExpression expression = qSpectrum.sample.eq( sample );
+		for( Spectrum spectrum : this.spectrumRepository.findAll( expression ) )  {
 			GroupSpectrum groupSpectrum = new GroupSpectrum();
 			groupSpectrum.setGroupSample( groupSample );
 			groupSpectrum.setSpectrum( spectrum );
@@ -146,7 +153,7 @@ public class ProjectService {
 		}
 
 		QChromatogram qChromatogram = QChromatogram.chromatogram;
-		BooleanExpression expression = qChromatogram.sample.eq( sample );
+		expression = qChromatogram.sample.eq( sample );
 		for( Chromatogram chromatogram : this.chromatogramRepository.findAll( expression ) ) {
 			GroupChromatogram groupChromatogram = new GroupChromatogram();
 			groupChromatogram.setGroupSample( groupSample );

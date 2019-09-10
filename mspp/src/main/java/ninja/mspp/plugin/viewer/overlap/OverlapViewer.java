@@ -36,20 +36,35 @@
  */
 package ninja.mspp.plugin.viewer.overlap;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import ninja.mspp.annotation.method.AnalysisPanel;
+import ninja.mspp.annotation.method.OnSelectPeak;
 import ninja.mspp.annotation.method.OpenSpectrum;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.SpectrumObject;
 import ninja.mspp.model.dataobject.XYData;
+import ninja.mspp.model.entity.PeakPosition;
+import ninja.mspp.model.entity.Project;
+import ninja.mspp.view.SpringFXMLLoader;
 
 @Plugin( "overlap canvas")
 public class OverlapViewer {
 	/** canvas */
 	private static OverlapCanvas canvas = null;
 
+	/** integrated view */
+	private IntegratedPanel integratedPanel;
+
+	/** project */
+	private Project project;
+
 	/**
 	 * constructor
 	 */
 	public OverlapViewer() {
+		this.integratedPanel = null;
 	}
 
 	@OpenSpectrum
@@ -59,6 +74,30 @@ public class OverlapViewer {
 		if( canvas != null ) {
 			XYData xyData = spectrum.getXYData();
 //			OverlapViewer.canvas.addXYData( xyData );
+		}
+	}
+
+	@AnalysisPanel( "Spectrum / Chromatogram" )
+	public Node getIntegratedPanel(
+			@FxmlLoaderParam SpringFXMLLoader loader,
+			Project project
+	) {
+		this.project = project;
+		Parent parent = null;
+		try {
+			parent = loader.load( IntegratedPanel.class, "IntegratedPanel.fxml" );
+			this.integratedPanel = ( IntegratedPanel )loader.getController();
+		}
+		catch( Exception e ) {
+			e.printStackTrace();
+		}
+		return parent;
+	}
+
+	@OnSelectPeak
+	public void setPeak( PeakPosition position ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setPeak( this.project, position );
 		}
 	}
 }

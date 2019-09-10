@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -62,7 +61,7 @@ public class Sample implements Serializable {
 	private List<Chromatogram> chromatograms;
 
 	//bi-directional many-to-one association to Spectrum
-	@OneToMany(mappedBy="sample", fetch = FetchType.EAGER )
+	@OneToMany(mappedBy="sample" )
 	private List<Spectrum> spectras;
 
 	public Sample() {

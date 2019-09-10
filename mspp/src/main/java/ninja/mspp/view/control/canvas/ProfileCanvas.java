@@ -36,6 +36,7 @@
  */
 package ninja.mspp.view.control.canvas;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -112,7 +113,31 @@ public abstract class ProfileCanvas extends Canvas {
 		}
 		Integer level = FastDrawData.getLevel( width, xRange.getEnd() - xRange.getStart() );
 		List< DrawPoint > points = data.getPoints( level );
-		return points;
+
+		List< DrawPoint > list = new ArrayList< DrawPoint >();
+
+		DrawPoint prevPoint = null;
+		for( DrawPoint point : points ) {
+			double x = point.getX();
+
+			if( x >= xRange.getStart() && x <= xRange.getEnd() ) {
+				if( prevPoint != null ) {
+					list.add( point );
+				}
+				list.add( point );
+				prevPoint = null;
+			}
+			else {
+				if( x > xRange.getEnd() ) {
+					if( prevPoint == null ) {
+						list.add( point );
+					}
+				}
+				prevPoint = point;
+			}
+		}
+
+		return list;
 	}
 
 	/**
@@ -251,6 +276,7 @@ public abstract class ProfileCanvas extends Canvas {
 			this.drawLine( g,  top,  bottom );
 
 			Point< Double > rightPoint = new Point< Double >( point.getX(), point.getRightY() );
+
 			previousPoint = this.getPoint( rightPoint, drawMatrix );
 		}
 

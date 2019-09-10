@@ -29,6 +29,7 @@ import ninja.mspp.model.entity.DrawElementList;
 import ninja.mspp.model.entity.PointList;
 import ninja.mspp.model.entity.QChromatogram;
 import ninja.mspp.model.entity.QDrawElementList;
+import ninja.mspp.model.entity.QSpectrum;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.repository.ChromatogramRepository;
@@ -85,13 +86,28 @@ public class RawDataService {
 	}
 
 	/**
+	 * finds spectra from sample
+	 * @param sample sample
+	 * @return spectra
+	 */
+	public List< Spectrum > findSpectra( Sample sample ) {
+		QSpectrum qSpectrum = QSpectrum.spectrum;
+		BooleanExpression expression = qSpectrum.sample.eq( sample );
+		List< Spectrum > spectra = new ArrayList< Spectrum >();
+		for( Spectrum spectrum : this.spectrumRepository.findAll( expression ) ) {
+			spectra.add( spectrum );
+		}
+		return spectra;
+	}
+
+	/**
 	 * finds chromatograms from sample
 	 * @param sample sample
 	 * @return chromatograms
 	 */
 	public List< Chromatogram > findChromatograms( Sample sample ) {
 		QChromatogram qChromatogram = QChromatogram.chromatogram;
-		BooleanExpression expression = qChromatogram.sample.id.eq( sample.getId() );
+		BooleanExpression expression = qChromatogram.sample.eq( sample );
 		List< Chromatogram > chromatograms = new ArrayList< Chromatogram >();
 		for( Chromatogram chromatogram : this.chromatogramRepository.findAll( expression ) ) {
 			chromatograms.add( chromatogram );
@@ -194,6 +210,21 @@ public class RawDataService {
 
 		mzml.close();
 		progress.setProgress( end );
+	}
+
+	/**
+	 * saves chromatogram
+	 * @param sample sample
+	 * @param points points
+	 * @param name name
+	 * @param mz m/z
+	 * @return chromatogram
+	 * @throws Exception
+	 */
+	public Chromatogram saveChromatogram( Sample sample, List< Point< Double > > points, String name, Double mz ) throws Exception {
+		Chromatogram chromatogram = this.createChromatogram( sample, points, name, mz );
+		this.chromatogramRepository.save( chromatogram );
+		return chromatogram;
 	}
 
 	/**

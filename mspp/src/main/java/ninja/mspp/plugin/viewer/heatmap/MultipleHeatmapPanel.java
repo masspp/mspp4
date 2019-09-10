@@ -1,6 +1,7 @@
 package ninja.mspp.plugin.viewer.heatmap;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import ninja.mspp.model.entity.Group;
 import ninja.mspp.model.entity.GroupSample;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.model.entity.Sample;
+import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.ProjectService;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.view.list.SampleTableView;
@@ -70,7 +72,8 @@ public class MultipleHeatmapPanel implements Initializable {
 	 * @param sample
 	 */
 	private void openHeatmap( Sample sample ) {
-		Heatmap heatmap = new Heatmap( sample.getSpectras(), this.rawdataService );
+		List< Spectrum > spectra = this.rawdataService.findSpectra( sample );
+		Heatmap heatmap = new Heatmap( spectra, this.rawdataService );
 		this.canvas = new HeatmapCanvas( heatmap );
 		canvasPanel.setCenter( this.canvas );
 		canvas.widthProperty().bind( canvasPanel.widthProperty() );

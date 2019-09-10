@@ -25,6 +25,14 @@ public class FXTools {
 	}
 
 	/**
+	 * sets align center
+	 * @param column table column
+	 */
+	public static void setTableColumnCenterAlign( TableColumn< ?, ? > column  ) {
+		column.setStyle( "-fx-alignment: CENTER;" );
+	}
+
+	/**
 	 * set double table column accuracy
 	 * @param <T>
 	 * @param accuracy

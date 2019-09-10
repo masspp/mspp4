@@ -1,6 +1,7 @@
 package ninja.mspp.plugin.viewer.single;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,8 @@ public class SingleSpectrumPanel implements Initializable {
 	// on sample
 	public void setSample( Sample sample ) {
 		this.table.getItems().clear();
-		for( Spectrum spectrum : sample.getSpectras() ) {
+		List< Spectrum > spectra = this.service.findSpectra( sample );
+		for( Spectrum spectrum : spectra ) {
 			this.table.getItems().add( spectrum );
 		}
 	}
