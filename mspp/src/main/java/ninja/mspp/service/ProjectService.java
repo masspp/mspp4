@@ -50,6 +50,7 @@ import umich.ms.fileio.filetypes.pepxml.jaxb.standard.SpectrumQuery;
 @Service
 @Transactional
 public class ProjectService {
+	private static final double PROTON = 1.007276466621;
 	@Autowired
 	private ProjectRepository projectReposiroty;
 
@@ -178,7 +179,7 @@ public class ProjectService {
 				double rt = query.getRetentionTimeSec() / 60.0;
 				double mz = query.getPrecursorNeutralMass();
 				int charge = query.getAssumedCharge();
-				mz = mz / ( double )charge;
+				mz = mz / ( double )charge + PROTON;
 
 				PeakPosition position = new PeakPosition();
 				position.setRt( rt );

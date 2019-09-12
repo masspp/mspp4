@@ -72,7 +72,7 @@
             </VBox>
          </right>
          <center>
-            <ScrollPane prefHeight="350.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+            <ScrollPane prefHeight="380.0" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
                <content>
                   <HBox fx:id="groupsBox" alignment="CENTER_LEFT" prefHeight="350.0" />
                </content>

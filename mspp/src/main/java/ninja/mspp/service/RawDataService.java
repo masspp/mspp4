@@ -14,8 +14,6 @@ import java.util.Optional;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 
@@ -49,7 +47,6 @@ import umich.ms.fileio.filetypes.mzml.MZMLIndex;
 import umich.ms.fileio.filetypes.mzml.MZMLIndexElement;
 
 @Service
-@Transactional
 public class RawDataService {
 
 
@@ -154,7 +151,6 @@ public class RawDataService {
 	 * registers raw data
 	 * @param sampleObject sample object
 	 */
-	@Transactional( propagation = Propagation.REQUIRES_NEW )
 	public void register( String path, ProgressIndicator progress, double start, double end )  throws Exception {
 		progress.setProgress( start );
 		System.out.println( String.format( "Registering Sample [%s].....", path ) );
