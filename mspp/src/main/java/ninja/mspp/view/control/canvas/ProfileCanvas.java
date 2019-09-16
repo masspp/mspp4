@@ -69,7 +69,6 @@ public abstract class ProfileCanvas extends Canvas {
 
 	/**
 	 * constructor
-	 * @param xyData xy data
 	 */
 	public ProfileCanvas() {
 		this.widthProperty().addListener( evt -> draw() );
@@ -250,7 +249,9 @@ public abstract class ProfileCanvas extends Canvas {
 	 * draw
 	 * @param g graphics
 	 * @param points points
-	 * @param matrix transform matrix
+	 * @param drawMatrix transform matrix
+         * @param paint
+         * @param centroid
 	 */
 	protected void drawProfile( GraphicsContext g, List< DrawPoint > points, RealMatrix drawMatrix, Paint paint, boolean centroid ) {
 		g.beginPath();
@@ -293,7 +294,10 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param width width
 	 * @param height height
 	 * @param margin margin
-	 * @param transformMatrix transform matrix
+	 * @param drawMatrix transform matrix
+         * @param xTitle
+         * @param yTitle
+         * 
 	 */
 	protected void drawScale(
 			GraphicsContext g,
@@ -507,7 +511,6 @@ public abstract class ProfileCanvas extends Canvas {
 	/**
 	 * gets the max y value width
 	 * @param g
-	 * @param xRange
 	 * @param yRange
 	 * @param height
 	 * @param topMargin

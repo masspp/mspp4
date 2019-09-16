@@ -57,7 +57,7 @@ public abstract class ChromatogramObject extends DrawObject {
     }
 
     /**
-     * @param sample the sample to set
+     * @param sample_path the sample to set
      */
     public void setSamplePath(String sample_path) {
         this.sample_path = sample_path;
@@ -85,7 +85,7 @@ public abstract class ChromatogramObject extends DrawObject {
     }
 
     /**
-     * @param chromatData the chromatData to set
+     * @param chromatogramData the chromatData to set
      */
     public void setChromatogramData(XYData chromatogramData) {
         this.chromatogramData = chromatogramData;
@@ -147,9 +147,11 @@ public abstract class ChromatogramObject extends DrawObject {
         SEARCH_Near
     }
 
-    /***
-     *
+
+    /**
+     * 
      * @param sample
+     * @param mzrange 
      */
     public ChromatogramObject(SampleObject sample, Range< Double > mzrange){
     	super( sample );

@@ -83,7 +83,7 @@ public abstract class SampleObject {
     }
 
     /**
-     * @param SampleId the SampleId to set
+     * @param uid the SampleId to set
      */
     public void setSampleId(String uid) {
         this.sampleid = uid;

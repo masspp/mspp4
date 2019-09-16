@@ -330,7 +330,7 @@ public class XYData implements Iterable< Point< Double > > {
     }
 
     /**
-     * @param x
+     * @param start_x
      * @return infemum of set in which element has nearest x-value to x.
      *              otherwise -1 (if list is empty).
      */
@@ -342,7 +342,7 @@ public class XYData implements Iterable< Point< Double > > {
     }
 
     /**
-     * @param max_x
+     * @param end_x
      * @return least index in open upper bounds in which elements has x-value greater than x,
      *             otherwise -1 (if list is empty)
      */
