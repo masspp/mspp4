@@ -73,6 +73,14 @@ public class CheckableChromatogramTableView extends ChromatogramTableView {
 	}
 
 	/**
+	 * clears selection
+	 */
+	public void clearSelection() {
+		this.chromatogramSet.clear();
+		this.refresh();
+	}
+
+	/**
 	 * adds check column
 	 */
 	private void addCheckColumn() {

@@ -2,7 +2,10 @@ package ninja.mspp.plugin.viewer.project;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.event.ActionEvent;
@@ -24,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -31,12 +36,23 @@ import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
 import ninja.mspp.ObjectManager;
 import ninja.mspp.annotation.method.AnalysisPanel;
+import ninja.mspp.annotation.method.OnPeakChromatograms;
+import ninja.mspp.annotation.method.OnPeakMsSpectra;
+import ninja.mspp.annotation.method.OnPeakMsmsSpectra;
 import ninja.mspp.annotation.method.OnSelectPeak;
 import ninja.mspp.model.PluginMethod;
+import ninja.mspp.model.dataobject.Point;
+import ninja.mspp.model.dataobject.XYData;
+import ninja.mspp.model.entity.Chromatogram;
+import ninja.mspp.model.entity.Group;
+import ninja.mspp.model.entity.GroupSample;
 import ninja.mspp.model.entity.PeakAnnotation;
 import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
+import ninja.mspp.model.entity.Sample;
+import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.ProjectService;
+import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FXTools;
 import ninja.mspp.view.main.MainFrame;
 
@@ -50,6 +66,9 @@ public class ProjectDetailsPanel implements Initializable {
 
 	@Autowired
 	private ProjectService service;
+
+	@Autowired
+	private RawDataService rawdataService;
 
 	@FXML
 	private TableView< PeakPosition > table;
@@ -99,7 +118,6 @@ public class ProjectDetailsPanel implements Initializable {
 			}
 		);
 		FXTools.setTableColumnRightAlign( numberColumn );
-//		FXTools.setDoubleTableColumnAccuracy( numberColumn,  1 );
 		this.table.getColumns().add( numberColumn );
 
 
@@ -169,10 +187,189 @@ public class ProjectDetailsPanel implements Initializable {
 				catch( Exception e ) {
 					e.printStackTrace();
 				}
+				PeakPosition position = this.table.getSelectionModel().getSelectedItem();
+				if( position != null ) {
+					this.getChromatogramList( position );
+					this.getSpectrumList( position );
+				}
 			}
 		);
-
 	}
+
+	/**
+	 * get chromatogram list
+	 * @param position peak position
+	 */
+	private void getChromatogramList( PeakPosition position ) {
+		if( position == null ) {
+			return;
+		}
+
+		double mz = position.getMz();
+		ProjectDetailsPanel me = this;
+		MsppManager manager = MsppManager.getInstance();
+		Project project = this.project;
+
+		Thread thread = new Thread(
+			() -> {
+				List< Chromatogram > chromatograms = new ArrayList< Chromatogram >();
+				Map< Chromatogram, Color > colorMap = new HashMap< Chromatogram, Color >();
+				for( Group group : me.service.findGroups( project ) ) {
+					Color color = Color.valueOf( group.getColor() );
+					for( GroupSample groupSample : group.getGroupSamples() ) {
+						Sample sample = groupSample.getSample();
+						Chromatogram chromatogram = me.getChromatogram( sample,  mz );
+						colorMap.put( chromatogram,  color );
+						chromatograms.add( chromatogram );
+					}
+				}
+				Platform.runLater(
+					() -> {
+						manager.invokeAll( OnPeakChromatograms.class, chromatograms, colorMap );
+					}
+				);
+			}
+		);
+		thread.start();
+	}
+
+	/**
+	 * get spectrum list
+	 * @param position peak position
+	 */
+	private void getSpectrumList( PeakPosition position ) {
+		double mz = position.getMz();
+		double rt = position.getRt();
+
+		ProjectDetailsPanel me = this;
+		MsppManager manager = MsppManager.getInstance();
+		Project project = this.project;
+
+		Thread thread = new Thread(
+			() -> {
+				List< Spectrum > msSpectra = new ArrayList< Spectrum >();
+				List< Spectrum > msmsSpectra = new ArrayList< Spectrum >();
+				Map< Spectrum, Color > msColorMap = new HashMap< Spectrum, Color >();
+				Map< Spectrum, Color > msmsColorMap = new HashMap< Spectrum, Color >();
+
+				for( Group group : me.service.findGroups( project ) ) {
+					Color color = Color.valueOf( group.getColor() );
+					for( GroupSample groupSample : group.getGroupSamples() ) {
+
+
+						Sample sample = groupSample.getSample();
+						List< Spectrum > spectra = this.getSpectra( sample, rt );
+						for( Spectrum spectrum : spectra ) {
+							if( spectrum.getMsStage() == 1 ) {
+								msSpectra.add( spectrum );
+								msColorMap.put( spectrum, color );
+							}
+							else if( spectrum.getPrecursor() != null
+									&& Math.abs( spectrum.getPrecursor() - mz ) <= 0.1 ) {
+								msmsSpectra.add( spectrum );
+								msmsColorMap.put( spectrum, color );
+							}
+						}
+					}
+				}
+
+				Platform.runLater(
+					() -> {
+						manager.invokeAll( OnPeakMsSpectra.class, msSpectra, msColorMap );
+						manager.invokeAll( OnPeakMsmsSpectra.class, msmsSpectra, msmsColorMap );
+					}
+				);
+			}
+		);
+		thread.start();
+	}
+
+
+	/**
+	 * gets the chromtogram
+	 * @param sample sample
+	 * @param mz m/z
+	 * @return chromatogram
+	 */
+	private Chromatogram getChromatogram( Sample sample, double mz ) {
+		Chromatogram chromatogram = null;
+		List< Chromatogram > chromatograms = this.rawdataService.findChromatograms( sample );
+		for( Chromatogram currentChromatogram : chromatograms ) {
+			Double currentMz = currentChromatogram.getMz();
+			if( currentMz != null ) {
+				if( Math.abs( currentMz - mz ) <= 0.1 ) {
+					chromatogram = currentChromatogram;
+				}
+			}
+		}
+
+		if( chromatogram == null ) {
+			List< Point< Double > > points = new ArrayList< Point< Double > >();
+			List< Spectrum > spectra = this.rawdataService.findSpectra( sample );
+			for( Spectrum spectrum : spectra ) {
+				if( spectrum.getMsStage() == 1 ) {
+					double rt = spectrum.getStartRt();
+					double intensity = 0.0;
+
+					XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
+					for( Point< Double > point : xyData ) {
+						if( Math.abs( point.getX() - mz ) <= 0.1 ) {
+							intensity += point.getY();
+						}
+					}
+					points.add( new Point< Double >( rt, intensity ) );
+				}
+			}
+			try {
+				chromatogram = this.rawdataService.saveChromatogram( sample, points, String.format( "XIC (mz=%.2f)",  mz ), mz );
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
+		}
+		return chromatogram;
+	}
+
+	/**
+	 * gets spectra
+	 * @param sample sample
+	 * @return spectra
+	 */
+	private List< Spectrum > getSpectra( Sample sample, double rt ) {
+		List< Spectrum > list = new ArrayList< Spectrum >();
+
+		Map< Long, Spectrum > idMap = new HashMap< Long, Spectrum >();
+		Spectrum spectrum = null;
+		double diff = 1.0;
+		List< Spectrum > spectra = this.rawdataService.findSpectra( sample );
+		for( Spectrum currentSpectrum : spectra ) {
+			idMap.put( currentSpectrum.getId(), currentSpectrum );
+			double currentDiff = Math.abs( currentSpectrum.getStartRt() - rt );
+			if( currentDiff < diff ) {
+				spectrum = currentSpectrum;
+				diff = currentDiff;
+			}
+		}
+
+		if( spectrum != null ) {
+			if( spectrum.getMsStage() > 1 ) {
+				spectrum = idMap.get( spectrum.getParentSpectrumId() );
+			}
+			list.add( spectrum );
+
+			for( Spectrum currentSpectrum : spectra ) {
+				Long parentId = currentSpectrum.getParentSpectrumId();
+				if( parentId != null ) {
+					if( parentId.equals( spectrum.getId() ) ) {
+						list.add( currentSpectrum );
+					}
+				}
+			}
+		}
+
+		return list;
+	}
+
 
 	/**
 	 * sets buttons

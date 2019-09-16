@@ -36,14 +36,23 @@
  */
 package ninja.mspp.plugin.viewer.overlap;
 
+import java.util.List;
+import java.util.Map;
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.paint.Color;
 import ninja.mspp.annotation.method.AnalysisPanel;
+import ninja.mspp.annotation.method.OnPeakChromatograms;
+import ninja.mspp.annotation.method.OnPeakMsSpectra;
+import ninja.mspp.annotation.method.OnPeakMsmsSpectra;
 import ninja.mspp.annotation.method.OnSelectPeak;
 import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.model.entity.Chromatogram;
 import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
+import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.view.SpringFXMLLoader;
 
 @Plugin( value = "overlap canvas", order = 5 )
@@ -82,6 +91,27 @@ public class OverlapViewer {
 	public void setPeak( PeakPosition position ) {
 		if( this.project != null && this.integratedPanel != null ) {
 			this.integratedPanel.setPeak( this.project, position );
+		}
+	}
+
+	@OnPeakMsSpectra
+	public void setMsSpectra( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setMsSpectrum( spectra,  colorMap );
+		}
+	}
+
+	@OnPeakMsmsSpectra
+	public void setMsmsSpectra( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setMsmsSpectrum( spectra,  colorMap );
+		}
+	}
+
+	@OnPeakChromatograms
+	public void setChromatograms( List< Chromatogram > chromatograms, Map< Chromatogram, Color > colorMap ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setChromatograms( chromatograms, colorMap );
 		}
 	}
 }

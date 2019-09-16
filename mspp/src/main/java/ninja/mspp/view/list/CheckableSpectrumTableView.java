@@ -74,6 +74,14 @@ public class CheckableSpectrumTableView extends SpectrumTableView {
 	}
 
 	/**
+	 * clears selection
+	 */
+	public void clearSelection() {
+		this.spectrumSet.clear();
+		this.refresh();
+	}
+
+	/**
 	 * adds check column
 	 */
 	private void addCheckColumn() {

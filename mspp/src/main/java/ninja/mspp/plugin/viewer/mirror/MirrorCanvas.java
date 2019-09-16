@@ -60,6 +60,7 @@ public class MirrorCanvas extends ProfileCanvas {
 
 	FastDrawData[] drawArray;
 	XYData[] xyDataArray;
+	Color[] colors;
 
 	/**
 	 * constructor
@@ -71,15 +72,17 @@ public class MirrorCanvas extends ProfileCanvas {
 
 		this.drawArray = new FastDrawData[ 2 ];
 		this.xyDataArray = new XYData[ 2 ];
+		this.colors = new Color[ 2 ];
 	}
 
 	/**
 	 * adds xy data
 	 * @param xyData
 	 */
-	public void addXYData( XYData xyData, FastDrawData data, int index ) {
-		xyDataArray[ index ] = xyData;
-		drawArray[ index ] = data;
+	public void addXYData( XYData xyData, FastDrawData data, Color color, int index ) {
+		this.xyDataArray[ index ] = xyData;
+		this.drawArray[ index ] = data;
+		this.colors[ index ] = color;
 
 		Double minX = xyDataArray[ 0 ].getMinX();
 		Double maxX = xyDataArray[ 0 ].getMaxX();
@@ -147,7 +150,7 @@ public class MirrorCanvas extends ProfileCanvas {
 	}
 
 	@Override
-	protected void onDraw(GraphicsContext g, Integer width, Integer height ) {
+	protected void onDraw( GraphicsContext g, Integer width, Integer height ) {
 		Integer baseLine = height / 2;
 
 		Range< Double > xRange = this.xRange;
@@ -155,6 +158,8 @@ public class MirrorCanvas extends ProfileCanvas {
 		List< List< DrawPoint > > arrays = new ArrayList< List< DrawPoint > >();
 		List< DrawPoint > points0 = this.getPoints( this.drawArray[ 0 ], width, xRange );
 		List< DrawPoint > points1 = this.getPoints( this.drawArray[ 1 ], width, xRange );
+		Color color0 = this.colors[ 0 ];
+		Color color1 = this.colors[ 1 ];
 		arrays.add( points0 );
 		arrays.add( points1 );
 		Range< Double > yRange = this.getYRangeFromArray( arrays,  xRange );
@@ -165,7 +170,6 @@ public class MirrorCanvas extends ProfileCanvas {
 		Rect< Integer > margin = this.getMargin( g,  yRange,  width,  height );
 
 		String xTitle = this.xTitle;
-//		String yTitle = this.yTitle;
 
 		Rect< Integer > margin0 = new Rect< Integer >(
 			margin.getTop(),
@@ -181,7 +185,7 @@ public class MirrorCanvas extends ProfileCanvas {
 			margin0,
 			MatrixUtils.createRealIdentityMatrix( 3 )
 		);
-		this.drawProfile( g, points0, drawMatrix0, Color.RED );
+		this.drawProfile( g, points0, drawMatrix0, color0 );
 
 		if( points1 != null ) {
 			Rect< Integer > margin1 = new Rect< Integer >(
@@ -200,7 +204,7 @@ public class MirrorCanvas extends ProfileCanvas {
 				margin1,
 				translation
 			);
-			this.drawProfile(g, points1,  drawMatrix1,  Color.RED );
+			this.drawProfile(g, points1,  drawMatrix1, color1 );
 		}
 
 		this.drawXScale( g, xRange, width, height, margin0, drawMatrix0, xTitle,  Color.BLACK );

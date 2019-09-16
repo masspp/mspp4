@@ -1,8 +1,6 @@
 package ninja.mspp.plugin.viewer.overlap;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -12,20 +10,16 @@ import org.springframework.stereotype.Component;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import ninja.mspp.model.dataobject.FastDrawData;
-import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.model.entity.Chromatogram;
-import ninja.mspp.model.entity.Group;
-import ninja.mspp.model.entity.GroupSample;
 import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
-import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
-import ninja.mspp.service.ProjectService;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.view.list.CheckableChromatogramTableView;
 import ninja.mspp.view.list.CheckableSpectrumTableView;
@@ -35,9 +29,6 @@ import ninja.mspp.view.list.SpectrumTableView;
 public class IntegratedPanel implements Initializable {
 	@Autowired
 	private RawDataService rawdataService;
-
-	@Autowired
-	private ProjectService projectService;
 
 	@FXML
 	private BorderPane chromatogramTablePane;
@@ -66,12 +57,6 @@ public class IntegratedPanel implements Initializable {
 	/** MS/MS spectrum table */
 	private SpectrumTableView msmsTable;
 
-	/** color map */
-	private Map< Spectrum, Color > colorMap;
-
-	/** color map */
-	private Map< Chromatogram, Color > chromatogramColorMap;
-
 	/** chromtogram canvas */
 	private OverlapCanvas chromatogramCanvas;
 
@@ -81,15 +66,25 @@ public class IntegratedPanel implements Initializable {
 	/** MS/MS canvas */
 	private OverlapCanvas msmsCanvas;
 
+	private Map< Spectrum, Color > msColorMap;
+	private Map< Spectrum, Color > msmsColorMap;
+	private Map< Chromatogram, Color > chromatogramColorMap;
+
 	/**
 	 * sets the peak
 	 * @param project project
 	 * @param position peak position
 	 */
 	public void setPeak( Project project, PeakPosition position ) {
+		this.chromatogramTable.clearSelection();
 		this.chromatogramTable.getItems().clear();
+		this.msTable.clearSelection();
 		this.msTable.getItems().clear();
 		this.msmsTable.getItems().clear();
+
+		this.msCanvasPane.setCenter( new Label( "Loading..." ) );
+		this.msmsCanvasPane.setCenter( new Label( "Loading..." ) );
+		this.chromatogramCanvasPane.setCenter( new Label( "Loading..." ) );
 
 		if( project == null || position == null ) {
 			return;
@@ -99,125 +94,40 @@ public class IntegratedPanel implements Initializable {
 		double rt = position.getRt();
 
 		this.msCanvas.setXRange( new Range< Double >( Math.max( 0.0,  mz - 3.0 ), mz + 3.0 ) );
+		this.msCanvas.clearData( true );
 		this.chromatogramCanvas.setXRange( new Range< Double >( Math.max( 0.0,  rt - 1.0 ), rt + 1.0 ) );
+		this.chromatogramCanvas.clearData( true );
+		this.msmsCanvas.clearData( true );
 
-		for( Group group : this.projectService.findGroups( project ) ) {
-			Color color = Color.valueOf( group.getColor() );
-			for( GroupSample groupSample : group.getGroupSamples() ) {
-				Sample sample = groupSample.getSample();
-				List< Spectrum > spectra = this.getSpectra( sample, rt );
-
-				for( Spectrum spectrum : spectra ) {
-					colorMap.put( spectrum,  color );
-					if( spectrum.getMsStage() > 1 ) {
-						this.msmsTable.getItems().add( spectrum );
-					}
-					else {
-						this.msTable.getItems().add( spectrum );
-						this.msTable.select( spectrum, true );
-					}
-				}
-
-				Chromatogram chromatogram = this.getChromatogram( sample,  mz );
-				this.chromatogramColorMap.put( chromatogram,  color );
-				this.chromatogramTable.getItems().add( chromatogram );
-				this.chromatogramTable.select( chromatogram,  true );;
-			}
-		}
-
-		this.onMsSpectrum();
-		this.onChromatogram();
+		this.msColorMap = null;
+		this.msmsColorMap = null;
+		this.chromatogramColorMap = null;
 	}
 
 	/**
-	 * gets the chromtogram
-	 * @param sample sample
-	 * @param mz m/z
-	 * @return chromatogram
+	 * set chromatograms
+	 * @param chromatograms
+	 * @param colorMap
 	 */
-	private Chromatogram getChromatogram( Sample sample, double mz ) {
-		Chromatogram chromatogram = null;
-		List< Chromatogram > chromatograms = this.rawdataService.findChromatograms( sample );
-		for( Chromatogram currentChromatogram : chromatograms ) {
-			Double currentMz = currentChromatogram.getMz();
-			if( currentMz != null ) {
-				if( Math.abs( currentMz - mz ) <= 0.1 ) {
-					chromatogram = currentChromatogram;
-				}
-			}
+	public void setChromatograms( List< Chromatogram > chromatograms, Map< Chromatogram, Color > colorMap ) {
+		this.chromatogramCanvasPane.setCenter( this.chromatogramCanvas );
+		this.chromatogramColorMap = colorMap;
+
+		this.chromatogramTable.clearSelection();
+		this.chromatogramTable.getItems().clear();
+
+		for( Chromatogram chromatogram : chromatograms ) {
+			this.chromatogramTable.getItems().add( chromatogram );
+			this.chromatogramTable.select( chromatogram,  true );
 		}
 
-		if( chromatogram == null ) {
-			List< Point< Double > > points = new ArrayList< Point< Double > >();
-			List< Spectrum > spectra = this.rawdataService.findSpectra( sample );
-			for( Spectrum spectrum : spectra ) {
-				if( spectrum.getMsStage() == 1 ) {
-					double rt = spectrum.getStartRt();
-					double intensity = 0.0;
-
-					XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
-					for( Point< Double > point : xyData ) {
-						if( Math.abs( point.getX() - mz ) <= 0.5 ) {
-							intensity += point.getY();
-						}
-					}
-					points.add( new Point< Double >( rt, intensity ) );
-				}
-			}
-			try {
-				chromatogram = this.rawdataService.saveChromatogram( sample, points, String.format( "XIC (mz=%.2f)",  mz ), mz );
-			}
-			catch( Exception e ) {
-				e.printStackTrace();
-			}
-		}
-		return chromatogram;
-	}
-
-	/**
-	 * gets spectra
-	 * @param sample sample
-	 * @return spectra
-	 */
-	private List< Spectrum > getSpectra( Sample sample, double rt ) {
-		List< Spectrum > list = new ArrayList< Spectrum >();
-
-		Map< Long, Spectrum > idMap = new HashMap< Long, Spectrum >();
-		Spectrum spectrum = null;
-		double diff = 1.0;
-		List< Spectrum > spectra = this.rawdataService.findSpectra( sample );
-		for( Spectrum currentSpectrum : spectra ) {
-			idMap.put( currentSpectrum.getId(), currentSpectrum );
-			double currentDiff = Math.abs( currentSpectrum.getStartRt() - rt );
-			if( currentDiff < diff ) {
-				spectrum = currentSpectrum;
-				diff = currentDiff;
-			}
-		}
-
-		if( spectrum != null ) {
-			if( spectrum.getMsStage() > 1 ) {
-				spectrum = idMap.get( spectrum.getParentSpectrumId() );
-			}
-			list.add( spectrum );
-
-			for( Spectrum currentSpectrum : spectra ) {
-				Long parentId = currentSpectrum.getParentSpectrumId();
-				if( parentId != null ) {
-					if( parentId.equals( spectrum.getId() ) ) {
-						list.add( currentSpectrum );
-					}
-				}
-			}
-		}
-
-		return list;
+		this.drawChromatograms();
 	}
 
 	/**
 	 * on chromatogram
 	 */
-	private void onChromatogram() {
+	private void drawChromatograms() {
 		List< Chromatogram > chromatograms = this.chromatogramTable.getSelectedChromatograms();
 		this.chromatogramCanvas.clearData( false );
 		for( Chromatogram chromatogram : chromatograms ) {
@@ -234,43 +144,65 @@ public class IntegratedPanel implements Initializable {
 	/**
 	 * on MS spectrum
 	 */
-	private void onMsSpectrum() {
+	public void setMsSpectrum( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		this.msCanvasPane.setCenter( this.msCanvas );
+		this.msTable.getItems().clear();
+		for( Spectrum spectrum : spectra ) {
+			this.msTable.getItems().add( spectrum );
+			this.msTable.select( spectrum,  true );
+		}
+		this.msColorMap = colorMap;
+		this.drawMsSpectra();
+	}
+
+	/**
+	 * draws ms spectra
+	 */
+	private void drawMsSpectra() {
 		List< Spectrum > spectra = this.msTable.getSelectedSpectra();
 		this.msCanvas.clearData( false );
+
 		for( Spectrum spectrum : spectra ) {
 			XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
 			FastDrawData data = new FastDrawData( xyData );
-			Color color = this.colorMap.get( spectrum );
-
+			Color color = this.msColorMap.get( spectrum );
 			this.msCanvas.addXYData( xyData,  data,  color, false );
 		}
-
 		this.msCanvas.draw();
 	}
 
 	/**
 	 * on MS/MS spectrum
 	 */
-	private void onMsmsSpectrum() {
+	public void setMsmsSpectrum( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		this.msmsCanvasPane.setCenter( this.msmsCanvas );
+		this.msmsCanvas.clearData( true );
+		this.msmsTable.getItems().clear();
+		this.msmsColorMap = colorMap;
+		for( Spectrum spectrum : spectra ) {
+			this.msmsTable.getItems().add( spectrum );
+		}
+	}
+
+	/**
+	 * draws MS/MS spectra
+	 */
+	private void drawMsmsSpectrum() {
 		Spectrum spectrum = this.msmsTable.getSelectionModel().getSelectedItem();
 		this.msmsCanvas.clearData( false );
-		if( spectrum == null ) {
-			return;
+
+		if( spectrum != null ) {
+			XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
+			FastDrawData data = new FastDrawData( xyData );
+			Color color = this.msmsColorMap.get( spectrum );
+			this.msmsCanvas.addXYData( xyData,  data,  color, false );
 		}
-
-		XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
-		FastDrawData data = new FastDrawData( xyData );
-		Color color = this.colorMap.get( spectrum );
-
-		this.msmsCanvas.addXYData( xyData,  data,  color, true );
+		this.msmsCanvas.draw();
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		IntegratedPanel me = this;
-
-		this.colorMap = new HashMap< Spectrum, Color >();
-		this.chromatogramColorMap = new HashMap< Chromatogram, Color >();
 
 		this.chromatogramTable = new CheckableChromatogramTableView();
 		this.chromatogramTablePane.setCenter( this.chromatogramTable );
@@ -278,7 +210,7 @@ public class IntegratedPanel implements Initializable {
 		this.chromatogramCanvasPane.setCenter( this.chromatogramCanvas );
 		this.chromatogramTable.setEvent(
 			( chromatogram, selected ) -> {
-				me.onChromatogram();
+				me.drawChromatograms();
 			}
 		);
 		this.chromatogramCanvas.widthProperty().bind( this.chromatogramCanvasPane.widthProperty() );
@@ -291,7 +223,7 @@ public class IntegratedPanel implements Initializable {
 		this.msCanvasPane.setCenter( this.msCanvas );
 		this.msTable.setEvent(
 			( spectrum, selected ) -> {
-				me.onMsSpectrum();
+				me.drawMsSpectra();
 			}
 		);
 		this.msCanvas.widthProperty().bind( this.msCanvasPane.widthProperty() );
@@ -304,7 +236,7 @@ public class IntegratedPanel implements Initializable {
 		this.msmsCanvasPane.setCenter( this.msmsCanvas );
 		this.msmsTable.getSelectionModel().selectedItemProperty().addListener(
 			( observable, oldValue, newValue ) -> {
-				me.onMsmsSpectrum();
+				me.drawMsmsSpectrum();
 			}
 		);
 		this.msmsCanvas.widthProperty().bind( this.msmsCanvasPane.widthProperty() );
