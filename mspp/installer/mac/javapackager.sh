@@ -1,3 +1,9 @@
+#!/bin/sh
+# To build MacOS installer,  execute following commands: 
+#   1. export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+#   2. mvn clean install -Dlicense.skip=true
+#   3. sh ${mspp_source_top}/mspp/installer/mac/javapackager.sh
+
 app_version=4.0.0
 script_dir=`dirname $0`
 
@@ -5,6 +11,8 @@ script_dir=`dirname $0`
 if [ -n "$JAVA_HOME" ] && [ -x "$JAVA_HOME/bin/java" ] && [ -x "$JAVA_HOME/bin/javap" ] && [ -x "$JAVA_HOME/bin/javapackager" ]; then
     _javap="$JAVA_HOME/bin/javap"
     _packager="$JAVA_HOME/bin/javapackager"
+else
+    echo 'set JAVA_HOME'
 fi
 
 
