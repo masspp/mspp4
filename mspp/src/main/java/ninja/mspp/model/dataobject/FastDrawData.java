@@ -47,7 +47,7 @@ public class FastDrawData {
 
 	/**
 	 * constructor
-	 * @param xyData xyData
+	 * @param data xyData
 	 */
 	public FastDrawData( XYData data ) {
 		array = createArray( data );

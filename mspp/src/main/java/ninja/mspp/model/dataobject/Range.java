@@ -49,8 +49,8 @@ public class Range<T extends Number> extends Pair<T> implements RangeProvider<T>
 
     /**
      * 
-     * @param x The X coordinate of this Point.
-     * @param y The Y coordinate of this Point.
+     * @param start The X coordinate of this Point.
+     * @param end The Y coordinate of this Point.
      */
     public Range(T start, T end){
         super(start, end);

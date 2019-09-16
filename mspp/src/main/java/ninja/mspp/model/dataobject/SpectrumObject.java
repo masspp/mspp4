@@ -128,7 +128,7 @@ public abstract class SpectrumObject extends DrawObject {
     }
 
     /**
-     * @param sample the sample to set
+     * @param sample_path the sample path to set
      */
     public void setSamplePath(String sample_path) {
         this.sample_path = sample_path;
@@ -286,7 +286,7 @@ public abstract class SpectrumObject extends DrawObject {
     }
 
     /**
-     * @param basepeakmass set the mz of base peak
+     * @param basepeakmz set the mz of base peak
      */
     public void setBasepeakMz(double basepeakmz) {
         this.basepeakmz = basepeakmz;

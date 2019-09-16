@@ -105,6 +105,7 @@ public class MsppManager implements Iterable< Object > {
 
 	/**
 	 * gets the config properties
+         * 
 	 * @return config properties
 	 */
 	public ResourceBundle getConfig() {
@@ -239,7 +240,6 @@ public class MsppManager implements Iterable< Object > {
 
 	/**
 	 * invokes methods
-	 * @return
 	 */
 	public < A extends Annotation > void invokeAll( Class< A > clazz, Object... args ) {
 		List< PluginMethod< A > > methods = this.getMethods( clazz );
