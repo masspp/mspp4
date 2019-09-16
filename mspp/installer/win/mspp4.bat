@@ -1,1 +1,1 @@
-jre8\bin\java.exe -jar mspp-4.0.0_alpha.jar
+jre8\bin\java.exe -Xms512m -Xmx1024m -jar mspp-4.0.0_alpha.jar
