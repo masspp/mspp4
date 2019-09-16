@@ -94,6 +94,7 @@ public class CheckableChromatogramTableView extends ChromatogramTableView {
 					me.chromatogramSet.clear();
 				}
 				me.refresh();
+				me.onCheck( null, newValue );
 			}
 		);
 		column.setGraphic( check );

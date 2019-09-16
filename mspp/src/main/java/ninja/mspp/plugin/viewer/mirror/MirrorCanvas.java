@@ -77,11 +77,9 @@ public class MirrorCanvas extends ProfileCanvas {
 	 * adds xy data
 	 * @param xyData
 	 */
-	public void addXYData( XYData xyData, FastDrawData data ) {
-		xyDataArray[ 1 ] = xyDataArray[ 0 ];
-		xyDataArray[ 0 ] = xyData;
-		drawArray[ 1 ] = drawArray[ 0 ];
-		drawArray[ 0 ] = data;
+	public void addXYData( XYData xyData, FastDrawData data, int index ) {
+		xyDataArray[ index ] = xyData;
+		drawArray[ index ] = data;
 
 		Double minX = xyDataArray[ 0 ].getMinX();
 		Double maxX = xyDataArray[ 0 ].getMaxX();

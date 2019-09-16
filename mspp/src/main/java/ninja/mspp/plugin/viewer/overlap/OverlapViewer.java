@@ -40,20 +40,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import ninja.mspp.annotation.method.AnalysisPanel;
 import ninja.mspp.annotation.method.OnSelectPeak;
-import ninja.mspp.annotation.method.OpenSpectrum;
 import ninja.mspp.annotation.parameter.FxmlLoaderParam;
 import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.dataobject.SpectrumObject;
-import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.view.SpringFXMLLoader;
 
-@Plugin( "overlap canvas")
+@Plugin( value = "overlap canvas", order = 5 )
 public class OverlapViewer {
-	/** canvas */
-	private static OverlapCanvas canvas = null;
-
 	/** integrated view */
 	private IntegratedPanel integratedPanel;
 
@@ -65,16 +59,6 @@ public class OverlapViewer {
 	 */
 	public OverlapViewer() {
 		this.integratedPanel = null;
-	}
-
-	@OpenSpectrum
-	public void addSpectrum( SpectrumObject spectrum ) {
-		OverlapCanvas canvas = OverlapViewer.canvas;
-
-		if( canvas != null ) {
-			XYData xyData = spectrum.getXYData();
-//			OverlapViewer.canvas.addXYData( xyData );
-		}
 	}
 
 	@AnalysisPanel( "Spectrum / Chromatogram" )

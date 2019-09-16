@@ -37,6 +37,9 @@ public class ProjectPanel implements Initializable {
 	@FXML
 	private Button addButton;
 
+	@FXML
+	private Button deleteButton;
+
 	@Autowired
 	private ProjectService service;
 
@@ -51,6 +54,16 @@ public class ProjectPanel implements Initializable {
 		this.addButton.setText( "" );
 		this.addButton.setGraphic( icon );
 		this.addButton.setTooltip( new Tooltip( "New project ...") );
+	}
+
+	/**
+	 * sets the delete button
+	 */
+	private void setDeleteButton() {
+		Text icon = GlyphsDude.createIcon( FontAwesomeIcon.REMOVE );
+		this.deleteButton.setText( "" );
+		this.deleteButton.setGraphic( icon );
+		this.deleteButton.setTooltip( new Tooltip( "Delete the selected project ..." ) );
 	}
 
 	/**
@@ -132,9 +145,25 @@ public class ProjectPanel implements Initializable {
 		}
 	}
 
+	@FXML
+	private void onDelete( ActionEvent event ) {
+		Project project = this.table.getSelectionModel().getSelectedItem();
+		if( project == null ) {
+			FXTools.error( "Select a project before clicking the delete button." );
+			return;
+		}
+
+		ProjectPanel me = this;
+		if( FXTools.confirm( "Are you sure to delete the project? [" + project.getName() + "]" ) ) {
+			this.service.deleteProject( project );
+			me.updateTable();
+		}
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.setAddButton();
+		this.setDeleteButton();
 		this.createTable();
 		this.updateTable();
 	}

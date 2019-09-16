@@ -238,6 +238,9 @@ public class ThreeDPanel implements Initializable {
 
 		Group group = new Group();
 		group.getChildren().clear();
+		if( heatmap == null ) {
+			return;
+		}
 		this.createHeatmap( heatmap, group );
 		this.group = group;
 

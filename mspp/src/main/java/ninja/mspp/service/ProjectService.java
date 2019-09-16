@@ -27,6 +27,10 @@ import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.model.entity.QChromatogram;
 import ninja.mspp.model.entity.QGroup;
+import ninja.mspp.model.entity.QGroupChromatogram;
+import ninja.mspp.model.entity.QGroupSample;
+import ninja.mspp.model.entity.QGroupSpectrum;
+import ninja.mspp.model.entity.QPeakAnnotation;
 import ninja.mspp.model.entity.QPeakPosition;
 import ninja.mspp.model.entity.QSpectrum;
 import ninja.mspp.model.entity.Sample;
@@ -253,5 +257,39 @@ public class ProjectService {
 		}
 
 		return groups;
+	}
+
+	/**
+	 * deletes project
+	 * @param project project
+	 */
+	public void deleteProject( Project project ) {
+		List< Group > groups = this.findGroups( project );
+
+		for( Group group : groups ) {
+			QGroupSpectrum qSpectrum = QGroupSpectrum.groupSpectrum;
+			BooleanExpression expression = qSpectrum.groupSample.group.eq( group );
+			this.groupSpectrumRepository.deleteAll( this.groupSpectrumRepository.findAll( expression ) );
+
+			QGroupChromatogram qChromatogram = QGroupChromatogram.groupChromatogram;
+			expression = qChromatogram.groupSample.group.eq( group );
+			this.groupChromatogramRepository.deleteAll( this.groupChromatogramRepository.findAll( expression ) );
+
+			QGroupSample qSample = QGroupSample.groupSample;
+			expression = qSample.group.eq( group );
+			this.groupSampleRepository.deleteAll( this.groupSampleRepository.findAll( expression ) );
+
+			this.groupRepository.delete( group );
+		}
+
+		QPeakAnnotation qAnnotation = QPeakAnnotation.peakAnnotation;
+		BooleanExpression expression = qAnnotation.peakPosition.project.eq( project );
+		this.annotationRepository.deleteAll( this.annotationRepository.findAll( expression ) );
+
+		QPeakPosition qPosition = QPeakPosition.peakPosition;
+		expression = qPosition.project.eq( project );
+		this.positionRepository.deleteAll( this.positionRepository.findAll( expression ) );
+
+		this.projectReposiroty.delete( project );
 	}
 }

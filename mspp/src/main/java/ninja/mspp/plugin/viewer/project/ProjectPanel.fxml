@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane fx:id="pane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ninja.mspp.plugin.viewer.project.ProjectPanel">
+<BorderPane fx:id="pane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.plugin.viewer.project.ProjectPanel">
    <right>
-      <VBox alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
+      <VBox alignment="TOP_CENTER" spacing="5.0" BorderPane.alignment="TOP_CENTER">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
          <children>
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAdd" text="Add..." />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
          </children>
       </VBox>
    </right>

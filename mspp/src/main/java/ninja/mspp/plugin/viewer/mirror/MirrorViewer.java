@@ -36,14 +36,21 @@
  */
 package ninja.mspp.plugin.viewer.mirror;
 
-import ninja.mspp.annotation.method.OpenSpectrum;
-import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.dataobject.SpectrumObject;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import ninja.mspp.annotation.method.OnSelectPeak;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
+import ninja.mspp.model.entity.PeakPosition;
+import ninja.mspp.model.entity.Project;
+import ninja.mspp.view.SpringFXMLLoader;
 
-@Plugin( "mirror canvas" )
+// @Plugin( value = "mirror canvas", order = 7 )
 public class MirrorViewer {
-	/** canvas */
-	private static MirrorCanvas canvas = null;
+	/** panel */
+	private MirrorPanel mirrorPanel;
+
+	/** project */
+	private Project project;
 
 	/**
 	 * constructor
@@ -51,19 +58,27 @@ public class MirrorViewer {
 	public MirrorViewer() {
 	}
 
-	@OpenSpectrum
-	public void addSpectrum( SpectrumObject spectrum ) {
-/*
-		if( MirrorViewer.canvas == null ) {
-			MirrorCanvas canvas = new MirrorCanvas( "m/z", "Int." );
-			GuiManager gui = GuiManager.getInstance();
-			MainFrame mainFrame = gui.getMainFrame();
-			mainFrame.addSpectrumWindow( "Mirror", canvas );
-			MirrorViewer.canvas = canvas;
+// 	@AnalysisPanel( "Mirror" )
+	public Node getMirrorPanel(
+			@FxmlLoaderParam SpringFXMLLoader loader,
+			Project project
+	) {
+		this.project = project;
+		Parent parent = null;
+		try {
+			parent = loader.load( MirrorPanel.class, "MirrorPanel.fxml" );
+			this.mirrorPanel = ( MirrorPanel )loader.getController();
 		}
+		catch( Exception e ) {
+			e.printStackTrace();
+		}
+		return parent;
+	}
 
-		XYData xyData = spectrum.getXYData();
-		MirrorViewer.canvas.addXYData( xyData );
-*/
+	@OnSelectPeak
+	public void setPeak( PeakPosition position ) {
+		if( this.project != null && this.mirrorPanel != null ) {
+			this.mirrorPanel.setPeak( this.project,  position );
+		}
 	}
 }

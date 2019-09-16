@@ -51,7 +51,7 @@ public class SingleChromatogramPanel implements Initializable {
 	private void onChromatogram( Chromatogram chromatogram ) {
 		Long pointId = chromatogram.getPointListId();
 		XYData xyData = this.rawDataService.findDataPoints( pointId );
-		FastDrawData data = this.rawDataService.findFastDrawdata( pointId );
+		FastDrawData data = new FastDrawData( xyData );
 		SingleProfileCanvas canvas = new SingleProfileCanvas(
 			xyData,
 			data,

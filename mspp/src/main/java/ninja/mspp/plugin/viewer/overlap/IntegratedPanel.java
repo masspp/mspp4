@@ -222,7 +222,7 @@ public class IntegratedPanel implements Initializable {
 		this.chromatogramCanvas.clearData( false );
 		for( Chromatogram chromatogram : chromatograms ) {
 			XYData xyData = this.rawdataService.findDataPoints( chromatogram.getPointListId() );
-			FastDrawData data = this.rawdataService.findFastDrawdata( chromatogram.getPointListId() );
+			FastDrawData data = new FastDrawData( xyData );
 			Color color = this.chromatogramColorMap.get( chromatogram );
 
 			this.chromatogramCanvas.addXYData( xyData,  data,  color, false );
@@ -239,7 +239,7 @@ public class IntegratedPanel implements Initializable {
 		this.msCanvas.clearData( false );
 		for( Spectrum spectrum : spectra ) {
 			XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
-			FastDrawData data = this.rawdataService.findFastDrawdata( spectrum.getPointListId() );
+			FastDrawData data = new FastDrawData( xyData );
 			Color color = this.colorMap.get( spectrum );
 
 			this.msCanvas.addXYData( xyData,  data,  color, false );
@@ -259,7 +259,7 @@ public class IntegratedPanel implements Initializable {
 		}
 
 		XYData xyData = this.rawdataService.findDataPoints( spectrum.getPointListId() );
-		FastDrawData data = this.rawdataService.findFastDrawdata( spectrum.getPointListId() );
+		FastDrawData data = new FastDrawData( xyData );
 		Color color = this.colorMap.get( spectrum );
 
 		this.msmsCanvas.addXYData( xyData,  data,  color, true );

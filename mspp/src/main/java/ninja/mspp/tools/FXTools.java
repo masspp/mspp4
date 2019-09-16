@@ -1,9 +1,14 @@
 package ninja.mspp.tools;
 
+import java.util.Optional;
+
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
@@ -94,5 +99,39 @@ public class FXTools {
 		stage.showAndWait();
 
 		return object;
+	}
+
+	/**
+	 * shows error dialog
+	 * @param message error message
+	 */
+	public static void error(String message ) {
+		Alert alert = new Alert( AlertType.ERROR, message, ButtonType.OK );
+		alert.showAndWait();
+	}
+
+	/**
+	 * shows warning dialog
+	 * @param message warning message
+	 */
+	public static void warning( String message ) {
+		Alert alert = new Alert( AlertType.WARNING, message, ButtonType.OK );
+		alert.showAndWait();
+	}
+
+	/**
+	 * show confirms dialog
+	 * @param message confirm message
+	 * @return If true, the OK button is clicked.
+	 */
+	public static boolean confirm( String message ) {
+		Alert alert = new Alert( AlertType.CONFIRMATION, message, ButtonType.OK, ButtonType.CANCEL );
+		Optional< ButtonType > optional = alert.showAndWait();
+		if( optional.isPresent() ) {
+			if( optional.get() == ButtonType.OK ) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

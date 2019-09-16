@@ -55,7 +55,7 @@ public class SingleSpectrumPanel implements Initializable {
 	private void onSpectrum( Spectrum spectrum ) {
 		Long pointId = spectrum.getPointListId();
 		XYData xyData = this.service.findDataPoints( pointId );
-		FastDrawData data = this.service.findFastDrawdata( pointId );
+		FastDrawData data = new FastDrawData( xyData );
 		SingleProfileCanvas canvas = new SingleProfileCanvas(
 			xyData,
 			data,

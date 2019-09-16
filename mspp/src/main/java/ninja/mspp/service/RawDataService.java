@@ -7,9 +7,11 @@ import java.io.FileInputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +20,23 @@ import org.springframework.stereotype.Service;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
 import javafx.scene.control.ProgressIndicator;
-import ninja.mspp.model.dataobject.DrawPoint;
-import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.model.entity.Chromatogram;
-import ninja.mspp.model.entity.DrawElementList;
+import ninja.mspp.model.entity.GroupChromatogram;
+import ninja.mspp.model.entity.GroupSpectrum;
 import ninja.mspp.model.entity.PointList;
 import ninja.mspp.model.entity.QChromatogram;
-import ninja.mspp.model.entity.QDrawElementList;
+import ninja.mspp.model.entity.QGroupChromatogram;
+import ninja.mspp.model.entity.QGroupSample;
+import ninja.mspp.model.entity.QGroupSpectrum;
 import ninja.mspp.model.entity.QSpectrum;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.repository.ChromatogramRepository;
-import ninja.mspp.repository.DrawElementListRepository;
+import ninja.mspp.repository.GroupChromatogramRepository;
+import ninja.mspp.repository.GroupSampleRepository;
+import ninja.mspp.repository.GroupSpectrumRepository;
 import ninja.mspp.repository.PointListRepository;
 import ninja.mspp.repository.SampleRepository;
 import ninja.mspp.repository.SpectrumRepository;
@@ -63,7 +68,13 @@ public class RawDataService {
 	private PointListRepository pointRepository;
 
 	@Autowired
-	private DrawElementListRepository drawRepository;
+	private GroupSampleRepository groupSampleRepository;
+
+	@Autowired
+	private GroupSpectrumRepository groupSpectrumRepository;
+
+	@Autowired
+	private GroupChromatogramRepository groupChromatogramRepository;
 
 	/**
 	 * finds all samples
@@ -88,9 +99,12 @@ public class RawDataService {
 	 * @return spectra
 	 */
 	public List< Spectrum > findSpectra( Sample sample ) {
+		List< Spectrum > spectra = new ArrayList< Spectrum >();
+		if( sample == null ) {
+			return spectra;
+		}
 		QSpectrum qSpectrum = QSpectrum.spectrum;
 		BooleanExpression expression = qSpectrum.sample.eq( sample );
-		List< Spectrum > spectra = new ArrayList< Spectrum >();
 		for( Spectrum spectrum : this.spectrumRepository.findAll( expression ) ) {
 			spectra.add( spectrum );
 		}
@@ -103,9 +117,12 @@ public class RawDataService {
 	 * @return chromatograms
 	 */
 	public List< Chromatogram > findChromatograms( Sample sample ) {
+		List< Chromatogram > chromatograms = new ArrayList< Chromatogram >();
+		if( sample == null ) {
+			return chromatograms;
+		}
 		QChromatogram qChromatogram = QChromatogram.chromatogram;
 		BooleanExpression expression = qChromatogram.sample.eq( sample );
-		List< Chromatogram > chromatograms = new ArrayList< Chromatogram >();
 		for( Chromatogram chromatogram : this.chromatogramRepository.findAll( expression ) ) {
 			chromatograms.add( chromatogram );
 		}
@@ -125,26 +142,6 @@ public class RawDataService {
 			points = list.getXYData();
 		}
 		return points;
-	}
-
-
-	/**
-	 * finds fast draw data
-	 * @param pointListId point list ID
-	 * @return fast draw data
-	 */
-	public FastDrawData findFastDrawdata( Long pointListId ) {
-		QDrawElementList qList = QDrawElementList.drawElementList;
-		BooleanExpression expression = qList.pointListId.eq( pointListId );
-
-		List< DrawElementList > array = new ArrayList< DrawElementList >();
-
-		for( DrawElementList list : this.drawRepository.findAll( expression ) ) {
-			array.add( list );
-		}
-
-		FastDrawData data = new FastDrawData( array );
-		return data;
 	}
 
 	/**
@@ -282,11 +279,6 @@ public class RawDataService {
 		PointList pointList = this.createPointList( points );
 		pointList = this.pointRepository.save( pointList );
 
-		List< DrawElementList >  drawList = this.createDrawElementList( pointList );
-		for( DrawElementList draw : drawList ) {
-			this.drawRepository.save( draw );
-		}
-
 		spectrum.setSpectrumId( id );
 		spectrum.setName( id );
 		spectrum.setSample( sample );
@@ -399,147 +391,6 @@ public class RawDataService {
 	}
 
 	/**
-	 * creates draw element list
-	 * @param pointList point list
-	 * @return draw element list
-	 */
-	private List< DrawElementList > createDrawElementList( PointList pointList ) throws Exception {
-		List< DrawElementList > array = new ArrayList< DrawElementList >();
-
-		List< DrawPoint > points = this.createFirstDrawPoints( pointList );
-
-		DrawElementList list  = new DrawElementList();
-		list.setPointListId( pointList.getId() );
-		list.setLevel( 0 );
-		this.setDrawDataBlob( list, points );
-		array.add( list );
-
-		List< DrawPoint> prevPoints = null;
-		double range = FastDrawData.MIN_RANGE;
-		for( int level = 1; level <= FastDrawData.MAX_LEVEL; level++ ) {
-			prevPoints = points;
-			points = new ArrayList< DrawPoint >();
-
-			list = new DrawElementList();
-			list.setPointListId( pointList.getId() );
-			list.setLevel( level );
-
-			DrawPoint currentPoint = null;
-			int currentIndex = -1;
-
-			for( DrawPoint point : prevPoints ) {
-				double x = point.getX();
-				double maxY = point.getMaxY();
-				double minY = point.getMinY();
-				double leftY = point.getLeftY();
-				double rightY = point.getRightY();
-
-				int index = ( int )Math.round( x / range );
-
-				if( index > currentIndex ) {
-					currentPoint = new DrawPoint();
-					currentPoint.setX( range * ( double )index );
-					currentPoint.setMinY( minY );
-					currentPoint.setMaxY( maxY );
-					currentPoint.setLeftY( leftY );
-					currentPoint.setRightY( rightY );
-
-					points.add( currentPoint );
-					currentIndex = index;
-				}
-				else {
-					if( maxY > currentPoint.getMaxY() ) {
-						currentPoint.setMaxY( maxY );
-					}
-					if( minY < currentPoint.getMinY() ) {
-						currentPoint.setMinY( minY );
-					}
-					currentPoint.setRightY( rightY );;
-				}
-			}
-
-			this.setDrawDataBlob( list, points );
-			array.add( list );
-
-			range = range * 2.0;
-		}
-
-		return array;
-	}
-
-	/**
-	 * create
-	 * @param pointList
-	 * @return
-	 */
-	private List< DrawPoint > createFirstDrawPoints( PointList pointList ) {
-		List< DrawPoint > points = new ArrayList< DrawPoint >();
-		XYData xyData = pointList.getXYData();
-		for( Point< Double > xy : xyData ) {
-			double x = xy.getX();
-			double y = xy.getY();
-
-			DrawPoint point = new DrawPoint();
-			point.setX( x );
-			point.setMinY( y );
-			point.setMaxY( y );
-			point.setLeftY( y );
-			point.setRightY( y );
-
-			points.add( point );
-		}
-		return points;
-	}
-
-	/**
-	 * sets blob data to draw element list
-	 * @param list draw element list to be set.
-	 * @param points draw points
-	 */
-	private void setDrawDataBlob( DrawElementList list, List< DrawPoint > points ) throws Exception {
-		int count = points.size();
-		list.setDataLength( count );
-
-		ByteArrayOutputStream xCache = new ByteArrayOutputStream();
-		ByteArrayOutputStream maxCache = new ByteArrayOutputStream();
-		ByteArrayOutputStream minCache = new ByteArrayOutputStream();
-		ByteArrayOutputStream leftCache = new ByteArrayOutputStream();
-		ByteArrayOutputStream rightCache = new ByteArrayOutputStream();
-
-		DataOutputStream xOut = new DataOutputStream( xCache );
-		DataOutputStream maxOut = new DataOutputStream( maxCache );
-		DataOutputStream minOut = new DataOutputStream( minCache );
-		DataOutputStream leftOut = new DataOutputStream( leftCache );
-		DataOutputStream rightOut = new DataOutputStream( rightCache );
-
-		for( DrawPoint point : points ) {
-			xOut.writeDouble( point.getX() );
-			minOut.writeDouble( point.getMinY() );
-			maxOut.writeDouble( point.getMaxY() );
-			leftOut.writeDouble( point.getLeftY() );
-			rightOut.writeDouble( point.getRightY() );
-		}
-
-		xOut.close();
-		minOut.close();
-		maxOut.close();
-		leftOut.close();
-		rightOut.close();
-
-		xCache.close();
-		minCache.close();
-		maxCache.close();
-		leftCache.close();
-		rightCache.close();
-
-		list.setxArray( xCache.toByteArray() );
-		list.setMinYArray( minCache.toByteArray() );
-		list.setMaxYArray( maxCache.toByteArray() );
-		list.setLeftYArray( leftCache.toByteArray() );
-		list.setRightYArray( rightCache.toByteArray() );
-	}
-
-	/**
 	 * creates chromatogram
 	 * @param sample sample
 	 * @param points points
@@ -561,17 +412,69 @@ public class RawDataService {
 		PointList pointList = this.createPointList( rts, ints );
 		pointList = this.pointRepository.save( pointList );
 
-		List< DrawElementList >  drawList = this.createDrawElementList( pointList );
-		for( DrawElementList draw : drawList ) {
-			this.drawRepository.save( draw );
-		}
-
 		chromatogram.setSample( sample );
 		chromatogram.setName( name );
 		chromatogram.setPointListId( pointList.getId() );
 		chromatogram.setMz( mz );
 
 		return chromatogram;
+	}
+
+	/**
+	 * deletes sample
+	 * @param sample
+	 */
+	public void deleteSample( Sample sample ) {
+		if( sample == null ) {
+			return;
+		}
+
+		Set< Long > pointIdSet = new HashSet< Long >();
+
+		QGroupSpectrum qGrouopSpectrum = QGroupSpectrum.groupSpectrum;
+		BooleanExpression expression = qGrouopSpectrum.spectrum.sample.eq( sample );
+		Iterable< GroupSpectrum > groupSpectra = this.groupSpectrumRepository.findAll( expression );
+		for( GroupSpectrum groupSpectrum : groupSpectra ) {
+			pointIdSet.add( groupSpectrum.getPointListId() );
+		}
+		this.groupSpectrumRepository.deleteAll( groupSpectra );
+
+		QGroupChromatogram qGroupChromatogram = QGroupChromatogram.groupChromatogram;
+		expression = qGroupChromatogram.chromatogram.sample.eq( sample );
+		Iterable< GroupChromatogram > groupChromatograms = this.groupChromatogramRepository.findAll( expression );
+		for( GroupChromatogram groupChromatogram : groupChromatograms ) {
+			pointIdSet.add( groupChromatogram.getPointListId() );
+		}
+		this.groupChromatogramRepository.deleteAll( groupChromatograms );
+
+		QGroupSample qGroupSample = QGroupSample.groupSample;
+		expression = qGroupSample.sample.eq( sample );
+		this.groupSampleRepository.deleteAll( this.groupSampleRepository.findAll( expression ) );
+
+		QSpectrum qSpectrum = QSpectrum.spectrum;
+		expression = qSpectrum.sample.eq( sample );
+		Iterable< Spectrum > spectra = this.spectrumRepository.findAll( expression );
+		for( Spectrum spectrum : spectra ) {
+			pointIdSet.add( spectrum.getPointListId() );
+		}
+		this.spectrumRepository.deleteAll( spectra );
+
+		QChromatogram qChromatogram = QChromatogram.chromatogram;
+		expression = qChromatogram.sample.eq( sample );
+		Iterable< Chromatogram > chromatograms = this.chromatogramRepository.findAll( expression );
+		for( Chromatogram chromatogram : chromatograms ) {
+			pointIdSet.add( chromatogram.getPointListId() );
+		}
+		this.chromatogramRepository.deleteAll( chromatograms );
+
+		for( Long pointListId : pointIdSet ) {
+			Optional< PointList > points = this.pointRepository.findById( pointListId );
+			if( points.isPresent() ) {
+				this.pointRepository.delete( points.get() );
+			}
+		}
+
+		this.sampleRepository.delete( sample );
 	}
 
 

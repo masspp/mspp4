@@ -31,6 +31,18 @@ import ninja.mspp.view.list.SampleTableView;
 @Component
 @Scope( BeanDefinition.SCOPE_PROTOTYPE )
 public class GroupPanel implements Initializable {
+	private static int count = 0;
+	private static Color[] colors = {
+		Color.BLUE,
+		Color.RED,
+		Color.GREEN,
+		Color.PURPLE,
+		Color.ORANGE,
+		Color.CYAN,
+		Color.LIME,
+		Color.NAVY
+	};
+
 	@FXML
 	private TextField nameText;
 
@@ -131,8 +143,10 @@ public class GroupPanel implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Color color = GroupPanel.colors[ GroupPanel.count ];
+		GroupPanel.count = ( GroupPanel.count + 1 ) % GroupPanel.colors.length;
 		this.setButtons();
-		this.color.setValue( Color.RED );
+		this.color.setValue( color );
 		this.table = new SampleTableView();
 		this.samplePane.setCenter( table );
 	}

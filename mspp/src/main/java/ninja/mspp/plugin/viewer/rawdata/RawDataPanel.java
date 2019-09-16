@@ -40,6 +40,7 @@ import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
+import ninja.mspp.tools.FXTools;
 import ninja.mspp.view.list.SampleTableView;
 
 
@@ -62,8 +63,13 @@ public class RawDataPanel implements Initializable {
 	@FXML
 	private Button commentButton;
 
+	@FXML
+	private Button deleteButton;
+
 	@Autowired
 	private RawDataService rawDataService;
+
+	private volatile ProgressBar progress;
 
 	@FXML
 	private void onImport( ActionEvent event ) {
@@ -92,11 +98,11 @@ public class RawDataPanel implements Initializable {
 			chooser.setInitialFileName( file.getName() );
 		}
 
-		ProgressBar progress = new ProgressBar();
-		progress.setProgress( 0.0 );
-		progress.setPrefHeight( 15.0 );
-		progress.prefWidthProperty().bind( this.upperPane.widthProperty().subtract( 10.0 ) );
-		this.upperPane.setBottom( progress );
+		this.progress = new ProgressBar();
+		this.progress.setProgress( 0.0 );
+		this.progress.setPrefHeight( 15.0 );
+		this.progress.prefWidthProperty().bind( this.upperPane.widthProperty().subtract( 10.0 ) );
+		this.upperPane.setBottom( this.progress );
 
 		Stage stage = new Stage();
 		List< File > files = chooser.showOpenMultipleDialog( stage );
@@ -147,6 +153,28 @@ public class RawDataPanel implements Initializable {
 		}
 	}
 
+	@FXML
+	private void onDelete( ActionEvent event ) {
+		Sample sample = this.table.getSelectionModel().getSelectedItem();
+		if( sample == null ) {
+			FXTools.error( "Select a sample before clicking the delete button." );
+			return;
+		}
+
+		if( FXTools.confirm( "Are you sure to delete the sample? [" + sample.getFilename() + "]" ) ) {
+			this.rawDataService.deleteSample( sample );
+			this.updateTable();
+
+			MsppManager manager = MsppManager.getInstance();
+			try {
+				manager.invokeAll( OnRawdataSample.class, ( Sample )null );
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	/**
 	 * updates table
 	 */
@@ -175,6 +203,16 @@ public class RawDataPanel implements Initializable {
 		this.commentButton.setText( "" );
 		this.commentButton.setGraphic( icon );
 		this.commentButton.setTooltip( new Tooltip( "Comment ..." ) );
+	}
+
+	/**
+	 * delete button icon
+	 */
+	private void setDeleteButton() {
+		Text icon = GlyphsDude.createIcon( FontAwesomeIcon.REMOVE );
+		this.deleteButton.setText( "" );
+		this.deleteButton.setGraphic( icon );
+		this.deleteButton.setTooltip( new Tooltip( "Delete the selected raw data." ) );
 	}
 
 	/**
@@ -208,7 +246,7 @@ public class RawDataPanel implements Initializable {
 				Heatmap heatmap = new Heatmap( spectra, me.rawDataService );
 				Platform.runLater(
 					() -> {
-						manager.invokeAll( OnHeatmap.class, heatmap );
+						manager.invokeAll( OnHeatmap.class, sample == null ? null : heatmap );
 					}
 				);
 			}
@@ -220,6 +258,7 @@ public class RawDataPanel implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.setImportButtonIcon();
 		this.setCommentButtonIcon();
+		this.setDeleteButton();
 
 		this.setSamplePanels();
 

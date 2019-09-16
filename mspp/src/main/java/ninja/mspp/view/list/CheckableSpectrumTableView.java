@@ -95,6 +95,7 @@ public class CheckableSpectrumTableView extends SpectrumTableView {
 					me.spectrumSet.clear();
 				}
 				me.refresh();
+				this.onCheck( null, newValue );
 			}
 		);
 		column.setGraphic( check );

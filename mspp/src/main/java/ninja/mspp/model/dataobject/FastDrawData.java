@@ -39,8 +39,6 @@ package ninja.mspp.model.dataobject;
 import java.util.ArrayList;
 import java.util.List;
 
-import ninja.mspp.model.entity.DrawElementList;
-
 public class FastDrawData {
 	private List< List< DrawPoint > > array;
 
@@ -51,22 +49,75 @@ public class FastDrawData {
 	 * constructor
 	 * @param xyData xyData
 	 */
-	public FastDrawData( List< DrawElementList > lists ) {
-		lists.sort(
-			( list1, list2 ) -> {
-				return ( list1.getLevel() - list2.getLevel() );
-			}
-		);
+	public FastDrawData( XYData data ) {
+		array = createArray( data );
+	}
 
-		this.array = new ArrayList< List< DrawPoint > >();
-		try {
-			for( DrawElementList list : lists ) {
-				this.array.add( list.getDrawPoints() );
+	/**
+	 * creates array
+	 * @param points data points
+	 * @return data array
+	 */
+	List< List< DrawPoint > > createArray( XYData points ) {
+		List< List< DrawPoint > > list = new ArrayList< List< DrawPoint > >();
+
+		List< DrawPoint > prevArray = this.createFirstArray( points );
+		list.add( prevArray );
+
+		double range = MIN_RANGE;
+		for( int level = 1; level <= MAX_LEVEL; level++ ) {
+			int prevIndex = -1;
+			DrawPoint prevPoint = null;
+			List< DrawPoint > array = new ArrayList< DrawPoint >();
+
+			for( DrawPoint element : prevArray ) {
+				double x = element.getX();
+				int index = ( int )Math.round( x / range );
+
+				if( index > prevIndex ) {
+					DrawPoint point = new DrawPoint();
+					point.setX( range * ( double )index );
+					point.setMinY( element.getMinY() );
+					point.setMaxY( element.getMaxY() );
+					point.setLeftY( element.getLeftY() );
+					point.setRightY( element.getRightY() );
+
+					array.add( point );
+					prevPoint = point;
+					prevIndex = index;
+				}
+				else {
+					if( element.getMinY() < prevPoint.getMinY() ) {
+						prevPoint.setMinY( element.getMinY() );
+					}
+					if( element.getMaxY() > prevPoint.getMaxY() ) {
+						prevPoint.setMaxY( element.getMaxY() );
+					}
+					prevPoint.setRightY( element.getRightY() );
+				}
 			}
+
+			list.add( array );
+			prevArray = array;
+			range *= 2.0;
 		}
-		catch( Exception e ) {
-			e.printStackTrace();
+
+		return list;
+	}
+
+	/**
+	 * creates first array
+	 * @param points points
+	 * @return array
+	 */
+	List< DrawPoint > createFirstArray( XYData points ) {
+		List< DrawPoint > array = new ArrayList< DrawPoint >();
+
+		for( Point< Double > point : points ) {
+			DrawPoint element = new DrawPoint( point.getX(), point.getY() );
+			array.add( element );
 		}
+		return array;
 	}
 
 	/**
