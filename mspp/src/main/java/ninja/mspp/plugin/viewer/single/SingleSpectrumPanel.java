@@ -96,7 +96,7 @@ public class SingleSpectrumPanel implements Initializable {
 			xyData,
 			data,
 			"m/z",
-			"RT",
+			"Int.",
 			Color.RED,
 			spectrum.getCentroidMode() > 0
 		);
