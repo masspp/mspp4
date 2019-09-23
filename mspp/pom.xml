@@ -29,12 +29,6 @@
     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-    @author Mass++ Users Group (https://www.mspp.ninja/)
-    @author Satoshi Tanaka
-    @since 2019
-
-    Copyright (c) Mon Sep 23 19:52:08 JST 2019 Satoshi Tanaka
-    All rights reserved.
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -196,7 +190,7 @@
                         commented out, since binary package of the plugin is not available now.
                         source package of the plugin is available at:
                             https://github.com/masakimu/license-maven-plugin -->
-<!--			<plugin>
+			<plugin>
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>3.1-SNAPSHOT_author</version>
@@ -230,7 +224,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>-->
+			</plugin>
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
 				<artifactId>apt-maven-plugin</artifactId>
