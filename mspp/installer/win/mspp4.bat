@@ -29,9 +29,9 @@
 @REM
 @REM @author Mass++ Users Group (https://www.mspp.ninja/)
 @REM @author Satoshi Tanaka
-@REM @since 2019
+@REM @since Tue Oct 30 14:01:24 JST 2018
 @REM
-@REM Copyright (c) Mon Sep 23 19:52:10 JST 2019 Satoshi Tanaka
+@REM Copyright (c) 2018 Satoshi Tanaka
 @REM All rights reserved.
 @REM
 

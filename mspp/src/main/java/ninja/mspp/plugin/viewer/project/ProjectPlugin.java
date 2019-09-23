@@ -29,9 +29,9 @@
  *
  * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author satstnka
- * @since 2019
+ * @since Thu Sep 05 16:04:19 JST 2019
  *
- * Copyright (c) Mon Sep 23 19:52:12 JST 2019 satstnka
+ * Copyright (c) 2019 satstnka
  * All rights reserved.
  */
 package ninja.mspp.plugin.viewer.project;

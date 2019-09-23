@@ -29,9 +29,9 @@
  *
  * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Masayo Kimura
- * @since 2019
+ * @since Fri Mar 30 07:57:06 JST 2018
  *
- * Copyright (c) Mon Sep 23 19:52:14 JST 2019 Masayo Kimura
+ * Copyright (c) 2018 Masayo Kimura
  * All rights reserved.
  */
 /*

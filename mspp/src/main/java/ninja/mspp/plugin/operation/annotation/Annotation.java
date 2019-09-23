@@ -29,9 +29,9 @@
  *
  * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Satoshi Tanaka
- * @since 2019
+ * @since Fri Jun 01 07:49:50 JST 2018
  *
- * Copyright (c) Mon Sep 23 19:52:11 JST 2019 Satoshi Tanaka
+ * Copyright (c) 2018 Satoshi Tanaka
  * All rights reserved.
  */
 package ninja.mspp.plugin.operation.annotation;

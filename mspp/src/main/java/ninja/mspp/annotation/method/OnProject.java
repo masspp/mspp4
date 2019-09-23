@@ -29,9 +29,9 @@
  *
  * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author satstnka
- * @since 2019
+ * @since Fri Sep 06 13:47:14 JST 2019
  *
- * Copyright (c) Mon Sep 23 19:52:13 JST 2019 satstnka
+ * Copyright (c) 2019 satstnka
  * All rights reserved.
  */
 package ninja.mspp.annotation.method;
