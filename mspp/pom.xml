@@ -190,7 +190,13 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<plugin>
+                        <!-- DON'T REMOVE FOLLOWING COMMENT OF LICNESE-MAVEN-PLUGIN -->
+                        <!-- customized edition of license maven plugin is used to insert author
+                        information into license header.  configuration of this plugin is 
+                        commented out, since binary package of the plugin is not available now.
+                        source package of the plugin is available at:
+                            https://github.com/masakimu/license-maven-plugin -->
+<!--			<plugin>
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>3.1-SNAPSHOT_author</version>
@@ -224,7 +230,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
 				<artifactId>apt-maven-plugin</artifactId>
