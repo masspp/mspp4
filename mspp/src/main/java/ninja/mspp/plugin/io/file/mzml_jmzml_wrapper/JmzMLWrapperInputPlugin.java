@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,14 +27,13 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
- * @author Masaki Murase
- * @since 2018-05-30 02:24:12+09:00
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Masayo Kimura
+ * @since Wed May 30 23:18:39 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Masayo Kimura
  * All rights reserved.
  */
-
 package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
- * @author Satoshi Tanaka
- * @since 2018-06-01 05:51:10+09:00
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author satstnka
+ * @since Thu Sep 05 16:04:19 JST 2019
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2019 satstnka
  * All rights reserved.
  */
 package ninja.mspp.view.list;
