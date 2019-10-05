@@ -132,7 +132,7 @@ public class HeatmapCanvas extends ProfileCanvas {
 			}
 		);
 
-		this.theme = ColorManager.getInstance().getThemes().get( 1 );
+		this.theme = ColorManager.getInstance().getThemes().get( 0 );
 
 		this.draw();
 	}

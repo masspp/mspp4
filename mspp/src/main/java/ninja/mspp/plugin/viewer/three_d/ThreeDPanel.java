@@ -210,8 +210,6 @@ public class ThreeDPanel implements Initializable {
 		for( int i = 0; i < 2000; i++ ) {
 			int pixel = 0;
 			if( i < 500 ) {
-				System.out.println( this.theme );
-				System.out.println( this.theme.getColor( 0.0 ) );
 				pixel = this.theme.getColor( 0.0 ).getPixel();
 			}
 			else if( i > 1500 ) {
@@ -381,7 +379,7 @@ public class ThreeDPanel implements Initializable {
 
 		this.group = null;
 
-		this.theme = ColorManager.getInstance().getThemes().get( 1 );
+		this.theme = ColorManager.getInstance().getThemes().get( 0 );
 	}
 
 }
