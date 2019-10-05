@@ -63,7 +63,9 @@ import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
 import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
+import ninja.mspp.model.dataobject.ColorTheme;
 import ninja.mspp.model.dataobject.Heatmap;
+import ninja.mspp.view.ColorManager;
 
 @Component
 public class ThreeDPanel implements Initializable {
@@ -80,6 +82,8 @@ public class ThreeDPanel implements Initializable {
 	private double py;
 	private double xAngle;
 	private double zAngle;
+
+	private ColorTheme theme;
 
 	@FXML
 	private BorderPane pane;
@@ -127,7 +131,7 @@ public class ThreeDPanel implements Initializable {
 
 		double[][] data = heatmap.getData();
 
-		for( int i = 0; i <= 1000; i++ ) {
+		for( int i = 0; i <= 2000; i++ ) {
 			mesh.getTexCoords().addAll( ( float )( ( double )i / 2000.0 ), 0.0f );
 		}
 
@@ -143,7 +147,7 @@ public class ThreeDPanel implements Initializable {
 
 				mesh.getPoints().addAll( ( float )x, ( float )y, ( float )z );
 
-				int texture = ( int )Math.round(Math.sqrt( intensity ) * 1000.0 );
+				int texture = ( int )Math.round( Math.sqrt( intensity ) * 1000.0 + 500.0 );
 				textures.add( texture );
 			}
 		}
@@ -204,38 +208,19 @@ public class ThreeDPanel implements Initializable {
 		int[] pixels = new int[ 2000 ];
 
 		for( int i = 0; i < 2000; i++ ) {
-			int red = 0;
-			int green = 0;
-			int blue = 0;
-			int alpha = 255;
-
-			if( i == 1001 ) {
-				blue = 255;
+			int pixel = 0;
+			if( i < 500 ) {
+				System.out.println( this.theme );
+				System.out.println( this.theme.getColor( 0.0 ) );
+				pixel = this.theme.getColor( 0.0 ).getPixel();
 			}
-			else if( i < 100 ) {    // black -> blue
-				blue = ( int )Math.round( 255.0 * ( double )i / 100.0 );
+			else if( i > 1500 ) {
+				pixel = this.theme.getColor( 1.0 ).getPixel();
 			}
-			else if( i < 250 ) {    // blue -> cyan
-				blue = 255;
-				green = ( int )Math.round( 255.0 * ( double )( i - 100 ) / 150.0 );
+			else {
+				double value = ( double )( i - 500 ) / 1000.0;
+				pixel = this.theme.getColor( value ).getPixel();
 			}
-			else if( i < 450 ) {    // cyan -> green
-				green = 255;
-				blue = ( int )Math.round( 255.0 * ( 1.0 - ( double )( i - 250 ) / 200.0 ) );
-			}
-			else if( i < 700 ) {    // green -> yellow
-				green = 255;
-				red = ( int )Math.round( 255.0 * ( double )( i - 450 ) / 250.0 );
-			}
-			else if( i < 1000 ) {    // yellow -> red
-				red = 255;
-				green = ( int )Math.round( 255.0 * ( 1.0 - ( double )( i - 700 ) / 300.0 ) );
-			}
-			else if( i < 1500 ) {
-				red = 255;
-			}
-
-			int pixel = ( alpha << 24 ) | ( red << 16 ) | ( green << 8 ) | blue;
 			pixels[ i ] = pixel;
 		}
 		image.getPixelWriter().setPixels( 0,  0,  2000,  1,  format,  pixels, 0, 2000 );
@@ -395,6 +380,8 @@ public class ThreeDPanel implements Initializable {
 		);
 
 		this.group = null;
+
+		this.theme = ColorManager.getInstance().getThemes().get( 1 );
 	}
 
 }

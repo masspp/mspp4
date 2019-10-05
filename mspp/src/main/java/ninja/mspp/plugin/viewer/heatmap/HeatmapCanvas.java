@@ -53,10 +53,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.method.OnHeatmapRange;
+import ninja.mspp.model.dataobject.ColorTheme;
 import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.Range;
 import ninja.mspp.model.dataobject.Rect;
+import ninja.mspp.view.ColorManager;
 import ninja.mspp.view.control.canvas.ProfileCanvas;
 
 /**
@@ -76,6 +78,8 @@ public class HeatmapCanvas extends ProfileCanvas {
 	private Stack< Rect< Double > > rangeStack;
 
 	private List< Point< Double > > displayPoints;
+
+	private ColorTheme theme;
 
 	/**
 	 * constructor
@@ -127,6 +131,8 @@ public class HeatmapCanvas extends ProfileCanvas {
 				me.onMouseClick( event );
 			}
 		);
+
+		this.theme = ColorManager.getInstance().getThemes().get( 1 );
 
 		this.draw();
 	}
@@ -191,38 +197,7 @@ public class HeatmapCanvas extends ProfileCanvas {
 					int index = ( mzSize - 1 - i ) * rtSize + j;
 					double intensity = Math.sqrt( data[ j ][ i ] );
 					intensity = Math.max( 0.0, Math.min( 1.0,  intensity ) );
-
-					int red = 0;
-					int green = 0;
-					int blue = 0;
-					int alpha = 255;
-
-					if( intensity < 0.1 ) {    // black -> blue
-						double value = intensity / 0.1;
-						blue = ( int )Math.round( 255.0 * value );
-					}
-					else if( intensity < 0.25 ) {    // blue -> cyan
-						double value = ( intensity - 0.1 ) / 0.15;
-						blue = 255;
-						green = ( int )Math.round( 255.0 * value );
-					}
-					else if( intensity < 0.45 ) {    // cyan -> green
-						double value = ( intensity - 0.25 ) / 0.2;
-						green = 255;
-						blue = ( int )Math.round( 255.0 * ( 1.0 - value ) );
-					}
-					else if( intensity < 0.7 ) {    // green -> yeallow
-						double value = ( intensity - 0.45 ) / 0.25;
-						green = 255;
-						red = ( int )Math.round( 255.0 * value );
-					}
-					else {    // yeallow -> red
-						double value = ( intensity - 0.7) / 0.3;
-						red = 255;
-						green = ( int )Math.round( 255.0 * ( 1.0 - value ) );
-					}
-
-					int pixel = ( alpha << 24 ) | ( red << 16 ) | ( green << 8 ) | blue;
+					int pixel = this.theme.getColor( intensity ).getPixel();
 					pixels[ index ] = pixel;
 				}
 			}
