@@ -41,7 +41,7 @@
 #   2. mvn clean install -Dlicense.skip=true
 #   3. sh ${mspp_source_top}/mspp/installer/mac/javapackager.sh
 
-app_version=4.0.0
+app_version=4.0.0_alpha_20191005
 script_dir=`dirname $0`
 
 
