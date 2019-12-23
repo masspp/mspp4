@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,15 +27,16 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Satoshi Tanaka
- * @since 2018-05-31 22:40:25+09:00
+ * @since Fri Jun 01 07:49:50 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Satoshi Tanaka
  * All rights reserved.
  */
 package ninja.mspp.view.control.canvas;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,7 +69,6 @@ public abstract class ProfileCanvas extends Canvas {
 
 	/**
 	 * constructor
-	 * @param xyData xy data
 	 */
 	public ProfileCanvas() {
 		this.widthProperty().addListener( evt -> draw() );
@@ -112,7 +112,31 @@ public abstract class ProfileCanvas extends Canvas {
 		}
 		Integer level = FastDrawData.getLevel( width, xRange.getEnd() - xRange.getStart() );
 		List< DrawPoint > points = data.getPoints( level );
-		return points;
+
+		List< DrawPoint > list = new ArrayList< DrawPoint >();
+
+		DrawPoint prevPoint = null;
+		for( DrawPoint point : points ) {
+			double x = point.getX();
+
+			if( x >= xRange.getStart() && x <= xRange.getEnd() ) {
+				if( prevPoint != null ) {
+					list.add( point );
+				}
+				list.add( point );
+				prevPoint = null;
+			}
+			else {
+				if( x > xRange.getEnd() ) {
+					if( prevPoint == null ) {
+						list.add( point );
+					}
+				}
+				prevPoint = point;
+			}
+		}
+
+		return list;
 	}
 
 	/**
@@ -225,7 +249,9 @@ public abstract class ProfileCanvas extends Canvas {
 	 * draw
 	 * @param g graphics
 	 * @param points points
-	 * @param matrix transform matrix
+	 * @param drawMatrix transform matrix
+         * @param paint
+         * @param centroid
 	 */
 	protected void drawProfile( GraphicsContext g, List< DrawPoint > points, RealMatrix drawMatrix, Paint paint, boolean centroid ) {
 		g.beginPath();
@@ -251,6 +277,7 @@ public abstract class ProfileCanvas extends Canvas {
 			this.drawLine( g,  top,  bottom );
 
 			Point< Double > rightPoint = new Point< Double >( point.getX(), point.getRightY() );
+
 			previousPoint = this.getPoint( rightPoint, drawMatrix );
 		}
 
@@ -267,7 +294,10 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param width width
 	 * @param height height
 	 * @param margin margin
-	 * @param transformMatrix transform matrix
+	 * @param drawMatrix transform matrix
+         * @param xTitle
+         * @param yTitle
+         * 
 	 */
 	protected void drawScale(
 			GraphicsContext g,
@@ -402,9 +432,12 @@ public abstract class ProfileCanvas extends Canvas {
 		while( py >= top ) {
 			double y = unit * (double)index;
 			py = (int)Math.round( 0.0 * transformMatrix.getEntry( 1,  0 ) + y * transformMatrix.getEntry( 1,  1 ) + transformMatrix.getEntry( 1,  2 ) );
-			String string = String.format( format, Math.round( y ) );
+			String string = "";
 			if( level < 0 ) {
 				string = String.format( format,  y );
+			}
+			else {
+				string = String.format( format, Math.round( y ) );
 			}
 
 			Integer stringWidth = this.getTextWidth( g,  string );
@@ -437,13 +470,32 @@ public abstract class ProfileCanvas extends Canvas {
 	 * @param matrix matrix
 	 * @return point
 	 */
-	Point< Integer > getPoint( Point< Double > data, RealMatrix matrix ) {
+	protected Point< Integer > getPoint( Point< Double > data, RealMatrix matrix ) {
 		double x = data.getX() * matrix.getEntry( 0,  0 ) + data.getY() * matrix.getEntry( 0, 1 ) + matrix.getEntry( 0,  2 );
 		double y = data.getX() * matrix.getEntry( 1,  0 ) + data.getY() * matrix.getEntry( 1, 1 ) + matrix.getEntry( 1,  2 );
 
 		Point< Integer > point = new Point< Integer >( (int)Math.round( x ), (int)Math.round( y ) );
 		return point;
 	}
+
+	/**
+	 * inverse point
+	 * @param point mouse point
+	 * @param matrix matrix
+	 * @return data point
+	 */
+	protected Point< Double > inversePoint( Point< Integer > point, RealMatrix matrix ) {
+		RealMatrix inversedMatrix = MatrixUtils.inverse( matrix );
+		double px = point.getX().doubleValue();
+		double py = point.getY().doubleValue();
+
+		double x = px * inversedMatrix.getEntry( 0,  0 ) + py * inversedMatrix.getEntry( 0,  1 ) + inversedMatrix.getEntry( 0,  2 );
+		double y = px * inversedMatrix.getEntry( 1,  0 ) + py * inversedMatrix.getEntry( 1,  1 ) + inversedMatrix.getEntry( 1,  2 );
+
+		Point< Double > data = new Point< Double >( x, y );
+		return data;
+	}
+
 
 	/**
 	 * draws line
@@ -459,7 +511,6 @@ public abstract class ProfileCanvas extends Canvas {
 	/**
 	 * gets the max y value width
 	 * @param g
-	 * @param xRange
 	 * @param yRange
 	 * @param height
 	 * @param topMargin

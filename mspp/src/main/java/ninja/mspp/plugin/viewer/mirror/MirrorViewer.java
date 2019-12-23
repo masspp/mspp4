@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,23 +27,41 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Satoshi Tanaka
- * @since 2018-05-31 22:40:25+09:00
+ * @since Thu May 31 22:40:25 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Satoshi Tanaka
  * All rights reserved.
  */
 package ninja.mspp.plugin.viewer.mirror;
 
-import ninja.mspp.annotation.method.OpenSpectrum;
-import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.dataobject.SpectrumObject;
+import java.util.List;
+import java.util.Map;
 
-@Plugin( "mirror canvas" )
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.paint.Color;
+import ninja.mspp.annotation.method.AnalysisPanel;
+import ninja.mspp.annotation.method.OnPeakChromatograms;
+import ninja.mspp.annotation.method.OnPeakMsSpectra;
+import ninja.mspp.annotation.method.OnPeakMsmsSpectra;
+import ninja.mspp.annotation.method.OnSelectPeak;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
+import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.model.entity.Chromatogram;
+import ninja.mspp.model.entity.PeakPosition;
+import ninja.mspp.model.entity.Project;
+import ninja.mspp.model.entity.Spectrum;
+import ninja.mspp.view.SpringFXMLLoader;
+
+@Plugin( value = "mirror canvas", order = 7 )
 public class MirrorViewer {
-	/** canvas */
-	private static MirrorCanvas canvas = null;
+	/** panel */
+	private MirrorPanel mirrorPanel;
+
+	/** project */
+	private Project project;
 
 	/**
 	 * constructor
@@ -51,19 +69,48 @@ public class MirrorViewer {
 	public MirrorViewer() {
 	}
 
-	@OpenSpectrum
-	public void addSpectrum( SpectrumObject spectrum ) {
-/*
-		if( MirrorViewer.canvas == null ) {
-			MirrorCanvas canvas = new MirrorCanvas( "m/z", "Int." );
-			GuiManager gui = GuiManager.getInstance();
-			MainFrame mainFrame = gui.getMainFrame();
-			mainFrame.addSpectrumWindow( "Mirror", canvas );
-			MirrorViewer.canvas = canvas;
+ 	@AnalysisPanel( "Mirror" )
+	public Node getMirrorPanel(
+			@FxmlLoaderParam SpringFXMLLoader loader,
+			Project project
+	) {
+		this.project = project;
+		Parent parent = null;
+		try {
+			parent = loader.load( MirrorPanel.class, "MirrorPanel.fxml" );
+			this.mirrorPanel = ( MirrorPanel )loader.getController();
 		}
+		catch( Exception e ) {
+			e.printStackTrace();
+		}
+		return parent;
+	}
 
-		XYData xyData = spectrum.getXYData();
-		MirrorViewer.canvas.addXYData( xyData );
-*/
+	@OnSelectPeak
+	public void setPeak( PeakPosition position ) {
+		if( this.project != null && this.mirrorPanel != null ) {
+			this.mirrorPanel.setPeak( this.project,  position );
+		}
+	}
+
+	@OnPeakMsSpectra
+	public void setMsSpectra( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		if( this.project != null && this.mirrorPanel != null ) {
+			this.mirrorPanel.setSpectra( spectra,  colorMap );
+		}
+	}
+
+	@OnPeakMsmsSpectra
+	public void setMsmsSpectra( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		if( this.project != null && this.mirrorPanel != null ) {
+			this.mirrorPanel.setSpectra( spectra,  colorMap );
+		}
+	}
+
+	@OnPeakChromatograms
+	public void setChromatograms( List< Chromatogram > chromatograms, Map< Chromatogram, Color > colorMap ) {
+		if( this.project != null && this.mirrorPanel != null ) {
+			this.mirrorPanel.setChromatograms( chromatograms, colorMap );
+		}
 	}
 }

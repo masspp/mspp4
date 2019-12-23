@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Satoshi Tanaka
- * @since 2018-06-01 05:51:10+09:00
+ * @since Fri Jun 01 05:51:10 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Satoshi Tanaka
  * All rights reserved.
  */
 package ninja.mspp.plugin.viewer.overlap;
@@ -44,7 +44,6 @@ import org.apache.commons.math3.linear.RealMatrix;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import ninja.mspp.model.dataobject.DrawPoint;
 import ninja.mspp.model.dataobject.FastDrawData;
 import ninja.mspp.model.dataobject.Range;
@@ -58,10 +57,15 @@ import ninja.mspp.view.control.canvas.ProfileCanvas;
 public class OverlapCanvas extends ProfileCanvas {
 	private String xTitle;
 	private String yTitle;
+	private Range< Double > displayedXRange;
 	private Range< Double > xRange;
 
-	private ArrayList< XYData > xyDataArray;
-	private ArrayList< FastDrawData > drawArray;
+	private List< XYData > xyDataArray;
+	private List< FastDrawData > drawArray;
+	private List< Color > colorArray;
+
+	private boolean centroid;
+
 
 	/**
 	 * constructor
@@ -74,19 +78,54 @@ public class OverlapCanvas extends ProfileCanvas {
 
 		this.xyDataArray = new ArrayList< XYData >();
 		this.drawArray = new ArrayList< FastDrawData >();
+		this.colorArray = new ArrayList< Color >();
+
+		this.centroid = false;
+	}
+
+	public boolean isCentroid() {
+		return centroid;
+	}
+
+	public void setCentroid(boolean centroid) {
+		this.centroid = centroid;
 	}
 
 	/**
 	 * adds xy data
 	 * @param xyData xy data
 	 */
-	public void addXYData( XYData xyData, FastDrawData data ) {
+	public void addXYData( XYData xyData, FastDrawData data, Color color, boolean refresh ) {
 		this.xyDataArray.add( xyData );
 		this.drawArray.add( data );
+		this.colorArray.add( color );
+		this.displayedXRange = null;
 
-		this.xRange = this.getXRange( this.xyDataArray );
+		if( refresh ) {
+			this.draw();
+		}
+	}
 
-		this.draw();
+	public Range<Double> getXRange() {
+		return xRange;
+	}
+
+	public void setXRange(Range<Double> xRange) {
+		this.xRange = xRange;
+	}
+
+	/**
+	 * clears data
+	 */
+	public void clearData( boolean refresh ) {
+		this.xyDataArray.clear();
+		this.drawArray.clear();
+		this.colorArray.clear();
+		this.displayedXRange = null;
+
+		if( refresh ) {
+			this.draw();
+		}
 	}
 
 	/**
@@ -94,9 +133,13 @@ public class OverlapCanvas extends ProfileCanvas {
 	 * @param array xy data array
 	 * @return x range
 	 */
-	protected Range< Double > getXRange( ArrayList< XYData > array ) {
+	protected Range< Double > getXRange( List< XYData > array ) {
 		if( array == null || array.size() == 0 ) {
 			return null;
+		}
+
+		if( this.xRange != null ) {
+			return this.xRange;
 		}
 
 		Double minX = null;
@@ -149,8 +192,11 @@ public class OverlapCanvas extends ProfileCanvas {
 			return;
 		}
 
-		Range< Double > xRange = this.xRange;
+		if( this.displayedXRange == null ) {
+			this.displayedXRange = this.getXRange( this.xyDataArray );
+		}
 
+		Range< Double > xRange = this.displayedXRange;
 		List< List< DrawPoint > > arrays = new ArrayList< List< DrawPoint > >();
 		for( FastDrawData data : this.drawArray ) {
 			arrays.add( this.getPoints( data,  width,  xRange ) );
@@ -172,19 +218,11 @@ public class OverlapCanvas extends ProfileCanvas {
 			MatrixUtils.createRealIdentityMatrix( 3 )
 		);
 
-		Paint[] colors = {
-			Color.RED,
-			Color.GREEN,
-			Color.ORANGE,
-			Color.PURPLE,
-			Color.BLUE
-		};
-
 		g.setGlobalAlpha( 0.5 );
 
 		for( int i = 0; i < arrays.size(); i++ ) {
-			Paint paint = colors[ i % colors.length ];
-			this.drawProfile( g,  arrays.get( i ),  matrix,  paint );
+			Color color = this.colorArray.get( i );
+			this.drawProfile( g,  arrays.get( i ),  matrix,  color, this.centroid );
 		}
 
 		g.setGlobalAlpha( 1.0 );

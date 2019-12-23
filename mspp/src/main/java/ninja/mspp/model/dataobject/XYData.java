@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
- * @author Masaki Murase
- * @since 2018-03-18 10:41:24+09:00
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Masayo Kimura
+ * @since Fri Mar 30 07:57:06 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Masayo Kimura
  * All rights reserved.
  */
 /*
@@ -330,7 +330,7 @@ public class XYData implements Iterable< Point< Double > > {
     }
 
     /**
-     * @param x
+     * @param start_x
      * @return infemum of set in which element has nearest x-value to x.
      *              otherwise -1 (if list is empty).
      */
@@ -342,7 +342,7 @@ public class XYData implements Iterable< Point< Double > > {
     }
 
     /**
-     * @param max_x
+     * @param end_x
      * @return least index in open upper bounds in which elements has x-value greater than x,
      *             otherwise -1 (if list is empty)
      */

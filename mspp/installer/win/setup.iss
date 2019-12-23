@@ -3,7 +3,7 @@
 [Setup]
 AppName=Mass++ 4
 AppVersion=4.0.0 alpha
-DefaultDirName={pf}\mspp4
+DefaultDirName={commonpf}\mspp4
 DefaultGroupName=Mass++ 4
 Compression=lzma2
 SolidCompression=yes

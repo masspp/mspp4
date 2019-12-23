@@ -1,3 +1,39 @@
+/*
+ * BSD 3-Clause License
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * * Redistributions of source code must retain the above copyright notice, this
+ *   list of conditions and the following disclaimer.
+ *
+ * * Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ *
+ * * Neither the name of the copyright holder nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ *
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Satoshi Tanaka
+ * @since Thu Jul 11 20:44:24 JST 2019
+ *
+ * Copyright (c) 2019 Satoshi Tanaka
+ * All rights reserved.
+ */
 package ninja.mspp.plugin.viewer.rawdata;
 
 import java.io.File;
@@ -38,7 +74,9 @@ import ninja.mspp.annotation.method.SamplePanel;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.entity.Sample;
+import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
+import ninja.mspp.tools.FXTools;
 import ninja.mspp.view.list.SampleTableView;
 
 
@@ -61,8 +99,13 @@ public class RawDataPanel implements Initializable {
 	@FXML
 	private Button commentButton;
 
+	@FXML
+	private Button deleteButton;
+
 	@Autowired
 	private RawDataService rawDataService;
+
+	private volatile ProgressBar progress;
 
 	@FXML
 	private void onImport( ActionEvent event ) {
@@ -91,11 +134,11 @@ public class RawDataPanel implements Initializable {
 			chooser.setInitialFileName( file.getName() );
 		}
 
-		ProgressBar progress = new ProgressBar();
-		progress.setProgress( 0.0 );
-		progress.setPrefHeight( 15.0 );
-		progress.prefWidthProperty().bind( this.upperPane.widthProperty().subtract( 10.0 ) );
-		this.upperPane.setBottom( progress );
+		this.progress = new ProgressBar();
+		this.progress.setProgress( 0.0 );
+		this.progress.setPrefHeight( 15.0 );
+		this.progress.prefWidthProperty().bind( this.upperPane.widthProperty().subtract( 10.0 ) );
+		this.upperPane.setBottom( this.progress );
 
 		Stage stage = new Stage();
 		List< File > files = chooser.showOpenMultipleDialog( stage );
@@ -146,6 +189,28 @@ public class RawDataPanel implements Initializable {
 		}
 	}
 
+	@FXML
+	private void onDelete( ActionEvent event ) {
+		Sample sample = this.table.getSelectionModel().getSelectedItem();
+		if( sample == null ) {
+			FXTools.error( "Select a sample before clicking the delete button." );
+			return;
+		}
+
+		if( FXTools.confirm( "Are you sure to delete the sample? [" + sample.getFilename() + "]" ) ) {
+			this.rawDataService.deleteSample( sample );
+			this.updateTable();
+
+			MsppManager manager = MsppManager.getInstance();
+			try {
+				manager.invokeAll( OnRawdataSample.class, ( Sample )null );
+			}
+			catch( Exception e ) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	/**
 	 * updates table
 	 */
@@ -177,6 +242,16 @@ public class RawDataPanel implements Initializable {
 	}
 
 	/**
+	 * delete button icon
+	 */
+	private void setDeleteButton() {
+		Text icon = GlyphsDude.createIcon( FontAwesomeIcon.REMOVE );
+		this.deleteButton.setText( "" );
+		this.deleteButton.setGraphic( icon );
+		this.deleteButton.setTooltip( new Tooltip( "Delete the selected raw data." ) );
+	}
+
+	/**
 	 * sets sample panels
 	 */
 	private void setSamplePanels() {
@@ -201,12 +276,13 @@ public class RawDataPanel implements Initializable {
 	private void createHeatmap( Sample sample ) {
 		MsppManager manager = MsppManager.getInstance();
 		RawDataPanel me = this;
+		List< Spectrum > spectra = this.rawDataService.findSpectra( sample );
 		Thread thread = new Thread(
 			() -> {
-				Heatmap heatmap = new Heatmap( sample.getSpectras(), me.rawDataService );
+				Heatmap heatmap = new Heatmap( spectra, me.rawDataService );
 				Platform.runLater(
 					() -> {
-						manager.invokeAll( OnHeatmap.class, heatmap );
+						manager.invokeAll( OnHeatmap.class, sample == null ? null : heatmap );
 					}
 				);
 			}
@@ -218,6 +294,7 @@ public class RawDataPanel implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.setImportButtonIcon();
 		this.setCommentButtonIcon();
+		this.setDeleteButton();
 
 		this.setSamplePanels();
 

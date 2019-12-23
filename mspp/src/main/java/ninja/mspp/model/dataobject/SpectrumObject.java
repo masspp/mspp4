@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
- * @author Masaki Murase
- * @since 2018-03-18 21:02:52+09:00
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Satoshi Tanaka
+ * @since Thu Jul 11 20:44:24 JST 2019
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2019 Satoshi Tanaka
  * All rights reserved.
  */
 /*
@@ -148,7 +148,7 @@ public abstract class SpectrumObject extends DrawObject {
     }
 
     /**
-     * @param sample the sample to set
+     * @param sample_path the sample path to set
      */
     public void setSamplePath(String sample_path) {
         this.sample_path = sample_path;
@@ -306,7 +306,7 @@ public abstract class SpectrumObject extends DrawObject {
     }
 
     /**
-     * @param basepeakmass set the mz of base peak
+     * @param basepeakmz set the mz of base peak
      */
     public void setBasepeakMz(double basepeakmz) {
         this.basepeakmz = basepeakmz;

@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,38 +27,91 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Satoshi Tanaka
- * @since 2018-06-01 05:51:10+09:00
+ * @since Fri Jun 01 05:51:10 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Satoshi Tanaka
  * All rights reserved.
  */
 package ninja.mspp.plugin.viewer.overlap;
 
-import ninja.mspp.annotation.method.OpenSpectrum;
-import ninja.mspp.annotation.type.Plugin;
-import ninja.mspp.model.dataobject.SpectrumObject;
-import ninja.mspp.model.dataobject.XYData;
+import java.util.List;
+import java.util.Map;
 
-@Plugin( "overlap canvas")
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.paint.Color;
+import ninja.mspp.annotation.method.AnalysisPanel;
+import ninja.mspp.annotation.method.OnPeakChromatograms;
+import ninja.mspp.annotation.method.OnPeakMsSpectra;
+import ninja.mspp.annotation.method.OnPeakMsmsSpectra;
+import ninja.mspp.annotation.method.OnSelectPeak;
+import ninja.mspp.annotation.parameter.FxmlLoaderParam;
+import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.model.entity.Chromatogram;
+import ninja.mspp.model.entity.PeakPosition;
+import ninja.mspp.model.entity.Project;
+import ninja.mspp.model.entity.Spectrum;
+import ninja.mspp.view.SpringFXMLLoader;
+
+@Plugin( value = "overlap canvas", order = 5 )
 public class OverlapViewer {
-	/** canvas */
-	private static OverlapCanvas canvas = null;
+	/** integrated view */
+	private IntegratedPanel integratedPanel;
+
+	/** project */
+	private Project project;
 
 	/**
 	 * constructor
 	 */
 	public OverlapViewer() {
+		this.integratedPanel = null;
 	}
 
-	@OpenSpectrum
-	public void addSpectrum( SpectrumObject spectrum ) {
-		OverlapCanvas canvas = OverlapViewer.canvas;
+	@AnalysisPanel( "Spectrum / Chromatogram" )
+	public Node getIntegratedPanel(
+			@FxmlLoaderParam SpringFXMLLoader loader,
+			Project project
+	) {
+		this.project = project;
+		Parent parent = null;
+		try {
+			parent = loader.load( IntegratedPanel.class, "IntegratedPanel.fxml" );
+			this.integratedPanel = ( IntegratedPanel )loader.getController();
+		}
+		catch( Exception e ) {
+			e.printStackTrace();
+		}
+		return parent;
+	}
 
-		if( canvas != null ) {
-			XYData xyData = spectrum.getXYData();
-//			OverlapViewer.canvas.addXYData( xyData );
+	@OnSelectPeak
+	public void setPeak( PeakPosition position ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setPeak( this.project, position );
+		}
+	}
+
+	@OnPeakMsSpectra
+	public void setMsSpectra( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setMsSpectrum( spectra,  colorMap );
+		}
+	}
+
+	@OnPeakMsmsSpectra
+	public void setMsmsSpectra( List< Spectrum > spectra, Map< Spectrum, Color > colorMap ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setMsmsSpectrum( spectra,  colorMap );
+		}
+	}
+
+	@OnPeakChromatograms
+	public void setChromatograms( List< Chromatogram > chromatograms, Map< Chromatogram, Color > colorMap ) {
+		if( this.project != null && this.integratedPanel != null ) {
+			this.integratedPanel.setChromatograms( chromatograms, colorMap );
 		}
 	}
 }

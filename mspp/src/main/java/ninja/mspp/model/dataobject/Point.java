@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
- * @author Masaki Murase
- * @since 2018-03-18 10:41:24+09:00
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Masayo Kimura
+ * @since Sun Mar 18 10:41:24 JST 2018
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2018 Masayo Kimura
  * All rights reserved.
  */
 /*

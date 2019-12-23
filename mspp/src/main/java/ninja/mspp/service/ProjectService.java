@@ -1,3 +1,39 @@
+/*
+ * BSD 3-Clause License
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * * Redistributions of source code must retain the above copyright notice, this
+ *   list of conditions and the following disclaimer.
+ *
+ * * Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ *
+ * * Neither the name of the copyright holder nor the names of its
+ *   contributors may be used to endorse or promote products derived from
+ *   this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ *
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author satstnka
+ * @since Thu Sep 05 16:04:19 JST 2019
+ *
+ * Copyright (c) 2019 satstnka
+ * All rights reserved.
+ */
 package ninja.mspp.service;
 
 import java.io.BufferedInputStream;
@@ -26,7 +62,13 @@ import ninja.mspp.model.entity.PeakAnnotation;
 import ninja.mspp.model.entity.PeakPosition;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.model.entity.QChromatogram;
+import ninja.mspp.model.entity.QGroup;
+import ninja.mspp.model.entity.QGroupChromatogram;
+import ninja.mspp.model.entity.QGroupSample;
+import ninja.mspp.model.entity.QGroupSpectrum;
+import ninja.mspp.model.entity.QPeakAnnotation;
 import ninja.mspp.model.entity.QPeakPosition;
+import ninja.mspp.model.entity.QSpectrum;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.repository.ChromatogramRepository;
@@ -37,6 +79,7 @@ import ninja.mspp.repository.GroupSpectrumRepository;
 import ninja.mspp.repository.PeakAnnotationRepository;
 import ninja.mspp.repository.PeakPositionRepository;
 import ninja.mspp.repository.ProjectRepository;
+import ninja.mspp.repository.SpectrumRepository;
 import umich.ms.fileio.filetypes.pepxml.PepXmlParser;
 import umich.ms.fileio.filetypes.pepxml.jaxb.standard.MsmsRunSummary;
 import umich.ms.fileio.filetypes.pepxml.jaxb.standard.NameValueType;
@@ -47,6 +90,7 @@ import umich.ms.fileio.filetypes.pepxml.jaxb.standard.SpectrumQuery;
 @Service
 @Transactional
 public class ProjectService {
+	private static final double PROTON = 1.007276466621;
 	@Autowired
 	private ProjectRepository projectReposiroty;
 
@@ -61,6 +105,9 @@ public class ProjectService {
 
 	@Autowired
 	private PeakAnnotationRepository annotationRepository;
+
+	@Autowired
+	private SpectrumRepository spectrumRepository;
 
 	@Autowired
 	private ChromatogramRepository chromatogramRepository;
@@ -136,7 +183,9 @@ public class ProjectService {
 		groupSample.setSample( sample );
 		groupSample = this.groupSampleRepository.save( groupSample );
 
-		for( Spectrum spectrum : sample.getSpectras() ) {
+		QSpectrum qSpectrum = QSpectrum.spectrum;
+		BooleanExpression expression = qSpectrum.sample.eq( sample );
+		for( Spectrum spectrum : this.spectrumRepository.findAll( expression ) )  {
 			GroupSpectrum groupSpectrum = new GroupSpectrum();
 			groupSpectrum.setGroupSample( groupSample );
 			groupSpectrum.setSpectrum( spectrum );
@@ -145,7 +194,7 @@ public class ProjectService {
 		}
 
 		QChromatogram qChromatogram = QChromatogram.chromatogram;
-		BooleanExpression expression = qChromatogram.sample.eq( sample );
+		expression = qChromatogram.sample.eq( sample );
 		for( Chromatogram chromatogram : this.chromatogramRepository.findAll( expression ) ) {
 			GroupChromatogram groupChromatogram = new GroupChromatogram();
 			groupChromatogram.setGroupSample( groupSample );
@@ -169,6 +218,8 @@ public class ProjectService {
 			for( SpectrumQuery query : queryList ) {
 				double rt = query.getRetentionTimeSec() / 60.0;
 				double mz = query.getPrecursorNeutralMass();
+				int charge = query.getAssumedCharge();
+				mz = mz / ( double )charge + PROTON;
 
 				PeakPosition position = new PeakPosition();
 				position.setRt( rt );
@@ -223,5 +274,58 @@ public class ProjectService {
 		}
 
 		return positions;
+	}
+
+
+	/**
+	 * finds groups
+	 * @param project project
+	 * @return groups
+	 */
+	public List< Group > findGroups( Project project ) {
+		List< Group > groups = new ArrayList< Group >();
+
+		QGroup qGroup = QGroup.group;
+		BooleanExpression expression = qGroup.project.eq( project );
+
+		for( Group group : this.groupRepository.findAll( expression ) ) {
+			groups.add( group );
+		}
+
+		return groups;
+	}
+
+	/**
+	 * deletes project
+	 * @param project project
+	 */
+	public void deleteProject( Project project ) {
+		List< Group > groups = this.findGroups( project );
+
+		for( Group group : groups ) {
+			QGroupSpectrum qSpectrum = QGroupSpectrum.groupSpectrum;
+			BooleanExpression expression = qSpectrum.groupSample.group.eq( group );
+			this.groupSpectrumRepository.deleteAll( this.groupSpectrumRepository.findAll( expression ) );
+
+			QGroupChromatogram qChromatogram = QGroupChromatogram.groupChromatogram;
+			expression = qChromatogram.groupSample.group.eq( group );
+			this.groupChromatogramRepository.deleteAll( this.groupChromatogramRepository.findAll( expression ) );
+
+			QGroupSample qSample = QGroupSample.groupSample;
+			expression = qSample.group.eq( group );
+			this.groupSampleRepository.deleteAll( this.groupSampleRepository.findAll( expression ) );
+
+			this.groupRepository.delete( group );
+		}
+
+		QPeakAnnotation qAnnotation = QPeakAnnotation.peakAnnotation;
+		BooleanExpression expression = qAnnotation.peakPosition.project.eq( project );
+		this.annotationRepository.deleteAll( this.annotationRepository.findAll( expression ) );
+
+		QPeakPosition qPosition = QPeakPosition.peakPosition;
+		expression = qPosition.project.eq( project );
+		this.positionRepository.deleteAll( this.positionRepository.findAll( expression ) );
+
+		this.projectReposiroty.delete( project );
 	}
 }

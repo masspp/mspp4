@@ -17,6 +17,7 @@
                      <children>
                         <Button fx:id="importButton" mnemonicParsing="false" onAction="#onImport" text="Import" />
                         <Button fx:id="commentButton" mnemonicParsing="false" onAction="#onComment" text="Comment" />
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

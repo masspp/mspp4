@@ -1,4 +1,4 @@
-/**
+/*
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group
- * @author Masaki Murase
- * @since 2018-03-18 21:36:07+09:00
+ * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Satoshi Tanaka
+ * @since Thu Jul 11 20:44:24 JST 2019
  *
- * Copyright (c) 2018, Mass++ Users Group
+ * Copyright (c) 2019 Satoshi Tanaka
  * All rights reserved.
  */
 /*
@@ -57,7 +57,7 @@ public abstract class ChromatogramObject extends DrawObject {
     }
 
     /**
-     * @param sample the sample to set
+     * @param sample_path the sample to set
      */
     public void setSamplePath(String sample_path) {
         this.sample_path = sample_path;
@@ -85,7 +85,7 @@ public abstract class ChromatogramObject extends DrawObject {
     }
 
     /**
-     * @param chromatData the chromatData to set
+     * @param chromatogramData the chromatData to set
      */
     public void setChromatogramData(XYData chromatogramData) {
         this.chromatogramData = chromatogramData;
@@ -147,9 +147,11 @@ public abstract class ChromatogramObject extends DrawObject {
         SEARCH_Near
     }
 
-    /***
-     *
+
+    /**
+     * 
      * @param sample
+     * @param mzrange 
      */
     public ChromatogramObject(SampleObject sample, Range< Double > mzrange){
     	super( sample );

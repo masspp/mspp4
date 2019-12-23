@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.plugin.viewer.overlap.IntegratedPanel">
+   <center>
+      <SplitPane dividerPositions="0.4, 0.7" orientation="VERTICAL" BorderPane.alignment="CENTER">
+         <items>
+            <SplitPane dividerPositions="0.3">
+               <items>
+                  <BorderPane fx:id="chromatogramTablePane" />
+                  <BorderPane fx:id="chromatogramCanvasPane" />
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.3">
+               <items>
+                  <BorderPane fx:id="msTablePane" />
+                  <BorderPane fx:id="msCanvasPane" />
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.3">
+               <items>
+                  <BorderPane fx:id="msmsTablePane" />
+                  <BorderPane fx:id="msmsCanvasPane" />
+               </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>
