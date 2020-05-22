@@ -45,7 +45,7 @@ package ninja.mspp.model.dataobject;
  *
  * @author masakimu
  */
-public class Point<T extends Number> extends Pair<T> implements XYProvider<T> {
+public class Point<T extends Number> extends Paired<T> implements XYProvider<T> {
 
     /**
      *
