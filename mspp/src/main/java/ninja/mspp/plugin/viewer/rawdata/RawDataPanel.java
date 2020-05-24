@@ -71,12 +71,14 @@ import ninja.mspp.annotation.method.FileInput;
 import ninja.mspp.annotation.method.OnHeatmap;
 import ninja.mspp.annotation.method.OnRawdataSample;
 import ninja.mspp.annotation.method.SamplePanel;
+import ninja.mspp.io.msdatareader.AbstractMSDataReader;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.Heatmap;
 import ninja.mspp.model.entity.Sample;
 import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FXTools;
+import ninja.mspp.tools.FileTool;
 import ninja.mspp.view.list.SampleTableView;
 
 
@@ -152,7 +154,8 @@ public class RawDataPanel implements Initializable {
 					file = files.get( i );
 					double start = ( double )i / ( double )count;
 					double end = ( double )( i + 1 ) / ( double )count;
-					this.rawDataService.register( file.getAbsolutePath(), progress, start, end );
+                                        AbstractMSDataReader reader = this.openFile( file);
+					this.rawDataService.register( reader, progress, start, end );
 				}
 			}
 			catch( Exception e ) {
@@ -163,6 +166,38 @@ public class RawDataPanel implements Initializable {
 
 		this.upperPane.setBottom( null );
 	}
+        
+        /**
+         * 
+         * @param file data file
+         * @return MS Data reader object
+         */
+        private AbstractMSDataReader openFile(File file){
+            MsppManager manager = MsppManager.getInstance();
+
+            String path = file.getAbsolutePath();
+            String ext = FileTool.getExtension( path );
+            
+            AbstractMSDataReader reader = null;
+            
+            List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
+
+		for( PluginMethod< FileInput > method: methods ) {
+			Object plugin = method.getPlugin();
+			FileInput annotation = method.getAnnotation();
+			if( reader == null && annotation.ext().compareToIgnoreCase( ext ) == 0 ) {
+				try {
+					reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
+				}
+				catch( Exception e ) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return reader;
+	}
+                  
+        
 
 	@FXML
 	private void onComment( ActionEvent event ) {
