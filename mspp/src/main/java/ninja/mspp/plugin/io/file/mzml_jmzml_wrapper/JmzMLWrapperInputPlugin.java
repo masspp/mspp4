@@ -61,12 +61,14 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
  *
  * @author masakimu
 */
-@Plugin( "mzML Input Plugin" )
+//Commented out by Masaki Murase to use other mzML parser
+//@Plugin( "mzML Input Plugin" )
 public class JmzMLWrapperInputPlugin {
 
     private static final Logger logger = LoggerFactory.getLogger(JmzMLWrapperInputPlugin.class);
 
-    @FileInput( title = "mzML", ext = "mzML")
+    //Commented out by Masaki Murase to use other mzML parser
+    //@FileInput( title = "mzML", ext = "mzML")
     public SampleObject openMzML(String path) throws Exception {
         jmzMLSample sample = new jmzMLSample();
         System.out.println("file path: " + path);
