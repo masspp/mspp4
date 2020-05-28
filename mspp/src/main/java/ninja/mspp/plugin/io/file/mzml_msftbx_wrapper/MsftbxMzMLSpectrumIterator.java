@@ -63,52 +63,53 @@ public class MsftbxMzMLSpectrumIterator implements Iterable<Pair<Spectrum,PointL
 
             @Override
             public Pair<Spectrum, PointList> next() {
-                ArrayList<Point<Double>> xypoints = new ArrayList<>();
+
                 IScan scan = scans.next();
                 Spectrum spectrum = new Spectrum();
                 Polarity polarity = scan.getPolarity();
-                
+
                 ISpectrum points = scan.getSpectrum();
-		PointList pointList;
+                PointList pointList;
                 try {
-                    pointList = this.createPointList( points );
+                    pointList = this.createPointList(points);
                 } catch (Exception ex) {
                     Logger.getLogger(MsftbxMzMLSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
                     return null;   // OK?
                 }
-		
-                //String id = Integer.toString( );  // from 1?  TODO: check lator.
-                String id = indexMap.get( scan.getNum()).getId();
-		spectrum.setSpectrumId( id );
-		spectrum.setName( id );
-		spectrum.setSample( sample );
-		spectrum.setStartRt( scan.getRt() );
-		spectrum.setEndRt( scan.getRt() );
-		spectrum.setBpi( scan.getBasePeakIntensity() );
-		spectrum.setBpm( scan.getBasePeakMz() );
-		spectrum.setTic( scan.getTic() );
-		spectrum.setCentroidMode( scan.isCentroided() ? 1 : 0 );
-		spectrum.setMsStage( scan.getMsLevel() );
-		spectrum.setLowerMz( scan.getScanMzWindowLower() );
-		spectrum.setUpperMz( scan.getScanMzWindowUpper() );
-		spectrum.setMaxIntensity( pointList.getMaxY() );
-		if( polarity != null ) {
-			spectrum.setPolarity( polarity.getSign() );
-		}
 
-		PrecursorInfo precursor = scan.getPrecursor();
-		if( precursor != null ) {
-			Spectrum parent = spectrumMap.get( precursor.getParentScanRefRaw() );
-			if( parent != null ) {
-				spectrum.setParentSpectrumId( parent.getId() );
-				Double precursorMz = precursor.getMzTargetMono();
-				if( precursorMz == null ) {
-					precursorMz = precursor.getMzTarget();
-				}
-				spectrum.setPrecursor( precursorMz );
-			}
-		}
-                
+                String id = indexMap.get(scan.getNum()-1).getId();
+                spectrum.setSpectrumId(id);
+                spectrum.setName(id);
+                spectrum.setSample(sample);
+                spectrum.setStartRt(scan.getRt());
+                spectrum.setEndRt(scan.getRt());
+                spectrum.setBpi(scan.getBasePeakIntensity());
+                spectrum.setBpm(scan.getBasePeakMz());
+                spectrum.setTic(scan.getTic());
+                spectrum.setCentroidMode(scan.isCentroided() ? 1 : 0);
+                spectrum.setMsStage(scan.getMsLevel());
+                spectrum.setLowerMz(scan.getScanMzWindowLower());
+                spectrum.setUpperMz(scan.getScanMzWindowUpper());
+                spectrum.setMaxIntensity(pointList.getMaxY());
+                if (polarity != null) {
+                    spectrum.setPolarity(polarity.getSign());
+                    
+                }
+
+                // assumed that each precursor spectrum is ahead of child spectra in this iterator.
+                // TODO: check this.
+                PrecursorInfo precursor = scan.getPrecursor();
+                if (precursor != null) {
+                    Spectrum parent = spectrumMap.get(precursor.getParentScanRefRaw());
+                    if (parent != null) {
+                        spectrum.setParentSpectrumId(parent.getId());
+                        Double precursorMz = precursor.getMzTargetMono();
+                        if (precursorMz == null) {
+                            precursorMz = precursor.getMzTarget();
+                        }
+                        spectrum.setPrecursor(precursorMz);
+                    }
+                }
 
                 return Pair.of(spectrum, pointList);
             }
