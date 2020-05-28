@@ -39,22 +39,13 @@ package ninja.mspp.plugin.io.file.jmzreader_wrapper;
 import java.io.File;
 import java.util.ArrayList;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
-
+import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.annotation.method.FileInput;
+import ninja.mspp.model.dataobject.PeakListObject;
+import ninja.mspp.model.dataobject.Point;
+import ninja.mspp.model.dataobject.XYData;
 import uk.ac.ebi.pride.tools.mgf_parser.MgfFile;
 import uk.ac.ebi.pride.tools.mgf_parser.model.Ms2Query;
-
-import ninja.mspp.annotation.type.Plugin;
-
-import ninja.mspp.model.entity.PeakList;
-import ninja.mspp.model.entity.Peak;
-import ninja.mspp.repository.PeakListRepository;
-
-import ninja.mspp.model.dataobject.PeakListObject; // just for test
-import ninja.mspp.model.dataobject.XYData; //just for test
-import ninja.mspp.model.dataobject.Point; // just for test
-import ninja.mspp.annotation.method.ProcessedFileInput;
 
 /**
  *
@@ -65,80 +56,23 @@ public class jmzReaderMGFInputPlugin {
     
     ArrayList<PeakListObject> peaklistobjs = new ArrayList<>();
     
-    public jmzReaderMGFInputPlugin(){
-    }
-    
-    protected class Property{
-        
-        public Property(){
-            index=null;
-            msStage=null;
-            rt=null;
-            precursorMz=null;
-            charge=null;
-            title=null;
-        }
-    
-        private Integer index;
-
-        private Integer msStage;
-
-        private String rt;
-
-        private Double precursorMz;
-
-        private Integer charge;
-
-        private String title;
-    }
-    
-
-    @Autowired
-    PeakListRepository peaklistRepository;
-       
     /**
      * 
      * @param path
+     * @return
      * @throws Exception 
      */
-    @ProcessedFileInput( title = "MGF", extensions = {"mgf","txt"})
-    public void saveMGFtoDB(String path) throws Exception {
-        MgfFile mgfFile = new MgfFile( new File(path));
-        
-        int count =0;
-        for (Ms2Query q: mgfFile.getMs2QueryIterator()){
-            count++;
-            PeakList peaklist = new PeakList();
-            peaklist.setIndex_positional(count);
-             
-            // Obtain Peaklist Properties
-            Property props = getPropertiesbyTitle(q.getTitle());
-            props = UpdatePropertiesByAPI(q, props);  
-            
-            peaklist.setIndex(props.index);
-            peaklist.setMsStage(props.msStage);
-            peaklist.setRt(props.rt);
-            peaklist.setPrecursorMz(props.precursorMz);
-            peaklist.setPrecursorCharge(props.charge);
-            peaklist.setTitle(props.title);
-
-            // Set Peak Data            
-            peaklist.setPeaks(new ArrayList<Peak>());
-            q.getPeakList().entrySet().forEach((mgfpeak) -> {
-                Peak peak = new Peak();
-                peak.setPeakPosition(mgfpeak.getKey());
-                peak.setIntensity(mgfpeak.getValue());
-                peaklist.addPeak(peak); 
-            });
-
-            peaklistRepository.save(peaklist);
-        }
- 
-    }
+    //@ProcessedFileInput( title = "MGF", extensions = {"mgf","txt"})
+    @FileInput( title = "MGF", extensions = {"mgf", "txt"} )
+    public jmzReaderMGFReader getMGFReader(String path) throws Exception {
+        jmzReaderMGFReader datareader = new jmzReaderMGFReader(path);
+        return datareader;
+    }  
     
     
-    /**
+       /**
      * Just for Test
+     * TODO: move it spectrumiterator or peaklist iterator class.
      * 
      * @param path
      * @return
@@ -206,6 +140,30 @@ public class jmzReaderMGFInputPlugin {
         return props;
     }
  
+    protected class Property{
+        
+        public Property(){
+            index=null;
+            msStage=null;
+            rt=null;
+            precursorMz=null;
+            charge=null;
+            title=null;
+        }
+    
+        private Integer index;
+
+        private Integer msStage;
+
+        private String rt;
+
+        private Double precursorMz;
+
+        private Integer charge;
+
+        private String title;
+    }
+    
     /**
      * extract meta information from peaklist title
      * 
@@ -223,9 +181,10 @@ public class jmzReaderMGFInputPlugin {
         
         // extract sepc_id
         String spec_id_str = "spec_id: ";  // TODO: use property file to specify matching strings
-        int spec_id_start = title.indexOf(spec_id_str)+spec_id_str.length();
-        int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
-        if (spec_id_start > -1 && spec_id_end >-1){
+        int pos = title.indexOf(spec_id_str);
+        if (pos > -1){
+            int spec_id_start = pos+spec_id_str.length();
+            int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
             props.index = Integer.parseInt(title.substring(spec_id_start, spec_id_end));
             //System.out.println("Title: " + title+ "\n");
             //System.out.println(spec_id_str+ props.index );
@@ -233,27 +192,30 @@ public class jmzReaderMGFInputPlugin {
         
         // extract spec_rt
         String spec_rt_str = "spec_rt: ";
-        int spec_rt_start = title.indexOf(spec_rt_str )+spec_rt_str.length();
-        int spec_rt_end = spec_rt_start + title.substring(spec_rt_start).indexOf(",");
-        if (spec_rt_start > -1 && spec_rt_end>-1){
+        pos = title.indexOf(spec_rt_str );
+        if (pos > -1 ){
+            int spec_rt_start = pos+spec_rt_str.length();
+            int spec_rt_end = spec_rt_start + title.substring(spec_rt_start).indexOf(",");
             props.rt = title.substring(spec_rt_start,spec_rt_end);
             //System.out.println(spec_rt_str + props.rt.toString() );
         }
         
         // extract precursor mz
         String spec_prec_str = "spec_prec: ";
-        int spec_prec_start = title.indexOf(spec_prec_str)+spec_prec_str.length();
-        int spec_prec_end = spec_prec_start + title.substring(spec_prec_start).indexOf(",");
-        if (spec_prec_start > -1 && spec_prec_end > -1){
+        pos = title.indexOf(spec_prec_str);
+        if (pos > -1){
+            int spec_prec_start = pos+spec_prec_str.length();
+            int spec_prec_end = spec_prec_start + title.substring(spec_prec_start).indexOf(",");
             props.precursorMz = Double.parseDouble(title.substring(spec_prec_start,spec_prec_end));
             //System.out.println(spec_prec_str + props.precursorMz.toString());
         }
         
         // extract MS stage
         String spec_stage_str = "spec_stage: ";
-        int spec_stage_start = title.indexOf(spec_stage_str)+spec_stage_str.length();
-        int spec_stage_end = spec_stage_start + title.substring(spec_stage_start).indexOf(",");
-        if (spec_stage_start > -1 && spec_stage_end >-1){
+        pos=title.indexOf(spec_stage_str);
+        if ( pos > -1 ){
+            int spec_stage_start = pos+spec_stage_str.length();
+            int spec_stage_end = spec_stage_start + title.substring(spec_stage_start).indexOf(",");
             props.msStage = Integer.parseInt(title.substring(spec_stage_start,spec_stage_end));
             //System.out.println(spec_stage_str + props.msStage.toString() );
         }
@@ -261,18 +223,17 @@ public class jmzReaderMGFInputPlugin {
         
         // extract precursor charge
         String charge_str = "charge: ";
-        int charge_start = title.indexOf(charge_str)+charge_str.length();
-        int charge_end = charge_start + title.substring(charge_start).indexOf(",");
-        if (charge_start > -1 && charge_end >-1){
+        pos= title.indexOf(charge_str);
+        if (pos > -1 ){
+            int charge_start = pos+charge_str.length();
+            int charge_end = charge_start + title.substring(charge_start).indexOf(",");
             props.charge = Integer.parseInt(title.substring(charge_start,charge_end));
             //System.out.println(charge_str + props.charge );
         }   
-        
+   
         return props;
         
     }
-    
-    
     
 }
 
