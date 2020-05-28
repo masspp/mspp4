@@ -19,15 +19,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ninja.mspp.io.msdatareader.AbstractMSDataReader;
-import ninja.mspp.model.entity.Chromatogram;
-import ninja.mspp.model.entity.PointList;
-import ninja.mspp.model.entity.Sample;
-import ninja.mspp.model.entity.Spectrum;
+
 import org.apache.commons.lang3.tuple.Pair;
-import umich.ms.datatypes.LCMSDataSubset;
 
 //MSFTBX
+import umich.ms.datatypes.LCMSDataSubset;
 import umich.ms.datatypes.lcmsrun.LCMSRunInfo;
 import umich.ms.datatypes.lcmsrun.MsSoftware;
 import umich.ms.datatypes.scan.StorageStrategy;
@@ -37,6 +33,13 @@ import umich.ms.fileio.exceptions.FileParsingException;
 import umich.ms.fileio.filetypes.mzml.MZMLFile;
 import umich.ms.fileio.filetypes.mzml.MZMLIndex;
 import umich.ms.fileio.filetypes.mzml.MZMLIndexElement;
+
+//mspp
+import ninja.mspp.io.msdatareader.AbstractMSDataReader;
+import ninja.mspp.model.entity.Chromatogram;
+import ninja.mspp.model.entity.PointList;
+import ninja.mspp.model.entity.Sample;
+import ninja.mspp.model.entity.Spectrum;
 
 /**
  *
