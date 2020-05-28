@@ -39,7 +39,7 @@ package ninja.mspp.plugin.io.file;
 import java.io.File;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ninja.mspp.MsppManager;
@@ -47,7 +47,7 @@ import ninja.mspp.annotation.method.FileInput;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.model.dataobject.SampleObject;
-import ninja.mspp.service.RawDataService;
+//import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FileTool;
 
 
@@ -57,8 +57,8 @@ import ninja.mspp.tools.FileTool;
 public class FileInputPlugin {
 	private static String RECENT_FILE_KEY = "Recent Open File";
 
-	@Autowired
-	private RawDataService rawDataService;
+	//@Autowired
+	//private RawDataService rawDataService;
 
 	/**
 	 * opens file
@@ -77,14 +77,16 @@ public class FileInputPlugin {
 		for( PluginMethod< FileInput > method: methods ) {
 			Object plugin = method.getPlugin();
 			FileInput annotation = method.getAnnotation();
-			if( sample == null && annotation.ext().compareToIgnoreCase( ext ) == 0 ) {
-				try {
-					sample = (SampleObject)method.getMethod().invoke( plugin,  path );
-				}
-				catch( Exception e ) {
-					e.printStackTrace();
-				}
-			}
+                        for(String annot_ext : annotation.extensions()){
+                            if( sample == null && annot_ext.compareToIgnoreCase( ext ) == 0 ) {
+                                    try {
+                                            sample = (SampleObject)method.getMethod().invoke( plugin,  path );
+                                    }
+                                    catch( Exception e ) {
+                                            e.printStackTrace();
+                                    }
+                            }
+                        }
 		}
 		return sample;
 	}

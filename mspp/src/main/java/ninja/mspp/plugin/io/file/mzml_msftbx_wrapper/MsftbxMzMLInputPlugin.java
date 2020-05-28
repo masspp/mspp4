@@ -22,7 +22,7 @@ public class MsftbxMzMLInputPlugin {
      * @param path
      * @return 
      */
-    @FileInput( title = "mzML", ext = "mzML")
+    @FileInput( title = "mzML", extensions = {"mzML"})
     public MsftbxMzMLReader getMzMLInputAdapter(String path) {
         MsftbxMzMLReader datareader = new MsftbxMzMLReader(path);
         return datareader;

@@ -47,6 +47,7 @@ import org.springframework.stereotype.Component;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import java.util.ArrayList;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -126,9 +127,11 @@ public class RawDataPanel implements Initializable {
 		chooser.getExtensionFilters().add( new ExtensionFilter( "All Files", "*.*" ) );
 		for( PluginMethod< FileInput > method: methods ) {
 			FileInput annotation = method.getAnnotation();
-			chooser.getExtensionFilters().add(
-				new ExtensionFilter( annotation.title(), "*." + annotation.ext() )
-			);
+                        List<String> extensions = new ArrayList<>();
+                        for(String annot_ext: annotation.extensions()){
+                            extensions.add("*." + annot_ext);
+                        }
+                        chooser.getExtensionFilters().add( new ExtensionFilter( annotation.title(), extensions) );
 		}
 
 		if( file != null ) {
@@ -182,19 +185,22 @@ public class RawDataPanel implements Initializable {
             
             List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
 
-		for( PluginMethod< FileInput > method: methods ) {
-			Object plugin = method.getPlugin();
-			FileInput annotation = method.getAnnotation();
-			if( reader == null && annotation.ext().compareToIgnoreCase( ext ) == 0 ) {
-				try {
-					reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
-				}
-				catch( Exception e ) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return reader;
+            for( PluginMethod< FileInput > method: methods ) {
+                Object plugin = method.getPlugin();
+                FileInput annotation = method.getAnnotation();
+                for(String annot_ext: annotation.extensions() ){
+                    if( reader == null && annot_ext.compareToIgnoreCase( ext ) == 0 ) {
+                        try {
+                                reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
+                        }
+                        catch( Exception e ) {
+                                e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            
+            return reader;
 	}
                   
         
