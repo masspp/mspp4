@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,14 +44,19 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
         this.mgffile = mgffile;
         this.sample = sample;
     }
-
+    
+    /**
+     * Iterate Precursor Ion Data as MS1 data and MS2 data by turns
+     * 
+     * @return Iterator<Pair<Spectrum, PointList>>
+     */
     @Override
     public Iterator<Pair<Spectrum, PointList>> iterator() {
         return new Iterator<Pair<Spectrum, PointList>>(){
             
             private final Iterator<Ms2Query> peaklists = mgffile.getMs2QueryIterator();
             private boolean next_is_ms2 = false;
-            private Pair<Spectrum, PointList> ms2_spec_point;
+            private Pair<Spectrum, PointList> ms2_spec_point=null;
             
             @Override
             public boolean hasNext() {
@@ -68,119 +74,16 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                     return ms2_spec_point;
                 }else{
                     ms2_spec_point = null;
+                    next_is_ms2=true; // too late? 
                     
-                    // start to create ms2 spectrum and point from  mgf peaklist
+                    // create ms2 spectrum and point from MGF peak data
                     Ms2Query q = peaklists.next();
-                    Spectrum spectrum  = new Spectrum();
-
                     Property props = getPropertiesbyTitle(q.getTitle());
                     props = UpdatePropertiesByAPI(q, props);
+                    ms2_spec_point = createMS2Data(q, props);
 
-                    Map<Double, Double> peakList = q.getPeakList();
-                    PointList pointList = null;
-                    XYData xydata = null;
-                    Pair<PointList,XYData> points = null;
-                    try {
-                        points = this.createPointList(
-                                (Double []) peakList.keySet().toArray(new Double[0]),
-                                (Double []) peakList.values().toArray(new Double[0])
-                        );
-                    } catch (Exception ex) {
-                        Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    pointList = points.getLeft();
-                    xydata = points.getRight();
-
-                    spectrum.setSpectrumId( Integer.toString(2*props.index) );
-                    spectrum.setName( props.title);
-                    spectrum.setSample(sample);
-                    if (props.rt !=null){
-                        spectrum.setStartRt( Double.parseDouble(props.rt) );
-                        spectrum.setEndRt(  spectrum.getStartRt());
-                    }
-                    double tic = 0.0;
-                    for(Point p : xydata){
-                        tic = tic + (double) p.getX();
-                    }
-                    spectrum.setTic(tic);
-                    spectrum.setBpi(xydata.getMaxY());
-                    spectrum.setBpm(xydata.getX( xydata.searchNearestIndicies_by_Y(xydata.getMaxY()).get(0) ));
-                    spectrum.setCentroidMode(1);
-                    spectrum.setMsStage(props.msStage);
-                    if (pointList.getMinX()!=null){
-                        spectrum.setLowerMz( pointList.getMinX() );
-                    }else{
-                        spectrum.setLowerMz(0.0);
-                    }
-                    if(pointList.getMaxX()!=null){
-                        spectrum.setUpperMz( pointList.getMaxX() );
-                    }else{
-                        spectrum.setUpperMz( 0.0 );
-                    }
-                    if(  (props.charge != null)){
-                        spectrum.setPolarity( (props.charge > 0)?1:-1) ;
-                    }
-                    spectrum.setPrecursor(  props.precursorMz );
-                    
-                    next_is_ms2=true; 
-                    ms2_spec_point = Pair.of(spectrum, pointList);
-                    
-                    
-                    // start to create MS1 peak data from precursor information
-                    // and return it 
-                    Spectrum prec_spec = new Spectrum();
-                    prec_spec.setSpectrumId( Integer.toString(2*props.index -1));
-                    prec_spec.setName(  "Precursor for " + props.title);
-                    prec_spec.setSample(sample);
-                    if (props.rt !=null){
-                        prec_spec.setStartRt( Double.parseDouble(props.rt)-0.001 );
-                        prec_spec.setEndRt(  prec_spec.getStartRt());
-                    }
-                    
-                    prec_spec.setCentroidMode(1);
-                    prec_spec.setMsStage(1);
-                    
-                    PointList prec_pointList = null;
-                    XYData prec_xydata = null;
-                    Pair<PointList,XYData> prec_points = null;
-                    Double ar_prec_mz[] = { props.precursorMz };
-                    Double ar_prec_intensity[] = new Double[1];
-                    
-                    if(q.getPrecursorIntensity()!=null){
-                        ar_prec_intensity[0] =  q.getPrecursorIntensity() ;
-                    }else{
-                        ar_prec_intensity[0] = spectrum.getTic() ;
-                    }
-                    prec_spec.setTic(ar_prec_intensity[0]);
-                    prec_spec.setBpm( props.precursorMz );
-                    prec_spec.setBpi(ar_prec_intensity[0] );
-
-
-                    try {
-                        prec_points = this.createPointList( ar_prec_mz, ar_prec_intensity );
-                        prec_pointList = prec_points.getLeft();
-  
-                    } catch (Exception ex) {
-                        Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    
-                    if (prec_pointList.getMinX()!=null){
-                        prec_spec.setLowerMz( prec_pointList.getMinX() -1.0 );
-                    }else{
-                        prec_spec.setLowerMz(0.0);
-                    }
-                    if(prec_pointList.getMaxX()!=null){
-                        prec_spec.setUpperMz( prec_pointList.getMaxX() + 1.0 );
-                    }else{
-                        prec_spec.setUpperMz( 0.0 );
-                    }
-                    if(  (props.charge != null)){
-                        prec_spec.setPolarity( spectrum.getPolarity() ) ;
-                    }
-
-                    Pair<Spectrum, PointList> precursor_spec_point = Pair.of(prec_spec, prec_pointList);
-
-                    return precursor_spec_point;
+                    // create MS1 peak data from precursor ion information and return it 
+                    return createPrecursorData(sample, ms2_spec_point.getLeft(), props);
                 }
                
             }
@@ -254,6 +157,114 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
 
                 return Pair.of(pointList,xydata);
             }
+            
+            private Pair<Spectrum, PointList> createMS2Data(Ms2Query q, Property props){
+                Spectrum spectrum  = new Spectrum();
+
+
+
+                Map<Double, Double> peakList = q.getPeakList();
+                PointList pointList = null;
+                XYData xydata = null;
+                Pair<PointList,XYData> points = null;
+                try {
+                    points = this.createPointList(
+                            (Double []) peakList.keySet().toArray(new Double[0]),
+                            (Double []) peakList.values().toArray(new Double[0])
+                    );
+                } catch (Exception ex) {
+                    Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                pointList = points.getLeft();
+                xydata = points.getRight();
+
+                spectrum.setSpectrumId( Integer.toString(2*props.index) );
+                spectrum.setName( props.title);
+                spectrum.setSample(sample);
+                if (props.rt !=null){
+                    spectrum.setStartRt( Double.parseDouble(props.rt) );
+                    spectrum.setEndRt(  spectrum.getStartRt());
+                }
+                double tic = 0.0;
+                for(Point p : xydata){
+                    tic = tic + (double) p.getY();
+                }
+                spectrum.setTic(tic);               
+                spectrum.setBpi(xydata.getMaxY());
+                spectrum.setBpm(xydata.getX( xydata.searchIndicies_by_Y(xydata.getMaxY()).get(0) ));
+                spectrum.setCentroidMode(1);
+                spectrum.setMsStage(props.msStage);
+                if (pointList.getMinX()!=null){
+                    spectrum.setLowerMz( pointList.getMinX() );
+                }else{
+                    spectrum.setLowerMz(0.0);
+                }
+                if(pointList.getMaxX()!=null){
+                    spectrum.setUpperMz( pointList.getMaxX() );
+                }else{
+                    spectrum.setUpperMz( 0.0 );
+                }
+                if(  (props.charge != null)){
+                    spectrum.setPolarity( (props.charge > 0)?1:-1) ;
+                }
+                spectrum.setPrecursor(  props.precursorMz );                
+                
+                return Pair.of(spectrum, pointList);
+            }
+            
+            private Pair<Spectrum, PointList> createPrecursorData(Sample sample, Spectrum spectrum, Property props){
+                Spectrum prec_spec = new Spectrum();
+                prec_spec.setSpectrumId( Integer.toString(2*props.index -1));
+                prec_spec.setName(  "Precursor for " + props.title);
+                prec_spec.setSample(sample);
+
+                if (props.rt !=null){
+                    prec_spec.setStartRt( Double.parseDouble(props.rt)-0.001 );
+                    prec_spec.setEndRt(  prec_spec.getStartRt());
+                }
+                prec_spec.setCentroidMode(1);
+                prec_spec.setMsStage(1);
+
+                PointList prec_pointList = null;
+                XYData prec_xydata = null;
+                Pair<PointList,XYData> prec_points = null;
+                Double ar_prec_mz[] = { props.precursorMz };
+                Double ar_prec_intensity[] = new Double[1];     
+                if( props.precursorIntensity !=null && props.precursorIntensity > 0.0 ){
+                    ar_prec_intensity[0] =  props.precursorIntensity ;
+                }else{
+                    ar_prec_intensity[0] = spectrum.getTic() ;
+                }
+                prec_spec.setTic(ar_prec_intensity[0]);
+                prec_spec.setBpm( props.precursorMz );
+                prec_spec.setBpi(ar_prec_intensity[0] );  
+
+                try {
+                    prec_points = this.createPointList( ar_prec_mz, ar_prec_intensity );
+                    prec_pointList = prec_points.getLeft();
+
+                } catch (Exception ex) {
+                    Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                if (prec_pointList.getMinX()!=null){
+                    prec_spec.setLowerMz( prec_pointList.getMinX() -1.0 );
+                }else{
+                    prec_spec.setLowerMz(0.0);
+                }
+                if(prec_pointList.getMaxX()!=null){
+                    prec_spec.setUpperMz( prec_pointList.getMaxX() + 1.0 );
+                }else{
+                    prec_spec.setUpperMz( 0.0 );
+                }
+                if(  (props.charge != null)){
+                    prec_spec.setPolarity( spectrum.getPolarity() ) ;
+                }                    
+                    
+                return Pair.of(prec_spec, prec_pointList);                  
+            
+            }
+            
             
         };
     }
@@ -350,9 +361,12 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
             props.precursorMz = q.getPrecursorMZ();
         }
         if (props.charge == null){
+            props.precursorIntensity  = q.getPrecursorIntensity();
+        }
+        if (props.charge == null){
             props.charge = q.getPrecursorCharge();
         }
-    
+   
         return props;
     }
     
@@ -364,6 +378,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
             msStage=null;
             rt=null;
             precursorMz=null;
+            precursorIntensity=null;
             charge=null;
             title=null;
         }
@@ -375,10 +390,13 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
         private String rt;
 
         private Double precursorMz;
+        
+        private Double precursorIntensity;
 
         private Integer charge;
 
         private String title;
+        
     }
     
     
