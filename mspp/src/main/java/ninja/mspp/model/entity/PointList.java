@@ -180,6 +180,10 @@ public class PointList implements Serializable {
 			e.printStackTrace();
 			return null;
 		}
+                
+                points.sort((p1,p2) -> {
+                    return Double.compare(p1.getX() , p2.getX());
+                });
 
 		XYData xyData = new XYData( points, false );
 		if( this.minX != null ) {
