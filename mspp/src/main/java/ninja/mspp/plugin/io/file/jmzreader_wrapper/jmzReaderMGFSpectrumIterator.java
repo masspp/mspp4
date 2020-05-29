@@ -96,7 +96,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
              * @throws Exception
              *
              */
-            private Pair<PointList,XYData> createPointList(Double[] xArray, Double[] yArray) throws Exception {
+            private PointList createPointList(Double[] xArray, Double[] yArray) throws Exception {
                 PointList pointList = new PointList();
 
                 int count = 0;
@@ -121,10 +121,6 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                     double x = xArray[i];
                     double y = yArray[i];
                     
-                    Point p = new Point(x,y);
-                    points.add(p);
-                    
-
                     xOut.writeDouble(x);
                     yOut.writeDouble(y);
 
@@ -141,7 +137,6 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                         maxY = y;
                     }
                 }
-                XYData xydata = new XYData(points, true);
 
                 xOut.close();
                 yOut.close();
@@ -155,7 +150,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                 pointList.setxArray(xCache.toByteArray());
                 pointList.setyArray(yCache.toByteArray());
 
-                return Pair.of(pointList,xydata);
+                return pointList;
             }
             
             private Pair<Spectrum, PointList> createMS2Data(Ms2Query q, Property props){
@@ -165,26 +160,24 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
 
                 Map<Double, Double> peakList = q.getPeakList();
                 PointList pointList = null;
-                XYData xydata = null;
-                Pair<PointList,XYData> points = null;
                 try {
-                    points = this.createPointList(
+                    pointList = this.createPointList(
                             (Double []) peakList.keySet().toArray(new Double[0]),
                             (Double []) peakList.values().toArray(new Double[0])
                     );
                 } catch (Exception ex) {
                     Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                pointList = points.getLeft();
-                xydata = points.getRight();
 
-                spectrum.setSpectrumId( Integer.toString(2*props.index) );
+                spectrum.setSpectrumId( Integer.toString(2*(props.index-1)) );
                 spectrum.setName( props.title);
                 spectrum.setSample(sample);
                 if (props.rt !=null){
                     spectrum.setStartRt( Double.parseDouble(props.rt) );
                     spectrum.setEndRt(  spectrum.getStartRt());
                 }
+                
+                XYData xydata = pointList.getXYData();
                 double tic = 0.0;
                 for(Point p : xydata){
                     tic = tic + (double) p.getY();
@@ -214,7 +207,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
             
             private Pair<Spectrum, PointList> createPrecursorData(Sample sample, Spectrum spectrum, Property props){
                 Spectrum prec_spec = new Spectrum();
-                prec_spec.setSpectrumId( Integer.toString(2*props.index -1));
+                prec_spec.setSpectrumId( Integer.toString(2*props.index - 1));
                 prec_spec.setName(  "Precursor for " + props.title);
                 prec_spec.setSample(sample);
 
@@ -226,8 +219,6 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                 prec_spec.setMsStage(1);
 
                 PointList prec_pointList = null;
-                XYData prec_xydata = null;
-                Pair<PointList,XYData> prec_points = null;
                 Double ar_prec_mz[] = { props.precursorMz };
                 Double ar_prec_intensity[] = new Double[1];     
                 if( props.precursorIntensity !=null && props.precursorIntensity > 0.0 ){
@@ -240,9 +231,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                 prec_spec.setBpi(ar_prec_intensity[0] );  
 
                 try {
-                    prec_points = this.createPointList( ar_prec_mz, ar_prec_intensity );
-                    prec_pointList = prec_points.getLeft();
-
+                    prec_pointList = this.createPointList( ar_prec_mz, ar_prec_intensity );
                 } catch (Exception ex) {
                     Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
                 }
