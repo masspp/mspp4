@@ -1,4 +1,4 @@
-/*
+/**
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,43 +27,24 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group (https://www.mspp.ninja/)
- * @author Masayo Kimura
- * @since Sun Mar 18 10:41:24 JST 2018
+ * @author Mass++ Users Group
+ * @author Satoshi Tanaka
+ * @since 2018-03-13 18:14:26+09:00
  *
- * Copyright (c) 2018 Masayo Kimura
+ * Copyright (c) 2018, Mass++ Users Group
  * All rights reserved.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ninja.mspp.model.dataobject;
+package ninja.mspp.annotation.method;
 
-/**
- *
- * @author masakimu
- */
-public class Point<T extends Number> extends Paired<T> implements XYProvider<T> {
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-    /**
-     *
-     * @param x The X coordinate of this Point.
-     * @param y The Y coordinate of this Point.
-     */
-    public Point(T x, T y){
-        super(x,y);
-    }
-
-    @Override
-    public T getX(){
-        return this.getLeft();
-    }
-
-    @Override
-    public T getY(){
-        return this.getRight();
-    }
-
+@Retention( RetentionPolicy.RUNTIME )
+@Target( ElementType.METHOD )
+public @interface ProcessedFileInput {
+ 	String title();
+	String[] extensions();   
 }
+

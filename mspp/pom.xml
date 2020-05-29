@@ -91,21 +91,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
-
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-
-                <dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>1.3.2</version>
 		</dependency>
                 <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
@@ -127,7 +116,13 @@
 			<artifactId>jmzml</artifactId>
 			<version>1.7.9</version>
 		</dependency>
-		<dependency>
+                <dependency>
+                       <groupId>uk.ac.ebi.pride.tools</groupId>
+                       <artifactId>jmzreader</artifactId>
+                       <version>2.0.6</version>
+                       <type>jar</type>
+                </dependency>
+                <dependency>
 			<!-- put this later than commons-math3 -->
 			<groupId>uk.ac.ebi.pride.utilities</groupId>
 			<artifactId>ms-data-core-api</artifactId>

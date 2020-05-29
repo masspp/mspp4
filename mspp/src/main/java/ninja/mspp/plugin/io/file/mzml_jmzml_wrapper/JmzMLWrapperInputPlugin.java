@@ -37,15 +37,11 @@
 package ninja.mspp.plugin.io.file.mzml_jmzml_wrapper;
 
 import java.io.File;
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ninja.mspp.annotation.method.FileInput;
-import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.dataobject.Precursor;
 import ninja.mspp.model.dataobject.SampleObject;
 import software.amazon.awssdk.utils.Md5Utils;
@@ -61,12 +57,14 @@ import uk.ac.ebi.jmzml.xml.io.MzMLUnmarshaller;
  *
  * @author masakimu
 */
-@Plugin( "mzML Input Plugin" )
+//Commented out by Masaki Murase to use other mzML parser
+//@Plugin( "mzML Input Plugin" )
 public class JmzMLWrapperInputPlugin {
 
     private static final Logger logger = LoggerFactory.getLogger(JmzMLWrapperInputPlugin.class);
 
-    @FileInput( title = "mzML", ext = "mzML")
+    //Commented out by Masaki Murase to use other mzML parser
+    //@FileInput( title = "mzML", ext = "mzML")
     public SampleObject openMzML(String path) throws Exception {
         jmzMLSample sample = new jmzMLSample();
         System.out.println("file path: " + path);
@@ -164,10 +162,11 @@ public class JmzMLWrapperInputPlugin {
                     }
                 }
             }
-            spec.setId( uid );
+            spec.setId( uid ); //unique id in your PC.
             spec.setId_jmzml(jmzmlspec.getId());
             spec.setName( spec.getId_jmzml());
             spec.setTitle( sample.getFileName() + " ("+ spec.getName() + ")");
+            spec.setIndex(Integer.toString(jmzmlspec.getIndex()+1)); // start from 1
             
             String msg = "loaded Spectrum(Id: " + uid + 
                     ", Title: " + spec.getTitle() +  ")";

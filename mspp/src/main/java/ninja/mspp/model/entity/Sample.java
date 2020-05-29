@@ -58,6 +58,7 @@ import javax.persistence.Table;
 @Table(name="SAMPLES")
 @NamedQuery(name="Sample.findAll", query="SELECT s FROM Sample s")
 public class Sample implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -99,6 +100,10 @@ public class Sample implements Serializable {
 	//bi-directional many-to-one association to Spectrum
 	@OneToMany(mappedBy="sample" )
 	private List<Spectrum> spectras;
+        
+        //bi-directional many-to-one association to PeakListHeader
+	@OneToMany(mappedBy="sample")
+	private List<PeakListHeader> peaklistheaders;
 
 	public Sample() {
 	}
@@ -244,6 +249,32 @@ public class Sample implements Serializable {
 	public void setSpectras(List<Spectrum> spectras) {
 		this.spectras = spectras;
 	}
+              
+        /**
+         * @return the peaklistheader
+         */
+        public List<PeakListHeader> getPeakListHeaders() {
+            return peaklistheaders;
+        }
+
+        /**
+         * @param peaklistheader the peaklistheader to set
+         */
+        public void setPeakListHeaders(List<PeakListHeader> peaklistheaders) {
+            this.peaklistheaders = peaklistheaders;
+        }
+        
+        public PeakListHeader addPeakListHeader(PeakListHeader peaklistheader){
+            getPeakListHeaders().add(peaklistheader);
+            peaklistheader.setSample(this);
+            return peaklistheader;    
+        }
+        
+        public PeakListHeader removePeakListHader(PeakListHeader peaklistheader){
+            getPeakListHeaders().remove(peaklistheader);
+            peaklistheader.setSample(null);
+            return peaklistheader;
+        }
 
 	public Spectrum addSpectra(Spectrum spectra) {
 		getSpectras().add(spectra);

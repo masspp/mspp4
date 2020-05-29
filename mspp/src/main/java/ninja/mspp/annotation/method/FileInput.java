@@ -45,5 +45,5 @@ import java.lang.annotation.Target;
 @Target( ElementType.METHOD )
 public @interface FileInput {
 	String title();
-	String ext();
+	String [] extensions();
 }

@@ -38,9 +38,6 @@ package ninja.mspp.service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,12 +47,16 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 
 import javafx.scene.control.ProgressIndicator;
+
+import ninja.mspp.io.msdatareader.AbstractMSDataReader;
 import ninja.mspp.model.dataobject.Point;
 import ninja.mspp.model.dataobject.XYData;
 import ninja.mspp.model.entity.Chromatogram;
@@ -76,16 +77,6 @@ import ninja.mspp.repository.GroupSpectrumRepository;
 import ninja.mspp.repository.PointListRepository;
 import ninja.mspp.repository.SampleRepository;
 import ninja.mspp.repository.SpectrumRepository;
-import umich.ms.datatypes.lcmsrun.LCMSRunInfo;
-import umich.ms.datatypes.lcmsrun.MsSoftware;
-import umich.ms.datatypes.scan.IScan;
-import umich.ms.datatypes.scan.props.Instrument;
-import umich.ms.datatypes.scan.props.Polarity;
-import umich.ms.datatypes.scan.props.PrecursorInfo;
-import umich.ms.datatypes.spectrum.ISpectrum;
-import umich.ms.fileio.filetypes.mzml.MZMLFile;
-import umich.ms.fileio.filetypes.mzml.MZMLIndex;
-import umich.ms.fileio.filetypes.mzml.MZMLIndexElement;
 
 @Service
 public class RawDataService {
@@ -135,11 +126,13 @@ public class RawDataService {
 	 * @return spectra
 	 */
 	public List< Spectrum > findSpectra( Sample sample ) {
-		List< Spectrum > spectra = new ArrayList< Spectrum >();
+		List< Spectrum > spectra = new ArrayList<>();
 		if( sample == null ) {
 			return spectra;
 		}
 		QSpectrum qSpectrum = QSpectrum.spectrum;
+                // TODO: have to sort spectra here  : Masaki Murase 2020.5.8
+                //      since I don't sort scans when loaded scans is saved into database from data file at data input adaptor.
 		BooleanExpression expression = qSpectrum.sample.eq( sample );
 		for( Spectrum spectrum : this.spectrumRepository.findAll( expression ) ) {
 			spectra.add( spectrum );
@@ -153,7 +146,7 @@ public class RawDataService {
 	 * @return chromatograms
 	 */
 	public List< Chromatogram > findChromatograms( Sample sample ) {
-		List< Chromatogram > chromatograms = new ArrayList< Chromatogram >();
+		List< Chromatogram > chromatograms = new ArrayList<>();
 		if( sample == null ) {
 			return chromatograms;
 		}
@@ -183,67 +176,60 @@ public class RawDataService {
         /**
          * registers raw data
          * 
-         * @param path
+         * @param reader object
          * @param progress
          * @param start
          * @param end
          * @throws Exception 
          */
-	public void register( String path, ProgressIndicator progress, double start, double end )  throws Exception {
+	public void register( AbstractMSDataReader reader, ProgressIndicator progress, double start, double end )  throws Exception {
 		progress.setProgress( start );
-		System.out.println( String.format( "Registering Sample [%s].....", path ) );
-
-		MZMLFile mzml = new MZMLFile( path );
-		mzml.setNumThreadsForParsing( null );
-		Sample sample = this.createSampleObject( mzml, path );
+		Sample sample = reader.getSample();
 		sample = this.sampleRepository.save( sample );
 
-		MZMLIndex index = mzml.fetchIndex();
-		Map< Integer, MZMLIndexElement > map = index.getMapByRawNum();
-		Map< String, Spectrum > spectrumMap = new HashMap< String, Spectrum >();
-		List< Integer > scanNumberList = new ArrayList< Integer >( map.keySet() );
-		scanNumberList.sort(
-			( scan1, scan2 ) -> {
-				return ( scan1 - scan2 );
-			}
-		);
-		int total = scanNumberList.size();
+		Map< String, Spectrum > spectrumMap = new HashMap< >();
+		int total = reader.getNumOfSpectra();
 		int count = 0;
 
-		List< Point< Double > > ticPoints = new ArrayList< Point< Double > >();
+		List< Point< Double > > ticPoints = new ArrayList<>();
 
-		for( Integer scanNumber: scanNumberList ) {
-			MZMLIndexElement element = map.get( scanNumber );
-			String id = element.getId();
-			System.out.println( String.format( "    Registering Spectrum [%s].....", id ) );
+                // TODO: order of  specpiont may not be sorted by scan id. need to check order-dependent GUI behavior.
+		for( Pair<Spectrum, PointList> specpoint: reader.getSpectraPointList(sample, spectrumMap) ) {
+                        
+                    PointList pointList = this.pointRepository.save(specpoint.getRight());  // save spectrum data points into DB
+			
+                    Spectrum spectrum = specpoint.getLeft(); 
+                    spectrum.setPointListId( pointList.getId() );
+                    spectrum = this.spectrumRepository.save( spectrum );
+                    String id = Long.toString( spectrum.getId());                
+                    System.out.println( String.format( "    Registering Spectrum [%s].....", id ) );
+                    spectrumMap.put( id, spectrum ); 
 
-			IScan scan = null;
-			try {
-				scan = mzml.parseScan( element.getNumber(), true );
-			}
-			catch( Exception e )  {
-				scan = mzml.parseScan( element.getNumber(), false );
-			}
-			Spectrum spectrum = this.createSpectrum( scan, sample, id, spectrumMap  );
-			spectrumMap.put( id, spectrum );
-			spectrum = this.spectrumRepository.save( spectrum );
+                    Point< Double > point = new Point<>( spectrum.getStartRt(), spectrum.getTic() );
+                    ticPoints.add( point );
 
-			Point< Double > point = new Point< Double >( spectrum.getStartRt(), spectrum.getTic() );
-			ticPoints.add( point );
-
-			double t = ( double )count / ( double ) total;
-			double position = ( 1.0 - t ) * start + t * end;
-			progress.setProgress( position );
-			count++;
+                    double t = ( double )count / ( double ) total;
+                    double position = ( 1.0 - t ) * start + t * end;
+                    progress.setProgress( position );
+                    count++;
 		}
+                
+                List<Chromatogram> chromatograms = new ArrayList<>();
+                for( Pair<Chromatogram, PointList> chrpoint : reader.getChromatograms(sample)){
+                    chromatograms.add(chrpoint.getLeft());
+                    //TODO: implement to save PointList of chromatogram
+                }
+                
+                if(  chromatograms.isEmpty() ){
 
-		if( ticPoints.size() > 0 ) {
-			Chromatogram chromatogram = this.createChromatogram( sample, ticPoints, "TIC", null );
-			chromatogram = this.chromatogramRepository.save( chromatogram );
-		}
+                    if( ticPoints.size() > 0 ) {
+                            Chromatogram chromatogram = this.createChromatogram( sample, ticPoints, "TIC", null );
+                            this.chromatogramRepository.save( chromatogram );
+                    }
+                }
 
-		mzml.close();
-		progress.setProgress( end );
+		reader.close();
+                progress.setProgress( end );
 	}
 
 	/**
@@ -261,112 +247,6 @@ public class RawDataService {
 		return chromatogram;
 	}
 
-	/**
-	 * creates sample object
-	 * @param mzml mzml object
-	 * @param path file path
-	 * @return sample object
-	 * @throws Exception
-	 */
-	private Sample createSampleObject( MZMLFile mzml, String path ) throws Exception {
-		File file = new File( path );
-		String md5 = DigestUtils.md5Hex( new FileInputStream( file ) );
-
-		LCMSRunInfo run = mzml.fetchRunInfo();
-		Instrument instrument = null;
-		if( run != null ) {
-			instrument = run.getDefaultInstrument();
-		}
-
-		Sample sample = new Sample();
-		sample.setFilepath( file.getAbsolutePath() );
-		sample.setFilename( file.getName() );
-		sample.setMd5( md5 );
-		sample.setRegistrationDate( new Timestamp( System.currentTimeMillis() ) );
-		if( instrument != null ) {
-			sample.setInstrumentVendor( instrument.getManufacturer() );
-			sample.setInstrumentModel( instrument.getModel() );
-			sample.setInstrumentAnalyzer( instrument.getAnalyzer() );
-			sample.setIonization( instrument.getIonisation() );;
-		}
-
-		MsSoftware software = null;
-		if( run != null ) {
-			for( MsSoftware currentSoftware : run.getSoftware() ) {
-				if( software == null ) {
-					software = currentSoftware;
-				}
-			}
-		}
-
-		if( software != null ) {
-			sample.setAcquisitionsoftware( software.name );
-		}
-
-		return sample;
-	}
-
-	/**
-	 * creates spectrum
-	 * @param scan scan
-	 * @param sample sample
-	 * @return spectrum
-	 */
-	private Spectrum createSpectrum( IScan scan, Sample sample, String id, Map< String, Spectrum > spectrumMap ) throws Exception {
-		Spectrum spectrum = new Spectrum();
-		Polarity polarity = scan.getPolarity();
-
-		ISpectrum points = scan.getSpectrum();
-		PointList pointList = this.createPointList( points );
-		pointList = this.pointRepository.save( pointList );
-
-		spectrum.setSpectrumId( id );
-		spectrum.setName( id );
-		spectrum.setSample( sample );
-		spectrum.setStartRt( scan.getRt() );
-		spectrum.setEndRt( scan.getRt() );
-		spectrum.setBpi( scan.getBasePeakIntensity() );
-		spectrum.setBpm( scan.getBasePeakMz() );
-		spectrum.setTic( scan.getTic() );
-		spectrum.setCentroidMode( scan.isCentroided() ? 1 : 0 );
-		spectrum.setPointListId( pointList.getId() );
-		spectrum.setMsStage( scan.getMsLevel() );
-		spectrum.setLowerMz( scan.getScanMzWindowLower() );
-		spectrum.setUpperMz( scan.getScanMzWindowUpper() );
-		spectrum.setMaxIntensity( pointList.getMaxY() );
-		if( polarity != null ) {
-			spectrum.setPolarity( polarity.getSign() );
-		}
-
-		PrecursorInfo precursor = scan.getPrecursor();
-		if( precursor != null ) {
-			Spectrum parent = spectrumMap.get( precursor.getParentScanRefRaw() );
-			if( parent != null ) {
-				spectrum.setParentSpectrumId( parent.getId() );
-				Double precursorMz = precursor.getMzTargetMono();
-				if( precursorMz == null ) {
-					precursorMz = precursor.getMzTarget();
-				}
-				spectrum.setPrecursor( precursorMz );
-			}
-		}
-
-		return spectrum;
-	}
-
-	/**
-	 * creates point list
-	 * @param points points
-	 * @return point list object
-	 */
-	private PointList createPointList( ISpectrum points ) throws Exception {
-		if( points != null ) {
-			return this.createPointList( points.getMZs(), points.getIntensities() );
-		}
-		else {
-			return this.createPointList( new double[ 0 ], new double[ 0 ] );
-		}
-	}
 
 	/**
 	 * creates point list
