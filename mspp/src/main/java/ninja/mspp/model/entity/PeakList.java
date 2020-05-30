@@ -81,13 +81,13 @@ public class PeakList implements Serializable {
         /**
          * Scan Number of spectrum (start from 1)
          */
-        private Integer index;
+        private Long scanNo;
         
         /**
-         * position index in peaklist file (start from 1)
+         * peak list internal serial number (start from 1)
          */
-        private Integer index_positional;
-        
+        private Long index;
+          
         @Column(nullable=true)
         private Integer msStage;
         
@@ -103,7 +103,7 @@ public class PeakList implements Serializable {
         @Column(columnDefinition="clob") // just for derby to override default settings of clob(255)
         @Lob
         private String title;
-
+        
 	public PeakList() {
 	}
 
@@ -140,17 +140,17 @@ public class PeakList implements Serializable {
         
         
         /**
-         * @return the index
+         * @return the scanNo
          */
-        public Integer getIndex() {
-            return index;
+        public Long getScanNo() {
+            return scanNo;
         }
 
         /**
-         * @param index the index to set
+         * @param index the scanNo to set
          */
-        public void setIndex(Integer index) {
-            this.index = index;
+        public void setScanNo(Long index) {
+            this.scanNo = index;
         }
 
         /**
@@ -253,17 +253,17 @@ public class PeakList implements Serializable {
         }
         
    /**
-     * @return the index_positional
+     * @return the index
      */
-    public Integer getIndex_positional() {
-        return index_positional;
+    public Long getIndex() {
+        return index;
     }
 
     /**
-     * @param index_positional the index_positional to set
+     * @param index_positional the index to set
      */
-    public void setIndex_positional(Integer index_positional) {
-        this.index_positional = index_positional;
+    public void setIndex(Long index) {
+        this.index = index;
     }
 
     

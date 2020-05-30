@@ -66,10 +66,10 @@ public class JmzReaderSaveMGFtoDBTest {
     @Test
     public void savePeakList() throws Exception {
         PeakList peaklist = new PeakList();
-        peaklist.setIndex(1);
+        peaklist.setIndex(Long.valueOf(1) );
         peaklist.setMsStage(1);
         peaklist.setTitle("HOGEHOGE");
-        peaklist.setIndex(2);
+        peaklist.setScanNo(Long.valueOf(2));
         testEntityManager.persistAndFlush(peaklist);
         List<PeakList> pls = peaklistRepository.findAll();
         assertEquals("HOGEHOGE", pls.get(0).getTitle());
@@ -77,21 +77,22 @@ public class JmzReaderSaveMGFtoDBTest {
     }
     
 
+    //TODO: update for new PeakListHeader nad PeakList entity classes
     @Test
     public void testGeneratePeaklistfromMGF() throws Exception {      
         MgfFile mgfFile = new MgfFile( new File(test_file_path));
         
-        int count =0;
+        Long count = Long.valueOf(0);
         for (Ms2Query q: mgfFile.getMs2QueryIterator()){
             count++;
             PeakList peaklist = new PeakList();
-            peaklist.setIndex_positional(count);
+            peaklist.setIndex(count);
              
             // Obtain Peaklist Properties
             Property props = getPropertiesbyTitle(q.getTitle());
             props = UpdatePropertiesByAPI(q, props);  
             
-            peaklist.setIndex(props.index);
+            peaklist.setScanNo(props.index);
             peaklist.setMsStage(props.msStage);
             peaklist.setRt(props.rt);
             peaklist.setPrecursorMz(props.precursorMz);
@@ -114,7 +115,7 @@ public class JmzReaderSaveMGFtoDBTest {
         
         List<PeakList> pls = peaklistRepository.findAll();
         assertEquals(4, pls.size());
-        assertEquals((Integer)152, pls.get(1).getIndex());
+        assertEquals(Long.valueOf(152), pls.get(1).getScanNo());
         List<Peak> peaks2 = pls.get(1).getPeaks();
         //peaks2.sort((p1, p2)-> Double.compare(p1.getPeakPosition(), p2.getPeakPosition()));
         assertEquals(260.19671, peaks2.get(1).getPeakPosition(), 0.0);
@@ -134,7 +135,7 @@ public class JmzReaderSaveMGFtoDBTest {
             title=null;
         }
     
-        private Integer index;
+        private Long index;
 
         private Integer msStage;
 
@@ -156,7 +157,7 @@ public class JmzReaderSaveMGFtoDBTest {
     private Property UpdatePropertiesByAPI(Ms2Query q, Property props){
 
         if (props.index ==null){
-            props.index=Integer.parseInt(q.getId());  // Take Care: This is not Scan No
+            props.index=Long.parseLong(q.getId());  // Take Care: This is not Scan No
         }
         if (props.msStage==null){
             props.msStage=q.getMsLevel();
@@ -194,7 +195,7 @@ public class JmzReaderSaveMGFtoDBTest {
         int spec_id_start = title.indexOf(spec_id_str)+spec_id_str.length();
         int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
         if (spec_id_start > -1 && spec_id_end >-1){
-            props.index = Integer.parseInt(title.substring(spec_id_start, spec_id_end));
+            props.index = Long.parseLong(title.substring(spec_id_start, spec_id_end));
             //System.out.println("Title: " + title+ "\n");
             //System.out.println(spec_id_str+ props.index );
         }

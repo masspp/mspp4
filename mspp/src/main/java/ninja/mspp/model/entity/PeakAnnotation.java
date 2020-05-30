@@ -71,6 +71,9 @@ public class PeakAnnotation implements Serializable {
 
 	@ManyToOne
 	private PeakPosition peakPosition;
+        
+    @Column
+    private Long peaklist_id;
 
 	public Long getId() {
 		return id;
@@ -119,4 +122,19 @@ public class PeakAnnotation implements Serializable {
 	public void setPeakPosition(PeakPosition peakPosition) {
 		this.peakPosition = peakPosition;
 	}
+        
+    /**
+     * @return the peaklist_id
+     */
+    public Long getPeaklist_id() {
+        return peaklist_id;
+    }
+
+    /**
+     * @param peaklist_id the peaklist_id to set
+     */
+    public void setPeaklist_id(Long peaklist_id) {
+        this.peaklist_id = peaklist_id;
+    }
+    
 }
