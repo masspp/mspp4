@@ -116,7 +116,6 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                 Double minY = null;
                 Double maxY = null;
 
-                ArrayList<Point<Double>> points = new ArrayList<>();
                 for (int i = 0; i < count; i++) {
                     double x = xArray[i];
                     double y = yArray[i];
@@ -258,6 +257,8 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
         };
     }
     
+    
+    //TODO: change following code as static class and functions
     /**
      * extract meta information from peaklist title
      * 

@@ -52,7 +52,7 @@ public class jmzReaderMGFReader extends AbstractMSDataReader {
     private File file;
     private SearchType searchType;
     
-    public jmzReaderMGFReader(String path) throws JMzReaderException {
+    public jmzReaderMGFReader(String path) throws Exception {
         super(path);
         this.file = new File(path);
         this.mgfFile = new MgfFile(this.file);

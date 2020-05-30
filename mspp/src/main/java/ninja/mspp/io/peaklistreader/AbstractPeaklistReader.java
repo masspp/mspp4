@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ninja.mspp.io.msdatareader;
+package ninja.mspp.io.peaklistreader;
 
 import java.nio.file.Paths;
 
+
 /**
  *
- * @author masakimu
+ * @author masaki
  */
-public abstract class AbstractMSDataReader implements IMSDataReader {
-
+public abstract class AbstractPeaklistReader implements IPeaklistReader {
+    
     /**
      * @return the path
      */
@@ -30,10 +31,8 @@ public abstract class AbstractMSDataReader implements IMSDataReader {
      * 
      * @param path 
      */
-    public AbstractMSDataReader(String path) throws Exception{
+    public AbstractPeaklistReader(String path) throws Exception {
         this.path = Paths.get(path).toAbsolutePath().normalize().toString();
     }
-    
-    
-    
+
 }

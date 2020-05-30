@@ -48,13 +48,13 @@ import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.tools.FileTool;
-import ninja.mspp.annotation.method.ProcessedFileInput;
+import ninja.mspp.annotation.method.PeaklistFileInput;
 
 
 
 @Plugin( "Peaklist File IO" )
 @Component
-public class ProcessedFileInputPlugin {
+public class PeakListFileInputPlugin {
     
 
         
@@ -77,11 +77,11 @@ public class ProcessedFileInputPlugin {
 		//SampleObject sample = null; 
                 // Need to prevent to register file with same path or checksum. 
 
-		List< PluginMethod< ProcessedFileInput > > methods = manager.getMethods(ProcessedFileInput.class );
+		List< PluginMethod< PeaklistFileInput > > methods = manager.getMethods(PeaklistFileInput.class );
 
-		for( PluginMethod< ProcessedFileInput > method: methods ) {
+		for( PluginMethod< PeaklistFileInput > method: methods ) {
 			Object plugin = method.getPlugin();
-			ProcessedFileInput annotation = method.getAnnotation();
+			PeaklistFileInput annotation = method.getAnnotation();
                         boolean is_ext_matched=false;
                         for(String annotation_ext: annotation.extensions()){
                             if (annotation_ext.compareToIgnoreCase(ext)==0){

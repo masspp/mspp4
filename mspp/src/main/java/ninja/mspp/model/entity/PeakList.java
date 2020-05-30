@@ -74,6 +74,9 @@ public class PeakList implements Serializable {
         @ManyToOne
         private PeakListHeader peaklistheader;
         
+        /**
+         * just reserved (not used yet)
+         */
         @ManyToOne
         private Spectrum spectrum;
         

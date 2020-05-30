@@ -53,10 +53,19 @@ public class PeakListHeader implements Serializable {
         private String processingSoftware;
         
         /**
-         * path of peaklist file (expect full path)
+         * software name used to import peaklist.
          */
         @Column
-        private String path;
+        private String parsingSoftware;
+        
+        /**
+         * filePath of peaklist file (expect full filePath)
+         */
+        @Column
+        private String filePath;
+        
+        @Column
+        private String fileName;
         
         /**
          * checksum of peak list file.
@@ -104,29 +113,15 @@ public class PeakListHeader implements Serializable {
         * @return the peaklists
         */
         public List<PeakList> getPeakLists() {
-            return peaklists;
+            return getPeaklists();
         }
 
         /**
          * @param peaklists the peaklists to set
          */
         public void setPeakLists(List<PeakList> peaklists) {
-            this.peaklists = peaklists;
+            this.setPeaklists(peaklists);
         }
-
-    /**
-     * @return the processingSoftware of peak detection
-     */
-    public String getSoftwareName() {
-        return processingSoftware;
-    }
-
-    /**
-     * @param softwareName the software Name of peak detection to set
-     */
-    public void setSoftwareName(String softwareName) {
-        this.processingSoftware = softwareName;
-    }
 
     /**
      * @return the md5
@@ -189,6 +184,83 @@ public class PeakListHeader implements Serializable {
      */
     public Project getProject() {
         return project;
+    }
+
+    /**
+     * @return the filePath
+     */
+    public String getFilePath() {
+        return filePath;
+    }
+
+    /**
+     * @return the fileName
+     */
+    public String getFileName() {
+        return fileName;
+    }
+
+    /**
+     * @return the peaklists
+     */
+    public List<PeakList> getPeaklists() {
+        return peaklists;
+    }
+
+    /**
+     * @param peaklists the peaklists to set
+     */
+    public void setPeaklists(List<PeakList> peaklists) {
+        this.peaklists = peaklists;
+    }
+
+    /**
+     * @param project the project to set
+     */
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    /**
+     * @param filePath the filePath to set
+     */
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    /**
+     * @param fileName the fileName to set
+     */
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    /**
+     * @return the processingSoftware
+     */
+    public String getProcessingSoftware() {
+        return processingSoftware;
+    }
+
+    /**
+     * @param processingSoftware the processingSoftware to set
+     */
+    public void setProcessingSoftware(String processingSoftware) {
+        this.processingSoftware = processingSoftware;
+    }
+
+
+    /**
+     * @return the parsingSoftware
+     */
+    public String getParsingSoftware() {
+        return parsingSoftware;
+    }
+
+    /**
+     * @param parsingSoftware the parsingSoftware to set
+     */
+    public void setParsingSoftware(String parsingSoftware) {
+        this.parsingSoftware = parsingSoftware;
     }
 
 }

@@ -65,7 +65,7 @@ public class MsftbxMzMLReader extends AbstractMSDataReader{
     
     private MZMLFile mzml;
     
-    public MsftbxMzMLReader(String path) {
+    public MsftbxMzMLReader(String path) throws Exception {
         super(path);
         this.mzml = new MZMLFile( this.getPath() );
     }
