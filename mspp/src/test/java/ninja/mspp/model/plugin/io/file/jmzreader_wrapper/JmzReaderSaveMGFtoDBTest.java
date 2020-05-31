@@ -41,7 +41,6 @@ import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFPeaklistReader;
 import ninja.mspp.repository.PeakListHeaderRepository;
 import ninja.mspp.repository.PeakListRepository;
 import ninja.mspp.service.PeaklistService;
-import ninja.mspp.service.RawDataService;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -54,7 +53,6 @@ import org.springframework.context.ApplicationContext;
  */
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @DataJpaTest
 public class JmzReaderSaveMGFtoDBTest {
     
@@ -193,8 +191,29 @@ public class JmzReaderSaveMGFtoDBTest {
         assertEquals("test-mspp.mgf", header.getFileName());
         assertEquals("dammy File: dammy.raw, not sorted, NativeID:controllerType=0 controllerNumber=1 scan=3",
                 header.getPeaklists().get(1).getTitle());
+        assertEquals( 500.5,   header.getPeaklists().get(1).getPeaks().get(1).getMz(), 0.0);
+        assertEquals( 900.5,   header.getPeaklists().get(1).getPeaks().get(1).getIntensity(), 0.0);
 
     }
+
+// how to call peaklistService as Beans?    
+//    @Test
+//    public void savePeakListToDBusingService() throws Exception {
+//        ProgressBar progress = new ProgressBar();
+//        
+//        jmzReaderMGFPeaklistReader reader = new jmzReaderMGFPeaklistReader( test_file_path );
+//        
+//
+//        peaklistService.register(reader, "Proteo Wizard maybe", progress, 1.0, 1.0);
+//        
+//        List<PeakListHeader> headers = peakilstHeadeRepository.findAll();
+//        PeakListHeader header = headers.get(0);
+//        assertEquals("test-mspp.mgf", header.getFileName());
+//        assertEquals("dammy File: dammy.raw, not sorted, NativeID:controllerType=0 controllerNumber=1 scan=3",
+//                header.getPeaklists().get(1).getTitle());
+//
+//    }
+    
     
     // Companion internal class  
     // TODO: prepare static companion utility class in jmzreader plugins
