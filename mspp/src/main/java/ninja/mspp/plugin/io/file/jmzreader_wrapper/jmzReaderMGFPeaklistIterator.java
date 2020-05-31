@@ -72,14 +72,13 @@ public class jmzReaderMGFPeaklistIterator implements Iterable<Pair<PeakList, XYD
                 peaklist.setIndex( props.index);
                 peaklist.setScanNo( props.index); 
                 peaklist.setTitle(props.title);
-                peaklist.setPeakListHeader(header);
+                //header.addPeaklist(peaklist);
                 if (props.rt !=null){
                     peaklist.setRt( props.rt);
                 }
                 peaklist.setMsStage(props.msStage);
                 peaklist.setPrecursorCharge(props.charge);
-                peaklist.setPrecursorMz(props.precursorMz);
-               
+                peaklist.setPrecursorMz(props.precursorMz);               
                 
                 return Pair.of(peaklist, xydata);
 

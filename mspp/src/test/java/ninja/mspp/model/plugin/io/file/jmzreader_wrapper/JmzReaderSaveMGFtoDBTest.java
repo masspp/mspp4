@@ -10,6 +10,11 @@ import java.util.Map.Entry;
 import java.util.List;
 import java.io.File;
 import java.net.URL;
+import javafx.scene.control.ProgressBar;
+import ninja.mspp.io.msdatareader.AbstractMSDataReader;
+import ninja.mspp.io.peaklistreader.AbstractPeaklistReader;
+import ninja.mspp.model.dataobject.Point;
+import ninja.mspp.model.dataobject.XYData;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,23 +27,34 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
 import uk.ac.ebi.pride.tools.mgf_parser.MgfFile;
 import uk.ac.ebi.pride.tools.mgf_parser.model.Ms2Query;
 
 import ninja.mspp.model.entity.Peak;        
 import ninja.mspp.model.entity.PeakList;
+import ninja.mspp.model.entity.PeakListHeader;
 import ninja.mspp.plugin.io.file.PeakListFileInputPlugin;
 //import ninja.mspp.repository.PeakListRepository;
 import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFInputPlugin;
+import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFPeaklistReader;
+import ninja.mspp.repository.PeakListHeaderRepository;
 import ninja.mspp.repository.PeakListRepository;
+import ninja.mspp.service.PeaklistService;
 import ninja.mspp.service.RawDataService;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+//import ninja.mspp.service.RawDataService;
 
 
 /**
  *
  * @author masakimu
  */
+
 @RunWith(SpringRunner.class)
+@SpringBootTest
 @DataJpaTest
 public class JmzReaderSaveMGFtoDBTest {
     
@@ -50,13 +66,19 @@ public class JmzReaderSaveMGFtoDBTest {
     private TestEntityManager testEntityManager;
     
     @Autowired
+     private ApplicationContext context;
+    
+    @Autowired
     private PeakListRepository peaklistRepository;
     
-    //@Autowired
-    //private PeakListFileInputPlugin  peaklistFileInputPlugin;
+    @Autowired
+    private PeakListHeaderRepository peakilstHeadeRepository;
     
-    //@Autowired
-    //private RawDataService rawDataService;
+//    @Autowired
+//    private PeakListFileInputPlugin  peaklistFileInputPlugin;
+    
+//    @Autowired
+//    private PeaklistService peaklistService;
 
     public JmzReaderSaveMGFtoDBTest(){
     }
@@ -87,7 +109,7 @@ public class JmzReaderSaveMGFtoDBTest {
     }
     
 
-    //TODO: update for new PeakListHeader nad PeakList entity classes
+    // just for PeakList and Peak entity
     @Test
     public void testGeneratePeaklistfromMGF() throws Exception {      
         MgfFile mgfFile = new MgfFile( new File(test_file_path));
@@ -133,6 +155,49 @@ public class JmzReaderSaveMGFtoDBTest {
         assertEquals( (Integer)2, pl1.getPrecursorCharge() );
 
     }
+    
+    @Test
+    public void savePeakListToDBusingPlugin() throws Exception {
+
+        jmzReaderMGFPeaklistReader reader = new jmzReaderMGFPeaklistReader( test_file_path );
+        //peaklistService.register(reader, "Proteo Wizard" , progress, 1.0, 1.0);
+        
+        PeakListHeader header = reader.getPeaklistHeader("Proteo Wizard maybe");
+
+        List<PeakList> peaklists = new ArrayList<>();
+        for( Pair<PeakList, XYData> peakdata : reader.getPeaklists(header)){
+            XYData xydata = peakdata.getRight();
+            List<Peak> peaks = new ArrayList<>();
+            
+            for(Point<Double> p: xydata.getPoints()){
+                Peak peak = new Peak();
+                peak.setMz(p.getX());
+                peak.setIntensity(p.getY());
+                peaks.add(peak);
+            }
+            
+            // save PeakList into DB
+            PeakList peaklist = peakdata.getKey();
+            peaklist.setPeaks(peaks);    
+            //testEntityManager.persist(peaklist);  
+            peaklists.add(peaklist);
+        }
+        header.setPeakLists(peaklists);
+        testEntityManager.persistAndFlush(header);
+        
+        reader.close();
+
+        
+        List<PeakListHeader> headers = peakilstHeadeRepository.findAll();
+        header = headers.get(0);
+        assertEquals("test-mspp.mgf", header.getFileName());
+        assertEquals("dammy File: dammy.raw, not sorted, NativeID:controllerType=0 controllerNumber=1 scan=3",
+                header.getPeaklists().get(1).getTitle());
+
+    }
+    
+    // Companion internal class  
+    // TODO: prepare static companion utility class in jmzreader plugins
     
     protected class Property{
         

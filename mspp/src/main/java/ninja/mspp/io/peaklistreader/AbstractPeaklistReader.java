@@ -5,6 +5,7 @@
  */
 package ninja.mspp.io.peaklistreader;
 
+import java.io.File;
 import java.nio.file.Paths;
 
 
@@ -29,10 +30,10 @@ public abstract class AbstractPeaklistReader implements IPeaklistReader {
     
     /**
      * 
-     * @param path 
+     * @param path Absolute path
      */
     public AbstractPeaklistReader(String path) throws Exception {
-        this.path = Paths.get(path).toAbsolutePath().normalize().toString();
+        this.path = path;
     }
 
 }

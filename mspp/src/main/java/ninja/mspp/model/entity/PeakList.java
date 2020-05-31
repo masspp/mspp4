@@ -48,6 +48,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 
 
@@ -72,6 +73,7 @@ public class PeakList implements Serializable {
 	private List<Peak> peaks;
         
         @ManyToOne
+        @JoinColumn(name="PEAKLIST_HEADER_ID")
         private PeakListHeader peaklistheader;
         
         /**

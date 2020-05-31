@@ -58,12 +58,12 @@ public class PeakListFileInputPlugin {
 	private static String RECENT_PEAKLIST_FILE_KEY = "Recent Open Peaklist File";
 
 
-	/**
-	 * save peak list file
-	 * @param file
+        /**
          * 
-	 */
-	protected AbstractPeaklistReader openPeaklistFile( File file ) {
+         * @param file
+         * @return AbstractPeaklistReader
+         */
+	public static AbstractPeaklistReader openPeaklistFile( File file ) {
 		MsppManager manager = MsppManager.getInstance();
                 AbstractPeaklistReader reader = null;
 
