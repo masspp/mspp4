@@ -194,13 +194,13 @@ public class RawDataPanel implements Initializable {
                         is_ext_matched = true;
                         break;
                     }
-                    if( is_ext_matched){
-                        try {
-                                reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
-                        }
-                        catch( Exception e ) {
-                                e.printStackTrace();
-                        }
+                }
+                if( is_ext_matched){
+                    try {
+                            reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
+                    }
+                    catch( Exception e ) {
+                            e.printStackTrace();
                     }
                 }
             }
