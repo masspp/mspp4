@@ -90,6 +90,8 @@ public class ProjectPanel implements Initializable {
 		this.addButton.setText( "" );
 		this.addButton.setGraphic( icon );
 		this.addButton.setTooltip( new Tooltip( "New project ...") );
+
+
 	}
 
 	/**

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.plugin.viewer.settings.SettingsPanel">
+   <center>
+      <SplitPane dividerPositions="0.2" BorderPane.alignment="CENTER">
+         <items>
+            <TreeView fx:id="tree" prefHeight="200.0" prefWidth="200.0" />
+            <BorderPane fx:id="settingsPane" prefHeight="200.0" prefWidth="200.0" />
+         </items>
+      </SplitPane>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER_RIGHT">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_RIGHT" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onApply" prefWidth="120.0" text="Apply" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

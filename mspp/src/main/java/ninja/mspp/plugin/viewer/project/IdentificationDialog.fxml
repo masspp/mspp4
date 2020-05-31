@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="750.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ninja.mspp.plugin.viewer.project.IdentificationDialog">
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" spacing="5.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <Button mnemonicParsing="false" prefWidth="80.0" text="OK" />
+            <Button mnemonicParsing="false" prefWidth="80.0" text="Cancel" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <TabPane>
+         <tabs>
+            <Tab closable="false" text="Peak Detection">
+               <content>
+                  <BorderPane prefHeight="400.0" prefWidth="400.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <top>
+                        <ChoiceBox fx:id="peaksCombo" prefHeight="31.0" prefWidth="877.0" BorderPane.alignment="CENTER_LEFT">
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                        </ChoiceBox>
+                     </top>
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <GridPane alignment="BOTTOM_LEFT" hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="137.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="253.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="S/N Ratio" GridPane.rowIndex="2" />
+                                    <Label text="Min. Peak Spacing" GridPane.rowIndex="3" />
+                                    <TextField fx:id="peakSnText" text="1.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="peakSpacingText" text="0.1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label text="Deisotope" GridPane.rowIndex="1" />
+                                    <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Method" />
+                                    <ChoiceBox fx:id="methodCombo" prefHeight="31.0" prefWidth="319.0" GridPane.columnIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Identification">
+               <content>
+                  <BorderPane prefHeight="400.0" prefWidth="400.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <top>
+                        <ChoiceBox fx:id="identificationCombo" prefHeight="31.0" prefWidth="882.0" BorderPane.alignment="CENTER_LEFT">
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                        </ChoiceBox>
+                     </top>
+                     <left>
+                        <HBox spacing="20.0">
+                           <children>
+                              <GridPane alignment="BOTTOM_LEFT" hgap="5.0" prefHeight="382.0" prefWidth="430.0" vgap="5.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Decoy Search" />
+                                    <Label text="Taxon" GridPane.rowIndex="1" />
+                                    <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
+                                    <TreeView fx:id="taxonView" prefHeight="160.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Enzyme" GridPane.rowIndex="2" />
+                                    <Label text="Enzyme Terminal" GridPane.rowIndex="3" />
+                                    <Label text="Fixed Mod." GridPane.rowIndex="4" />
+                                    <Label text="Variable Mod." GridPane.rowIndex="5" />
+                                    <ChoiceBox fx:id="enzymeCombo" prefHeight="31.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="terminalCombo" prefHeight="31.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ListView fx:id="fixedModList" prefHeight="118.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <ListView fx:id="variableModList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="137.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="253.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="91.0" minHeight="4.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="204.0" minHeight="10.0" prefHeight="183.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="172.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="172.0" minHeight="9.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="197.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="175.0" minHeight="10.0" prefHeight="126.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" prefWidth="435.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="170.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="250.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Max Variable Mods" />
+                                    <Label text="Require Variable Mod" GridPane.rowIndex="1" />
+                                    <Label text="Max Parent Charge" GridPane.rowIndex="2" />
+                                    <Label text="Max Fragment Charge" GridPane.rowIndex="3" />
+                                    <Label text="(N/C)-term Distance" GridPane.rowIndex="4" />
+                                    <Label text="Min Parent m/z" GridPane.rowIndex="5" />
+                                    <Label text="Max Parent m/z" GridPane.rowIndex="6" />
+                                    <Label text="Peptide tol." GridPane.rowIndex="7" />
+                                    <Label text="Fragment Bin Tol." GridPane.rowIndex="8" />
+                                    <Label text="Fragment Bin Offset" GridPane.rowIndex="9" />
+                                    <Label text="Theoritical Fragment Ions" GridPane.rowIndex="10" />
+                                    <Label text="Isotope Error" GridPane.rowIndex="11" />
+                                    <Label prefHeight="21.0" prefWidth="133.0" text="Min Cleavage" GridPane.rowIndex="12" />
+                                    <Label text="Ion Type" GridPane.rowIndex="13" />
+                                    <TextField text="5" GridPane.columnIndex="1" />
+                                    <TextField text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField text="6" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField text="3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField text="600.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField text="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                       <children>
+                                          <TextField prefHeight="31.0" prefWidth="152.0" text="10.0" />
+                                          <ChoiceBox fx:id="tolUnitCombo" prefHeight="31.0" prefWidth="85.0" />
+                                       </children>
+                                    </HBox>
+                                    <TextField text="0.02" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <TextField text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                    <ChoiceBox fx:id="theoriticalCombo" prefHeight="31.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                    <ChoiceBox fx:id="isotopeCombo" prefHeight="31.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                    <ChoiceBox fx:id="cleavageCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="a" />
+                                          <CheckBox mnemonicParsing="false" selected="true" text="b" />
+                                          <CheckBox mnemonicParsing="false" text="c" />
+                                          <CheckBox mnemonicParsing="false" text="x" />
+                                          <CheckBox mnemonicParsing="false" selected="true" text="y" />
+                                          <CheckBox mnemonicParsing="false" text="z" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </HBox>
+                     </left>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Settings">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <GridPane alignment="CENTER_LEFT" hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="180.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="637.0" minWidth="10.0" prefWidth="634.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="73.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="ProteoWizard:" />
+                                    <TextField text="C:\Program Files\ProteoWizard\ProteoWizard 3.0.20123.52854a129\msconvert.exe" GridPane.columnIndex="1" />
+                                    <Button mnemonicParsing="false" text="Refer..." GridPane.columnIndex="2" />
+                                    <Label text="Comet:" GridPane.rowIndex="1" />
+                                    <TextField text="C:\opt\comet\comet.2019015.win64.exe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" text="Refer..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label text="Database Folder:" GridPane.rowIndex="2" />
+                                    <TextField text="C:\database" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" text="Refer..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </center>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

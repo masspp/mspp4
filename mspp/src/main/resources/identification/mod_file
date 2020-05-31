@@ -1,0 +1,9258 @@
+Title:15N-oxobutanoic (N-term C)
+Hidden
+ResiduesNterm:C -17.015759 -17.0160
+*
+Title:15N-oxobutanoic (N-term S)
+Hidden
+ResiduesNterm:S -17.015759 -17.0160
+*
+Title:15N-oxobutanoic (N-term T)
+Hidden
+ResiduesNterm:T -17.015759 -17.0160
+*
+Title:2-dimethylsuccinyl (C)
+Hidden
+Residues:C 247.051444 247.2682
+*
+Title:2-monomethylsuccinyl (C)
+Hidden
+Residues:C 233.035794 233.2416
+*
+Title:2-nitrobenzyl (Y)
+Hidden
+Residues:Y 298.095357 298.2934
+*
+Title:2-succinyl (C)
+Hidden
+Residues:C 219.020144 219.2151
+*
+Title:2HPG (R)
+Hidden
+Residues:R 438.153935 438.4333
+*
+Title:3-deoxyglucosone (R)
+Hidden
+Residues:R 300.143370 300.3110
+*
+Title:3-phosphoglyceryl (K)
+Hidden
+Residues:K 296.077338 296.2143
+*
+Title:3sulfo (N-term)
+Hidden
+Nterm:184.990854 185.1772
+*
+Title:4-ONE (C)
+Hidden
+Residues:C 257.108565 257.3492
+*
+Title:4-ONE (H)
+Hidden
+Residues:H 291.158292 291.3456
+*
+Title:4-ONE (K)
+Hidden
+Residues:K 282.194343 282.3786
+*
+Title:4-ONE+Delta:H(-2)O(-1) (C)
+Hidden
+Residues:C 239.098000 239.3339
+*
+Title:4-ONE+Delta:H(-2)O(-1) (H)
+Hidden
+Residues:H 273.147727 273.3303
+*
+Title:4-ONE+Delta:H(-2)O(-1) (K)
+Hidden
+Residues:K 264.183778 264.3633
+*
+Title:4AcAllylGal (C)
+Hidden
+Residues:C 475.151218 475.5100
+*
+Title:a-type-ion (C-term)
+Hidden
+Cterm:-29.002739 -29.0181
+*
+Title:AccQTag (K)
+Hidden
+Residues:K 298.142976 298.3397
+*
+Title:AccQTag (N-term)
+Hidden
+Nterm:171.055838 171.1753
+*
+Title:Acetyl (K)
+Residues:K 170.105528 170.2090
+*
+Title:Acetyl (N-term)
+Nterm:43.018390 43.0446
+*
+Title:Acetyl (C)
+Hidden
+Residues:C 145.019750 145.1796
+*
+Title:Acetyl (S)
+Hidden
+Residues:S 129.042593 129.1140
+*
+Title:Acetyl (Protein N-term)
+ProteinNterm:43.018390 43.0446
+*
+Title:Acetyl (T)
+Hidden
+Residues:T 143.058244 143.1406
+*
+Title:Acetyl (Y)
+Hidden
+Residues:Y 205.073894 205.2100
+*
+Title:Acetyl (H)
+Hidden
+Residues:H 179.069477 179.1760
+*
+Title:Acetyl (R)
+Hidden
+Residues:R 198.111676 198.2224
+*
+Title:Acetyl:13C(2) (K)
+Hidden
+Residues:K 172.112237 172.1943
+*
+Title:Acetyl:13C(2) (Protein N-term)
+Hidden
+ProteinNterm:45.025099 45.0299
+*
+Title:Acetyl:2H(3) (K)
+Hidden
+Residues:K 173.124358 173.2275
+*
+Title:Acetyl:2H(3) (N-term)
+Hidden
+Nterm:46.037220 46.0631
+*
+Title:Acetyl:2H(3) (H)
+Hidden
+Residues:H 182.088307 182.1945
+*
+Title:Acetyl:2H(3) (S)
+Hidden
+Residues:S 132.061423 132.1325
+*
+Title:Acetyl:2H(3) (T)
+Hidden
+Residues:T 146.077074 146.1591
+*
+Title:Acetyl:2H(3) (Y)
+Hidden
+Residues:Y 208.092724 208.2285
+*
+Title:Acetyl:2H(3) (Protein N-term)
+Hidden
+ProteinNterm:46.037220 46.0631
+*
+Title:Acetyldeoxyhypusine (K)
+Hidden
+Residues:K 225.184112 225.3305
+*
+Title:Acetylhypusine (K)
+Hidden
+Residues:K 241.179027 241.3299
+*
+Title:ADP-Ribosyl (R)
+Hidden
+Residues:R 697.162221 697.4862
+*
+Title:ADP-Ribosyl (C)
+Hidden
+Residues:C 644.070295 644.4434
+*
+Title:ADP-Ribosyl (N)
+Hidden
+Residues:N 655.104037 655.4031
+NeutralLoss:541.061110 541.3005 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:ADP-Ribosyl (ST)
+Hidden
+Residues:S 628.093138 628.3778
+Residues:T 642.108789 642.4044
+NeutralLoss:541.061110 541.3005 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:ADP-Ribosyl (E)
+Hidden
+Residues:E 670.103703 670.4145
+*
+Title:ADP-Ribosyl (K)
+Hidden
+Residues:K 669.156073 669.4728
+*
+Title:ADP-Ribosyl (D)
+Hidden
+Residues:D 656.088053 656.3879
+*
+Title:AEBS (H)
+Hidden
+Residues:H 320.094311 320.3669
+*
+Title:AEBS (K)
+Hidden
+Residues:K 311.130362 311.3999
+*
+Title:AEBS (Protein N-term)
+Hidden
+ProteinNterm:184.043224 184.2355
+*
+Title:AEBS (S)
+Hidden
+Residues:S 270.067427 270.3049
+*
+Title:AEBS (Y)
+Hidden
+Residues:Y 346.098728 346.4009
+*
+Title:AEC-MAEC (S)
+Hidden
+Residues:S 146.051383 146.2107
+*
+Title:AEC-MAEC (T)
+Hidden
+Residues:T 160.067034 160.2373
+*
+Title:AEC-MAEC:2H(4) (S)
+Hidden
+Residues:S 150.076490 150.2353
+*
+Title:AEC-MAEC:2H(4) (T)
+Hidden
+Residues:T 164.092141 164.2619
+*
+Title:AFB1_Dialdehyde (K)
+Hidden
+Residues:K 438.142701 438.4300
+*
+Title:AHA-Alkyne (M)
+Hidden
+Residues:M 238.117824 238.2465
+*
+Title:AHA-Alkyne-KDDDD (M)
+Hidden
+Residues:M 826.320559 826.7684
+*
+Title:AHA-SS (M)
+Hidden
+Residues:M 326.116110 326.3748
+*
+Title:AHA-SS_CAM (M)
+Hidden
+Residues:M 383.137573 383.4261
+*
+Title:Ahx2+Hsl (C-term)
+Hidden
+Cterm:326.207982 326.4112
+*
+Title:Amidated (Protein C-term)
+ProteinCterm:16.018724 16.0225
+*
+Title:Amidated (C-term)
+Cterm:16.018724 16.0225
+*
+Title:Amidine (K)
+Hidden
+Residues:K 169.121512 169.2242
+*
+Title:Amidine (N-term)
+Hidden
+Nterm:42.034374 42.0598
+*
+Title:Amidino (C)
+Hidden
+Residues:C 145.030983 145.1829
+*
+Title:Amino (Y)
+Hidden
+Residues:Y 178.074228 178.1879
+*
+Title:Ammonia-loss (N-term T)
+Hidden
+ResiduesNterm:T -16.018724 -16.0226
+*
+Title:Ammonia-loss (N-term S)
+Hidden
+ResiduesNterm:S -16.018724 -16.0226
+*
+Title:Ammonia-loss (N-term C)
+ResiduesNterm:C -16.018724 -16.0226
+*
+Title:Ammonia-loss (N)
+Hidden
+Residues:N 97.016378 97.0721
+*
+Title:Ammonium (C-term)
+Hidden
+Cterm:34.029289 34.0378
+*
+Title:Ammonium (DE)
+Hidden
+Residues:D 132.053492 132.1179
+Residues:E 146.069142 146.1445
+*
+Title:AMTzHexNAc2 (N)
+Hidden
+Residues:N 616.245268 616.5783
+*
+Title:AMTzHexNAc2 (S)
+Hidden
+Residues:S 589.234369 589.5530
+*
+Title:AMTzHexNAc2 (T)
+Hidden
+Residues:T 603.250020 603.5796
+*
+Title:Archaeol (C)
+Hidden
+Residues:C 737.671967 738.2846
+*
+Title:Arg (N-term)
+Hidden
+Nterm:157.108936 157.1936
+*
+Title:Arg->GluSA (R)
+Hidden
+Residues:R 113.047678 113.1146
+*
+Title:Arg->Npo (R)
+Hidden
+Residues:R 237.086189 237.2154
+*
+Title:Arg->Orn (R)
+Hidden
+Residues:R 114.079313 114.1457
+*
+Title:Arg-loss (C-term R)
+Hidden
+ResiduesCterm:R -139.098371 -139.1784
+*
+Title:Arg2PG (R)
+Hidden
+Residues:R 422.159020 422.4339
+*
+Title:Argbiotinhydrazide (R)
+Hidden
+Residues:R 355.167810 355.4557
+*
+Title:AROD (C)
+Hidden
+Residues:C 923.345200 924.1219
+*
+Title:Aspartylurea (H)
+Hidden
+Residues:H 127.026943 127.0981
+*
+Title:Atto495Maleimide (C)
+Hidden
+Residues:C 577.259700 577.7176
+*
+Title:AzidoF (F)
+Hidden
+Residues:F 188.069811 188.1861
+*
+Title:azole (S)
+Hidden
+Residues:S 67.005813 67.0461
+*
+Title:azole (C)
+Hidden
+Residues:C 82.982970 83.1117
+*
+Title:Bacillosamine (N)
+Hidden
+Residues:N 342.153934 342.3476
+NeutralLoss:228.111007 228.2450 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:BADGE (C)
+Hidden
+Residues:C 443.176644 443.5558
+*
+Title:BDMAPP (H)
+Hidden
+Residues:H 390.069137 391.2624
+*
+Title:BDMAPP (K)
+Hidden
+Residues:K 381.105188 382.2954
+*
+Title:BDMAPP (Protein N-term)
+Hidden
+ProteinNterm:254.018050 255.1310
+*
+Title:BDMAPP (Y)
+Hidden
+Residues:Y 416.073554 417.2964
+*
+Title:BDMAPP (W)
+Hidden
+Residues:W 439.089538 440.3330
+*
+Title:BEMAD_C (C)
+Hidden
+Residues:C 223.033685 223.3130
+*
+Title:BEMAD_C:2H(6) (C)
+Hidden
+Residues:C 229.071346 229.3500
+*
+Title:BEMAD_ST (S)
+Hidden
+Residues:S 223.033684 223.3130
+*
+Title:BEMAD_ST (T)
+Hidden
+Residues:T 237.049335 237.3396
+*
+Title:BEMAD_ST:2H(6) (S)
+Hidden
+Residues:S 229.071345 229.3500
+*
+Title:BEMAD_ST:2H(6) (T)
+Hidden
+Residues:T 243.086996 243.3766
+*
+Title:Benzoyl (K)
+Hidden
+Residues:K 232.121178 232.2784
+*
+Title:Benzoyl (N-term)
+Hidden
+Nterm:105.034040 105.1140
+*
+Title:benzylguanidine (K)
+Hidden
+Residues:K 260.163711 260.3348
+*
+Title:betaFNA (C)
+Hidden
+Residues:C 557.219572 557.6584
+*
+Title:betaFNA (K)
+Hidden
+Residues:K 582.305350 582.6878
+*
+Title:BHT (K)
+Hidden
+Residues:K 346.262028 346.5069
+*
+Title:BHT (H)
+Hidden
+Residues:H 355.225977 355.4739
+*
+Title:BHT (C)
+Hidden
+Residues:C 321.176250 321.4775
+*
+Title:BHTOH (C)
+Hidden
+Residues:C 337.171165 337.4769
+*
+Title:BHTOH (H)
+Hidden
+Residues:H 371.220892 371.4733
+*
+Title:BHTOH (K)
+Hidden
+Residues:K 362.256943 362.5063
+*
+Title:Biotin (K)
+Hidden
+Residues:K 354.172561 354.4677
+*
+Title:Biotin (N-term)
+Hidden
+Nterm:227.085423 227.3033
+*
+Title:Biotin-HPDP (C)
+Hidden
+Residues:C 531.200767 531.7553
+*
+Title:Biotin-PEG-PRA (M)
+Hidden
+Residues:M 709.358131 709.8572
+*
+Title:Biotin-PEO-Amine (Protein C-term)
+Hidden
+ProteinCterm:373.190952 373.4908
+*
+Title:Biotin-PEO-Amine (D)
+Hidden
+Residues:D 471.215155 471.5709
+*
+Title:Biotin-PEO-Amine (E)
+Hidden
+Residues:E 485.230805 485.5975
+*
+Title:Biotin-phenacyl (C)
+Hidden
+Residues:C 729.272687 729.8699
+*
+Title:Biotin-phenacyl (H)
+Hidden
+Residues:H 763.322414 763.8663
+*
+Title:Biotin-phenacyl (S)
+Hidden
+Residues:S 713.295530 713.8043
+*
+Title:Biotin-tyramide (Y)
+Hidden
+Residues:Y 524.209341 524.6318
+*
+Title:Biotin:Cayman-10013 (C)
+Hidden
+Residues:C 763.437627 764.0933
+*
+Title:Biotin:Cayman-10141 (C)
+Hidden
+Residues:C 729.395762 730.0356
+*
+Title:Biotin:Invitrogen-M1602 (C)
+Hidden
+Residues:C 626.219254 626.7453
+*
+Title:Biotin:Sigma-B1267 (C)
+Hidden
+Residues:C 552.182475 552.6668
+*
+Title:Biotin:Thermo-21325 (K)
+Hidden
+Residues:K 823.405081 824.0011
+*
+Title:Biotin:Thermo-21328 (K)
+Hidden
+Residues:K 517.185117 517.7287
+*
+Title:Biotin:Thermo-21328 (N-term)
+Hidden
+Nterm:390.097979 390.5643
+*
+Title:Biotin:Thermo-21330 (K)
+Hidden
+Residues:K 601.314534 601.7558
+*
+Title:Biotin:Thermo-21330 (N-term)
+Hidden
+Nterm:474.227396 474.5914
+*
+Title:Biotin:Thermo-21345 (Q)
+Hidden
+Residues:Q 439.225326 439.5721
+*
+Title:Biotin:Thermo-21360 (C-term)
+Hidden
+Cterm:504.249195 504.6207
+*
+Title:Biotin:Thermo-21901+2H2O (C)
+Hidden
+Residues:C 664.256034 664.7918
+*
+Title:Biotin:Thermo-21901+H2O (C)
+Hidden
+Residues:C 646.245469 646.7765
+*
+Title:Biotin:Thermo-21911 (C)
+Hidden
+Residues:C 1024.470837 1025.2342
+*
+Title:Biotin:Thermo-33033 (N-term)
+Hidden
+Nterm:549.231770 549.7290
+*
+Title:Biotin:Thermo-33033-H (N-term)
+Hidden
+Nterm:547.216120 547.7132
+*
+Title:Biotin:Thermo-88310 (K)
+Hidden
+Residues:K 324.216141 324.4185
+*
+Title:Biotin:Thermo-88317 (Y)
+Hidden
+Residues:Y 606.354623 606.7336
+*
+Title:Biotin:Thermo-88317 (S)
+Hidden
+Residues:S 530.323322 530.6376
+*
+Title:biotinAcrolein298 (C)
+Hidden
+Residues:C 401.155532 401.5473
+*
+Title:biotinAcrolein298 (H)
+Hidden
+Residues:H 435.205259 435.5437
+*
+Title:biotinAcrolein298 (K)
+Hidden
+Residues:K 426.241310 426.5767
+*
+Title:biotinAcrolein298 (Protein N-term)
+Hidden
+ProteinNterm:299.154172 299.4123
+*
+Title:BisANS (K)
+Hidden
+Residues:K 722.186891 722.8292
+*
+Title:bisANS-sulfonates (K)
+Hidden
+Residues:K 565.296737 565.7266
+*
+Title:bisANS-sulfonates (S)
+Hidden
+Residues:S 524.233802 524.6316
+*
+Title:bisANS-sulfonates (T)
+Hidden
+Residues:T 538.249453 538.6582
+*
+Title:BITC (C)
+Hidden
+Residues:C 252.039105 252.3558
+*
+Title:BITC (K)
+Hidden
+Residues:K 277.124883 277.3852
+*
+Title:BITC (N-term)
+Hidden
+Nterm:150.037745 150.2208
+*
+Title:BMP-piperidinol (M)
+Hidden
+Residues:M 394.171499 394.5298
+*
+Title:BMP-piperidinol (C)
+Hidden
+Residues:C 366.140199 366.4766
+*
+Title:Bodipy (C)
+Hidden
+Residues:C 517.176663 517.3564
+*
+Title:Brij35 (N-term)
+Hidden
+Nterm:169.195626 169.3269
+*
+Title:Brij58 (N-term)
+Hidden
+Nterm:225.258226 225.4332
+*
+Title:Bromo (W)
+Hidden
+Residues:W 263.989824 265.1060
+*
+Title:Bromo (H)
+Hidden
+Residues:H 214.969423 216.0354
+*
+Title:Bromo (F)
+Hidden
+Residues:F 224.978925 226.0700
+*
+Title:Bromo (Y)
+Hidden
+Residues:Y 240.973840 242.0694
+*
+Title:Bromobimane (C)
+Hidden
+Residues:C 293.083413 293.3415
+*
+Title:Butyryl (K)
+Hidden
+Residues:K 198.136828 198.2621
+*
+Title:C8-QAT (K)
+Hidden
+Residues:K 355.319878 355.5585
+*
+Title:C8-QAT (N-term)
+Hidden
+Nterm:228.232740 228.3941
+*
+Title:CAF (N-term)
+Hidden
+Nterm:136.990854 137.1344
+*
+Title:CAMthiopropanoyl (K)
+Hidden
+Residues:K 273.114712 273.3519
+*
+Title:CAMthiopropanoyl (Protein N-term)
+Hidden
+ProteinNterm:146.027574 146.1875
+*
+Title:Can-FP-biotin (S)
+Hidden
+Residues:S 534.227707 534.6064
+*
+Title:Can-FP-biotin (Y)
+Hidden
+Residues:Y 610.259008 610.7024
+*
+Title:Can-FP-biotin (T)
+Hidden
+Residues:T 548.243358 548.6330
+*
+Title:Carbamidomethyl (C)
+Residues:C 160.030649 160.1942
+*
+Title:Carbamidomethyl (K)
+Hidden
+Residues:K 185.116427 185.2236
+*
+Title:Carbamidomethyl (N-term)
+Nterm:58.029289 58.0592
+*
+Title:Carbamidomethyl (H)
+Hidden
+Residues:H 194.080376 194.1906
+*
+Title:Carbamidomethyl (D)
+Hidden
+Residues:D 172.048407 172.1387
+*
+Title:Carbamidomethyl (E)
+Hidden
+Residues:E 186.064057 186.1653
+*
+Title:Carbamidomethyl (S)
+Hidden
+Residues:S 144.053492 144.1286
+*
+Title:Carbamidomethyl (T)
+Hidden
+Residues:T 158.069143 158.1552
+*
+Title:Carbamidomethyl (Y)
+Hidden
+Residues:Y 220.084793 220.2246
+*
+Title:Carbamidomethyl (U)
+Hidden
+Residues:U 207.975097 207.0892
+*
+Title:Carbamidomethyl (M)
+Hidden
+Residues:M 188.061949 188.2474
+NeutralLoss:105.024835 105.1588 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:CarbamidomethylDTT (C)
+Hidden
+Residues:C 312.027220 312.4293
+*
+Title:Carbamyl (K)
+Residues:K 171.100777 171.1970
+*
+Title:Carbamyl (N-term)
+Nterm:44.013639 44.0326
+*
+Title:Carbamyl (R)
+Hidden
+Residues:R 199.106925 199.2104
+*
+Title:Carbamyl (C)
+Hidden
+Residues:C 146.014999 146.1676
+*
+Title:Carbamyl (M)
+Hidden
+Residues:M 174.046299 174.2208
+*
+Title:Carbamyl (S)
+Hidden
+Residues:S 130.037842 130.1020
+*
+Title:Carbamyl (T)
+Hidden
+Residues:T 144.053493 144.1286
+*
+Title:Carbamyl (Y)
+Hidden
+Residues:Y 206.069143 206.1980
+*
+Title:Carbamyl (Protein N-term)
+Hidden
+ProteinNterm:44.013639 44.0326
+*
+Title:Carbofuran (S)
+Hidden
+Residues:S 145.061317 145.1366
+*
+Title:Carbonyl (A)
+Hidden
+Residues:A 85.016379 85.0614
+*
+Title:Carbonyl (E)
+Hidden
+Residues:E 143.021858 143.0975
+*
+Title:Carbonyl (I)
+Hidden
+Residues:I 127.063329 127.1411
+*
+Title:Carbonyl (L)
+Hidden
+Residues:L 127.063329 127.1411
+*
+Title:Carbonyl (Q)
+Hidden
+Residues:Q 142.037843 142.1127
+*
+Title:Carbonyl (R)
+Hidden
+Residues:R 170.080376 170.1692
+*
+Title:Carbonyl (S)
+Hidden
+Residues:S 101.011293 101.0608
+*
+Title:Carbonyl (V)
+Hidden
+Residues:V 113.047679 113.1146
+*
+Title:Carboxy (W)
+Hidden
+Residues:W 230.069142 230.2194
+*
+Title:Carboxy (K)
+Hidden
+Residues:K 172.084792 172.1818
+*
+Title:Carboxy (D)
+Hidden
+Residues:D 159.016772 159.0969
+*
+Title:Carboxy (E)
+Hidden
+Residues:E 173.032422 173.1235
+*
+Title:Carboxy (N-term M)
+Hidden
+ResiduesNterm:M 44.997654 45.0174
+*
+Title:Carboxy->Thiocarboxy (C-term G)
+Hidden
+ResiduesCterm:G 32.979896 33.0729
+*
+Title:Carboxyethyl (K)
+Hidden
+Residues:K 200.116092 200.2350
+*
+Title:Carboxyethyl (H)
+Hidden
+Residues:H 209.080041 209.2020
+*
+Title:Carboxyethylpyrrole (K)
+Hidden
+Residues:K 250.131742 250.2936
+*
+Title:Carboxymethyl (C)
+Residues:C 161.014664 161.1790
+*
+Title:Carboxymethyl (K)
+Hidden
+Residues:K 186.100442 186.2084
+*
+Title:Carboxymethyl (N-term)
+Hidden
+Nterm:59.013304 59.0440
+*
+Title:Carboxymethyl (W)
+Hidden
+Residues:W 244.084792 244.2460
+*
+Title:Carboxymethyl (U)
+Hidden
+Residues:U 208.959112 208.0740
+*
+Title:Carboxymethyl:13C(2) (C)
+Hidden
+Residues:C 163.021374 163.1643
+*
+Title:CarboxymethylDMAP (N-term)
+Hidden
+Nterm:163.087138 163.1964
+*
+Title:CarboxymethylDTT (C)
+Hidden
+Residues:C 313.011235 313.4141
+*
+Title:Cation:Ag (DE)
+Hidden
+Residues:D 220.924210 221.9477
+Residues:E 234.939860 235.9743
+*
+Title:Cation:Ag (C-term)
+Hidden
+Cterm:122.900007 123.8676
+*
+Title:Cation:Al[III] (DE)
+Hidden
+Residues:D 138.985006 139.0451
+Residues:E 153.000656 153.0717
+*
+Title:Cation:Al[III] (C-term)
+Hidden
+Cterm:40.960803 40.9650
+*
+Title:Cation:Ca[II] (DE)
+Hidden
+Residues:D 152.973884 153.1495
+Residues:E 166.989534 167.1761
+*
+Title:Cation:Ca[II] (C-term)
+Hidden
+Cterm:54.949681 55.0694
+*
+Title:Cation:Cu[I] (DE)
+Hidden
+Residues:D 176.948717 177.6255
+Residues:E 190.964367 191.6521
+*
+Title:Cation:Cu[I] (C-term)
+Hidden
+Cterm:78.924514 79.5454
+*
+Title:Cation:Cu[I] (H)
+Hidden
+Residues:H 198.980686 199.6774
+*
+Title:Cation:Fe[III] (DE)
+Hidden
+Residues:D 167.938407 167.9086
+Residues:E 181.954057 181.9352
+*
+Title:Cation:Fe[III] (C-term)
+Hidden
+Cterm:69.914204 69.8285
+*
+Title:Cation:Fe[II] (DE)
+Hidden
+Residues:D 168.946232 168.9165
+Residues:E 182.961882 182.9431
+*
+Title:Cation:Fe[II] (C-term)
+Hidden
+Cterm:70.922029 70.8364
+*
+Title:Cation:K (DE)
+Hidden
+Residues:D 152.982825 153.1778
+Residues:E 166.998475 167.2044
+*
+Title:Cation:K (C-term)
+Hidden
+Cterm:54.958622 55.0977
+*
+Title:Cation:Li (DE)
+Hidden
+Residues:D 121.035121 121.0205
+Residues:E 135.050771 135.0471
+*
+Title:Cation:Li (C-term)
+Hidden
+Cterm:23.010918 22.9404
+*
+Title:Cation:Mg[II] (DE)
+Hidden
+Residues:D 136.996335 137.3765
+Residues:E 151.011985 151.4031
+*
+Title:Cation:Mg[II] (C-term)
+Hidden
+Cterm:38.972132 39.2964
+*
+Title:Cation:Na (C-term)
+Cterm:38.984683 38.9891
+*
+Title:Cation:Na (DE)
+Residues:D 137.008886 137.0692
+Residues:E 151.024536 151.0958
+*
+Title:Cation:Ni[II] (DE)
+Hidden
+Residues:D 170.946639 171.7649
+Residues:E 184.962289 185.7915
+*
+Title:Cation:Ni[II] (C-term)
+Hidden
+Cterm:72.922436 73.6848
+*
+Title:Cation:Zn[II] (DE)
+Hidden
+Residues:D 176.940438 178.4805
+Residues:E 190.956088 192.5071
+*
+Title:Cation:Zn[II] (C-term)
+Hidden
+Cterm:78.916235 80.4004
+*
+Title:Cation:Zn[II] (H)
+Hidden
+Residues:H 198.972407 200.5324
+*
+Title:cGMP (C)
+Hidden
+Residues:C 446.040970 446.3324
+*
+Title:cGMP (S)
+Hidden
+Residues:S 430.063813 430.2668
+*
+Title:cGMP+RMP-loss (C)
+Hidden
+Residues:C 253.050770 253.2611
+*
+Title:cGMP+RMP-loss (S)
+Hidden
+Residues:S 237.073613 237.1955
+*
+Title:CHDH (D)
+Hidden
+Residues:D 409.210052 409.4733
+*
+Title:Chlorination (Y)
+Hidden
+Residues:Y 197.024357 197.6184
+*
+Title:Chlorination (W)
+Hidden
+Residues:W 220.040341 220.6550
+*
+Title:Cholesterol (Protein C-term)
+Hidden
+ProteinCterm:385.347042 385.6456
+*
+Title:CIGG (K)
+Hidden
+Residues:K 458.231139 458.5755
+*
+Title:CLIP_TRAQ_2 (K)
+Hidden
+Residues:K 269.193281 269.3479
+*
+Title:CLIP_TRAQ_2 (N-term)
+Hidden
+Nterm:142.106143 142.1835
+*
+Title:CLIP_TRAQ_2 (Y)
+Hidden
+Residues:Y 304.161647 304.3489
+*
+Title:CLIP_TRAQ_3 (K)
+Hidden
+Residues:K 399.243699 399.4699
+*
+Title:CLIP_TRAQ_3 (N-term)
+Hidden
+Nterm:272.156561 272.3055
+*
+Title:CLIP_TRAQ_3 (Y)
+Hidden
+Residues:Y 434.212065 434.4709
+*
+Title:CLIP_TRAQ_4 (K)
+Hidden
+Residues:K 372.196415 372.4015
+*
+Title:CLIP_TRAQ_4 (N-term)
+Hidden
+Nterm:245.109277 245.2371
+*
+Title:CLIP_TRAQ_4 (Y)
+Hidden
+Residues:Y 407.164781 407.4025
+*
+Title:CoenzymeA (C)
+Hidden
+Residues:C 868.108745 868.6611
+*
+Title:Cresylphosphate (H)
+Hidden
+Residues:H 307.072193 307.2417
+*
+Title:Cresylphosphate (K)
+Hidden
+Residues:K 298.108244 298.2747
+*
+Title:Cresylphosphate (R)
+Hidden
+Residues:R 326.114392 326.2881
+*
+Title:Cresylphosphate (S)
+Hidden
+Residues:S 257.045309 257.1797
+*
+Title:Cresylphosphate (T)
+Hidden
+Residues:T 271.060960 271.2063
+*
+Title:Cresylphosphate (Y)
+Hidden
+Residues:Y 333.076610 333.2757
+*
+Title:CresylSaligeninPhosphate (H)
+Hidden
+Residues:H 413.114058 413.3637
+*
+Title:CresylSaligeninPhosphate (K)
+Hidden
+Residues:K 404.150109 404.3967
+*
+Title:CresylSaligeninPhosphate (R)
+Hidden
+Residues:R 432.156257 432.4101
+*
+Title:CresylSaligeninPhosphate (S)
+Hidden
+Residues:S 363.087174 363.3017
+*
+Title:CresylSaligeninPhosphate (T)
+Hidden
+Residues:T 377.102825 377.3283
+*
+Title:CresylSaligeninPhosphate (Y)
+Hidden
+Residues:Y 439.118475 439.3977
+*
+Title:Crotonaldehyde (C)
+Hidden
+Residues:C 173.051050 173.2327
+*
+Title:Crotonaldehyde (H)
+Hidden
+Residues:H 207.100777 207.2291
+*
+Title:Crotonaldehyde (K)
+Hidden
+Residues:K 198.136828 198.2621
+*
+Title:Crotonyl (K)
+Hidden
+Residues:K 196.121178 196.2463
+*
+Title:CuSMo (C)
+Hidden
+Residues:C 1025.844040 1025.2099
+*
+Title:Cy3-maleimide (C)
+Hidden
+Residues:C 856.271981 857.0475
+*
+Title:Cy3b-maleimide (C)
+Hidden
+Residues:C 785.255305 785.9281
+*
+Title:Cyano (C)
+Hidden
+Residues:C 128.004434 128.1524
+*
+Title:CyDye-Cy3 (C)
+Hidden
+Residues:C 775.307341 775.9764
+*
+Title:CyDye-Cy5 (C)
+Hidden
+Residues:C 787.307341 787.9871
+*
+Title:Cys->CamSec (C)
+Hidden
+Residues:C 207.975098 207.0892
+*
+Title:Cys->Dha (C)
+Hidden
+Residues:C 69.021464 69.0620
+*
+Title:Cys->ethylaminoAla (C)
+Hidden
+Residues:C 114.079313 114.1457
+*
+Title:Cys->methylaminoAla (C)
+Hidden
+Residues:C 100.063663 100.1191
+*
+Title:Cys->Oxoalanine (C)
+Hidden
+Residues:C 85.016379 85.0614
+*
+Title:Cys->PyruvicAcid (N-term C)
+Hidden
+ResiduesNterm:C -31.995880 -32.0882
+*
+Title:Cys->SecNEM (C)
+Hidden
+Residues:C 276.001312 275.1632
+*
+Title:Cys->SecNEM:2H(5) (C)
+Hidden
+Residues:C 281.032696 280.1940
+*
+Title:Cysteinyl (C)
+Hidden
+Residues:C 222.013284 222.2852
+*
+Title:cysTMT (C)
+Hidden
+Residues:C 402.175933 402.5751
+*
+Title:cysTMT6plex (C)
+Hidden
+Residues:C 407.186387 407.5391
+*
+Title:Cytopiloyne (C)
+Hidden
+Residues:C 465.145738 465.5167
+*
+Title:Cytopiloyne (K)
+Hidden
+Residues:K 490.231516 490.5461
+*
+Title:Cytopiloyne (N-term)
+Hidden
+Nterm:363.144378 363.3817
+*
+Title:Cytopiloyne (P)
+Hidden
+Residues:P 459.189317 459.4890
+*
+Title:Cytopiloyne (R)
+Hidden
+Residues:R 518.237664 518.5595
+*
+Title:Cytopiloyne (S)
+Hidden
+Residues:S 449.168581 449.4511
+*
+Title:Cytopiloyne (Y)
+Hidden
+Residues:Y 525.199882 525.5471
+*
+Title:Cytopiloyne+water (C)
+Hidden
+Residues:C 483.156303 483.5320
+*
+Title:Cytopiloyne+water (K)
+Hidden
+Residues:K 508.242081 508.5614
+*
+Title:Cytopiloyne+water (N-term)
+Hidden
+Nterm:381.154943 381.3970
+*
+Title:Cytopiloyne+water (R)
+Hidden
+Residues:R 536.248229 536.5748
+*
+Title:Cytopiloyne+water (S)
+Hidden
+Residues:S 467.179146 467.4664
+*
+Title:Cytopiloyne+water (T)
+Hidden
+Residues:T 481.194797 481.4930
+*
+Title:Cytopiloyne+water (Y)
+Hidden
+Residues:Y 543.210447 543.5624
+*
+Title:DAET (S)
+Hidden
+Residues:S 174.082683 174.2639
+*
+Title:DAET (T)
+Hidden
+Residues:T 188.098334 188.2905
+*
+Title:Dansyl (K)
+Hidden
+Residues:K 361.146012 361.4585
+*
+Title:Dansyl (N-term)
+Hidden
+Nterm:234.058874 234.2941
+*
+Title:Dap-DSP (A)
+Hidden
+Residues:A 435.113392 435.5156
+*
+Title:Dap-DSP (E)
+Hidden
+Residues:E 493.118871 493.5517
+*
+Title:Dap-DSP (K)
+Hidden
+Residues:K 492.171241 492.6100
+*
+Title:Deamidated (NQ)
+Residues:N 115.026943 115.0874
+Residues:Q 129.042594 129.1140
+*
+Title:Deamidated (R)
+Hidden
+Residues:R 157.085127 157.1705
+NeutralLoss:43.005814 43.0247 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Deamidated (N-term F)
+Hidden
+ResiduesNterm:F 1.991841 1.9927
+*
+Title:Deamidated:18O(1) (NQ)
+Hidden
+Residues:N 117.031188 117.0871
+Residues:Q 131.046839 131.1137
+*
+Title:Decanoyl (S)
+Hidden
+Residues:S 241.167793 241.3266
+*
+Title:Decanoyl (T)
+Hidden
+Residues:T 255.183444 255.3532
+*
+Title:Decarboxylation (D)
+Hidden
+Residues:D 85.016378 85.0614
+*
+Title:Decarboxylation (E)
+Hidden
+Residues:E 99.032028 99.0880
+*
+Title:DEDGFLYMVYASQETFG (K)
+Hidden
+Residues:K 2098.919374 2100.2603
+NeutralLoss:18.010565 18.0153 0
+*
+Title:Dehydrated (C-term N)
+Hidden
+ResiduesCterm:N -1.007825 -1.0080
+*
+Title:Dehydrated (C-term Q)
+Hidden
+ResiduesCterm:Q -1.007825 -1.0080
+*
+Title:Dehydrated (S)
+Hidden
+Residues:S 69.021463 69.0620
+*
+Title:Dehydrated (T)
+Hidden
+Residues:T 83.037114 83.0886
+*
+Title:Dehydrated (Y)
+Hidden
+Residues:Y 145.052764 145.1580
+*
+Title:Dehydrated (D)
+Hidden
+Residues:D 97.016378 97.0721
+*
+Title:Dehydrated (N-term C)
+ResiduesNterm:C -17.002740 -17.0074
+*
+Title:Dehydro (C)
+Residues:C 102.001360 102.1350
+*
+Title:Delta:H(-4)O(2) (W)
+Hidden
+Residues:W 214.037842 214.1769
+*
+Title:Delta:H(-4)O(3) (W)
+Hidden
+Residues:W 230.032757 230.1763
+*
+Title:Delta:H(1)N(-1)18O(1) (N)
+Hidden
+Residues:N 117.031188 117.0871
+*
+Title:Delta:H(10)C(8)O(1) (K)
+Hidden
+Residues:K 250.168128 250.3367
+*
+Title:Delta:H(2)C(2) (H)
+Hidden
+Residues:H 163.074562 163.1766
+*
+Title:Delta:H(2)C(2) (K)
+Hidden
+Residues:K 154.110613 154.2096
+*
+Title:Delta:H(2)C(2) (Protein N-term)
+Hidden
+ProteinNterm:27.023475 27.0452
+*
+Title:Delta:H(2)C(2) (N-term)
+Hidden
+Nterm:27.023475 27.0452
+*
+Title:Delta:H(2)C(3) (K)
+Hidden
+Residues:K 166.110613 166.2203
+*
+Title:Delta:H(2)C(3)O(1) (K)
+Hidden
+Residues:K 182.105528 182.2197
+*
+Title:Delta:H(2)C(3)O(1) (R)
+Hidden
+Residues:R 210.111676 210.2331
+*
+Title:Delta:H(2)C(5) (K)
+Hidden
+Residues:K 190.110613 190.2417
+*
+Title:Delta:H(3)C(3)O(2) (K)
+Hidden
+Residues:K 199.108267 199.2270
+*
+Title:Delta:H(4)C(2) (H)
+Hidden
+Residues:H 165.090212 165.1925
+*
+Title:Delta:H(4)C(2) (K)
+Hidden
+Residues:K 156.126263 156.2255
+*
+Title:Delta:H(4)C(2) (N-term)
+Hidden
+Nterm:29.039125 29.0611
+*
+Title:Delta:H(4)C(2)O(-1)S(1) (S)
+Hidden
+Residues:S 131.040484 131.1961
+*
+Title:Delta:H(4)C(3) (H)
+Hidden
+Residues:H 177.090212 177.2032
+*
+Title:Delta:H(4)C(3) (K)
+Hidden
+Residues:K 168.126263 168.2362
+*
+Title:Delta:H(4)C(3) (Protein N-term)
+Hidden
+ProteinNterm:41.039125 41.0718
+*
+Title:Delta:H(4)C(3)O(1) (C)
+Hidden
+Residues:C 159.035400 159.2062
+*
+Title:Delta:H(4)C(3)O(1) (H)
+Hidden
+Residues:H 193.085127 193.2026
+*
+Title:Delta:H(4)C(3)O(1) (K)
+Hidden
+Residues:K 184.121178 184.2356
+*
+Title:Delta:H(4)C(3)O(1) (R)
+Hidden
+Residues:R 212.127326 212.2490
+*
+Title:Delta:H(4)C(5)O(1) (R)
+Hidden
+Residues:R 236.127326 236.2704
+*
+Title:Delta:H(4)C(6) (K)
+Hidden
+Residues:K 204.126263 204.2683
+*
+Title:Delta:H(5)C(2) (P)
+Hidden
+Residues:P 126.091889 126.1763
+*
+Title:Delta:H(6)C(3)O(1) (C)
+Hidden
+Residues:C 161.051050 161.2220
+*
+Title:Delta:H(6)C(3)O(1) (H)
+Hidden
+Residues:H 195.100777 195.2184
+*
+Title:Delta:H(6)C(3)O(1) (K)
+Hidden
+Residues:K 186.136828 186.2514
+*
+Title:Delta:H(6)C(3)O(1) (Protein N-term)
+Hidden
+ProteinNterm:59.049690 59.0870
+*
+Title:Delta:H(6)C(6)O(1) (K)
+Hidden
+Residues:K 222.136828 222.2835
+*
+Title:Delta:H(6)C(7)O(4) (R)
+Hidden
+Residues:R 310.127720 310.3058
+*
+Title:Delta:H(8)C(6)O(1) (K)
+Hidden
+Residues:K 224.152478 224.2994
+*
+Title:Delta:H(8)C(6)O(1) (Protein N-term)
+Hidden
+ProteinNterm:97.065340 97.1350
+*
+Title:Delta:H(8)C(6)O(2) (K)
+Hidden
+Residues:K 240.147393 240.2988
+*
+Title:Delta:Hg(1) (C)
+Hidden
+Residues:C 304.979802 303.7329
+*
+Title:Delta:O(4) (W)
+Hidden
+Residues:W 250.058972 250.2075
+*
+Title:Delta:S(-1)Se(1) (M)
+Hidden
+Residues:M 178.984934 178.0911
+*
+Title:Delta:S(-1)Se(1) (C)
+Hidden
+Residues:C 150.953634 150.0379
+*
+Title:Delta:Se(1) (C)
+Hidden
+Residues:C 182.925705 182.1029
+*
+Title:Deoxy (D)
+Hidden
+Residues:D 99.032028 99.0880
+*
+Title:Deoxy (S)
+Hidden
+Residues:S 71.037113 71.0779
+*
+Title:Deoxy (T)
+Hidden
+Residues:T 85.052764 85.1045
+*
+Title:Deoxyhypusine (K)
+Hidden
+Residues:K 199.168462 199.2933
+*
+Title:Deoxyhypusine (Q)
+Hidden
+Residues:Q 199.132077 199.2502
+*
+Title:DeStreak (C)
+Hidden
+Residues:C 179.007470 179.2605
+*
+Title:Dethiomethyl (M)
+Hidden
+Residues:M 83.037114 83.0886
+*
+Title:dHex (ST)
+Hidden
+Residues:S 233.089937 233.2185
+Residues:T 247.105588 247.2451
+NeutralLoss:146.057909 146.1412 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex (N)
+Hidden
+Residues:N 260.100836 260.2438
+NeutralLoss:146.057909 146.1412 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1) (ST)
+Hidden
+Residues:S 395.142760 395.3591
+Residues:T 409.158411 409.3857
+NeutralLoss:308.110732 308.2818 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexA(1)HexNAc(3) (ST)
+Hidden
+Residues:S 1180.412966 1181.0608
+Residues:T 1194.428617 1195.0874
+NeutralLoss:1093.380938 1093.9835 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(1)Kdn(1) (ST)
+Hidden
+Residues:S 848.291001 848.7543
+Residues:T 862.306652 862.7809
+NeutralLoss:761.258973 761.6770 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(1)NeuAc(1) (ST)
+Hidden
+Residues:S 889.317550 889.8062
+Residues:T 903.333201 903.8328
+NeutralLoss:802.285522 802.7289 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(1)NeuGc(1) (ST)
+Hidden
+Residues:S 905.312464 905.8056
+Residues:T 919.328115 919.8322
+NeutralLoss:818.280436 818.7283 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1051.370373 1051.9468
+Residues:T 1065.386024 1065.9734
+NeutralLoss:964.338345 964.8695 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 1092.396922 1092.9987
+Residues:T 1106.412573 1107.0253
+NeutralLoss:1005.364894 1005.9214 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(2)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1172.353737 1173.0619
+Residues:T 1186.369388 1187.0885
+NeutralLoss:1085.321709 1085.9846 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(2)NeuAc(2) (ST)
+Hidden
+Residues:S 1383.492339 1384.2533
+Residues:T 1397.507990 1398.2799
+NeutralLoss:1296.460311 1297.1760 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 881.258320 881.8073
+Residues:T 895.273971 895.8339
+NeutralLoss:794.226292 794.7300 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(3) (ST)
+Hidden
+Residues:S 1004.380878 1004.9367
+Residues:T 1018.396529 1018.9633
+NeutralLoss:917.348850 917.8594 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1295.476295 1296.1912
+Residues:T 1309.491946 1310.2178
+NeutralLoss:1208.444267 1209.1139 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(3)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1375.433109 1376.2544
+Residues:T 1389.448760 1390.2810
+NeutralLoss:1288.401081 1289.1771 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(3)NeuGc(1) (ST)
+Hidden
+Residues:S 1311.471209 1312.1906
+Residues:T 1325.486860 1326.2172
+NeutralLoss:1224.439181 1225.1133 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1084.337693 1084.9999
+Residues:T 1098.353344 1099.0265
+NeutralLoss:997.305665 997.9226 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(1)HexNAc(4) (ST)
+Hidden
+Residues:S 1207.460251 1208.1292
+Residues:T 1221.475902 1222.1558
+NeutralLoss:1120.428223 1121.0519 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2) (ST)
+Hidden
+Residues:S 557.195584 557.4997
+Residues:T 571.211235 571.5263
+NeutralLoss:470.163556 470.4224 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexA(1) (ST)
+Hidden
+Residues:S 733.227672 733.6238
+Residues:T 747.243323 747.6504
+NeutralLoss:646.195644 646.5465 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexA(1)HexNAc(1) (ST)
+Hidden
+Residues:S 936.307045 936.8163
+Residues:T 950.322696 950.8429
+NeutralLoss:849.275017 849.7390 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexA(1)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1016.263859 1016.8795
+Residues:T 1030.279510 1030.9061
+NeutralLoss:929.231831 929.8022 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexA(1)HexNAc(2) (ST)
+Hidden
+Residues:S 1139.386417 1140.0089
+Residues:T 1153.402068 1154.0355
+NeutralLoss:1052.354389 1052.9316 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(1) (ST)
+Hidden
+Residues:S 760.274956 760.6922
+Residues:T 774.290607 774.7188
+NeutralLoss:673.242928 673.6149 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(1)NeuAc(2) (ST)
+Hidden
+Residues:S 1342.465790 1343.2014
+Residues:T 1356.481441 1357.2280
+NeutralLoss:1255.433762 1256.1241 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 840.231771 840.7554
+Residues:T 854.247422 854.7820
+NeutralLoss:753.199743 753.6781 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1334.406560 1335.2025
+Residues:T 1348.422211 1349.2291
+NeutralLoss:1247.374532 1248.1252 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuAc(2) (ST)
+Hidden
+Residues:S 1545.545162 1546.3939
+Residues:T 1559.560813 1560.4205
+NeutralLoss:1458.513134 1459.3166 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1625.501977 1626.4571
+Residues:T 1639.517628 1640.4837
+NeutralLoss:1538.469949 1539.3798 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 1270.444660 1271.1387
+Residues:T 1284.460311 1285.1653
+NeutralLoss:1183.412632 1184.0614 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuGc(1) (N)
+Hidden
+Residues:N 1297.455559 1298.1640
+NeutralLoss:1183.412632 1184.0614 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuGc(2) (ST)
+Hidden
+Residues:S 1577.534992 1578.3927
+Residues:T 1591.550643 1592.4193
+NeutralLoss:1490.502964 1491.3154 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)NeuGc(3) (ST)
+Hidden
+Residues:S 1884.625323 1885.6467
+Residues:T 1898.640974 1899.6733
+NeutralLoss:1797.593295 1798.5694 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 1122.407487 1123.0247
+NeutralLoss:1008.364560 1008.9221 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1043.311144 1043.9479
+Residues:T 1057.326795 1057.9745
+NeutralLoss:956.279116 956.8706 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(3) (ST)
+Hidden
+Residues:S 1166.433702 1167.0773
+Residues:T 1180.449353 1181.1039
+NeutralLoss:1079.401674 1080.0000 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(3) (N)
+Hidden
+Residues:N 1193.444601 1194.1026
+NeutralLoss:1079.401674 1080.0000 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1457.529118 1458.3318
+Residues:T 1471.544769 1472.3584
+NeutralLoss:1370.497090 1371.2545 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(3)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1537.485933 1538.3950
+Residues:T 1551.501584 1552.4216
+NeutralLoss:1450.453905 1451.3177 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1246.390516 1247.1405
+Residues:T 1260.406167 1261.1671
+NeutralLoss:1159.358488 1160.0632 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(4) (ST)
+Hidden
+Residues:S 1369.513074 1370.2698
+Residues:T 1383.528725 1384.2964
+NeutralLoss:1282.481046 1283.1925 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(4) (N)
+Hidden
+Residues:N 1396.523973 1397.2951
+NeutralLoss:1282.481046 1283.1925 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(4)NeuAc(1) (ST)
+Hidden
+Residues:S 1660.608491 1661.5244
+Residues:T 1674.624142 1675.5510
+NeutralLoss:1573.576463 1574.4471 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(4)NeuAc(2) (ST)
+Hidden
+Residues:S 1951.703908 1952.7789
+Residues:T 1965.719559 1966.8055
+NeutralLoss:1864.671880 1865.7016 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(2)HexNAc(4)Sulf(2) (ST)
+Hidden
+Residues:S 1529.426703 1530.3962
+Residues:T 1543.442354 1544.4228
+NeutralLoss:1442.394675 1443.3189 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3) (ST)
+Hidden
+Residues:S 719.248407 719.6403
+Residues:T 733.264058 733.6669
+NeutralLoss:632.216379 632.5630 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexA(1)HexNAc(1) (ST)
+Hidden
+Residues:S 1098.359868 1098.9569
+Residues:T 1112.375519 1112.9835
+NeutralLoss:1011.327840 1011.8796 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexA(1)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1178.316683 1179.0201
+Residues:T 1192.332334 1193.0467
+NeutralLoss:1091.284655 1091.9428 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexA(1)HexNAc(2) (ST)
+Hidden
+Residues:S 1301.439241 1302.1495
+Residues:T 1315.454892 1316.1761
+NeutralLoss:1214.407213 1215.0722 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexA(1)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1381.396055 1382.2127
+Residues:T 1395.411706 1396.2393
+NeutralLoss:1294.364027 1295.1354 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexA(1)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1584.475428 1585.4052
+Residues:T 1598.491079 1599.4318
+NeutralLoss:1497.443400 1498.3279 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexA(2)HexNAc(2) (ST)
+Hidden
+Residues:S 1477.471329 1478.2736
+Residues:T 1491.486980 1492.3002
+NeutralLoss:1390.439301 1391.1963 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(1) (ST)
+Hidden
+Residues:S 922.327780 922.8328
+Residues:T 936.343431 936.8594
+NeutralLoss:835.295752 835.7555 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1002.284595 1002.8960
+Residues:T 1016.300246 1016.9226
+NeutralLoss:915.252567 915.8187 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(2) (ST)
+Hidden
+Residues:S 1125.407153 1126.0253
+Residues:T 1139.422804 1140.0519
+NeutralLoss:1038.375125 1038.9480 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(2) (N)
+Hidden
+Residues:N 1152.418052 1153.0506
+NeutralLoss:1038.375125 1038.9480 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 1432.497484 1433.2793
+Residues:T 1446.513135 1447.3059
+NeutralLoss:1345.465456 1346.2020 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 1284.460310 1285.1653
+NeutralLoss:1170.417383 1171.0627 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1205.363967 1206.0885
+Residues:T 1219.379618 1220.1151
+NeutralLoss:1118.331939 1119.0112 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(2)Sulf(1) (N)
+Hidden
+Residues:N 1232.374866 1233.1138
+NeutralLoss:1118.331939 1119.0112 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3) (ST)
+Hidden
+Residues:S 1328.486525 1329.2179
+Residues:T 1342.502176 1343.2445
+NeutralLoss:1241.454497 1242.1406 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3) (N)
+Hidden
+Residues:N 1355.497424 1356.2432
+NeutralLoss:1241.454497 1242.1406 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3)NeuAc(2) (ST)
+Hidden
+Residues:S 1910.677358 1911.7270
+Residues:T 1924.693009 1925.7536
+NeutralLoss:1823.645330 1824.6497 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1487.539683 1488.3578
+NeutralLoss:1373.496756 1374.2552 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3)Pent(2) (N)
+Hidden
+Residues:N 1619.581942 1620.4724
+NeutralLoss:1505.539015 1506.3698 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3)Pent(3) (N)
+Hidden
+Residues:N 1751.624201 1752.5870
+NeutralLoss:1637.581274 1638.4844 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1408.443340 1409.2811
+Residues:T 1422.458991 1423.3077
+NeutralLoss:1321.411312 1322.2038 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4) (N)
+Hidden
+Residues:N 1558.576797 1559.4357
+NeutralLoss:1444.533870 1445.3331 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4) (ST)
+Hidden
+Residues:S 1531.565898 1532.4104
+Residues:T 1545.581549 1546.4370
+NeutralLoss:1444.533870 1445.3331 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 1849.672213 1850.6903
+NeutralLoss:1735.629286 1736.5877 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1690.619056 1691.5503
+NeutralLoss:1576.576129 1577.4477 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4)Pent(2) (N)
+Hidden
+Residues:N 1822.661314 1823.6649
+NeutralLoss:1708.618387 1709.5623 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4)Pent(3) (N)
+Hidden
+Residues:N 1954.703573 1955.7795
+NeutralLoss:1840.660646 1841.6769 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1638.533611 1639.4989
+NeutralLoss:1524.490684 1525.3963 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(5) (ST)
+Hidden
+Residues:S 1734.645270 1735.6029
+Residues:T 1748.660921 1749.6295
+NeutralLoss:1647.613242 1648.5256 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(5) (N)
+Hidden
+Residues:N 1761.656169 1762.6282
+NeutralLoss:1647.613242 1648.5256 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(5)NeuAc(1) (ST)
+Hidden
+Residues:S 2025.740687 2026.8575
+Residues:T 2039.756338 2040.8841
+NeutralLoss:1938.708659 1939.7802 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(5)NeuAc(1) (N)
+Hidden
+Residues:N 2052.751586 2053.8828
+NeutralLoss:1938.708659 1939.7802 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(5)Sulf(1) (N)
+Hidden
+Residues:N 1841.612984 1842.6914
+NeutralLoss:1727.570057 1728.5888 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(6) (ST)
+Hidden
+Residues:S 1937.724643 1938.7954
+Residues:T 1951.740294 1952.8220
+NeutralLoss:1850.692615 1851.7181 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(6) (N)
+Hidden
+Residues:N 1964.735542 1965.8207
+NeutralLoss:1850.692615 1851.7181 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(3)HexNAc(6)Sulf(1) (N)
+Hidden
+Residues:N 2044.692357 2045.8839
+NeutralLoss:1930.649430 1931.7813 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4) (ST)
+Hidden
+Residues:S 881.301231 881.7809
+Residues:T 895.316882 895.8075
+NeutralLoss:794.269203 794.7036 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexA(1) (ST)
+Hidden
+Residues:S 1057.333319 1057.9050
+Residues:T 1071.348970 1071.9316
+NeutralLoss:970.301291 970.8277 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexA(1)HexNAc(2) (ST)
+Hidden
+Residues:S 1463.492064 1464.2901
+Residues:T 1477.507715 1478.3167
+NeutralLoss:1376.460036 1377.2128 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexA(1)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1746.528251 1747.5458
+Residues:T 1760.543902 1761.5724
+NeutralLoss:1659.496223 1660.4685 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(1)Pent(1) (N)
+Hidden
+Residues:N 1243.433761 1244.1133
+NeutralLoss:1129.390834 1130.0107 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(2) (ST)
+Hidden
+Residues:S 1287.459976 1288.1659
+Residues:T 1301.475627 1302.1925
+NeutralLoss:1200.427948 1201.0886 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(2) (N)
+Hidden
+Residues:N 1314.470875 1315.1912
+NeutralLoss:1200.427948 1201.0886 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 1446.513134 1447.3059
+NeutralLoss:1332.470207 1333.2033 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3) (N)
+Hidden
+Residues:N 1517.550248 1518.3838
+NeutralLoss:1403.507321 1404.2812 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3)NeuAc(1) (N)
+Hidden
+Residues:N 1808.645664 1809.6383
+NeutralLoss:1694.602737 1695.5357 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1781.634765 1782.6130
+Residues:T 1795.650416 1796.6396
+NeutralLoss:1694.602737 1695.5357 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3)NeuAc(1)Sulf(1) (N)
+Hidden
+Residues:N 1888.602479 1889.7015
+NeutralLoss:1774.559552 1775.5989 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3)NeuGc(1) (N)
+Hidden
+Residues:N 1824.640579 1825.6377
+NeutralLoss:1710.597652 1711.5351 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1649.592506 1650.4984
+NeutralLoss:1535.549579 1536.3958 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(3)Sulf(1) (N)
+Hidden
+Residues:N 1597.507062 1598.4470
+NeutralLoss:1483.464135 1484.3444 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4) (N)
+Hidden
+Residues:N 1720.629620 1721.5763
+NeutralLoss:1606.586693 1607.4737 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4) (ST)
+Hidden
+Residues:S 1693.618721 1694.5510
+Residues:T 1707.634372 1708.5776
+NeutralLoss:1606.586693 1607.4737 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4)NeuAc(1) (ST)
+Hidden
+Residues:S 1984.714138 1985.8056
+Residues:T 1998.729789 1999.8322
+NeutralLoss:1897.682110 1898.7283 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 2011.725037 2012.8309
+NeutralLoss:1897.682110 1898.7283 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4)NeuAc(1)Sulf(1) (N)
+Hidden
+Residues:N 2091.681852 2092.8941
+NeutralLoss:1977.638925 1978.7915 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1852.671879 1853.6909
+NeutralLoss:1738.628952 1739.5883 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1800.586435 1801.6395
+NeutralLoss:1686.543508 1687.5369 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(5) (N)
+Hidden
+Residues:N 1923.708993 1924.7688
+NeutralLoss:1809.666066 1810.6662 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(4)HexNAc(5)Sulf(1) (N)
+Hidden
+Residues:N 2003.665807 2004.8320
+NeutralLoss:1889.622880 1890.7294 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5) (ST)
+Hidden
+Residues:S 1043.354054 1043.9215
+Residues:T 1057.369705 1057.9481
+NeutralLoss:956.322026 956.8442 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexA(1)HexNAc(3)Sulf(1) (N)
+Hidden
+Residues:N 1935.591974 1936.7117
+NeutralLoss:1821.549047 1822.6091 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexA(1)HexNAc(3)Sulf(2) (N)
+Hidden
+Residues:N 2015.548788 2016.7749
+NeutralLoss:1901.505861 1902.6723 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(2) (N)
+Hidden
+Residues:N 1476.523699 1477.3318
+NeutralLoss:1362.480772 1363.2292 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 1608.565957 1609.4465
+NeutralLoss:1494.523030 1495.3439 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(3) (N)
+Hidden
+Residues:N 1679.603071 1680.5244
+NeutralLoss:1565.560144 1566.4218 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(3)NeuAc(1) (N)
+Hidden
+Residues:N 1970.698488 1971.7789
+NeutralLoss:1856.655561 1857.6763 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(3)NeuAc(1)Sulf(1) (N)
+Hidden
+Residues:N 2050.655302 2051.8421
+NeutralLoss:1936.612375 1937.7395 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(3)NeuGc(1) (N)
+Hidden
+Residues:N 1986.693402 1987.7783
+NeutralLoss:1872.650475 1873.6757 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(3)NeuGc(1)Sulf(1) (N)
+Hidden
+Residues:N 2066.650217 2067.8415
+NeutralLoss:1952.607290 1953.7389 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(3)Sulf(1) (N)
+Hidden
+Residues:N 1759.559886 1760.5876
+NeutralLoss:1645.516959 1646.4850 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4) (N)
+Hidden
+Residues:N 1882.682444 1883.7169
+NeutralLoss:1768.639517 1769.6143 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4)Me(2)Pent(1) (N)
+Hidden
+Residues:N 2042.756003 2043.8847
+NeutralLoss:1928.713076 1929.7821 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 2173.777860 2174.9715
+NeutralLoss:2059.734933 2060.8689 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4)NeuAc(2) (N)
+Hidden
+Residues:N 2464.873277 2466.2260
+NeutralLoss:2350.830350 2352.1234 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 2014.724703 2015.8315
+NeutralLoss:1900.681776 1901.7289 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1962.639258 1963.7801
+NeutralLoss:1848.596331 1849.6775 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(4)Sulf(2) (N)
+Hidden
+Residues:N 2042.596073 2043.8433
+NeutralLoss:1928.553146 1929.7407 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(5)HexNAc(5) (N)
+Hidden
+Residues:N 2085.761816 2086.9094
+NeutralLoss:1971.718889 1972.8068 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(6) (ST)
+Hidden
+Residues:S 1205.406878 1206.0621
+Residues:T 1219.422529 1220.0887
+NeutralLoss:1118.374850 1118.9848 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(6)HexNAc(2) (N)
+Hidden
+Residues:N 1638.576522 1639.4724
+NeutralLoss:1524.533595 1525.3698 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(6)HexNAc(3) (N)
+Hidden
+Residues:N 1841.655895 1842.6650
+NeutralLoss:1727.612968 1728.5624 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(6)HexNAc(3)Sulf(1) (N)
+Hidden
+Residues:N 1921.612709 1922.7282
+NeutralLoss:1807.569782 1808.6256 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(6)HexNAc(4) (N)
+Hidden
+Residues:N 2044.735267 2045.8575
+NeutralLoss:1930.692340 1931.7549 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(7)HexNAc(2) (N)
+Hidden
+Residues:N 1800.629346 1801.6130
+NeutralLoss:1686.586419 1687.5104 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(7)HexNAc(3) (N)
+Hidden
+Residues:N 2003.708718 2004.8056
+NeutralLoss:1889.665791 1890.7030 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(7)HexNAc(3)Phos(1) (N)
+Hidden
+Residues:N 2083.675049 2084.7855
+NeutralLoss:1969.632122 1970.6829 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(7)HexNAc(3)Sulf(1) (N)
+Hidden
+Residues:N 2083.665533 2084.8688
+NeutralLoss:1969.622606 1970.7662 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)Hex(7)HexNAc(4) (N)
+Hidden
+Residues:N 2206.788091 2207.9981
+*
+Title:dHex(1)Hex(8)HexNAc(2) (N)
+Hidden
+Residues:N 1962.682169 1963.7536
+NeutralLoss:1848.639242 1849.6510 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)HexNAc(3) (ST)
+Hidden
+Residues:S 842.328055 842.7961
+Residues:T 856.343706 856.8227
+NeutralLoss:755.296027 755.7188 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)HexNAc(4) (ST)
+Hidden
+Residues:S 1045.407427 1045.9886
+Residues:T 1059.423078 1060.0152
+NeutralLoss:958.375399 958.9113 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(1)HexNAc(5) (ST)
+Hidden
+Residues:S 1248.486800 1249.1811
+Residues:T 1262.502451 1263.2077
+NeutralLoss:1161.454772 1162.1038 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(1)HexNAc(1)Kdn(1) (ST)
+Hidden
+Residues:S 994.348909 994.8955
+Residues:T 1008.364560 1008.9221
+NeutralLoss:907.316881 907.8182 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(1)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1197.428282 1198.0880
+Residues:T 1211.443933 1212.1146
+NeutralLoss:1110.396254 1111.0107 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(1)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 1238.454831 1239.1399
+Residues:T 1252.470482 1253.1665
+NeutralLoss:1151.422803 1152.0626 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(1)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 1254.449746 1255.1393
+Residues:T 1268.465397 1269.1659
+NeutralLoss:1167.417718 1168.0620 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(1)HexNAc(3) (ST)
+Hidden
+Residues:S 1150.438787 1151.0779
+Residues:T 1164.454438 1165.1045
+NeutralLoss:1063.406759 1064.0006 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(1)HexNAc(4)Sulf(1) (ST)
+Hidden
+Residues:S 1433.474974 1434.3336
+Residues:T 1447.490625 1448.3602
+NeutralLoss:1346.442946 1347.2563 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2) (ST)
+Hidden
+Residues:S 703.253493 703.6409
+Residues:T 717.269144 717.6675
+NeutralLoss:616.221465 616.5636 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexA(1) (ST)
+Hidden
+Residues:S 879.285581 879.7650
+Residues:T 893.301232 893.7916
+NeutralLoss:792.253553 792.6877 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexA(1)HexNAc(1) (ST)
+Hidden
+Residues:S 1082.364953 1082.9575
+Residues:T 1096.380604 1096.9841
+NeutralLoss:995.332925 995.8802 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexA(1)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1365.401141 1366.2133
+Residues:T 1379.416792 1380.2399
+NeutralLoss:1278.369113 1279.1360 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(1) (ST)
+Hidden
+Residues:S 906.332865 906.8334
+Residues:T 920.348516 920.8600
+NeutralLoss:819.300837 819.7561 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2) (ST)
+Hidden
+Residues:S 1109.412238 1110.0259
+Residues:T 1123.427889 1124.0525
+NeutralLoss:1022.380210 1022.9486 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2) (N)
+Hidden
+Residues:N 1136.423137 1137.0512
+NeutralLoss:1022.380210 1022.9486 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1359.481105 1360.2286
+Residues:T 1373.496756 1374.2552
+NeutralLoss:1272.449077 1273.1513 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 1400.507655 1401.2805
+Residues:T 1414.523306 1415.3071
+NeutralLoss:1313.475627 1314.2032 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1480.464469 1481.3437
+Residues:T 1494.480120 1495.3703
+NeutralLoss:1393.432441 1394.2664 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 1416.502569 1417.2799
+Residues:T 1430.518220 1431.3065
+NeutralLoss:1329.470541 1330.2026 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1189.369053 1190.0891
+Residues:T 1203.384704 1204.1157
+NeutralLoss:1102.337025 1103.0118 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(2)Sulf(2) (ST)
+Hidden
+Residues:S 1269.325867 1270.1523
+Residues:T 1283.341518 1284.1789
+NeutralLoss:1182.293839 1183.0750 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(3) (ST)
+Hidden
+Residues:S 1312.491611 1313.2185
+Residues:T 1326.507262 1327.2451
+NeutralLoss:1225.459583 1226.1412 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(3) (N)
+Hidden
+Residues:N 1339.502510 1340.2438
+NeutralLoss:1225.459583 1226.1412 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1603.587027 1604.4730
+Residues:T 1617.602678 1618.4996
+NeutralLoss:1516.554999 1517.3957 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(3)NeuGc(1) (ST)
+Hidden
+Residues:S 1619.581942 1620.4724
+Residues:T 1633.597593 1634.4990
+NeutralLoss:1532.549914 1533.3951 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1392.448425 1393.2817
+Residues:T 1406.464076 1407.3083
+NeutralLoss:1305.416397 1306.2044 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(4) (ST)
+Hidden
+Residues:S 1515.570983 1516.4110
+Residues:T 1529.586634 1530.4376
+NeutralLoss:1428.538955 1429.3337 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(4)Sulf(2) (ST)
+Hidden
+Residues:S 1675.484612 1676.5374
+Residues:T 1689.500263 1690.5640
+NeutralLoss:1588.452584 1589.4601 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(5) (ST)
+Hidden
+Residues:S 1718.650356 1719.6035
+Residues:T 1732.666007 1733.6301
+NeutralLoss:1631.618328 1632.5262 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(2)HexNAc(6)Sulf(1) (ST)
+Hidden
+Residues:S 2001.686543 2002.8592
+Residues:T 2015.702194 2016.8858
+NeutralLoss:1914.654515 1915.7819 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3) (ST)
+Hidden
+Residues:S 865.306316 865.7815
+Residues:T 879.321967 879.8081
+NeutralLoss:778.274288 778.7042 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexA(1)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1324.374591 1325.1613
+Residues:T 1338.390242 1339.1879
+NeutralLoss:1237.342563 1238.0840 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexA(1)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1527.453964 1528.3539
+Residues:T 1541.469615 1542.3805
+NeutralLoss:1440.421936 1441.2766 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexA(1)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1730.533337 1731.5464
+Residues:T 1744.548988 1745.5730
+NeutralLoss:1643.501309 1644.4691 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1148.342503 1149.0372
+Residues:T 1162.358154 1163.0638
+NeutralLoss:1061.310475 1061.9599 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(2) (ST)
+Hidden
+Residues:S 1271.465061 1272.1665
+Residues:T 1285.480712 1286.1931
+NeutralLoss:1184.433033 1185.0892 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(2) (N)
+Hidden
+Residues:N 1298.475960 1299.1918
+NeutralLoss:1184.433033 1185.0892 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 1578.555393 1579.4205
+Residues:T 1592.571044 1593.4471
+NeutralLoss:1491.523365 1492.3432 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1351.421876 1352.2297
+Residues:T 1365.437527 1366.2563
+NeutralLoss:1264.389848 1265.1524 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3) (ST)
+Hidden
+Residues:S 1474.544434 1475.3591
+Residues:T 1488.560085 1489.3857
+NeutralLoss:1387.512406 1388.2818 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3) (N)
+Hidden
+Residues:N 1501.555333 1502.3844
+NeutralLoss:1387.512406 1388.2818 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1765.639851 1766.6136
+Residues:T 1779.655502 1780.6402
+NeutralLoss:1678.607823 1679.5363 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3)NeuAc(2) (ST)
+Hidden
+Residues:S 2056.735267 2057.8682
+Residues:T 2070.750918 2071.8948
+NeutralLoss:1969.703239 1970.7909 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1633.597592 1634.4990
+NeutralLoss:1519.554665 1520.3964 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3)Pent(2) (N)
+Hidden
+Residues:N 1765.639851 1766.6136
+NeutralLoss:1651.596924 1652.5110 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1554.501249 1555.4223
+Residues:T 1568.516900 1569.4489
+NeutralLoss:1467.469221 1468.3450 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(4) (ST)
+Hidden
+Residues:S 1677.623807 1678.5516
+Residues:T 1691.639458 1692.5782
+NeutralLoss:1590.591779 1591.4743 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(4) (N)
+Hidden
+Residues:N 1704.634706 1705.5769
+NeutralLoss:1590.591779 1591.4743 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 1995.730122 1996.8315
+NeutralLoss:1881.687195 1882.7289 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1836.676964 1837.6915
+NeutralLoss:1722.634037 1723.5889 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(4)Pent(2) (N)
+Hidden
+Residues:N 1968.719223 1969.8061
+NeutralLoss:1854.676296 1855.7035 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(5) (ST)
+Hidden
+Residues:S 1880.703179 1881.7441
+Residues:T 1894.718830 1895.7707
+NeutralLoss:1793.671151 1794.6668 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(5) (N)
+Hidden
+Residues:N 1907.714078 1908.7694
+NeutralLoss:1793.671151 1794.6668 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(3)HexNAc(6) (N)
+Hidden
+Residues:N 2110.793451 2111.9619
+NeutralLoss:1996.750524 1997.8593 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4) (ST)
+Hidden
+Residues:S 1027.359140 1027.9221
+Residues:T 1041.374791 1041.9487
+NeutralLoss:940.327112 940.8448 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexA(1)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1892.586160 1893.6870
+Residues:T 1906.601811 1907.7136
+NeutralLoss:1805.554132 1806.6097 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(1) (ST)
+Hidden
+Residues:S 1230.438512 1231.1146
+Residues:T 1244.454163 1245.1412
+NeutralLoss:1143.406484 1144.0373 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(2) (ST)
+Hidden
+Residues:S 1433.517885 1434.3071
+Residues:T 1447.533536 1448.3337
+NeutralLoss:1346.485857 1347.2298 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(2) (N)
+Hidden
+Residues:N 1460.528784 1461.3324
+NeutralLoss:1346.485857 1347.2298 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(3) (N)
+Hidden
+Residues:N 1663.608157 1664.5250
+NeutralLoss:1549.565230 1550.4224 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(3)NeuAc(1)Sulf(1) (N)
+Hidden
+Residues:N 2034.660388 2035.8427
+NeutralLoss:1920.617461 1921.7401 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1795.650415 1796.6396
+NeutralLoss:1681.607488 1682.5370 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(4) (ST)
+Hidden
+Residues:S 1839.676630 1840.6922
+Residues:T 1853.692281 1854.7188
+NeutralLoss:1752.644602 1753.6149 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(4) (N)
+Hidden
+Residues:N 1866.687529 1867.7175
+NeutralLoss:1752.644602 1753.6149 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1998.729788 1999.8321
+NeutralLoss:1884.686861 1885.7295 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1946.644344 1947.7807
+NeutralLoss:1832.601417 1833.6781 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(5) (ST)
+Hidden
+Residues:S 2042.756003 2043.8847
+Residues:T 2056.771654 2057.9113
+NeutralLoss:1955.723975 1956.8074 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(4)HexNAc(5) (N)
+Hidden
+Residues:N 2069.766902 2070.9100
+NeutralLoss:1955.723975 1956.8074 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(5)HexNAc(2)Me(1) (ST)
+Hidden
+Residues:S 1609.586359 1610.4743
+Residues:T 1623.602010 1624.5009
+NeutralLoss:1522.554331 1523.3970 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(5)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1957.703239 1958.7802
+NeutralLoss:1843.660312 1844.6776 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)Hex(5)HexNAc(4) (N)
+Hidden
+Residues:N 2028.740353 2029.8581
+NeutralLoss:1914.697426 1915.7555 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1035.375458 1035.9474
+Residues:T 1049.391109 1049.9740
+NeutralLoss:948.343430 948.8701 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)HexNAc(5) (ST)
+Hidden
+Residues:S 1394.544709 1395.3223
+Residues:T 1408.560360 1409.3489
+NeutralLoss:1307.512681 1308.2450 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(2)HexNAc(7) (ST)
+Hidden
+Residues:S 1800.703454 1801.7073
+Residues:T 1814.719105 1815.7339
+NeutralLoss:1713.671426 1714.6300 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(1)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1343.486191 1344.2292
+Residues:T 1357.501842 1358.2558
+NeutralLoss:1256.454163 1257.1519 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(1)HexNAc(3)Kdn(1) (ST)
+Hidden
+Residues:S 1546.565563 1547.4217
+Residues:T 1560.581214 1561.4483
+NeutralLoss:1459.533535 1460.3444 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexA(1)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1511.459049 1512.3545
+Residues:T 1525.474700 1526.3811
+NeutralLoss:1424.427021 1425.2772 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexNAc(2) (ST)
+Hidden
+Residues:S 1255.470147 1256.1671
+Residues:T 1269.485798 1270.1937
+NeutralLoss:1168.438119 1169.0898 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1505.539014 1506.3698
+Residues:T 1519.554665 1520.3964
+NeutralLoss:1418.506986 1419.2925 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexNAc(3) (ST)
+Hidden
+Residues:S 1458.549519 1459.3597
+Residues:T 1472.565170 1473.3863
+NeutralLoss:1371.517491 1372.2824 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexNAc(3)Kdn(1) (ST)
+Hidden
+Residues:S 1708.618387 1709.5623
+Residues:T 1722.634038 1723.5889
+NeutralLoss:1621.586359 1622.4850 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexNAc(4) (ST)
+Hidden
+Residues:S 1661.628892 1662.5522
+Residues:T 1675.644543 1676.5788
+NeutralLoss:1574.596864 1575.4749 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(2)HexNAc(4)Sulf(2) (ST)
+Hidden
+Residues:S 1821.542521 1822.6786
+Residues:T 1835.558172 1836.7052
+NeutralLoss:1734.510493 1735.6013 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(1) (ST)
+Hidden
+Residues:S 1214.443598 1215.1152
+Residues:T 1228.459249 1229.1418
+NeutralLoss:1127.411570 1128.0379 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(2) (ST)
+Hidden
+Residues:S 1417.522970 1418.3077
+Residues:T 1431.538621 1432.3343
+NeutralLoss:1330.490942 1331.2304 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(3) (ST)
+Hidden
+Residues:S 1620.602343 1621.5003
+Residues:T 1634.617994 1635.5269
+NeutralLoss:1533.570315 1534.4230 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1911.697760 1912.7548
+Residues:T 1925.713411 1926.7814
+NeutralLoss:1824.665732 1825.6775 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1779.655501 1780.6402
+NeutralLoss:1665.612574 1666.5376 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(4) (N)
+Hidden
+Residues:N 1850.692615 1851.7181
+NeutralLoss:1736.649688 1737.6155 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(3)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1982.734873 1983.8327
+NeutralLoss:1868.691946 1869.7301 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(4)HexNAc(4) (ST)
+Hidden
+Residues:S 1985.734539 1986.8334
+Residues:T 1999.750190 2000.8600
+NeutralLoss:1898.702511 1899.7561 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(4)HexNAc(4) (N)
+Hidden
+Residues:N 2012.745438 2013.8587
+NeutralLoss:1898.702511 1899.7561 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)Hex(4)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 2092.702253 2093.9219
+NeutralLoss:1978.659326 1979.8193 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(3)HexNAc(3)Kdn(1) (ST)
+Hidden
+Residues:S 1384.512740 1385.2811
+Residues:T 1398.528391 1399.3077
+NeutralLoss:1297.480712 1298.2038 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(1)HexNAc(1)Kdn(2) (ST)
+Hidden
+Residues:S 1536.533595 1537.3805
+Residues:T 1550.549246 1551.4071
+NeutralLoss:1449.501567 1450.3032 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(1)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1489.544100 1490.3704
+Residues:T 1503.559751 1504.3970
+NeutralLoss:1402.512072 1403.2931 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(1)HexNAc(3)Kdn(1) (ST)
+Hidden
+Residues:S 1692.623472 1693.5629
+Residues:T 1706.639123 1707.5895
+NeutralLoss:1605.591444 1606.4856 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(2)HexNAc(2)Kdn(1) (ST)
+Hidden
+Residues:S 1651.596923 1652.5110
+Residues:T 1665.612574 1666.5376
+NeutralLoss:1564.564895 1565.4337 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(2)HexNAc(3) (ST)
+Hidden
+Residues:S 1604.607428 1605.5009
+Residues:T 1618.623079 1619.5275
+NeutralLoss:1517.575400 1518.4236 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(3)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 1854.676296 1855.7035
+Residues:T 1868.691947 1869.7301
+NeutralLoss:1767.644268 1768.6262 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)Hex(3)HexNAc(3) (ST)
+Hidden
+Residues:S 1766.660252 1767.6415
+Residues:T 1780.675903 1781.6681
+NeutralLoss:1679.628224 1680.5642 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:dHex(4)HexNAc(3)Kdn(1) (ST)
+Hidden
+Residues:S 1530.570649 1531.4223
+Residues:T 1544.586300 1545.4489
+NeutralLoss:1443.538621 1444.3450 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:DHP (C)
+Hidden
+Residues:C 221.074859 221.2987
+*
+Title:Diacylglycerol (C)
+Hidden
+Residues:C 679.520946 680.0763
+*
+Title:DiART6plex (K)
+Hidden
+Residues:K 345.257895 345.4250
+*
+Title:DiART6plex (N-term)
+Hidden
+Nterm:218.170757 218.2606
+*
+Title:DiART6plex (Protein N-term)
+Hidden
+ProteinNterm:218.170757 218.2606
+*
+Title:DiART6plex (Y)
+Hidden
+Residues:Y 380.226261 380.4260
+*
+Title:DiART6plex115 (K)
+Hidden
+Residues:K 345.251575 345.4258
+*
+Title:DiART6plex115 (N-term)
+Hidden
+Nterm:218.164437 218.2614
+*
+Title:DiART6plex115 (Protein N-term)
+Hidden
+ProteinNterm:218.164437 218.2614
+*
+Title:DiART6plex115 (Y)
+Hidden
+Residues:Y 380.219941 380.4268
+*
+Title:DiART6plex116/119 (K)
+Hidden
+Residues:K 345.263739 345.4520
+*
+Title:DiART6plex116/119 (N-term)
+Hidden
+Nterm:218.176601 218.2876
+*
+Title:DiART6plex116/119 (Protein N-term)
+Hidden
+ProteinNterm:218.176601 218.2876
+*
+Title:DiART6plex116/119 (Y)
+Hidden
+Residues:Y 380.232105 380.4530
+*
+Title:DiART6plex117 (K)
+Hidden
+Residues:K 345.257419 345.4528
+*
+Title:DiART6plex117 (N-term)
+Hidden
+Nterm:218.170281 218.2884
+*
+Title:DiART6plex117 (Protein N-term)
+Hidden
+ProteinNterm:218.170281 218.2884
+*
+Title:DiART6plex117 (Y)
+Hidden
+Residues:Y 380.225785 380.4538
+*
+Title:DiART6plex118 (K)
+Hidden
+Residues:K 345.270059 345.4513
+*
+Title:DiART6plex118 (N-term)
+Hidden
+Nterm:218.182921 218.2869
+*
+Title:DiART6plex118 (Protein N-term)
+Hidden
+ProteinNterm:218.182921 218.2869
+*
+Title:DiART6plex118 (Y)
+Hidden
+Residues:Y 380.238425 380.4523
+*
+Title:Dibromo (Y)
+Hidden
+Residues:Y 318.884351 320.9654
+*
+Title:Dicarbamidomethyl (C)
+Hidden
+Residues:C 217.052112 217.2455
+*
+Title:Dicarbamidomethyl (H)
+Hidden
+Residues:H 251.101839 251.2419
+*
+Title:Dicarbamidomethyl (K)
+Hidden
+Residues:K 242.137890 242.2749
+*
+Title:Dicarbamidomethyl (R)
+Hidden
+Residues:R 270.144038 270.2883
+*
+Title:Dicarbamidomethyl (N-term)
+Hidden
+Nterm:115.050752 115.1105
+*
+Title:dichlorination (Y)
+Hidden
+Residues:Y 230.985384 232.0634
+*
+Title:dichlorination (C)
+Hidden
+Residues:C 170.931240 172.0330
+*
+Title:Didehydro (Y)
+Hidden
+Residues:Y 161.047679 161.1574
+*
+Title:Didehydro (S)
+Hidden
+Residues:S 85.016378 85.0614
+*
+Title:Didehydro (T)
+Hidden
+Residues:T 99.032029 99.0880
+*
+Title:Didehydro (C-term K)
+Hidden
+ResiduesCterm:K 14.987090 14.9914
+*
+Title:Didehydroretinylidene (K)
+Hidden
+Residues:K 392.282764 392.5769
+*
+Title:Diethyl (K)
+Hidden
+Residues:K 184.157563 184.2786
+*
+Title:Diethyl (N-term)
+Hidden
+Nterm:57.070425 57.1142
+*
+Title:Diethylphosphate (S)
+Hidden
+Residues:S 223.060959 223.1635
+*
+Title:Diethylphosphate (T)
+Hidden
+Residues:T 237.076610 237.1901
+*
+Title:Diethylphosphate (Y)
+Hidden
+Residues:Y 299.092260 299.2595
+*
+Title:Diethylphosphate (K)
+Hidden
+Residues:K 264.123894 264.2585
+*
+Title:Diethylphosphate (C)
+Hidden
+Residues:C 239.038116 239.2291
+*
+Title:Diethylphosphate (H)
+Hidden
+Residues:H 273.087843 273.2255
+*
+Title:Diethylphosphate (N-term)
+Hidden
+Nterm:137.036756 137.0941
+*
+Title:Diethylphosphothione (C)
+Hidden
+Residues:C 255.015272 255.2947
+*
+Title:Diethylphosphothione (H)
+Hidden
+Residues:H 289.064999 289.2911
+*
+Title:Diethylphosphothione (K)
+Hidden
+Residues:K 280.101050 280.3241
+*
+Title:Diethylphosphothione (S)
+Hidden
+Residues:S 239.038115 239.2291
+*
+Title:Diethylphosphothione (T)
+Hidden
+Residues:T 253.053766 253.2557
+*
+Title:Diethylphosphothione (Y)
+Hidden
+Residues:Y 315.069416 315.3251
+*
+Title:Difuran (Y)
+Hidden
+Residues:Y 295.084458 295.2895
+*
+Title:Dihydroxyimidazolidine (R)
+Hidden
+Residues:R 228.122240 228.2484
+*
+Title:Diiodo (Y)
+Hidden
+Residues:Y 414.856625 414.9664
+*
+Title:Diiodo (H)
+Hidden
+Residues:H 388.852208 388.9324
+*
+Title:Diironsubcluster (C)
+Hidden
+Residues:C 445.796101 446.0189
+*
+Title:Diisopropylphosphate (S)
+Hidden
+Residues:S 251.092259 251.2167
+*
+Title:Diisopropylphosphate (T)
+Hidden
+Residues:T 265.107910 265.2433
+*
+Title:Diisopropylphosphate (Y)
+Hidden
+Residues:Y 327.123560 327.3127
+*
+Title:Diisopropylphosphate (K)
+Hidden
+Residues:K 292.155194 292.3117
+*
+Title:Diisopropylphosphate (N-term)
+Hidden
+Nterm:165.068056 165.1473
+*
+Title:DiLeu4plex (K)
+Hidden
+Residues:K 273.227126 273.3952
+*
+Title:DiLeu4plex (N-term)
+Hidden
+Nterm:146.139988 146.2308
+*
+Title:DiLeu4plex (Y)
+Hidden
+Residues:Y 308.195492 308.3962
+*
+Title:DiLeu4plex115 (K)
+Hidden
+Residues:K 273.214963 273.3689
+*
+Title:DiLeu4plex115 (N-term)
+Hidden
+Nterm:146.127825 146.2045
+*
+Title:DiLeu4plex115 (Y)
+Hidden
+Residues:Y 308.183329 308.3699
+*
+Title:DiLeu4plex117 (K)
+Hidden
+Residues:K 273.223270 273.3815
+*
+Title:DiLeu4plex117 (N-term)
+Hidden
+Nterm:146.136132 146.2171
+*
+Title:DiLeu4plex117 (Y)
+Hidden
+Residues:Y 308.191636 308.3825
+*
+Title:DiLeu4plex118 (K)
+Hidden
+Residues:K 273.235434 273.4077
+*
+Title:DiLeu4plex118 (N-term)
+Hidden
+Nterm:146.148296 146.2433
+*
+Title:DiLeu4plex118 (Y)
+Hidden
+Residues:Y 308.203800 308.4087
+*
+Title:Dimethyl (K)
+Hidden
+Residues:K 156.126263 156.2255
+*
+Title:Dimethyl (R)
+Hidden
+Residues:R 184.132411 184.2389
+*
+Title:Dimethyl (N-term)
+Hidden
+Nterm:29.039125 29.0611
+*
+Title:Dimethyl (N)
+Hidden
+Residues:N 142.074227 142.1558
+*
+Title:Dimethyl (N-term P)
+Hidden
+ResiduesNterm:P 29.039125 29.0611
+*
+Title:Dimethyl (Protein N-term)
+Hidden
+ProteinNterm:29.039125 29.0611
+*
+Title:Dimethyl:2H(4) (K)
+Hidden
+Residues:K 160.151370 160.2501
+*
+Title:Dimethyl:2H(4) (N-term)
+Hidden
+Nterm:33.064232 33.0857
+*
+Title:Dimethyl:2H(4) (Protein N-term)
+Hidden
+ProteinNterm:33.064232 33.0857
+*
+Title:Dimethyl:2H(4) (R)
+Hidden
+Residues:R 188.157518 188.2635
+*
+Title:Dimethyl:2H(4)13C(2) (K)
+Hidden
+Residues:K 162.158080 162.2354
+*
+Title:Dimethyl:2H(4)13C(2) (N-term)
+Hidden
+Nterm:35.070942 35.0710
+*
+Title:Dimethyl:2H(4)13C(2) (R)
+Hidden
+Residues:R 190.164228 190.2488
+*
+Title:Dimethyl:2H(4)13C(2) (Protein N-term)
+Hidden
+ProteinNterm:35.070942 35.0710
+*
+Title:Dimethyl:2H(6) (K)
+Hidden
+Residues:K 162.163924 162.2624
+*
+Title:Dimethyl:2H(6) (N-term)
+Hidden
+Nterm:35.076786 35.0980
+*
+Title:Dimethyl:2H(6) (R)
+Hidden
+Residues:R 190.170072 190.2758
+*
+Title:Dimethyl:2H(6)13C(2) (R)
+Hidden
+Residues:R 192.176781 192.2611
+*
+Title:Dimethyl:2H(6)13C(2) (K)
+Hidden
+Residues:K 164.170633 164.2477
+*
+Title:Dimethyl:2H(6)13C(2) (N-term)
+Hidden
+Nterm:37.083495 37.0833
+*
+Title:Dimethyl:2H(6)13C(2) (Protein N-term)
+Hidden
+ProteinNterm:37.083495 37.0833
+*
+Title:DimethylamineGMBS (C)
+Hidden
+Residues:C 370.167477 370.4670
+*
+Title:Dimethylaminoethyl (C)
+Hidden
+Residues:C 174.082684 174.2639
+*
+Title:DimethylArsino (C)
+Hidden
+Residues:C 206.969904 207.1256
+*
+Title:Dimethylphosphothione (C)
+Hidden
+Residues:C 226.983972 227.2416
+*
+Title:Dimethylphosphothione (H)
+Hidden
+Residues:H 261.033699 261.2380
+*
+Title:Dimethylphosphothione (K)
+Hidden
+Residues:K 252.069750 252.2710
+*
+Title:Dimethylphosphothione (S)
+Hidden
+Residues:S 211.006815 211.1760
+*
+Title:Dimethylphosphothione (T)
+Hidden
+Residues:T 225.022466 225.2026
+*
+Title:Dimethylphosphothione (Y)
+Hidden
+Residues:Y 287.038116 287.2720
+*
+Title:DimethylpyrroleAdduct (K)
+Hidden
+Residues:K 206.141913 206.2841
+*
+Title:Dioxidation (P)
+Hidden
+Residues:P 129.042593 129.1140
+*
+Title:Dioxidation (R)
+Hidden
+Residues:R 188.090940 188.1845
+*
+Title:Dioxidation (K)
+Hidden
+Residues:K 160.084792 160.1711
+*
+Title:Dioxidation (M)
+Residues:M 163.030314 163.1949
+*
+Title:Dioxidation (F)
+Hidden
+Residues:F 179.058243 179.1727
+*
+Title:Dioxidation (W)
+Hidden
+Residues:W 218.069142 218.2087
+*
+Title:Dioxidation (Y)
+Hidden
+Residues:Y 195.053158 195.1721
+*
+Title:Dioxidation (C)
+Hidden
+Residues:C 134.999014 135.1417
+*
+Title:Dioxidation (U)
+Hidden
+Residues:U 182.943462 182.0367
+*
+Title:Dioxidation (E)
+Hidden
+Residues:E 161.032422 161.1128
+*
+Title:Dioxidation (I)
+Hidden
+Residues:I 145.073893 145.1564
+*
+Title:Dioxidation (L)
+Hidden
+Residues:L 145.073893 145.1564
+*
+Title:Dioxidation (V)
+Hidden
+Residues:V 131.058243 131.1299
+*
+Title:Diphthamide (H)
+Hidden
+Residues:H 279.169525 279.3382
+*
+Title:Dipyridyl (C)
+Hidden
+Residues:C 328.099397 328.3888
+*
+Title:Dipyrrolylmethanemethyl (C)
+Hidden
+Residues:C 521.146801 521.5402
+*
+Title:DMPO (C)
+Hidden
+Residues:C 214.077599 214.2847
+*
+Title:DMPO (H)
+Hidden
+Residues:H 248.127326 248.2811
+*
+Title:DMPO (Y)
+Hidden
+Residues:Y 274.131743 274.3151
+*
+Title:DNCB_hapten (C)
+Hidden
+Residues:C 269.010642 269.2340
+*
+Title:DNCB_hapten (H)
+Hidden
+Residues:H 303.060369 303.2304
+*
+Title:DNCB_hapten (K)
+Hidden
+Residues:K 294.096420 294.2634
+*
+Title:DNCB_hapten (Y)
+Hidden
+Residues:Y 329.064786 329.2644
+*
+Title:dNIC (N-term)
+Hidden
+Nterm:110.055944 110.1284
+*
+Title:dNIC (K)
+Hidden
+Residues:K 237.143082 237.2928
+*
+Title:DNPS (C)
+Hidden
+Residues:C 301.990537 302.3069
+*
+Title:DNPS (W)
+Hidden
+Residues:W 385.060665 385.3739
+*
+Title:DTT (C)
+Hidden
+Residues:C 255.005756 255.3780
+*
+Title:DyLight-maleimide (C)
+Hidden
+Residues:C 1043.209085 1044.2191
+*
+Title:DYn-2 (C)
+Hidden
+Residues:C 264.105825 264.3632
+*
+Title:EDEDTIDVFQQQTGG (K)
+Hidden
+Residues:K 1790.795887 1791.8231
+*
+Title:EDT-iodoacetyl-PEO-biotin (S)
+Hidden
+Residues:S 577.206246 577.7807
+*
+Title:EDT-iodoacetyl-PEO-biotin (T)
+Hidden
+Residues:T 591.221897 591.8073
+*
+Title:EDT-maleimide-PEO-biotin (S)
+Hidden
+Residues:S 688.238274 688.8794
+*
+Title:EDT-maleimide-PEO-biotin (T)
+Hidden
+Residues:T 702.253925 702.9060
+*
+Title:EEEDVIEVYQEQTGG (K)
+Hidden
+Residues:K 1833.826853 1834.8876
+*
+Title:EGCG1 (C)
+Hidden
+Residues:C 559.078446 559.4987
+*
+Title:EGCG2 (C)
+Hidden
+Residues:C 390.064748 390.3871
+*
+Title:EHD-diphenylpentanone (C)
+Hidden
+Residues:C 369.139865 369.4772
+*
+Title:EHD-diphenylpentanone (M)
+Hidden
+Residues:M 397.171165 397.5304
+*
+Title:EQAT (C)
+Hidden
+Residues:C 287.166748 287.4215
+*
+Title:EQAT:2H(5) (C)
+Hidden
+Residues:C 292.198132 292.4523
+*
+Title:EQIGG (K)
+Hidden
+Residues:K 612.323125 612.6758
+*
+Title:ESP (K)
+Hidden
+Residues:K 466.272610 466.6405
+*
+Title:ESP (N-term)
+Hidden
+Nterm:339.185472 339.4761
+*
+Title:ESP:2H(10) (K)
+Hidden
+Residues:K 476.335377 476.7022
+*
+Title:ESP:2H(10) (N-term)
+Hidden
+Nterm:349.248239 349.5378
+*
+Title:Ethanedithiol (S)
+Hidden
+Residues:S 163.012555 163.2611
+*
+Title:Ethanedithiol (T)
+Hidden
+Residues:T 177.028206 177.2877
+*
+Title:Ethanolamine (C-term)
+Hidden
+Cterm:60.044939 60.0751
+*
+Title:Ethanolamine (D)
+Hidden
+Residues:D 158.069142 158.1552
+*
+Title:Ethanolamine (E)
+Hidden
+Residues:E 172.084792 172.1818
+*
+Title:Ethanolamine (C)
+Hidden
+Residues:C 146.051384 146.2107
+*
+Title:Ethanolyl (C)
+Hidden
+Residues:C 147.035400 147.1955
+*
+Title:Ethanolyl (K)
+Hidden
+Residues:K 172.121178 172.2249
+*
+Title:Ethanolyl (R)
+Hidden
+Residues:R 200.127326 200.2383
+*
+Title:Ethoxyformyl (H)
+Hidden
+Residues:H 209.080041 209.2020
+*
+Title:Ethyl (K)
+Hidden
+Residues:K 156.126263 156.2255
+*
+Title:Ethyl (N-term)
+Hidden
+Nterm:29.039125 29.0611
+*
+Title:Ethyl (E)
+Hidden
+Residues:E 157.073893 157.1672
+*
+Title:Ethyl (Protein N-term)
+Hidden
+ProteinNterm:29.039125 29.0611
+*
+Title:Ethyl (C-term)
+Hidden
+Cterm:45.034040 45.0605
+*
+Title:Ethyl (D)
+Hidden
+Residues:D 143.058243 143.1406
+*
+Title:Ethyl+Deamidated (N)
+Hidden
+Residues:N 143.058243 143.1405
+*
+Title:Ethyl+Deamidated (Q)
+Hidden
+Residues:Q 157.073894 157.1671
+*
+Title:ethylamino (S)
+Hidden
+Residues:S 114.079313 114.1457
+*
+Title:ethylamino (T)
+Hidden
+Residues:T 128.094964 128.1723
+*
+Title:Ethylphosphate (S)
+Hidden
+Residues:S 195.029659 195.1104
+*
+Title:Ethylphosphate (T)
+Hidden
+Residues:T 209.045310 209.1370
+*
+Title:Ethylphosphate (Y)
+Hidden
+Residues:Y 271.060960 271.2064
+*
+Title:Ethylphosphate (K)
+Hidden
+Residues:K 236.092594 236.2054
+*
+Title:Ethylphosphate (N-term)
+Hidden
+Nterm:109.005456 109.0410
+*
+Title:ethylsulfonylethyl (C)
+Hidden
+Residues:C 223.033685 223.3130
+*
+Title:ethylsulfonylethyl (H)
+Hidden
+Residues:H 257.083412 257.3094
+*
+Title:ethylsulfonylethyl (K)
+Hidden
+Residues:K 248.119463 248.3424
+*
+Title:ExacTagAmine (K)
+Hidden
+Residues:K 1174.442817 1175.0008
+*
+Title:ExacTagThiol (C)
+Hidden
+Residues:C 1075.374404 1075.8697
+*
+Title:FAD (C)
+Hidden
+Residues:C 886.150671 886.6768
+*
+Title:FAD (H)
+Hidden
+Residues:H 920.200398 920.6732
+*
+Title:FAD (Y)
+Hidden
+Residues:Y 946.204815 946.7072
+*
+Title:Farnesyl (C)
+Hidden
+Residues:C 307.196986 307.4940
+*
+Title:Fluorescein (C)
+Hidden
+Residues:C 490.083472 490.4846
+*
+Title:Fluorescein-tyramine (Y)
+Hidden
+Residues:Y 656.179481 656.6370
+*
+Title:Fluoro (F)
+Hidden
+Residues:F 165.058992 165.1644
+*
+Title:Fluoro (W)
+Hidden
+Residues:W 204.069891 204.2004
+*
+Title:Fluoro (Y)
+Hidden
+Residues:Y 181.053907 181.1638
+*
+Title:Fluoro (A)
+Hidden
+Residues:A 89.027692 89.0684
+*
+Title:FMN (T)
+Hidden
+Residues:T 539.141730 539.4324
+*
+Title:FMN (S)
+Hidden
+Residues:S 525.126079 525.4058
+*
+Title:FMNC (C)
+Hidden
+Residues:C 559.113800 559.4867
+*
+Title:FMNH (C)
+Hidden
+Residues:C 557.098150 557.4708
+*
+Title:FMNH (H)
+Hidden
+Residues:H 591.147877 591.4672
+*
+Title:FNEM (C)
+Hidden
+Residues:C 530.078387 530.5054
+*
+Title:Formyl (K)
+Hidden
+Residues:K 156.089878 156.1824
+*
+Title:Formyl (N-term)
+Nterm:29.002740 29.0180
+*
+Title:Formyl (S)
+Hidden
+Residues:S 115.026943 115.0874
+*
+Title:Formyl (T)
+Hidden
+Residues:T 129.042594 129.1140
+*
+Title:Formyl (Protein N-term)
+ProteinNterm:29.002740 29.0180
+*
+Title:Formylasparagine (H)
+Hidden
+Residues:H 142.037842 142.1128
+*
+Title:FormylMet (Protein N-term)
+Hidden
+ProteinNterm:160.043224 160.2141
+*
+Title:FP-Biotin (S)
+Hidden
+Residues:S 659.348157 659.8178
+*
+Title:FP-Biotin (Y)
+Hidden
+Residues:Y 735.379458 735.9138
+*
+Title:FP-Biotin (T)
+Hidden
+Residues:T 673.363808 673.8444
+*
+Title:FP-Biotin (K)
+Hidden
+Residues:K 700.411092 700.9128
+*
+Title:FTC (C)
+Hidden
+Residues:C 524.082426 524.5688
+*
+Title:FTC (K)
+Hidden
+Residues:K 549.168204 549.5982
+*
+Title:FTC (P)
+Hidden
+Residues:P 518.126005 518.5411
+*
+Title:FTC (R)
+Hidden
+Residues:R 577.174352 577.6116
+*
+Title:FTC (S)
+Hidden
+Residues:S 508.105269 508.5032
+*
+Title:Furan (Y)
+Hidden
+Residues:Y 229.073894 229.2314
+*
+Title:G-H1 (R)
+Hidden
+Residues:R 196.096026 196.2065
+*
+Title:Galactosyl (K)
+Hidden
+Residues:K 306.142701 306.3123
+*
+Title:Galactosyl (N-term)
+Hidden
+Nterm:179.055563 179.1479
+*
+Title:GEE (Q)
+Hidden
+Residues:Q 214.095357 214.2184
+*
+Title:GeranylGeranyl (C)
+Hidden
+Residues:C 375.259586 375.6110
+*
+Title:GG (K)
+Hidden
+Residues:K 242.137890 242.2749
+*
+Title:GG (S)
+Hidden
+Residues:S 201.074955 201.1799
+*
+Title:GG (T)
+Hidden
+Residues:T 215.090606 215.2065
+*
+Title:GG (C)
+Hidden
+Residues:C 217.052112 217.2455
+*
+Title:GG (Protein N-term)
+Hidden
+ProteinNterm:115.050752 115.1105
+*
+Title:GGQ (K)
+Hidden
+Residues:K 370.196468 370.4042
+*
+Title:GIST-Quat (K)
+Hidden
+Residues:K 255.194677 255.3565
+NeutralLoss:59.073499 59.1103 0
+*
+Title:GIST-Quat (N-term)
+Hidden
+Nterm:128.107539 128.1921
+NeutralLoss:59.073499 59.1103 0
+*
+Title:GIST-Quat:2H(3) (K)
+Hidden
+Residues:K 258.213507 258.3750
+NeutralLoss:62.092330 62.1287 0
+*
+Title:GIST-Quat:2H(3) (N-term)
+Hidden
+Nterm:131.126369 131.2106
+NeutralLoss:62.092330 62.1287 0
+*
+Title:GIST-Quat:2H(6) (K)
+Hidden
+Residues:K 261.232338 261.3935
+NeutralLoss:65.111160 65.1472 0
+*
+Title:GIST-Quat:2H(6) (N-term)
+Hidden
+Nterm:134.145200 134.2291
+NeutralLoss:65.111160 65.1472 0
+*
+Title:GIST-Quat:2H(9) (K)
+Hidden
+Residues:K 264.251168 264.4120
+NeutralLoss:68.129990 68.1657 0
+*
+Title:GIST-Quat:2H(9) (N-term)
+Hidden
+Nterm:137.164030 137.2476
+NeutralLoss:68.129990 68.1657 0
+*
+Title:Gln->pyro-Glu (N-term Q)
+ResiduesNterm:Q -16.018724 -16.0226
+*
+Title:Glu (Protein C-term)
+Hidden
+ProteinCterm:146.045333 146.1213
+*
+Title:Glu (E)
+Hidden
+Residues:E 258.085186 258.2280
+*
+Title:Glu->pyro-Glu (N-term E)
+ResiduesNterm:E -17.002740 -17.0074
+*
+Title:Glu->pyro-Glu+Methyl (N-term E)
+Hidden
+ResiduesNterm:E -2.987090 -2.9808
+*
+Title:Glu->pyro-Glu+Methyl:2H(2)13C(1) (N-term E)
+Hidden
+ResiduesNterm:E 0.028819 0.0242
+*
+Title:glucosone (R)
+Hidden
+Residues:R 316.138284 316.3104
+*
+Title:Glucosylgalactosyl (K)
+Hidden
+Residues:K 468.195525 468.4529
+NeutralLoss:340.100562 340.2806 0
+*
+Title:Glucuronyl (Protein N-term)
+Hidden
+ProteinNterm:177.039913 177.1320
+*
+Title:Glucuronyl (ST)
+Hidden
+Residues:S 263.064116 263.2014
+Residues:T 277.079767 277.2280
+NeutralLoss:176.032088 176.1241 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:GluGlu (Protein C-term)
+Hidden
+ProteinCterm:275.087926 275.2353
+*
+Title:GluGlu (E)
+Hidden
+Residues:E 387.127779 387.3420
+*
+Title:GluGluGlu (Protein C-term)
+Hidden
+ProteinCterm:404.130519 404.3492
+*
+Title:GluGluGlu (E)
+Hidden
+Residues:E 516.170372 516.4559
+*
+Title:GluGluGluGlu (Protein C-term)
+Hidden
+ProteinCterm:533.173113 533.4632
+*
+Title:GluGluGluGlu (E)
+Hidden
+Residues:E 645.212966 645.5699
+*
+Title:Gluratylation (K)
+Hidden
+Residues:K 242.126657 242.2716
+*
+Title:Glutathione (C)
+Hidden
+Residues:C 408.077341 408.4505
+*
+Title:Gly (K)
+Hidden
+Residues:K 185.116427 185.2236
+*
+Title:Gly (S)
+Hidden
+Residues:S 144.053492 144.1286
+*
+Title:Gly (T)
+Hidden
+Residues:T 158.069143 158.1552
+*
+Title:Gly-loss+Amide (C-term G)
+Hidden
+ResiduesCterm:G -41.002739 -41.0288
+*
+Title:Glycerophospho (S)
+Hidden
+Residues:S 241.035138 241.1357
+*
+Title:GlycerylPE (E)
+Hidden
+Residues:E 326.087903 326.2402
+*
+Title:glycidamide (K)
+Hidden
+Residues:K 215.126991 215.2496
+*
+Title:glycidamide (N-term)
+Hidden
+Nterm:88.039853 88.0852
+*
+Title:Glycosyl (P)
+Hidden
+Residues:P 245.089937 245.2292
+*
+Title:glyoxalAGE (R)
+Hidden
+Residues:R 178.085461 178.1912
+*
+Title:GNLLFLACYCIGG (K)
+Hidden
+Residues:K 1452.725763 1453.7703
+*
+Title:GPIanchor (Protein C-term)
+Hidden
+ProteinCterm:140.011270 140.0550
+*
+Title:Guanidinyl (K)
+Residues:K 170.116761 170.2123
+*
+Title:Guanidinyl (N-term)
+Hidden
+Nterm:43.029623 43.0479
+*
+Title:Haloxon (C)
+Hidden
+Residues:C 306.960172 308.1192
+*
+Title:Haloxon (H)
+Hidden
+Residues:H 341.009899 342.1156
+*
+Title:Haloxon (K)
+Hidden
+Residues:K 332.045950 333.1486
+*
+Title:Haloxon (ST)
+Hidden
+Residues:S 290.983015 292.0536
+Residues:T 304.998666 306.0802
+*
+Title:Haloxon (Y)
+Hidden
+Residues:Y 367.014316 368.1496
+*
+Title:HCysteinyl (C)
+Hidden
+Residues:C 236.028934 236.3118
+*
+Title:HCysThiolactone (K)
+Hidden
+Residues:K 245.119798 245.3418
+*
+Title:Heme (C)
+Hidden
+Residues:C 719.186480 719.6302
+*
+Title:Heme (H)
+Hidden
+Residues:H 753.236207 753.6266
+*
+Title:Hep (K)
+Hidden
+Residues:K 320.158351 320.3389
+*
+Title:Hep (N)
+Hidden
+Residues:N 306.106315 306.2692
+NeutralLoss:192.063388 192.1666 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hep (Q)
+Hidden
+Residues:Q 320.121966 320.2958
+*
+Title:Hep (R)
+Hidden
+Residues:R 348.164499 348.3523
+*
+Title:Hep (ST)
+Hidden
+Residues:S 279.095416 279.2439
+Residues:T 293.111067 293.2705
+NeutralLoss:192.063388 192.1666 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex (KR)
+Hidden
+Residues:K 290.147787 290.3129
+Residues:R 318.153935 318.3263
+NeutralLoss:54.031694 54.0458 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex (N)
+Hidden
+Residues:N 276.095751 276.2432
+NeutralLoss:162.052824 162.1406 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex (N-term)
+Hidden
+Nterm:163.060649 163.1485
+NeutralLoss:54.031694 54.0458 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex (ST)
+Hidden
+Residues:S 249.084852 249.2179
+Residues:T 263.100503 263.2445
+NeutralLoss:162.052824 162.1406 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex (W)
+Hidden
+Residues:W 348.132137 348.3505
+*
+Title:Hex (C)
+Hidden
+Residues:C 265.062009 265.2835
+*
+Title:Hex (Y)
+Hidden
+Residues:Y 325.116153 325.3139
+*
+Title:Hex(1)HexA(1) (ST)
+Hidden
+Residues:S 425.116940 425.3420
+Residues:T 439.132591 439.3686
+NeutralLoss:338.084912 338.2647 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexA(1)HexNAc(1) (ST)
+Hidden
+Residues:S 628.196312 628.5345
+Residues:T 642.211963 642.5611
+NeutralLoss:541.164284 541.4572 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexA(1)HexNAc(2) (ST)
+Hidden
+Residues:S 831.275685 831.7271
+Residues:T 845.291336 845.7537
+NeutralLoss:744.243657 744.6498 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1) (ST)
+Hidden
+Residues:S 452.164224 452.4104
+Residues:T 466.179875 466.4370
+NeutralLoss:365.132196 365.3331 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1) (N)
+Hidden
+Residues:N 479.175123 479.4357
+NeutralLoss:365.132196 365.3331 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)dHex(1) (N)
+Hidden
+Residues:N 625.233032 625.5769
+NeutralLoss:511.190105 511.4743 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)dHex(1) (ST)
+Hidden
+Residues:S 598.222133 598.5516
+Residues:T 612.237784 612.5782
+NeutralLoss:511.190105 511.4743 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)dHex(1)Me(1) (ST)
+Hidden
+Residues:S 612.237783 612.5782
+Residues:T 626.253434 626.6048
+NeutralLoss:525.205755 525.5009 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)dHex(1)Me(2) (ST)
+Hidden
+Residues:S 626.253433 626.6048
+Residues:T 640.269084 640.6314
+NeutralLoss:539.221405 539.5275 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)Kdn(1)Sulf(1) (ST)
+Hidden
+Residues:S 782.189906 782.6763
+Residues:T 796.205557 796.7029
+NeutralLoss:695.157878 695.5990 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(1) (N)
+Hidden
+Residues:N 770.270540 770.6903
+NeutralLoss:656.227613 656.5877 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(1) (ST)
+Hidden
+Residues:S 743.259641 743.6650
+Residues:T 757.275292 757.6916
+NeutralLoss:656.227613 656.5877 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(1)Ac(1) (ST)
+Hidden
+Residues:S 785.270205 785.7017
+Residues:T 799.285856 799.7283
+NeutralLoss:698.238177 698.6244 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(1)NeuGc(1) (ST)
+Hidden
+Residues:S 1050.349972 1050.9190
+Residues:T 1064.365623 1064.9456
+NeutralLoss:963.317944 963.8417 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 823.216455 823.7282
+Residues:T 837.232106 837.7548
+NeutralLoss:736.184427 736.6509 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(2) (N)
+Hidden
+Residues:N 1061.365956 1061.9449
+NeutralLoss:947.323029 947.8423 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(2) (ST)
+Hidden
+Residues:S 1034.355057 1034.9196
+Residues:T 1048.370708 1048.9462
+NeutralLoss:947.323029 947.8423 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(2)Ac(1) (ST)
+Hidden
+Residues:S 1076.365622 1076.9563
+Residues:T 1090.381273 1090.9829
+NeutralLoss:989.333594 989.8790 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(2)Ac(2) (ST)
+Hidden
+Residues:S 1118.376187 1118.9929
+Residues:T 1132.391838 1133.0195
+NeutralLoss:1031.344159 1031.9156 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuAc(3) (ST)
+Hidden
+Residues:S 1325.450474 1326.1742
+Residues:T 1339.466125 1340.2008
+NeutralLoss:1238.418446 1239.0969 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuGc(1) (ST)
+Hidden
+Residues:S 759.254555 759.6644
+Residues:T 773.270206 773.6910
+NeutralLoss:672.222527 672.5871 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuGc(2) (ST)
+Hidden
+Residues:S 1066.344887 1066.9184
+Residues:T 1080.360538 1080.9450
+NeutralLoss:979.312859 979.8411 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuGc(3) (ST)
+Hidden
+Residues:S 1373.435218 1374.1724
+Residues:T 1387.450869 1388.1990
+NeutralLoss:1286.403190 1287.0951 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuGc(4) (ST)
+Hidden
+Residues:S 1680.525549 1681.4263
+Residues:T 1694.541200 1695.4529
+NeutralLoss:1593.493521 1594.3490 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)NeuGc(5) (ST)
+Hidden
+Residues:S 1987.615880 1988.6803
+Residues:T 2001.631531 2002.7069
+NeutralLoss:1900.583852 1901.6030 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)Phos(1) (ST)
+Hidden
+Residues:S 532.130555 532.3903
+Residues:T 546.146206 546.4169
+NeutralLoss:445.098527 445.3130 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 532.121039 532.4736
+Residues:T 546.136690 546.5002
+NeutralLoss:445.089011 445.3963 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2) (N)
+Hidden
+Residues:N 682.254496 682.6282
+NeutralLoss:568.211569 568.5256 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2) (ST)
+Hidden
+Residues:S 655.243597 655.6029
+Residues:T 669.259248 669.6295
+NeutralLoss:568.211569 568.5256 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)dHex(1) (N)
+Hidden
+Residues:N 828.312405 828.7694
+NeutralLoss:714.269478 714.6668 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)dHex(1) (ST)
+Hidden
+Residues:S 801.301506 801.7441
+Residues:T 815.317157 815.7707
+NeutralLoss:714.269478 714.6668 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)dHex(1)Pent(1) (N)
+Hidden
+Residues:N 960.354663 960.8841
+NeutralLoss:846.311736 846.7815 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)dHex(2) (N)
+Hidden
+Residues:N 974.370313 974.9106
+NeutralLoss:860.327386 860.8080 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)dHex(2) (ST)
+Hidden
+Residues:S 947.359414 947.8853
+Residues:T 961.375065 961.9119
+NeutralLoss:860.327386 860.8080 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)dHex(2)Sulf(1) (ST)
+Hidden
+Residues:S 1027.316229 1027.9485
+Residues:T 1041.331880 1041.9751
+NeutralLoss:940.284201 940.8712 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 946.339013 946.8575
+Residues:T 960.354664 960.8841
+NeutralLoss:859.306985 859.7802 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1026.295828 1026.9207
+Residues:T 1040.311479 1040.9473
+NeutralLoss:939.263800 939.8434 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)NeuAc(2) (ST)
+Hidden
+Residues:S 1237.434430 1238.1121
+Residues:T 1251.450081 1252.1387
+NeutralLoss:1150.402402 1151.0348 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)NeuAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1317.391245 1318.1753
+Residues:T 1331.406896 1332.2019
+NeutralLoss:1230.359217 1231.0980 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 962.333928 962.8569
+Residues:T 976.349579 976.8835
+NeutralLoss:875.301900 875.7796 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 814.296755 814.7429
+NeutralLoss:700.253828 700.6403 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 735.200411 735.6661
+Residues:T 749.216062 749.6927
+NeutralLoss:648.168383 648.5888 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(3) (ST)
+Hidden
+Residues:S 858.322969 858.7955
+Residues:T 872.338620 872.8221
+NeutralLoss:771.290941 771.7182 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1149.418386 1150.0500
+Residues:T 1163.434037 1164.0766
+NeutralLoss:1062.386358 1062.9727 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(3)NeuAc(2) (ST)
+Hidden
+Residues:S 1440.513803 1441.3046
+Residues:T 1454.529454 1455.3312
+NeutralLoss:1353.481775 1354.2273 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(3)NeuGc(1) (ST)
+Hidden
+Residues:S 1165.413301 1166.0494
+Residues:T 1179.428952 1180.0760
+NeutralLoss:1078.381273 1078.9721 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 938.279784 938.8587
+Residues:T 952.295435 952.8853
+NeutralLoss:851.247756 851.7814 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)HexNAc(4)dHex(1)Sulf(1) (ST)
+Hidden
+Residues:S 1287.417065 1288.1924
+Residues:T 1301.432716 1302.2190
+NeutralLoss:1200.385037 1201.1151 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)NeuAc(1) (ST)
+Hidden
+Residues:S 540.180268 540.4725
+Residues:T 554.195919 554.4991
+NeutralLoss:453.148240 453.3952 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)NeuAc(1)Pent(1) (ST)
+Hidden
+Residues:S 672.222527 672.5871
+Residues:T 686.238178 686.6137
+NeutralLoss:585.190499 585.5098 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)NeuGc(1) (ST)
+Hidden
+Residues:S 556.175183 556.4719
+Residues:T 570.190834 570.4985
+NeutralLoss:469.143155 469.3946 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)Pent(1) (ST)
+Hidden
+Residues:S 381.127110 381.3325
+Residues:T 395.142761 395.3591
+NeutralLoss:294.095082 294.2552 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)Pent(2) (ST)
+Hidden
+Residues:S 513.169369 513.4471
+Residues:T 527.185020 527.4737
+NeutralLoss:426.137341 426.3698 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)Pent(2)Me(1) (ST)
+Hidden
+Residues:S 527.185019 527.4737
+Residues:T 541.200670 541.5003
+NeutralLoss:440.152991 440.3964 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)Pent(3) (ST)
+Hidden
+Residues:S 645.211628 645.5618
+Residues:T 659.227279 659.5884
+NeutralLoss:558.179600 558.4845 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(1)Pent(3)Me(1) (ST)
+Hidden
+Residues:S 659.227278 659.5883
+Residues:T 673.242929 673.6149
+NeutralLoss:572.195250 572.5110 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(10)HexNAc(1) (N)
+Hidden
+Residues:N 1937.650535 1938.7011
+NeutralLoss:1823.607608 1824.5985 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(10)Phos(3) (ST)
+Hidden
+Residues:S 1947.459256 1948.4230
+Residues:T 1961.474907 1962.4496
+NeutralLoss:1860.427228 1861.3457 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2) (K)
+Hidden
+Residues:K 452.200610 452.4535
+*
+Title:Hex(2) (R)
+Hidden
+Residues:R 480.206758 480.4669
+*
+Title:Hex(2) (ST)
+Hidden
+Residues:S 411.137675 411.3585
+Residues:T 425.153326 425.3851
+NeutralLoss:324.105647 324.2812 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexA(1)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 870.205950 870.7383
+Residues:T 884.221601 884.7649
+NeutralLoss:783.173922 783.6610 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexA(1)NeuAc(1)Pent(1)Sulf(1) (ST)
+Hidden
+Residues:S 1090.264253 1090.9150
+Residues:T 1104.279904 1104.9416
+NeutralLoss:1003.232225 1003.8377 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexA(1)Pent(1)Sulf(1) (ST)
+Hidden
+Residues:S 799.168836 799.6604
+Residues:T 813.184487 813.6870
+NeutralLoss:712.136808 712.5831 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1) (ST)
+Hidden
+Residues:S 614.217048 614.5510
+Residues:T 628.232699 628.5776
+NeutralLoss:527.185020 527.4737 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1) (N)
+Hidden
+Residues:N 641.227947 641.5763
+NeutralLoss:527.185020 527.4737 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)Me(1) (ST)
+Hidden
+Residues:S 628.232698 628.5776
+Residues:T 642.248349 642.6042
+NeutralLoss:541.200670 541.5003 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)NeuGc(1) (ST)
+Hidden
+Residues:S 921.307379 921.8050
+Residues:T 935.323030 935.8316
+NeutralLoss:834.275351 834.7277 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)NeuGc(2) (ST)
+Hidden
+Residues:S 1228.397710 1229.0590
+Residues:T 1242.413361 1243.0856
+NeutralLoss:1141.365682 1141.9817 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)NeuGc(3) (ST)
+Hidden
+Residues:S 1535.488041 1536.3130
+Residues:T 1549.503692 1550.3396
+NeutralLoss:1448.456013 1449.2357 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)NeuGc(4) (ST)
+Hidden
+Residues:S 1842.578373 1843.5669
+Residues:T 1856.594024 1857.5935
+NeutralLoss:1755.546345 1756.4896 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)Pent(1)HexA(1) (ST)
+Hidden
+Residues:S 922.291394 922.7898
+Residues:T 936.307045 936.8164
+NeutralLoss:835.259366 835.7125 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 694.173862 694.6142
+Residues:T 708.189513 708.6408
+NeutralLoss:607.141834 607.5369 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2) (N)
+Hidden
+Residues:N 844.307319 844.7688
+NeutralLoss:730.264392 730.6662 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2) (ST)
+Hidden
+Residues:S 817.296420 817.7435
+Residues:T 831.312071 831.7701
+NeutralLoss:730.264392 730.6662 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)dHex(1) (N)
+Hidden
+Residues:N 990.365228 990.9100
+NeutralLoss:876.322301 876.8074 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)dHex(1) (ST)
+Hidden
+Residues:S 963.354329 963.8847
+Residues:T 977.369980 977.9113
+NeutralLoss:876.322301 876.8074 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)NeuAc(1) (N)
+Hidden
+Residues:N 1135.402736 1136.0234
+NeutralLoss:1021.359809 1021.9208 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 1108.391837 1108.9981
+Residues:T 1122.407488 1123.0247
+NeutralLoss:1021.359809 1021.9208 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1188.348651 1189.0613
+Residues:T 1202.364302 1203.0879
+NeutralLoss:1101.316623 1101.9840 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)NeuAc(2) (ST)
+Hidden
+Residues:S 1399.487253 1400.2527
+Residues:T 1413.502904 1414.2793
+NeutralLoss:1312.455225 1313.1754 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)NeuAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1479.444068 1480.3159
+Residues:T 1493.459719 1494.3425
+NeutralLoss:1392.412040 1393.2386 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 1124.386751 1124.9975
+Residues:T 1138.402402 1139.0241
+NeutralLoss:1037.354723 1037.9202 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 976.349578 976.8835
+NeutralLoss:862.306651 862.7809 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 897.253235 897.8067
+Residues:T 911.268886 911.8333
+NeutralLoss:810.221207 810.7294 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3) (ST)
+Hidden
+Residues:S 1020.375793 1020.9361
+Residues:T 1034.391444 1034.9627
+NeutralLoss:933.343765 933.8588 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3) (N)
+Hidden
+Residues:N 1047.386692 1047.9614
+NeutralLoss:933.343765 933.8588 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuAc(1)NeuGc(1) (ST)
+Hidden
+Residues:S 1618.561541 1619.4446
+Residues:T 1632.577192 1633.4712
+NeutralLoss:1531.529513 1532.3673 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1391.428024 1392.2538
+Residues:T 1405.443675 1406.2804
+NeutralLoss:1304.395996 1305.1765 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuAc(2) (ST)
+Hidden
+Residues:S 1602.566626 1603.4452
+Residues:T 1616.582277 1617.4718
+NeutralLoss:1515.534598 1516.3679 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuAc(3) (ST)
+Hidden
+Residues:S 1893.662043 1894.6998
+Residues:T 1907.677694 1908.7264
+NeutralLoss:1806.630015 1807.6225 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuGc(1) (ST)
+Hidden
+Residues:S 1327.466124 1328.1900
+Residues:T 1341.481775 1342.2166
+NeutralLoss:1240.434096 1241.1127 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuGc(2) (ST)
+Hidden
+Residues:S 1634.556455 1635.4440
+Residues:T 1648.572106 1649.4706
+NeutralLoss:1547.524427 1548.3667 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)NeuGc(3) (ST)
+Hidden
+Residues:S 1941.646787 1942.6980
+Residues:T 1955.662438 1956.7246
+NeutralLoss:1854.614759 1855.6207 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1100.332607 1100.9993
+Residues:T 1114.348258 1115.0259
+NeutralLoss:1013.300579 1013.9220 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(4) (ST)
+Hidden
+Residues:S 1223.455165 1224.1286
+Residues:T 1237.470816 1238.1552
+NeutralLoss:1136.423137 1137.0513 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(4) (N)
+Hidden
+Residues:N 1250.466064 1251.1539
+NeutralLoss:1136.423137 1137.0513 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(4)NeuAc(1) (ST)
+Hidden
+Residues:S 1514.550582 1515.3832
+Residues:T 1528.566233 1529.4098
+NeutralLoss:1427.518554 1428.3059 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)HexNAc(5) (ST)
+Hidden
+Residues:S 1426.534538 1427.3211
+Residues:T 1440.550189 1441.3477
+NeutralLoss:1339.502510 1340.2438 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)NeuAc(1) (ST)
+Hidden
+Residues:S 702.233092 702.6131
+Residues:T 716.248743 716.6397
+NeutralLoss:615.201064 615.5358 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)Pent(2) (ST)
+Hidden
+Residues:S 675.222193 675.5877
+Residues:T 689.237844 689.6143
+NeutralLoss:588.190165 588.5104 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)Pent(2)Me(1) (ST)
+Hidden
+Residues:S 689.237843 689.6143
+Residues:T 703.253494 703.6409
+NeutralLoss:602.205815 602.5370 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(2)Sulf(1) (ST)
+Hidden
+Residues:S 491.094490 491.4217
+Residues:T 505.110141 505.4483
+NeutralLoss:404.062462 404.3444 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3) (N)
+Hidden
+Residues:N 600.201398 600.5244
+NeutralLoss:486.158471 486.4218 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3) (ST)
+Hidden
+Residues:S 573.190499 573.4991
+Residues:T 587.206150 587.5257
+NeutralLoss:486.158471 486.4218 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(1) (ST)
+Hidden
+Residues:S 776.269871 776.6916
+Residues:T 790.285522 790.7182
+NeutralLoss:689.237843 689.6143 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(1) (N)
+Hidden
+Residues:N 803.280770 803.7169
+NeutralLoss:689.237843 689.6143 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(1)HexA(1) (ST)
+Hidden
+Residues:S 952.301959 952.8157
+Residues:T 966.317610 966.8423
+NeutralLoss:865.269931 865.7384 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(1)Me(1) (ST)
+Hidden
+Residues:S 790.285521 790.7182
+Residues:T 804.301172 804.7448
+NeutralLoss:703.253493 703.6409 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(1)Pent(1) (N)
+Hidden
+Residues:N 935.323029 935.8315
+NeutralLoss:821.280102 821.7289 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(2) (N)
+Hidden
+Residues:N 1006.360143 1006.9094
+NeutralLoss:892.317216 892.8068 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(2) (ST)
+Hidden
+Residues:S 979.349244 979.8841
+Residues:T 993.364895 993.9107
+NeutralLoss:892.317216 892.8068 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(2)NeuAc(1) (N)
+Hidden
+Residues:N 1297.455559 1298.1640
+NeutralLoss:1183.412632 1184.0614 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(2)NeuAc(2) (ST)
+Hidden
+Residues:S 1561.540077 1562.3933
+Residues:T 1575.555728 1576.4199
+NeutralLoss:1474.508049 1475.3160 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 1138.402402 1139.0241
+NeutralLoss:1024.359475 1024.9215 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(2)Phos(1) (N)
+Hidden
+Residues:N 1086.326474 1086.8893
+NeutralLoss:972.283547 972.7867 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3) (ST)
+Hidden
+Residues:S 1182.428616 1183.0767
+Residues:T 1196.444267 1197.1033
+NeutralLoss:1095.396588 1095.9994 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3) (N)
+Hidden
+Residues:N 1209.439515 1210.1020
+NeutralLoss:1095.396588 1095.9994 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1473.524033 1474.3312
+Residues:T 1487.539684 1488.3578
+NeutralLoss:1386.492005 1387.2539 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1553.480848 1554.3944
+Residues:T 1567.496499 1568.4210
+NeutralLoss:1466.448820 1467.3171 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuAc(2) (ST)
+Hidden
+Residues:S 1764.619450 1765.5858
+Residues:T 1778.635101 1779.6124
+NeutralLoss:1677.587422 1678.5085 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 1844.576264 1845.6490
+Residues:T 1858.591915 1859.6756
+NeutralLoss:1757.544236 1758.5717 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuAc(3) (ST)
+Hidden
+Residues:S 2055.714866 2056.8404
+Residues:T 2069.730517 2070.8670
+NeutralLoss:1968.682838 1969.7631 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuGc(1) (ST)
+Hidden
+Residues:S 1489.518948 1490.3306
+Residues:T 1503.534599 1504.3572
+NeutralLoss:1402.486920 1403.2533 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)NeuGc(1)Sulf(1) (ST)
+Hidden
+Residues:S 1569.475762 1570.3938
+Residues:T 1583.491413 1584.4204
+NeutralLoss:1482.443734 1483.3165 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1341.481774 1342.2166
+NeutralLoss:1227.438847 1228.1140 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 1262.385431 1263.1399
+Residues:T 1276.401082 1277.1665
+NeutralLoss:1175.353403 1176.0626 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(3)Sulf(1) (N)
+Hidden
+Residues:N 1289.396330 1290.1652
+NeutralLoss:1175.353403 1176.0626 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(4) (N)
+Hidden
+Residues:N 1412.518888 1413.2945
+NeutralLoss:1298.475961 1299.1919 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(4) (ST)
+Hidden
+Residues:S 1385.507989 1386.2692
+Residues:T 1399.523640 1400.2958
+NeutralLoss:1298.475961 1299.1919 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 1703.614305 1704.5491
+NeutralLoss:1589.571378 1590.4465 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(4)NeuAc(2) (N)
+Hidden
+Residues:N 1994.709721 1995.8036
+NeutralLoss:1880.666794 1881.7010 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1544.561147 1545.4091
+NeutralLoss:1430.518220 1431.3065 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1492.475703 1493.3577
+NeutralLoss:1378.432776 1379.2551 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(5) (ST)
+Hidden
+Residues:S 1588.587362 1589.4617
+Residues:T 1602.603013 1603.4883
+NeutralLoss:1501.555334 1502.3844 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(5) (N)
+Hidden
+Residues:N 1615.598261 1616.4870
+NeutralLoss:1501.555334 1502.3844 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(5)NeuAc(1) (N)
+Hidden
+Residues:N 1906.693677 1907.7416
+NeutralLoss:1792.650750 1793.6390 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(5)Sulf(1) (N)
+Hidden
+Residues:N 1695.555075 1696.5502
+NeutralLoss:1581.512148 1582.4476 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(6) (ST)
+Hidden
+Residues:S 1791.666734 1792.6542
+Residues:T 1805.682385 1806.6808
+NeutralLoss:1704.634706 1705.5769 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(6) (N)
+Hidden
+Residues:N 1818.677633 1819.6795
+NeutralLoss:1704.634706 1705.5769 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(6)NeuAc(1) (N)
+Hidden
+Residues:N 2109.773050 2110.9341
+NeutralLoss:1995.730123 1996.8315 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(6)Sulf(1) (N)
+Hidden
+Residues:N 1898.634448 1899.7427
+NeutralLoss:1784.591521 1785.6401 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(6)Sulf(2) (N)
+Hidden
+Residues:N 1978.591262 1979.8059
+NeutralLoss:1864.548335 1865.7033 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(7) (N)
+Hidden
+Residues:N 2021.757006 2022.8720
+NeutralLoss:1907.714079 1908.7694 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(3)HexNAc(7)Sulf(1) (N)
+Hidden
+Residues:N 2101.713820 2102.9352
+NeutralLoss:1987.670893 1988.8326 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4) (ST)
+Hidden
+Residues:S 735.243322 735.6397
+Residues:T 749.258973 749.6663
+NeutralLoss:648.211294 648.5624 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexA(1) (ST)
+Hidden
+Residues:S 911.275410 911.7638
+Residues:T 925.291061 925.7904
+NeutralLoss:824.243382 824.6865 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexA(1)HexNAc(1) (ST)
+Hidden
+Residues:S 1114.354783 1114.9563
+Residues:T 1128.370434 1128.9829
+NeutralLoss:1027.322755 1027.8790 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(1) (ST)
+Hidden
+Residues:S 938.322695 938.8322
+Residues:T 952.338346 952.8588
+NeutralLoss:851.290667 851.7549 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(1) (N)
+Hidden
+Residues:N 965.333594 965.8575
+NeutralLoss:851.290667 851.7549 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(2) (N)
+Hidden
+Residues:N 1168.412966 1169.0500
+NeutralLoss:1054.370039 1054.9474 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(2)NeuAc(1) (N)
+Hidden
+Residues:N 1459.508383 1460.3046
+NeutralLoss:1345.465456 1346.2020 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 1432.497484 1433.2793
+Residues:T 1446.513135 1447.3059
+NeutralLoss:1345.465456 1346.2020 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(2)Pent(1) (N)
+Hidden
+Residues:N 1300.455225 1301.1647
+NeutralLoss:1186.412298 1187.0621 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3) (ST)
+Hidden
+Residues:S 1344.481440 1345.2173
+Residues:T 1358.497091 1359.2439
+NeutralLoss:1257.449412 1258.1400 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3) (N)
+Hidden
+Residues:N 1371.492339 1372.2426
+NeutralLoss:1257.449412 1258.1400 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3)NeuAc(1) (ST)
+Hidden
+Residues:S 1635.576856 1636.4718
+Residues:T 1649.592507 1650.4984
+NeutralLoss:1548.544828 1549.3945 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3)NeuAc(1) (N)
+Hidden
+Residues:N 1662.587755 1663.4971
+NeutralLoss:1548.544828 1549.3945 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3)NeuAc(2) (N)
+Hidden
+Residues:N 1953.683172 1954.7517
+NeutralLoss:1839.640245 1840.6491 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3)NeuGc(1) (N)
+Hidden
+Residues:N 1678.582670 1679.4965
+NeutralLoss:1564.539743 1565.3939 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1503.534598 1504.3572
+NeutralLoss:1389.491671 1390.2546 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4) (N)
+Hidden
+Residues:N 1574.571711 1575.4351
+NeutralLoss:1460.528784 1461.3325 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4) (ST)
+Hidden
+Residues:S 1547.560812 1548.4098
+Residues:T 1561.576463 1562.4364
+NeutralLoss:1460.528784 1461.3325 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)Me(2)Pent(1) (N)
+Hidden
+Residues:N 1734.645270 1735.6029
+NeutralLoss:1620.602343 1621.5003 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuAc(1) (ST)
+Hidden
+Residues:S 1838.656229 1839.6644
+Residues:T 1852.671880 1853.6910
+NeutralLoss:1751.624201 1752.5871 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 1865.667128 1866.6897
+NeutralLoss:1751.624201 1752.5871 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuAc(1)Sulf(2) (ST)
+Hidden
+Residues:S 1998.569858 1999.7908
+Residues:T 2012.585509 2013.8174
+NeutralLoss:1911.537830 1912.7135 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuAc(1)Sulf(3) (ST)
+Hidden
+Residues:S 2078.526673 2079.8540
+Residues:T 2092.542324 2093.8806
+NeutralLoss:1991.494645 1992.7767 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuGc(1) (N)
+Hidden
+Residues:N 1881.662043 1882.6891
+NeutralLoss:1767.619116 1768.5865 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuGc(1) (ST)
+Hidden
+Residues:S 1854.651144 1855.6638
+Residues:T 1868.666795 1869.6904
+NeutralLoss:1767.619116 1768.5865 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)NeuGc(1)Sulf(2) (ST)
+Hidden
+Residues:S 2014.564773 2015.7902
+Residues:T 2028.580424 2029.8168
+NeutralLoss:1927.532745 1928.7129 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)Pent(1) (N)
+Hidden
+Residues:N 1706.613970 1707.5497
+NeutralLoss:1592.571043 1593.4471 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1654.528526 1655.4983
+NeutralLoss:1540.485599 1541.3957 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(4)Sulf(2) (ST)
+Hidden
+Residues:S 1707.474442 1708.5362
+Residues:T 1721.490093 1722.5628
+NeutralLoss:1620.442414 1621.4589 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(5) (N)
+Hidden
+Residues:N 1777.651084 1778.6276
+NeutralLoss:1663.608157 1664.5250 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(5)NeuAc(1) (N)
+Hidden
+Residues:N 2068.746501 2069.8822
+NeutralLoss:1954.703574 1955.7796 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(5)Sulf(1) (N)
+Hidden
+Residues:N 1857.607899 1858.6908
+NeutralLoss:1743.564972 1744.5882 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)HexNAc(6) (N)
+Hidden
+Residues:N 1980.730457 1981.8201
+NeutralLoss:1866.687530 1867.7175 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(4)Phos(1) (ST)
+Hidden
+Residues:S 815.209653 815.6196
+Residues:T 829.225304 829.6462
+NeutralLoss:728.177625 728.5423 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5) (ST)
+Hidden
+Residues:S 897.296145 897.7803
+Residues:T 911.311796 911.8069
+NeutralLoss:810.264117 810.7030 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexA(1) (ST)
+Hidden
+Residues:S 1073.328234 1073.9044
+Residues:T 1087.343885 1087.9310
+NeutralLoss:986.296206 986.8271 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(1) (ST)
+Hidden
+Residues:S 1100.375518 1100.9728
+Residues:T 1114.391169 1114.9994
+NeutralLoss:1013.343490 1013.8955 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(1) (N)
+Hidden
+Residues:N 1127.386417 1127.9981
+NeutralLoss:1013.343490 1013.8955 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(2) (N)
+Hidden
+Residues:N 1330.465790 1331.1906
+NeutralLoss:1216.422863 1217.0880 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(2)Phos(1) (N)
+Hidden
+Residues:N 1410.432121 1411.1705
+NeutralLoss:1296.389194 1297.0679 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(3) (N)
+Hidden
+Residues:N 1533.545162 1534.3832
+NeutralLoss:1419.502235 1420.2806 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(3)Pent(1) (N)
+Hidden
+Residues:N 1665.587421 1666.4978
+NeutralLoss:1551.544494 1552.3952 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4) (N)
+Hidden
+Residues:N 1736.624535 1737.5757
+NeutralLoss:1622.581608 1623.4731 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4) (ST)
+Hidden
+Residues:S 1709.613636 1710.5504
+Residues:T 1723.629287 1724.5770
+NeutralLoss:1622.581608 1623.4731 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)Me(2)Pent(1) (N)
+Hidden
+Residues:N 1896.698094 1897.7435
+NeutralLoss:1782.655167 1783.6409 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)NeuAc(1) (N)
+Hidden
+Residues:N 2027.719952 2028.8303
+NeutralLoss:1913.677025 1914.7277 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)NeuAc(1)Ac(1) (N)
+Hidden
+Residues:N 2069.730516 2070.8669
+NeutralLoss:1955.687589 1956.7643 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)NeuAc(1)Ac(2) (N)
+Hidden
+Residues:N 2111.741081 2112.9036
+NeutralLoss:1997.698154 1998.8010 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)NeuAc(1)Sulf(1) (N)
+Hidden
+Residues:N 2107.676766 2108.8935
+NeutralLoss:1993.633839 1994.7909 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)NeuAc(2) (N)
+Hidden
+Residues:N 2318.815368 2320.0848
+NeutralLoss:2204.772441 2205.9822 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)NeuGc(1) (N)
+Hidden
+Residues:N 2043.714866 2044.8297
+NeutralLoss:1929.671939 1930.7271 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(4)Sulf(1) (N)
+Hidden
+Residues:N 1816.581350 1817.6389
+NeutralLoss:1702.538423 1703.5363 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(5) (ST)
+Hidden
+Residues:S 1912.693009 1913.7429
+Residues:T 1926.708660 1927.7695
+NeutralLoss:1825.660981 1826.6656 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)HexNAc(5) (N)
+Hidden
+Residues:N 1939.703908 1940.7682
+NeutralLoss:1825.660981 1826.6656 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)Phos(1) (ST)
+Hidden
+Residues:S 977.262476 977.7602
+Residues:T 991.278127 991.7868
+NeutralLoss:890.230448 890.6829 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(5)Phos(3) (ST)
+Hidden
+Residues:S 1137.195138 1137.7200
+Residues:T 1151.210789 1151.7466
+NeutralLoss:1050.163110 1050.6427 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(1) (N)
+Hidden
+Residues:N 1289.439241 1290.1387
+NeutralLoss:1175.396314 1176.0361 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(2) (N)
+Hidden
+Residues:N 1492.518613 1493.3312
+NeutralLoss:1378.475686 1379.2286 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(2)Phos(1) (N)
+Hidden
+Residues:N 1572.484944 1573.3111
+NeutralLoss:1458.442017 1459.2085 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(3) (N)
+Hidden
+Residues:N 1695.597986 1696.5238
+NeutralLoss:1581.555059 1582.4212 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(3)Phos(1) (N)
+Hidden
+Residues:N 1775.564317 1776.5037
+NeutralLoss:1661.521390 1662.4011 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(4) (ST)
+Hidden
+Residues:S 1871.666459 1872.6910
+Residues:T 1885.682110 1886.7176
+NeutralLoss:1784.634431 1785.6137 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(4) (N)
+Hidden
+Residues:N 1898.677358 1899.7163
+NeutralLoss:1784.634431 1785.6137 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(4)Me(3) (N)
+Hidden
+Residues:N 1940.724309 1941.7960
+NeutralLoss:1826.681382 1827.6934 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(4)Me(3)Pent(1) (N)
+Hidden
+Residues:N 2072.766567 2073.9106
+NeutralLoss:1958.723640 1959.8080 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)HexNAc(5) (N)
+Hidden
+Residues:N 2101.756731 2102.9088
+NeutralLoss:1987.713804 1988.8062 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)Phos(1) (ST)
+Hidden
+Residues:S 1139.315300 1139.9008
+Residues:T 1153.330951 1153.9274
+NeutralLoss:1052.283272 1052.8235 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(6)Phos(3) (ST)
+Hidden
+Residues:S 1299.247962 1299.8606
+Residues:T 1313.263613 1313.8872
+NeutralLoss:1212.215934 1212.7833 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(1) (N)
+Hidden
+Residues:N 1451.492064 1452.2793
+NeutralLoss:1337.449137 1338.1767 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(2) (N)
+Hidden
+Residues:N 1654.571437 1655.4718
+NeutralLoss:1540.528510 1541.3692 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(2)Phos(1) (N)
+Hidden
+Residues:N 1734.537768 1735.4517
+NeutralLoss:1620.494841 1621.3491 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(2)Phos(2) (N)
+Hidden
+Residues:N 1814.504099 1815.4316
+NeutralLoss:1700.461172 1701.3290 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(3) (N)
+Hidden
+Residues:N 1857.650809 1858.6644
+NeutralLoss:1743.607882 1744.5618 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(3)Phos(1) (N)
+Hidden
+Residues:N 1937.617140 1938.6443
+NeutralLoss:1823.574213 1824.5417 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)HexNAc(4) (N)
+Hidden
+Residues:N 2060.730182 2061.8569
+NeutralLoss:1946.687255 1947.7543 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(7)Phos(3) (ST)
+Hidden
+Residues:S 1461.300785 1462.0012
+Residues:T 1475.316436 1476.0278
+NeutralLoss:1374.268757 1374.9239 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(8)HexNAc(1) (N)
+Hidden
+Residues:N 1613.544888 1614.4199
+NeutralLoss:1499.501961 1500.3173 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(8)HexNAc(2) (N)
+Hidden
+Residues:N 1816.624260 1817.6124
+NeutralLoss:1702.581333 1703.5098 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(8)Phos(3) (ST)
+Hidden
+Residues:S 1623.353609 1624.1418
+Residues:T 1637.369260 1638.1684
+NeutralLoss:1536.321581 1537.0645 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(9) (N)
+Hidden
+Residues:N 1572.518339 1573.3680
+NeutralLoss:1458.475412 1459.2654 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(9)HexNAc(1) (N)
+Hidden
+Residues:N 1775.597711 1776.5605
+NeutralLoss:1661.554784 1662.4579 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(9)HexNAc(2) (N)
+Hidden
+Residues:N 1978.677084 1979.7530
+NeutralLoss:1864.634157 1865.6504 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Hex(9)Phos(3) (ST)
+Hidden
+Residues:S 1785.406432 1786.2824
+Residues:T 1799.422083 1800.3090
+NeutralLoss:1698.374404 1699.2051 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexA(2)HexNAc(3) (ST)
+Hidden
+Residues:S 1048.334322 1048.9031
+Residues:T 1062.349973 1062.9297
+NeutralLoss:961.302294 961.8258 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexN (K)
+Hidden
+Residues:K 289.163771 289.3281
+*
+Title:HexN (N)
+Hidden
+Residues:N 275.111735 275.2584
+NeutralLoss:161.068808 161.1558 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexN (ST)
+Hidden
+Residues:S 248.100836 248.2331
+Residues:T 262.116487 262.2597
+NeutralLoss:161.068808 161.1558 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexN (W)
+Hidden
+Residues:W 347.148121 347.3657
+*
+Title:HexNAc (N)
+Hidden
+Residues:N 317.122300 317.2951
+NeutralLoss:203.079373 203.1925 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc (ST)
+Hidden
+Residues:S 290.111401 290.2698
+Residues:T 304.127052 304.2964
+NeutralLoss:203.079373 203.1925 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc (C)
+Hidden
+Residues:C 306.088558 306.3354
+NeutralLoss:203.079373 203.1925 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)dHex(1) (N)
+Hidden
+Residues:N 463.180208 463.4363
+NeutralLoss:349.137281 349.3337 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)dHex(1) (ST)
+Hidden
+Residues:S 436.169309 436.4110
+Residues:T 450.184960 450.4376
+NeutralLoss:349.137281 349.3337 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)dHex(2) (N)
+Hidden
+Residues:N 609.238117 609.5775
+NeutralLoss:495.195190 495.4749 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)Kdn(2) (ST)
+Hidden
+Residues:S 790.249136 790.6751
+Residues:T 804.264787 804.7017
+NeutralLoss:703.217108 703.5978 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)NeuAc(1) (ST)
+Hidden
+Residues:S 581.206817 581.5244
+Residues:T 595.222468 595.5510
+NeutralLoss:494.174789 494.4471 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)NeuGc(1) (ST)
+Hidden
+Residues:S 597.201732 597.5238
+Residues:T 611.217383 611.5504
+NeutralLoss:510.169704 510.4465 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(1)NeuGc(2) (ST)
+Hidden
+Residues:S 904.292063 904.7778
+Residues:T 918.307714 918.8044
+NeutralLoss:817.260035 817.7005 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2) (N)
+Hidden
+Residues:N 520.201672 520.4876
+NeutralLoss:406.158745 406.3850 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2) (ST)
+Hidden
+Residues:S 493.190773 493.4623
+Residues:T 507.206424 507.4889
+NeutralLoss:406.158745 406.3850 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2)dHex(1) (N)
+Hidden
+Residues:N 666.259581 666.6288
+NeutralLoss:552.216654 552.5262 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2)dHex(2) (N)
+Hidden
+Residues:N 812.317490 812.7700
+NeutralLoss:698.274563 698.6674 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2)NeuAc(1) (ST)
+Hidden
+Residues:S 784.286190 784.7169
+Residues:T 798.301841 798.7435
+NeutralLoss:697.254162 697.6396 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2)NeuAc(1)Sulf(1) (ST)
+Hidden
+Residues:S 864.243004 864.7801
+Residues:T 878.258655 878.8067
+NeutralLoss:777.210976 777.7028 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2)NeuGc(1) (ST)
+Hidden
+Residues:S 800.281104 800.7163
+Residues:T 814.296755 814.7429
+NeutralLoss:713.249076 713.6390 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(2)Sulf(1) (ST)
+Hidden
+Residues:S 573.147588 573.5255
+Residues:T 587.163239 587.5521
+NeutralLoss:486.115560 486.4482 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(3) (ST)
+Hidden
+Residues:S 696.270146 696.6549
+Residues:T 710.285797 710.6815
+NeutralLoss:609.238118 609.5776 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(3)Sulf(1) (ST)
+Hidden
+Residues:S 776.226960 776.7181
+Residues:T 790.242611 790.7447
+NeutralLoss:689.194932 689.6408 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(4) (ST)
+Hidden
+Residues:S 899.349518 899.8474
+Residues:T 913.365169 913.8740
+NeutralLoss:812.317490 812.7701 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HexNAc(5) (ST)
+Hidden
+Residues:S 1102.428891 1103.0399
+Residues:T 1116.444542 1117.0665
+NeutralLoss:1015.396863 1015.9626 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:HMVK (C)
+Hidden
+Residues:C 189.045964 189.2321
+*
+Title:HN2_mustard (C)
+Hidden
+Residues:C 204.093249 204.2898
+*
+Title:HN2_mustard (H)
+Hidden
+Residues:H 238.142976 238.2862
+*
+Title:HN2_mustard (K)
+Hidden
+Residues:K 229.179027 229.3192
+*
+Title:HN3_mustard (C)
+Hidden
+Residues:C 234.103814 234.3158
+*
+Title:HN3_mustard (H)
+Hidden
+Residues:H 268.153541 268.3122
+*
+Title:HN3_mustard (K)
+Hidden
+Residues:K 259.189592 259.3452
+*
+Title:HNE (C)
+Hidden
+Residues:C 259.124215 259.3650
+*
+Title:HNE (H)
+Hidden
+Residues:H 293.173942 293.3614
+*
+Title:HNE (K)
+Hidden
+Residues:K 284.209993 284.3944
+*
+Title:HNE (A)
+Hidden
+Residues:A 227.152144 227.3000
+*
+Title:HNE (L)
+Hidden
+Residues:L 269.199094 269.3797
+*
+Title:HNE+Delta:H(2) (C)
+Hidden
+Residues:C 261.139865 261.3809
+*
+Title:HNE+Delta:H(2) (H)
+Hidden
+Residues:H 295.189592 295.3773
+*
+Title:HNE+Delta:H(2) (K)
+Hidden
+Residues:K 286.225643 286.4103
+*
+Title:HNE-BAHAH (C)
+Hidden
+Residues:C 614.328411 614.8638
+*
+Title:HNE-BAHAH (H)
+Hidden
+Residues:H 648.378138 648.8602
+*
+Title:HNE-BAHAH (K)
+Hidden
+Residues:K 639.414189 639.8932
+*
+Title:HNE-Delta:H(2)O (C)
+Hidden
+Residues:C 241.113650 241.3498
+*
+Title:HNE-Delta:H(2)O (H)
+Hidden
+Residues:H 275.163377 275.3462
+*
+Title:HNE-Delta:H(2)O (K)
+Hidden
+Residues:K 266.199428 266.3792
+*
+Title:Homocysteic_acid (M)
+Hidden
+Residues:M 165.009579 165.1677
+*
+Title:HPG (R)
+Hidden
+Residues:R 288.122240 288.3019
+*
+Title:Hydroxamic_acid (DE)
+Hidden
+Residues:D 130.037842 130.1020
+Residues:E 144.053492 144.1286
+*
+Title:Hydroxycinnamyl (C)
+Hidden
+Residues:C 249.045964 249.2856
+*
+Title:Hydroxyfarnesyl (C)
+Hidden
+Residues:C 323.191900 323.4934
+*
+Title:Hydroxyheme (E)
+Hidden
+Residues:E 743.204238 743.5854
+*
+Title:hydroxyisobutyryl (K)
+Hidden
+Residues:K 214.131742 214.2615
+*
+Title:Hydroxymethyl (N)
+Hidden
+Residues:N 144.053492 144.1286
+*
+Title:HydroxymethylOP (K)
+Hidden
+Residues:K 236.116092 236.2671
+*
+Title:Hydroxytrimethyl (K)
+Hidden
+Residues:K 187.144653 187.2594
+*
+Title:Hypusine (K)
+Hidden
+Residues:K 215.163377 215.2927
+*
+Title:IASD (C)
+Hidden
+Residues:C 555.043992 555.6011
+*
+Title:IBTP (C)
+Hidden
+Residues:C 419.147273 419.5188
+*
+Title:ICAT-C (C)
+Residues:C 330.136176 330.4032
+*
+Title:ICAT-C:13C(9) (C)
+Residues:C 339.166370 339.3371
+*
+Title:ICAT-D (C)
+Hidden
+Residues:C 545.234176 545.7157
+Ignore:227.085423 227.3033
+Ignore:284.143273 284.3977
+Ignore:328.169488 328.4502
+Ignore:403.237901 403.5599
+Ignore:477.220537 477.6616
+Ignore:501.220537 501.6830
+*
+Title:ICAT-D:2H(8) (C)
+Hidden
+Residues:C 553.284390 553.7650
+Ignore:227.085423 227.3033
+Ignore:288.168380 288.4223
+Ignore:332.194594 332.4749
+Ignore:411.288115 411.6092
+Ignore:485.270751 485.7109
+Ignore:509.270751 509.7323
+*
+Title:ICAT-G (C)
+Hidden
+Residues:C 589.260391 589.7682
+*
+Title:ICAT-G:2H(8) (C)
+Hidden
+Residues:C 597.310605 597.8175
+*
+Title:ICAT-H (C)
+Hidden
+Residues:C 448.107100 448.9183
+*
+Title:ICAT-H:13C(6) (C)
+Hidden
+Residues:C 454.127229 454.8742
+*
+Title:ICDID (C)
+Hidden
+Residues:C 241.077265 241.3067
+*
+Title:ICDID:2H(6) (C)
+Hidden
+Residues:C 247.114925 247.3437
+*
+Title:ICPL (K)
+Residues:K 233.116427 233.2664
+*
+Title:ICPL (Protein N-term)
+ProteinNterm:106.029289 106.1020
+*
+Title:ICPL (N-term)
+Hidden
+Nterm:106.029289 106.1020
+*
+Title:ICPL:13C(6) (K)
+Residues:K 239.136556 239.2223
+*
+Title:ICPL:13C(6) (Protein N-term)
+ProteinNterm:112.049418 112.0579
+*
+Title:ICPL:13C(6) (N-term)
+Hidden
+Nterm:112.049418 112.0579
+*
+Title:ICPL:13C(6)2H(4) (K)
+Residues:K 243.161663 243.2470
+*
+Title:ICPL:13C(6)2H(4) (Protein N-term)
+ProteinNterm:116.074525 116.0826
+*
+Title:ICPL:13C(6)2H(4) (N-term)
+Nterm:116.074525 116.0826
+*
+Title:ICPL:2H(4) (K)
+Residues:K 237.141534 237.2911
+*
+Title:ICPL:2H(4) (Protein N-term)
+ProteinNterm:110.054396 110.1267
+*
+Title:ICPL:2H(4) (N-term)
+Hidden
+Nterm:110.054396 110.1267
+*
+Title:IDEnT (C)
+Hidden
+Residues:C 317.999654 319.2069
+*
+Title:IED-Biotin (C)
+Hidden
+Residues:C 429.150446 429.5574
+*
+Title:IGBP (C)
+Hidden
+Residues:C 399.025224 400.2907
+*
+Title:IGBP:13C(2) (C)
+Hidden
+Residues:C 401.031933 402.2760
+*
+Title:IMEHex(2)NeuAc(1) (K)
+Hidden
+Residues:K 816.294646 816.8250
+*
+Title:IMID (K)
+Hidden
+Residues:K 196.132411 196.2496
+*
+Title:IMID:2H(4) (K)
+Hidden
+Residues:K 200.157518 200.2742
+*
+Title:Iminobiotin (K)
+Hidden
+Residues:K 353.188546 353.4829
+*
+Title:Iminobiotin (N-term)
+Hidden
+Nterm:226.101408 226.3185
+*
+Title:Iodo (Y)
+Hidden
+Residues:Y 288.959977 289.0698
+*
+Title:Iodo (H)
+Hidden
+Residues:H 262.955560 263.0358
+*
+Title:Iodoacetanilide (C)
+Hidden
+Residues:C 236.061949 236.2902
+*
+Title:Iodoacetanilide (K)
+Hidden
+Residues:K 261.147727 261.3196
+*
+Title:Iodoacetanilide (N-term)
+Hidden
+Nterm:134.060589 134.1552
+*
+Title:Iodoacetanilide:13C(6) (C)
+Hidden
+Residues:C 242.082078 242.2461
+*
+Title:Iodoacetanilide:13C(6) (K)
+Hidden
+Residues:K 267.167856 267.2755
+*
+Title:Iodoacetanilide:13C(6) (N-term)
+Hidden
+Nterm:140.080718 140.1111
+*
+Title:iodoTMT (C)
+Hidden
+Residues:C 427.225326 427.5614
+*
+Title:iodoTMT (D)
+Hidden
+Residues:D 439.243084 439.5059
+*
+Title:iodoTMT (E)
+Hidden
+Residues:E 453.258734 453.5325
+*
+Title:iodoTMT (H)
+Hidden
+Residues:H 461.275053 461.5578
+*
+Title:iodoTMT (K)
+Hidden
+Residues:K 452.311104 452.5908
+*
+Title:iodoTMT6plex (C)
+Hidden
+Residues:C 432.235780 432.5254
+*
+Title:iodoTMT6plex (D)
+Hidden
+Residues:D 444.253538 444.4699
+*
+Title:iodoTMT6plex (E)
+Hidden
+Residues:E 458.269188 458.4965
+*
+Title:iodoTMT6plex (H)
+Hidden
+Residues:H 466.285507 466.5218
+*
+Title:iodoTMT6plex (K)
+Hidden
+Residues:K 457.321558 457.5548
+*
+Title:IodoU-AMP (F)
+Hidden
+Residues:F 469.088631 469.3393
+*
+Title:IodoU-AMP (W)
+Hidden
+Residues:W 508.099530 508.3753
+*
+Title:IodoU-AMP (Y)
+Hidden
+Residues:Y 485.083546 485.3387
+*
+Title:ISD_z+2_ion (N-term)
+Hidden
+Nterm:-14.003074 -14.0067
+*
+Title:Isopropylphospho (S)
+Hidden
+Residues:S 209.045309 209.1369
+*
+Title:Isopropylphospho (T)
+Hidden
+Residues:T 223.060960 223.1635
+*
+Title:Isopropylphospho (Y)
+Hidden
+Residues:Y 285.076610 285.2329
+*
+Title:iTRAQ4plex (K)
+Residues:K 272.197026 272.3267
+*
+Title:iTRAQ4plex (N-term)
+Nterm:145.109888 145.1623
+*
+Title:iTRAQ4plex (Y)
+Residues:Y 307.165392 307.3277
+*
+Title:iTRAQ4plex (H)
+Hidden
+Residues:H 281.160975 281.2937
+*
+Title:iTRAQ4plex (S)
+Hidden
+Residues:S 231.134091 231.2317
+*
+Title:iTRAQ4plex (T)
+Hidden
+Residues:T 245.149742 245.2583
+*
+Title:iTRAQ4plex (Protein N-term)
+Hidden
+ProteinNterm:145.109888 145.1623
+*
+Title:iTRAQ4plex (C)
+Hidden
+Residues:C 247.111248 247.2973
+*
+Title:iTRAQ4plex114 (K)
+Hidden
+Residues:K 272.200881 272.3403
+*
+Title:iTRAQ4plex114 (N-term)
+Hidden
+Nterm:145.113743 145.1759
+*
+Title:iTRAQ4plex114 (Y)
+Hidden
+Residues:Y 307.169247 307.3413
+*
+Title:iTRAQ4plex114 (C)
+Hidden
+Residues:C 247.115103 247.3109
+*
+Title:iTRAQ4plex115 (K)
+Hidden
+Residues:K 272.194562 272.3411
+*
+Title:iTRAQ4plex115 (N-term)
+Hidden
+Nterm:145.107424 145.1767
+*
+Title:iTRAQ4plex115 (Y)
+Hidden
+Residues:Y 307.162928 307.3421
+*
+Title:iTRAQ4plex115 (C)
+Hidden
+Residues:C 247.108784 247.3117
+*
+Title:iTRAQ8plex (K)
+Residues:K 432.300323 432.4797
+*
+Title:iTRAQ8plex (N-term)
+Nterm:305.213185 305.3153
+*
+Title:iTRAQ8plex (Y)
+Residues:Y 467.268689 467.4807
+*
+Title:iTRAQ8plex (H)
+Hidden
+Residues:H 441.264272 441.4467
+*
+Title:iTRAQ8plex (S)
+Hidden
+Residues:S 391.237388 391.3847
+*
+Title:iTRAQ8plex (T)
+Hidden
+Residues:T 405.253039 405.4113
+*
+Title:iTRAQ8plex (Protein N-term)
+Hidden
+ProteinNterm:305.213185 305.3153
+*
+Title:iTRAQ8plex (C)
+Hidden
+Residues:C 407.214545 407.4503
+*
+Title:iTRAQ8plex:13C(6)15N(2) (K)
+Hidden
+Residues:K 432.294003 432.4804
+*
+Title:iTRAQ8plex:13C(6)15N(2) (N-term)
+Hidden
+Nterm:305.206865 305.3160
+*
+Title:iTRAQ8plex:13C(6)15N(2) (Y)
+Hidden
+Residues:Y 467.262369 467.4814
+*
+Title:iTRAQ8plex:13C(6)15N(2) (C)
+Hidden
+Residues:C 407.208225 407.4510
+*
+Title:Label:13C(1)2H(3) (M)
+Hidden
+Residues:M 135.062670 135.2072
+*
+Title:Label:13C(1)2H(3)+Oxidation (M)
+Hidden
+Residues:M 151.057585 151.2066
+*
+Title:Label:13C(2)15N(2) (K)
+Hidden
+Residues:K 132.095743 132.1444
+*
+Title:Label:13C(3) (A)
+Hidden
+Residues:A 74.047178 74.0559
+*
+Title:Label:13C(3)15N(1) (A)
+Hidden
+Residues:A 75.044213 75.0493
+*
+Title:Label:13C(4) (M)
+Hidden
+Residues:M 135.053904 135.1667
+*
+Title:Label:13C(4)+Oxidation (M)
+Hidden
+Residues:M 151.048819 151.1661
+*
+Title:Label:13C(4)15N(1) (D)
+Hidden
+Residues:D 120.037397 120.0514
+*
+Title:Label:13C(4)15N(2)+GG (K)
+Hidden
+Residues:K 248.145380 248.2324
+*
+Title:Label:13C(5) (P)
+Hidden
+Residues:P 102.069538 102.0785
+*
+Title:Label:13C(5)15N(1) (V)
+Hidden
+Residues:V 105.082223 105.0878
+*
+Title:Label:13C(5)15N(1) (P)
+Hidden
+Residues:P 103.066573 103.0719
+*
+Title:Label:13C(5)15N(1) (M)
+Hidden
+Residues:M 137.054294 137.1528
+*
+Title:Label:13C(5)15N(1) (E)
+Hidden
+Residues:E 135.056402 135.0707
+*
+Title:Label:13C(6) (R)
+Hidden
+Residues:R 162.121240 162.1416
+*
+Title:Label:13C(6) (K)
+Hidden
+Residues:K 134.115092 134.1282
+*
+Title:Label:13C(6) (L)
+Hidden
+Residues:L 119.104193 119.1135
+*
+Title:Label:13C(6) (I)
+Hidden
+Residues:I 119.104193 119.1135
+*
+Title:Label:13C(6)+Acetyl (K)
+Hidden
+Residues:K 176.125657 176.1649
+*
+Title:Label:13C(6)+Dimethyl (K)
+Hidden
+Residues:K 162.146392 162.1814
+*
+Title:Label:13C(6)+GG (K)
+Hidden
+Residues:K 248.158019 248.2309
+*
+Title:Label:13C(6)15N(1) (L)
+Hidden
+Residues:L 120.101228 120.1069
+*
+Title:Label:13C(6)15N(1) (I)
+Hidden
+Residues:I 120.101228 120.1069
+*
+Title:Label:13C(6)15N(2) (K)
+Hidden
+Residues:K 136.109162 136.1150
+*
+Title:Label:13C(6)15N(2)+Acetyl (K)
+Hidden
+Residues:K 178.119727 178.1517
+*
+Title:Label:13C(6)15N(2)+Dimethyl (K)
+Hidden
+Residues:K 164.140462 164.1682
+*
+Title:Label:13C(6)15N(2)+GG (K)
+Hidden
+Residues:K 250.152089 250.2177
+*
+Title:Label:13C(6)15N(4) (R)
+Hidden
+Residues:R 166.109380 166.1153
+*
+Title:Label:13C(6)15N(4)+Dimethyl (R)
+Hidden
+Residues:R 194.140680 194.1684
+*
+Title:Label:13C(6)15N(4)+Dimethyl:2H(6)13C(2) (R)
+Hidden
+Residues:R 202.185050 202.1907
+*
+Title:Label:13C(6)15N(4)+Methyl (R)
+Hidden
+Residues:R 180.125030 180.1418
+*
+Title:Label:13C(6)15N(4)+Methyl:2H(3)13C(1) (R)
+Hidden
+Residues:R 184.147215 184.1530
+*
+Title:Label:13C(9) (Y)
+Hidden
+Residues:Y 172.093522 172.1072
+*
+Title:Label:13C(9) (F)
+Hidden
+Residues:F 156.098607 156.1078
+*
+Title:Label:13C(9)+Phospho (Y)
+Hidden
+Residues:Y 252.059853 252.0871
+*
+Title:Label:13C(9)15N(1) (F)
+Hidden
+Residues:F 157.095642 157.1012
+*
+Title:Label:15N(1) (F)
+Hidden
+Residues:F 148.065449 148.1673
+*
+Title:Label:15N(1) (Y)
+Hidden
+Residues:Y 164.060364 164.1667
+*
+Title:Label:15N(1) (G)
+Hidden
+Residues:G 58.018499 58.0447
+*
+Title:Label:15N(1) (A)
+Hidden
+Residues:A 72.034149 72.0713
+*
+Title:Label:15N(1) (S)
+Hidden
+Residues:S 88.029063 88.0707
+*
+Title:Label:15N(1) (P)
+Hidden
+Residues:P 98.049799 98.1086
+*
+Title:Label:15N(1) (V)
+Hidden
+Residues:V 100.065449 100.1245
+*
+Title:Label:15N(1) (T)
+Hidden
+Residues:T 102.044714 102.0973
+*
+Title:Label:15N(1) (C)
+Hidden
+Residues:C 104.006220 104.1363
+*
+Title:Label:15N(1) (I)
+Hidden
+Residues:I 114.081099 114.1510
+*
+Title:Label:15N(1) (L)
+Hidden
+Residues:L 114.081099 114.1510
+*
+Title:Label:15N(1) (D)
+Hidden
+Residues:D 116.023978 116.0808
+*
+Title:Label:15N(1) (E)
+Hidden
+Residues:E 130.039628 130.1074
+*
+Title:Label:15N(1) (M)
+Hidden
+Residues:M 132.037520 132.1895
+*
+Title:Label:15N(2) (N)
+Hidden
+Residues:N 116.036997 116.0894
+*
+Title:Label:15N(2) (Q)
+Hidden
+Residues:Q 130.052648 130.1160
+*
+Title:Label:15N(2) (K)
+Hidden
+Residues:K 130.089033 130.1591
+*
+Title:Label:15N(2) (W)
+Hidden
+Residues:W 188.073383 188.1967
+*
+Title:Label:15N(2)2H(9) (K)
+Hidden
+Residues:K 139.145524 139.2146
+*
+Title:Label:15N(3) (H)
+Hidden
+Residues:H 140.050017 140.1195
+*
+Title:Label:15N(4) (R)
+Hidden
+Residues:R 160.089251 160.1593
+*
+Title:Label:18O(1) (S)
+Hidden
+Residues:S 89.036274 89.0771
+*
+Title:Label:18O(1) (T)
+Hidden
+Residues:T 103.051925 103.1037
+*
+Title:Label:18O(1) (Y)
+Hidden
+Residues:Y 165.067575 165.1731
+*
+Title:Label:18O(1) (C-term)
+Cterm:19.006986 19.0071
+*
+Title:Label:18O(2) (C-term)
+Cterm:21.011231 21.0068
+*
+Title:Label:2H(10) (L)
+Hidden
+Residues:L 123.146831 123.2192
+*
+Title:Label:2H(3) (L)
+Hidden
+Residues:L 116.102894 116.1761
+*
+Title:Label:2H(3) (M)
+Hidden
+Residues:M 134.059315 134.2146
+*
+Title:Label:2H(3)+Oxidation (M)
+Hidden
+Residues:M 150.054230 150.2140
+*
+Title:Label:2H(4) (K)
+Hidden
+Residues:K 132.120070 132.1969
+*
+Title:Label:2H(4) (F)
+Hidden
+Residues:F 151.093521 151.1985
+*
+Title:Label:2H(4) (Y)
+Hidden
+Residues:Y 167.088436 167.1979
+*
+Title:Label:2H(4) (A)
+Hidden
+Residues:A 75.062221 75.1025
+*
+Title:Label:2H(4) (U)
+Hidden
+Residues:U 154.978740 154.0625
+*
+Title:Label:2H(4)+Acetyl (K)
+Hidden
+Residues:K 174.130635 174.2336
+*
+Title:Label:2H(4)+GG (K)
+Hidden
+Residues:K 246.162997 246.2996
+*
+Title:Label:2H(4)13C(1) (R)
+Hidden
+Residues:R 161.129573 161.2030
+*
+Title:Label:2H(6)15N(1) (P)
+Hidden
+Residues:P 104.087459 104.1456
+*
+Title:Label:2H(7)15N(4) (R)
+Hidden
+Residues:R 167.133188 167.2025
+*
+Title:Label:2H(9)13C(6)15N(2) (K)
+Hidden
+Residues:K 145.165653 145.1705
+*
+Title:lapachenole (C)
+Hidden
+Residues:C 343.124215 343.4399
+*
+Title:Leu->MetOx (L)
+Hidden
+Residues:L 147.035399 147.1954
+*
+Title:LG-anhydrolactam (K)
+Hidden
+Residues:K 442.283158 442.5909
+*
+Title:LG-anhydrolactam (N-term)
+Hidden
+Nterm:315.196020 315.4265
+*
+Title:LG-anhyropyrrole (K)
+Hidden
+Residues:K 426.288243 426.5915
+*
+Title:LG-anhyropyrrole (N-term)
+Hidden
+Nterm:299.201105 299.4271
+*
+Title:LG-Hlactam-K (K)
+Hidden
+Residues:K 476.288637 476.6056
+*
+Title:LG-Hlactam-K (Protein N-term)
+Hidden
+ProteinNterm:349.201499 349.4412
+*
+Title:LG-Hlactam-R (R)
+Hidden
+Residues:R 462.272987 462.5790
+*
+Title:LG-lactam-K (K)
+Hidden
+Residues:K 460.293723 460.6062
+*
+Title:LG-lactam-K (Protein N-term)
+Hidden
+ProteinNterm:333.206585 333.4418
+*
+Title:LG-lactam-R (R)
+Hidden
+Residues:R 446.278072 446.5796
+*
+Title:LG-pyrrole (K)
+Hidden
+Residues:K 444.298808 444.6068
+*
+Title:LG-pyrrole (N-term)
+Hidden
+Nterm:317.211670 317.4424
+*
+Title:Lipoyl (K)
+Hidden
+Residues:K 316.127919 316.4826
+*
+Title:LRGG (K)
+Hidden
+Residues:K 511.323066 511.6183
+*
+Title:LRGG+dimethyl (K)
+Hidden
+Residues:K 539.354366 539.6714
+*
+Title:LRGG+methyl (K)
+Hidden
+Residues:K 525.338716 525.6448
+*
+Title:Lys (N-term)
+Hidden
+Nterm:129.102788 129.1802
+*
+Title:Lys->Allysine (K)
+Hidden
+Residues:K 127.063329 127.1412
+*
+Title:Lys->AminoadipicAcid (K)
+Hidden
+Residues:K 143.058243 143.1406
+*
+Title:Lys->CamCys (K)
+Hidden
+Residues:K 160.030648 160.1942
+*
+Title:Lys->MetOx (K)
+Hidden
+Residues:K 147.035399 147.1955
+*
+Title:Lys-loss (C-term K)
+Hidden
+ResiduesCterm:K -111.092223 -111.1650
+*
+Title:Lysbiotinhydrazide (K)
+Hidden
+Residues:K 369.183460 369.4823
+*
+Title:maleimide (C)
+Hidden
+Residues:C 200.025563 200.2150
+*
+Title:maleimide (K)
+Hidden
+Residues:K 225.111341 225.2444
+*
+Title:Maleimide-PEO2-Biotin (C)
+Hidden
+Residues:C 628.234904 628.7612
+*
+Title:maleimide3 (K)
+Hidden
+Residues:K 1097.461195 1098.0698
+*
+Title:maleimide3 (C)
+Hidden
+Residues:C 1072.375417 1073.0404
+*
+Title:maleimide5 (C)
+Hidden
+Residues:C 1396.481064 1397.3216
+*
+Title:maleimide5 (K)
+Hidden
+Residues:K 1421.566842 1422.3510
+*
+Title:Malonyl (C)
+Hidden
+Residues:C 189.009579 189.1891
+*
+Title:Malonyl (S)
+Hidden
+Residues:S 173.032422 173.1235
+*
+Title:Malonyl (K)
+Hidden
+Residues:K 214.095357 214.2185
+*
+Title:MDCC (C)
+Hidden
+Residues:C 486.157306 486.5407
+*
+Title:MeMePhosphorothioate (S)
+Hidden
+Residues:S 195.011901 195.1766
+*
+Title:Menadione (C)
+Hidden
+Residues:C 273.045964 273.3070
+*
+Title:Menadione (K)
+Hidden
+Residues:K 298.131742 298.3364
+*
+Title:Menadione-HQ (C)
+Hidden
+Residues:C 275.061615 275.3229
+*
+Title:Menadione-HQ (K)
+Hidden
+Residues:K 300.147393 300.3523
+*
+Title:MercaptoEthanol (S)
+Hidden
+Residues:S 147.035399 147.1955
+*
+Title:MercaptoEthanol (T)
+Hidden
+Residues:T 161.051050 161.2221
+*
+Title:MesitylOxide (H)
+Hidden
+Residues:H 235.132077 235.2823
+*
+Title:MesitylOxide (K)
+Hidden
+Residues:K 226.168128 226.3153
+*
+Title:MesitylOxide (Protein N-term)
+Hidden
+ProteinNterm:99.080990 99.1509
+*
+Title:Met->Aha (M)
+Hidden
+Residues:M 126.054161 126.1167
+*
+Title:Met->AspSA (M)
+Hidden
+Residues:M 99.032029 99.0880
+*
+Title:Met->Hpg (M)
+Hidden
+Residues:M 109.052764 109.1259
+*
+Title:Met->Hse (C-term M)
+ResiduesCterm:M -12.990066 -13.0849
+*
+Title:Met->Hsl (C-term M)
+ResiduesCterm:M -31.000631 -31.1002
+*
+Title:Met-loss (N-term M)
+Hidden
+ResiduesNterm:M -130.032660 -130.1882
+*
+Title:Met-loss+Acetyl (N-term M)
+Hidden
+ResiduesNterm:M -88.022095 -88.1515
+*
+Title:Methamidophos-O (C)
+Hidden
+Residues:C 196.007150 196.1646
+*
+Title:Methamidophos-O (H)
+Hidden
+Residues:H 230.056877 230.1610
+*
+Title:Methamidophos-O (K)
+Hidden
+Residues:K 221.092928 221.1940
+*
+Title:Methamidophos-O (S)
+Hidden
+Residues:S 180.029993 180.0990
+*
+Title:Methamidophos-O (T)
+Hidden
+Residues:T 194.045644 194.1256
+*
+Title:Methamidophos-O (Y)
+Hidden
+Residues:Y 256.061294 256.1950
+*
+Title:Methamidophos-S (C)
+Hidden
+Residues:C 211.984306 212.2302
+*
+Title:Methamidophos-S (H)
+Hidden
+Residues:H 246.034033 246.2266
+*
+Title:Methamidophos-S (K)
+Hidden
+Residues:K 237.070084 237.2596
+*
+Title:Methamidophos-S (S)
+Hidden
+Residues:S 196.007149 196.1646
+*
+Title:Methamidophos-S (T)
+Hidden
+Residues:T 210.022800 210.1912
+*
+Title:Methamidophos-S (Y)
+Hidden
+Residues:Y 272.038450 272.2606
+*
+Title:Methyl (C)
+Hidden
+Residues:C 117.024835 117.1695
+*
+Title:Methyl (H)
+Hidden
+Residues:H 151.074562 151.1659
+*
+Title:Methyl (K)
+Hidden
+Residues:K 142.110613 142.1989
+*
+Title:Methyl (N)
+Hidden
+Residues:N 128.058577 128.1292
+*
+Title:Methyl (N-term)
+Hidden
+Nterm:15.023475 15.0345
+*
+Title:Methyl (Q)
+Hidden
+Residues:Q 142.074228 142.1558
+*
+Title:Methyl (R)
+Hidden
+Residues:R 170.116761 170.2123
+*
+Title:Methyl (I)
+Hidden
+Residues:I 127.099714 127.1842
+*
+Title:Methyl (L)
+Hidden
+Residues:L 127.099714 127.1842
+*
+Title:Methyl (Protein N-term)
+Hidden
+ProteinNterm:15.023475 15.0345
+*
+Title:Methyl (C-term)
+Cterm:31.018390 31.0339
+*
+Title:Methyl (DE)
+Residues:D 129.042593 129.1140
+Residues:E 143.058243 143.1406
+*
+Title:Methyl (S)
+Hidden
+Residues:S 101.047678 101.1039
+*
+Title:Methyl (T)
+Hidden
+Residues:T 115.063329 115.1305
+*
+Title:Methyl+Acetyl:2H(3) (K)
+Hidden
+Residues:K 187.140008 187.2540
+*
+Title:Methyl+Deamidated (Q)
+Hidden
+Residues:Q 143.058244 143.1405
+*
+Title:Methyl+Deamidated (N)
+Hidden
+Residues:N 129.042593 129.1139
+*
+Title:Methyl-PEO12-Maleimide (C)
+Hidden
+Residues:C 813.392904 813.9502
+*
+Title:Methyl:2H(2) (K)
+Hidden
+Residues:K 144.123167 144.2112
+*
+Title:Methyl:2H(2) (N-term)
+Hidden
+Nterm:17.036029 17.0468
+*
+Title:Methyl:2H(3) (C-term)
+Hidden
+Cterm:34.037220 34.0524
+*
+Title:Methyl:2H(3) (D)
+Hidden
+Residues:D 132.061423 132.1325
+*
+Title:Methyl:2H(3) (E)
+Hidden
+Residues:E 146.077073 146.1591
+*
+Title:Methyl:2H(3) (K)
+Hidden
+Residues:K 145.129443 145.2174
+*
+Title:Methyl:2H(3) (R)
+Hidden
+Residues:R 173.135591 173.2308
+*
+Title:Methyl:2H(3)+Acetyl:2H(3) (K)
+Hidden
+Residues:K 190.158838 190.2725
+*
+Title:Methyl:2H(3)13C(1) (R)
+Hidden
+Residues:R 174.138946 174.2234
+*
+Title:Methyl:2H(3)13C(1) (K)
+Hidden
+Residues:K 146.132798 146.2100
+*
+Title:Methyl:2H(3)13C(1) (N-term)
+Hidden
+Nterm:19.045660 19.0456
+*
+Title:Methylamine (S)
+Hidden
+Residues:S 100.063662 100.1191
+*
+Title:Methylamine (T)
+Hidden
+Residues:T 114.079313 114.1457
+*
+Title:Methylmalonylation (S)
+Hidden
+Residues:S 187.048072 187.1501
+*
+Title:methylol (K)
+Hidden
+Residues:K 158.105528 158.1983
+*
+Title:methylol (W)
+Hidden
+Residues:W 216.089878 216.2359
+*
+Title:methylol (Y)
+Hidden
+Residues:Y 193.073894 193.1993
+*
+Title:Methylphosphonate (S)
+Hidden
+Residues:S 165.019094 165.0844
+*
+Title:Methylphosphonate (T)
+Hidden
+Residues:T 179.034745 179.1110
+*
+Title:Methylphosphonate (Y)
+Hidden
+Residues:Y 241.050395 241.1804
+*
+Title:Methylpyrroline (K)
+Hidden
+Residues:K 237.147727 237.2982
+*
+Title:methylsulfonylethyl (C)
+Hidden
+Residues:C 209.018035 209.2864
+*
+Title:methylsulfonylethyl (H)
+Hidden
+Residues:H 243.067762 243.2828
+*
+Title:methylsulfonylethyl (K)
+Hidden
+Residues:K 234.103813 234.3158
+*
+Title:Methylthio (D)
+Hidden
+Residues:D 161.014664 161.1790
+*
+Title:Methylthio (N)
+Hidden
+Residues:N 160.030648 160.1942
+*
+Title:Methylthio (C)
+Residues:C 148.996906 149.2345
+*
+Title:Methylthio (N-term)
+Hidden
+Nterm:46.995546 47.0995
+*
+Title:Methylthio (K)
+Hidden
+Residues:K 174.082684 174.2639
+*
+Title:MG-H1 (R)
+Hidden
+Residues:R 210.111676 210.2331
+*
+Title:Microcin (Protein C-term)
+Hidden
+ProteinCterm:848.199781 848.6944
+*
+Title:MicrocinC7 (Protein C-term)
+Hidden
+ProteinCterm:403.113109 403.3076
+*
+Title:MM-diphenylpentanone (C)
+Hidden
+Residues:C 368.155849 368.4925
+*
+Title:Molybdopterin (C)
+Hidden
+Residues:C 624.893258 623.4097
+*
+Title:MolybdopterinGD (C)
+Hidden
+Residues:C 1675.994960 1675.1575
+*
+Title:MolybdopterinGD (D)
+Hidden
+Residues:D 1688.012718 1687.1020
+*
+Title:MolybdopterinGD (U)
+Hidden
+Residues:U 1723.939408 1722.0525
+*
+Title:MolybdopterinGD+Delta:S(-1)Se(1) (C)
+Hidden
+Residues:C 1723.939409 1722.0525
+*
+Title:monomethylphosphothione (C)
+Hidden
+Residues:C 212.968322 213.2150
+*
+Title:monomethylphosphothione (H)
+Hidden
+Residues:H 247.018049 247.2114
+*
+Title:monomethylphosphothione (K)
+Hidden
+Residues:K 238.054100 238.2444
+*
+Title:monomethylphosphothione (S)
+Hidden
+Residues:S 196.991165 197.1494
+*
+Title:monomethylphosphothione (T)
+Hidden
+Residues:T 211.006816 211.1760
+*
+Title:monomethylphosphothione (Y)
+Hidden
+Residues:Y 273.022466 273.2454
+*
+Title:mTRAQ (K)
+Residues:K 268.189926 268.3553
+*
+Title:mTRAQ (N-term)
+Nterm:141.102788 141.1909
+*
+Title:mTRAQ (Y)
+Residues:Y 303.158292 303.3563
+*
+Title:mTRAQ (H)
+Hidden
+Residues:H 277.153875 277.3223
+*
+Title:mTRAQ (S)
+Hidden
+Residues:S 227.126991 227.2603
+*
+Title:mTRAQ (T)
+Hidden
+Residues:T 241.142642 241.2869
+*
+Title:mTRAQ:13C(3)15N(1) (K)
+Residues:K 272.197026 272.3267
+*
+Title:mTRAQ:13C(3)15N(1) (N-term)
+Nterm:145.109888 145.1623
+*
+Title:mTRAQ:13C(3)15N(1) (Y)
+Residues:Y 307.165392 307.3277
+*
+Title:mTRAQ:13C(3)15N(1) (H)
+Hidden
+Residues:H 281.160975 281.2937
+*
+Title:mTRAQ:13C(3)15N(1) (S)
+Hidden
+Residues:S 231.134091 231.2317
+*
+Title:mTRAQ:13C(3)15N(1) (T)
+Hidden
+Residues:T 245.149742 245.2583
+*
+Title:mTRAQ:13C(6)15N(2) (K)
+Residues:K 276.204125 276.2980
+*
+Title:mTRAQ:13C(6)15N(2) (N-term)
+Nterm:149.116987 149.1336
+*
+Title:mTRAQ:13C(6)15N(2) (Y)
+Residues:Y 311.172491 311.2990
+*
+Title:mTRAQ:13C(6)15N(2) (H)
+Hidden
+Residues:H 285.168074 285.2650
+*
+Title:mTRAQ:13C(6)15N(2) (S)
+Hidden
+Residues:S 235.141190 235.2030
+*
+Title:mTRAQ:13C(6)15N(2) (T)
+Hidden
+Residues:T 249.156841 249.2296
+*
+Title:MTSL (C)
+Hidden
+Residues:C 287.088795 287.4215
+*
+Title:MurNAc (A)
+Hidden
+Residues:A 346.137616 346.3331
+*
+Title:Myristoleyl (N-term G)
+Hidden
+ResiduesNterm:G 209.190540 209.3477
+*
+Title:Myristoyl (N-term G)
+Hidden
+ResiduesNterm:G 211.206191 211.3635
+*
+Title:Myristoyl (K)
+Hidden
+Residues:K 338.293329 338.5279
+*
+Title:Myristoyl (C)
+Hidden
+Residues:C 313.207551 313.4985
+*
+Title:Myristoyl+Delta:H(-4) (N-term G)
+Hidden
+ResiduesNterm:G 207.174890 207.3318
+*
+Title:N-dimethylphosphate (S)
+Hidden
+Residues:S 194.045643 194.1256
+*
+Title:NA-LNO2 (C)
+Hidden
+Residues:C 428.234494 428.5859
+*
+Title:NA-LNO2 (H)
+Hidden
+Residues:H 462.284221 462.5823
+*
+Title:NA-OA-NO2 (C)
+Hidden
+Residues:C 430.250144 430.6018
+*
+Title:NA-OA-NO2 (H)
+Hidden
+Residues:H 464.299871 464.5982
+*
+Title:NBS (W)
+Hidden
+Residues:W 339.067762 339.3684
+*
+Title:NBS:13C(6) (W)
+Hidden
+Residues:W 345.087891 345.3243
+*
+Title:NDA (K)
+Hidden
+Residues:K 303.137162 303.3578
+*
+Title:NDA (N-term)
+Hidden
+Nterm:176.050024 176.1934
+*
+Title:NEIAA (C)
+Hidden
+Residues:C 188.061949 188.2474
+*
+Title:NEIAA (Y)
+Hidden
+Residues:Y 248.116093 248.2778
+*
+Title:NEIAA:2H(5) (C)
+Hidden
+Residues:C 193.093333 193.2782
+*
+Title:NEIAA:2H(5) (Y)
+Hidden
+Residues:Y 253.147477 253.3086
+*
+Title:NEM:2H(5) (C)
+Hidden
+Residues:C 233.088247 233.2990
+*
+Title:NEM:2H(5)+H2O (C)
+Hidden
+Residues:C 251.098812 251.3143
+*
+Title:NEMsulfur (C)
+Hidden
+Residues:C 260.028934 260.3332
+*
+Title:NEMsulfurWater (C)
+Hidden
+Residues:C 278.039499 278.3485
+*
+Title:Nethylmaleimide (C)
+Hidden
+Residues:C 228.056864 228.2682
+*
+Title:Nethylmaleimide+water (C)
+Hidden
+Residues:C 246.067428 246.2835
+*
+Title:Nethylmaleimide+water (K)
+Hidden
+Residues:K 271.153206 271.3129
+*
+Title:NeuAc (N)
+Hidden
+Residues:N 405.138344 405.3572
+NeutralLoss:291.095417 291.2546 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:NeuAc (ST)
+Hidden
+Residues:S 378.127445 378.3319
+Residues:T 392.143096 392.3585
+NeutralLoss:291.095417 291.2546 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:NeuGc (N)
+Hidden
+Residues:N 421.133258 421.3566
+NeutralLoss:307.090331 307.2540 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:NeuGc (ST)
+Hidden
+Residues:S 394.122359 394.3313
+Residues:T 408.138010 408.3579
+NeutralLoss:307.090331 307.2540 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:NHS-fluorescein (K)
+Hidden
+Residues:K 599.226765 599.6304
+*
+Title:NHS-LC-Biotin (K)
+Hidden
+Residues:K 467.256625 467.6253
+*
+Title:NHS-LC-Biotin (N-term)
+Hidden
+Nterm:340.169487 340.4609
+*
+Title:NIC (N-term)
+Hidden
+Nterm:106.029289 106.1020
+*
+Title:NIC (K)
+Hidden
+Residues:K 233.116427 233.2664
+*
+Title:NIPCAM (C)
+Residues:C 202.077599 202.2740
+*
+Title:Nitrene (Y)
+Hidden
+Residues:Y 176.058578 176.1721
+*
+Title:Nitro (W)
+Hidden
+Residues:W 231.064391 231.2075
+*
+Title:Nitro (Y)
+Hidden
+Residues:Y 208.048407 208.1709
+*
+Title:Nitro (F)
+Hidden
+Residues:F 192.053492 192.1715
+*
+Title:Nitrosyl (C)
+Hidden
+Residues:C 131.999349 132.1411
+*
+Title:Nitrosyl (Y)
+Hidden
+Residues:Y 192.053493 192.1715
+*
+Title:Nmethylmaleimide (C)
+Hidden
+Residues:C 214.041213 214.2416
+*
+Title:Nmethylmaleimide (K)
+Hidden
+Residues:K 239.126991 239.2710
+*
+Title:Nmethylmaleimide+water (C)
+Hidden
+Residues:C 232.051778 232.2569
+*
+Title:NO_SMX_SEMD (C)
+Hidden
+Residues:C 355.053472 355.4126
+*
+Title:NO_SMX_SIMD (C)
+Hidden
+Residues:C 370.040562 370.4041
+*
+Title:NO_SMX_SMCT (C)
+Hidden
+Residues:C 371.048387 371.4120
+*
+Title:NP40 (N-term)
+Hidden
+Nterm:221.190540 221.3584
+*
+Title:NQIGG (K)
+Hidden
+Residues:K 597.323459 597.6644
+*
+Title:O-Dimethylphosphate (S)
+Hidden
+Residues:S 195.029659 195.1104
+*
+Title:O-Dimethylphosphate (T)
+Hidden
+Residues:T 209.045310 209.1370
+*
+Title:O-Dimethylphosphate (Y)
+Hidden
+Residues:Y 271.060960 271.2064
+*
+Title:O-Et-N-diMePhospho (S)
+Hidden
+Residues:S 222.076944 222.1788
+*
+Title:O-Isopropylmethylphosphonate (S)
+Hidden
+Residues:S 207.066045 207.1641
+*
+Title:O-Isopropylmethylphosphonate (T)
+Hidden
+Residues:T 221.081696 221.1907
+*
+Title:O-Isopropylmethylphosphonate (Y)
+Hidden
+Residues:Y 283.097346 283.2601
+*
+Title:O-Methylphosphate (S)
+Hidden
+Residues:S 181.014009 181.0838
+*
+Title:O-Methylphosphate (T)
+Hidden
+Residues:T 195.029660 195.1104
+*
+Title:O-Methylphosphate (Y)
+Hidden
+Residues:Y 257.045310 257.1798
+*
+Title:O-pinacolylmethylphosphonate (S)
+Hidden
+Residues:S 249.112995 249.2439
+*
+Title:O-pinacolylmethylphosphonate (T)
+Hidden
+Residues:T 263.128646 263.2705
+*
+Title:O-pinacolylmethylphosphonate (Y)
+Hidden
+Residues:Y 325.144296 325.3399
+*
+Title:O-pinacolylmethylphosphonate (H)
+Hidden
+Residues:H 299.139879 299.3059
+*
+Title:O-pinacolylmethylphosphonate (K)
+Hidden
+Residues:K 290.175930 290.3389
+*
+Title:Octanoyl (S)
+Hidden
+Residues:S 213.136493 213.2735
+*
+Title:Octanoyl (T)
+Hidden
+Residues:T 227.152144 227.3001
+*
+Title:Octanoyl (C)
+Hidden
+Residues:C 229.113650 229.3391
+*
+Title:OxArgBiotin (R)
+Hidden
+Residues:R 466.236224 466.5975
+*
+Title:OxArgBiotinRed (R)
+Hidden
+Residues:R 468.251874 468.6134
+*
+Title:Oxidation (D)
+Hidden
+Residues:D 131.021858 131.0868
+*
+Title:Oxidation (K)
+Hidden
+Residues:K 144.089878 144.1717
+*
+Title:Oxidation (N)
+Hidden
+Residues:N 130.037842 130.1020
+*
+Title:Oxidation (P)
+Hidden
+Residues:P 113.047679 113.1146
+*
+Title:Oxidation (F)
+Hidden
+Residues:F 163.063329 163.1733
+*
+Title:Oxidation (Y)
+Hidden
+Residues:Y 179.058244 179.1727
+*
+Title:Oxidation (R)
+Hidden
+Residues:R 172.096026 172.1851
+*
+Title:Oxidation (M)
+Residues:M 147.035400 147.1955
+NeutralLoss:63.998285 64.1069 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Oxidation (C)
+Hidden
+Residues:C 119.004100 119.1423
+*
+Title:Oxidation (HW)
+Residues:H 153.053827 153.1387
+Residues:W 202.074228 202.2093
+*
+Title:Oxidation (C-term G)
+Hidden
+ResiduesCterm:G 32.997655 33.0067
+*
+Title:Oxidation (U)
+Hidden
+Residues:U 166.948548 166.0373
+*
+Title:Oxidation (E)
+Hidden
+Residues:E 145.037508 145.1134
+*
+Title:Oxidation (I)
+Hidden
+Residues:I 129.078979 129.1570
+*
+Title:Oxidation (L)
+Hidden
+Residues:L 129.078979 129.1570
+*
+Title:Oxidation (Q)
+Hidden
+Residues:Q 144.053493 144.1286
+*
+Title:Oxidation (S)
+Hidden
+Residues:S 103.026943 103.0767
+*
+Title:Oxidation (T)
+Hidden
+Residues:T 117.042594 117.1033
+*
+Title:Oxidation (V)
+Hidden
+Residues:V 115.063329 115.1305
+*
+Title:Oxidation+NEM (C)
+Hidden
+Residues:C 244.051778 244.2676
+*
+Title:OxLysBiotin (K)
+Hidden
+Residues:K 480.251874 480.6241
+*
+Title:OxLysBiotinRed (K)
+Hidden
+Residues:K 482.267525 482.6399
+*
+Title:OxProBiotin (P)
+Hidden
+Residues:P 466.236225 466.5975
+*
+Title:OxProBiotinRed (P)
+Hidden
+Residues:P 468.251875 468.6134
+*
+Title:Palmitoleyl (C)
+Hidden
+Residues:C 339.223201 339.5358
+*
+Title:Palmitoleyl (S)
+Hidden
+Residues:S 323.246044 323.4702
+*
+Title:Palmitoleyl (T)
+Hidden
+Residues:T 337.261695 337.4968
+*
+Title:Palmitoyl (C)
+Hidden
+Residues:C 341.238851 341.5517
+*
+Title:Palmitoyl (K)
+Hidden
+Residues:K 366.324629 366.5811
+*
+Title:Palmitoyl (S)
+Hidden
+Residues:S 325.261694 325.4861
+*
+Title:Palmitoyl (T)
+Hidden
+Residues:T 339.277345 339.5127
+*
+Title:Palmitoyl (Protein N-term)
+Hidden
+ProteinNterm:239.237491 239.4167
+*
+Title:PEITC (C)
+Hidden
+Residues:C 266.054755 266.3824
+*
+Title:PEITC (K)
+Hidden
+Residues:K 291.140533 291.4118
+*
+Title:PEITC (N-term)
+Hidden
+Nterm:164.053395 164.2474
+*
+Title:Pent(1)HexNAc(1) (ST)
+Hidden
+Residues:S 422.153659 422.3844
+Residues:T 436.169310 436.4110
+NeutralLoss:335.121631 335.3071 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Pent(2) (ST)
+Hidden
+Residues:S 351.116546 351.3065
+Residues:T 365.132197 365.3331
+NeutralLoss:264.084518 264.2292 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Pentose (ST)
+Hidden
+Residues:S 219.074287 219.1919
+Residues:T 233.089938 233.2185
+NeutralLoss:132.042259 132.1146 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Pentylamine (Q)
+Hidden
+Residues:Q 213.147727 213.2767
+*
+Title:PEO-Iodoacetyl-LC-Biotin (C)
+Hidden
+Residues:C 517.202876 517.6625
+*
+Title:PET (S)
+Hidden
+Residues:S 208.067033 208.2801
+*
+Title:PET (T)
+Hidden
+Residues:T 222.082684 222.3067
+*
+Title:Phe->CamCys (F)
+Hidden
+Residues:F 160.030648 160.1943
+*
+Title:Phenylisocyanate (N-term)
+Hidden
+Nterm:120.044939 120.1286
+*
+Title:Phenylisocyanate:2H(5) (N-term)
+Hidden
+Nterm:125.076323 125.1594
+*
+Title:phenylsulfonylethyl (C)
+Hidden
+Residues:C 271.033685 271.3558
+*
+Title:Phospho (ST)
+Residues:S 166.998359 167.0572
+Residues:T 181.014010 181.0838
+NeutralLoss:97.976896 97.9952 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Phospho (Y)
+Residues:Y 243.029660 243.1532
+*
+Title:Phospho (D)
+Hidden
+Residues:D 194.993274 195.0673
+*
+Title:Phospho (H)
+Hidden
+Residues:H 217.025243 217.1192
+*
+Title:Phospho (C)
+Hidden
+Residues:C 182.975516 183.1228
+*
+Title:Phospho (R)
+Hidden
+Residues:R 236.067442 236.1656
+*
+Title:Phospho (K)
+Hidden
+Residues:K 208.061294 208.1522
+*
+Title:Phospho (E)
+Hidden
+Residues:E 209.008924 209.0939
+*
+Title:Phosphoadenosine (Y)
+Hidden
+Residues:Y 492.115849 492.3792
+*
+Title:Phosphoadenosine (K)
+Hidden
+Residues:K 457.147483 457.3782
+*
+Title:Phosphoadenosine (T)
+Hidden
+Residues:T 430.100199 430.3098
+*
+Title:Phosphoadenosine (H)
+Hidden
+Residues:H 466.111432 466.3452
+*
+Title:PhosphoCytidine (S)
+Hidden
+Residues:S 392.073315 392.2585
+*
+Title:PhosphoCytidine (T)
+Hidden
+Residues:T 406.088966 406.2851
+*
+Title:PhosphoCytidine (Y)
+Hidden
+Residues:Y 468.104616 468.3545
+*
+Title:Phosphogluconoylation (K)
+Hidden
+Residues:K 386.109032 386.2922
+*
+Title:Phosphogluconoylation (N-term)
+Hidden
+Nterm:259.021894 259.1278
+*
+Title:Phosphoguanosine (K)
+Hidden
+Residues:K 473.142398 473.3776
+*
+Title:Phosphoguanosine (H)
+Hidden
+Residues:H 482.106347 482.3446
+*
+Title:PhosphoHex (ST)
+Hidden
+Residues:S 329.051182 329.1978
+Residues:T 343.066833 343.2244
+NeutralLoss:242.019154 242.1205 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:PhosphoHex(2) (ST)
+Hidden
+Residues:S 491.104006 491.3384
+Residues:T 505.119657 505.3650
+NeutralLoss:404.071978 404.2611 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:PhosphoHex(2) (N)
+Hidden
+Residues:N 518.114905 518.3637
+NeutralLoss:404.071978 404.2611 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:PhosphoHexNAc (ST)
+Hidden
+Residues:S 370.077732 370.2497
+Residues:T 384.093383 384.2763
+NeutralLoss:283.045704 283.1724 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Phosphopantetheine (S)
+Hidden
+Residues:S 427.117822 427.4103
+*
+Title:Phosphopropargyl (S)
+Hidden
+Residues:S 204.029993 204.1204
+*
+Title:Phosphopropargyl (T)
+Hidden
+Residues:T 218.045644 218.1470
+*
+Title:Phosphopropargyl (Y)
+Hidden
+Residues:Y 280.061294 280.2164
+*
+Title:phosphoRibosyl (D)
+Hidden
+Residues:D 327.035533 327.1819
+*
+Title:phosphoRibosyl (E)
+Hidden
+Residues:E 341.051183 341.2085
+*
+Title:phosphoRibosyl (R)
+Hidden
+Residues:R 368.109701 368.2802
+*
+Title:PhosphoribosyldephosphoCoA (S)
+Hidden
+Residues:S 968.178932 968.7108
+*
+Title:PhosphoUridine (Y)
+Hidden
+Residues:Y 469.088631 469.3393
+*
+Title:PhosphoUridine (H)
+Hidden
+Residues:H 443.084214 443.3053
+*
+Title:Phycocyanobilin (C)
+Hidden
+Residues:C 689.288320 689.8209
+*
+Title:Phycoerythrobilin (C)
+Hidden
+Residues:C 691.303970 691.8368
+*
+Title:Phytochromobilin (C)
+Hidden
+Residues:C 687.272670 687.8050
+*
+Title:Piperidine (K)
+Hidden
+Residues:K 196.157563 196.2893
+*
+Title:Piperidine (N-term)
+Hidden
+Nterm:69.070425 69.1249
+*
+Title:Pro->HAVA (P)
+Hidden
+Residues:P 115.063329 115.1305
+*
+Title:Pro->pyro-Glu (P)
+Hidden
+Residues:P 111.032029 111.0987
+*
+Title:Pro->Pyrrolidinone (P)
+Hidden
+Residues:P 67.042199 67.0892
+*
+Title:Pro->Pyrrolidone (P)
+Hidden
+Residues:P 69.057849 69.1051
+*
+Title:probiotinhydrazide (P)
+Hidden
+Residues:P 355.167811 355.4557
+*
+Title:Propargylamine (C-term)
+Hidden
+Cterm:54.034374 54.0705
+*
+Title:Propargylamine (D)
+Hidden
+Residues:D 152.058577 152.1506
+*
+Title:Propargylamine (E)
+Hidden
+Residues:E 166.074227 166.1772
+*
+Title:Propionamide (C)
+Residues:C 174.046299 174.2208
+*
+Title:Propionamide (K)
+Hidden
+Residues:K 199.132077 199.2502
+*
+Title:Propionamide (N-term)
+Hidden
+Nterm:72.044939 72.0858
+*
+Title:Propionamide:2H(3) (C)
+Hidden
+Residues:C 177.065129 177.2393
+*
+Title:Propionyl (K)
+Hidden
+Residues:K 184.121178 184.2356
+*
+Title:Propionyl (N-term)
+Hidden
+Nterm:57.034040 57.0712
+*
+Title:Propionyl (S)
+Hidden
+Residues:S 143.058243 143.1406
+*
+Title:Propionyl (T)
+Hidden
+Residues:T 157.073894 157.1672
+*
+Title:Propionyl (Protein N-term)
+Hidden
+ProteinNterm:57.034040 57.0712
+*
+Title:Propionyl:13C(3) (K)
+Hidden
+Residues:K 187.131242 187.2135
+*
+Title:Propionyl:13C(3) (N-term)
+Hidden
+Nterm:60.044104 60.0491
+*
+Title:Propiophenone (H)
+Hidden
+Residues:H 269.116427 269.2985
+*
+Title:Propiophenone (K)
+Hidden
+Residues:K 260.152478 260.3315
+*
+Title:Propiophenone (R)
+Hidden
+Residues:R 288.158626 288.3449
+*
+Title:Propiophenone (S)
+Hidden
+Residues:S 219.089543 219.2365
+*
+Title:Propiophenone (T)
+Hidden
+Residues:T 233.105194 233.2631
+*
+Title:Propiophenone (W)
+Hidden
+Residues:W 318.136828 318.3691
+*
+Title:Propiophenone (C)
+Hidden
+Residues:C 235.066700 235.3021
+*
+Title:Propyl (N-term)
+Hidden
+Nterm:43.054775 43.0876
+*
+Title:Propyl (K)
+Hidden
+Residues:K 170.141913 170.2520
+*
+Title:Propyl (D)
+Hidden
+Residues:D 157.073893 157.1671
+*
+Title:Propyl (E)
+Hidden
+Residues:E 171.089543 171.1937
+*
+Title:Propyl (C-term)
+Hidden
+Cterm:59.049690 59.0870
+*
+Title:Propyl (Protein C-term)
+Hidden
+ProteinCterm:59.049690 59.0870
+*
+Title:Propyl:2H(6) (N-term)
+Hidden
+Nterm:49.092436 49.1246
+*
+Title:Propyl:2H(6) (K)
+Hidden
+Residues:K 176.179574 176.2890
+*
+Title:PropylNAGthiazoline (C)
+Hidden
+Residues:C 335.073539 335.4197
+*
+Title:PS_Hapten (C)
+Hidden
+Residues:C 223.030314 223.2484
+*
+Title:PS_Hapten (H)
+Hidden
+Residues:H 257.080041 257.2448
+*
+Title:PS_Hapten (K)
+Hidden
+Residues:K 248.116092 248.2778
+*
+Title:pupylation (K)
+Hidden
+Residues:K 371.180484 371.3889
+*
+Title:Puromycin (C-term)
+Hidden
+Cterm:470.215192 470.5016
+*
+Title:PyMIC (N-term)
+Hidden
+Nterm:135.055838 135.1432
+*
+Title:PyridoxalPhosphate (K)
+Hidden
+Residues:K 357.108972 357.2989
+*
+Title:PyridoxalPhosphateH2 (K)
+Hidden
+Residues:K 359.124623 359.3148
+*
+Title:Pyridylacetyl (K)
+Hidden
+Residues:K 247.132077 247.2930
+*
+Title:Pyridylacetyl (N-term)
+Hidden
+Nterm:120.044939 120.1286
+*
+Title:Pyridylethyl (C)
+Residues:C 208.067034 208.2801
+*
+Title:Pyro-carbamidomethyl (N-term C)
+ResiduesNterm:C 41.002740 41.0287
+*
+Title:pyrophospho (S)
+Hidden
+Residues:S 246.964690 247.0371
+NeutralLoss:176.935402 176.9671 0
+*
+Title:pyrophospho (T)
+Hidden
+Residues:T 260.980341 261.0637
+NeutralLoss:176.935402 176.9671 0
+*
+Title:PyruvicAcidIminyl (N-term C)
+Hidden
+ResiduesNterm:C 71.013304 71.0547
+*
+Title:PyruvicAcidIminyl (N-term V)
+Hidden
+ResiduesNterm:V 71.013304 71.0547
+*
+Title:PyruvicAcidIminyl (K)
+Hidden
+Residues:K 198.100442 198.2191
+*
+Title:QAT (C)
+Hidden
+Residues:C 274.158923 274.4029
+*
+Title:QAT:2H(3) (C)
+Hidden
+Residues:C 277.177754 277.4213
+*
+Title:QEQTGG (K)
+Hidden
+Residues:K 728.345317 728.7512
+*
+Title:QQQTGG (K)
+Hidden
+Residues:K 727.361302 727.7665
+*
+Title:QTGG (K)
+Hidden
+Residues:K 471.244147 471.5080
+*
+Title:Quinone (Y)
+Hidden
+Residues:Y 193.037508 193.1562
+*
+Title:Quinone (W)
+Hidden
+Residues:W 216.053492 216.1928
+*
+Title:Retinylidene (K)
+Hidden
+Residues:K 394.298414 394.5927
+*
+Title:RNPXL (N-term K)
+Hidden
+ResiduesNterm:K 325.043692 325.1892
+NeutralLoss:324.035867 324.1813 0
+*
+Title:RNPXL (N-term R)
+Hidden
+ResiduesNterm:R 325.043692 325.1892
+NeutralLoss:324.035867 324.1813 0
+*
+Title:s-GlcNAc (ST)
+Hidden
+Residues:S 370.068215 370.3330
+Residues:T 384.083866 384.3596
+NeutralLoss:283.036187 283.2557 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Saligenin (H)
+Hidden
+Residues:H 243.100777 243.2612
+*
+Title:Saligenin (K)
+Hidden
+Residues:K 234.136828 234.2942
+*
+Title:Ser->LacticAcid (N-term S)
+Hidden
+ResiduesNterm:S -14.003074 -14.0067
+*
+Title:serotonylation (Q)
+Hidden
+Residues:Q 287.126992 287.3138
+*
+Title:shTMT (K)
+Hidden
+Residues:K 363.271704 363.3924
+*
+Title:shTMT (Protein N-term)
+Hidden
+ProteinNterm:236.184566 236.2280
+*
+Title:shTMT (N-term)
+Hidden
+Nterm:236.184566 236.2280
+*
+Title:SMA (K)
+Hidden
+Residues:K 255.158292 255.3135
+*
+Title:SMA (N-term)
+Hidden
+Nterm:128.071154 128.1491
+*
+Title:spermidine (Q)
+Hidden
+Residues:Q 256.189927 256.3445
+*
+Title:spermine (Q)
+Hidden
+Residues:Q 313.247776 313.4389
+*
+Title:SPITC (K)
+Hidden
+Residues:K 343.066047 343.4218
+*
+Title:SPITC (N-term)
+Hidden
+Nterm:215.978909 216.2574
+*
+Title:SPITC:13C(6) (K)
+Hidden
+Residues:K 349.086176 349.3777
+*
+Title:SPITC:13C(6) (N-term)
+Hidden
+Nterm:221.999038 222.2133
+*
+Title:Succinyl (K)
+Hidden
+Residues:K 228.111007 228.2451
+*
+Title:Succinyl (N-term)
+Hidden
+Nterm:101.023869 101.0807
+*
+Title:Succinyl (Protein N-term)
+Hidden
+ProteinNterm:101.023869 101.0807
+*
+Title:Succinyl:13C(4) (K)
+Hidden
+Residues:K 232.124426 232.2157
+*
+Title:Succinyl:13C(4) (N-term)
+Hidden
+Nterm:105.037288 105.0513
+*
+Title:Succinyl:2H(4) (K)
+Hidden
+Residues:K 232.136114 232.2697
+*
+Title:Succinyl:2H(4) (N-term)
+Hidden
+Nterm:105.048976 105.1053
+*
+Title:SulfanilicAcid (C-term)
+Hidden
+Cterm:172.006839 172.1817
+*
+Title:SulfanilicAcid (D)
+Hidden
+Residues:D 270.031042 270.2618
+*
+Title:SulfanilicAcid (E)
+Hidden
+Residues:E 284.046692 284.2884
+*
+Title:SulfanilicAcid:13C(6) (C-term)
+Hidden
+Cterm:178.026968 178.1376
+*
+Title:SulfanilicAcid:13C(6) (D)
+Hidden
+Residues:D 276.051171 276.2177
+*
+Title:SulfanilicAcid:13C(6) (E)
+Hidden
+Residues:E 290.066821 290.2443
+*
+Title:Sulfide (C)
+Hidden
+Residues:C 134.981256 135.2079
+*
+Title:Sulfide (D)
+Hidden
+Residues:D 146.999014 147.1524
+*
+Title:Sulfide (W)
+Hidden
+Residues:W 218.051384 218.2749
+*
+Title:Sulfo (STY)
+Residues:S 166.988843 167.1405
+Residues:T 181.004494 181.1671
+Residues:Y 243.020144 243.2365
+NeutralLoss:79.956815 80.0632 0
+*
+Title:Sulfo (C)
+Hidden
+Residues:C 182.966000 183.2061
+*
+Title:sulfo+amino (Y)
+Hidden
+Residues:Y 258.031043 258.2511
+*
+Title:Sulfo-NHS-LC-LC-Biotin (K)
+Hidden
+Residues:K 580.340689 580.7829
+*
+Title:Sulfo-NHS-LC-LC-Biotin (N-term)
+Hidden
+Nterm:453.253551 453.6185
+*
+Title:SulfoGMBS (C)
+Hidden
+Residues:C 561.171576 561.6735
+*
+Title:SulfurDioxide (C)
+Hidden
+Residues:C 166.971085 167.2067
+*
+Title:SUMO2135 (K)
+Hidden
+Residues:K 2264.015459 2265.4066
+*
+Title:SUMO3549 (K)
+Hidden
+Residues:K 3677.631531 3679.8395
+*
+Title:TAMRA-FP (S)
+Hidden
+Residues:S 746.344451 746.8287
+*
+Title:TAMRA-FP (Y)
+Hidden
+Residues:Y 822.375752 822.9247
+*
+Title:Thiadiazole (C)
+Hidden
+Residues:C 277.034354 277.3652
+*
+Title:Thiazolidine (C)
+Hidden
+Residues:C 115.009185 115.1536
+*
+Title:Thiazolidine (Protein N-term)
+Hidden
+ProteinNterm:13.007825 13.0186
+*
+Title:Thiazolidine (K)
+Hidden
+Residues:K 140.094963 140.1830
+*
+Title:Thiazolidine (R)
+Hidden
+Residues:R 168.101111 168.1964
+*
+Title:Thiazolidine (H)
+Hidden
+Residues:H 149.058912 149.1500
+*
+Title:Thiazolidine (Y)
+Hidden
+Residues:Y 175.063329 175.1840
+*
+Title:Thiazolidine (W)
+Hidden
+Residues:W 198.079313 198.2206
+*
+Title:Thiazolidine (F)
+Hidden
+Residues:F 159.068414 159.1846
+*
+Title:thioacylPA (K)
+Hidden
+Residues:K 287.130362 287.3785
+*
+Title:Thiophos-S-S-biotin (S)
+Hidden
+Residues:S 612.174922 612.7431
+NeutralLoss:525.142894 525.6658 0
+*
+Title:Thiophos-S-S-biotin (T)
+Hidden
+Residues:T 626.190573 626.7697
+NeutralLoss:525.142894 525.6658 0
+*
+Title:Thiophos-S-S-biotin (Y)
+Hidden
+Residues:Y 688.206223 688.8391
+NeutralLoss:525.142894 525.6658 0
+*
+Title:Thiophospho (S)
+Hidden
+Residues:S 182.975515 183.1228
+*
+Title:Thiophospho (T)
+Hidden
+Residues:T 196.991166 197.1494
+*
+Title:Thiophospho (Y)
+Hidden
+Residues:Y 259.006816 259.2188
+*
+Title:Thrbiotinhydrazide (T)
+Hidden
+Residues:T 341.152161 341.4291
+*
+Title:Thyroxine (Y)
+Hidden
+Residues:Y 758.676136 758.8548
+*
+Title:TMAB (K)
+Hidden
+Residues:K 256.202502 256.3645
+NeutralLoss:59.073499 59.1103 0
+*
+Title:TMAB (N-term)
+Hidden
+Nterm:129.115364 129.2001
+NeutralLoss:59.073499 59.1103 0
+*
+Title:TMAB:2H(9) (K)
+Hidden
+Residues:K 265.258993 265.4199
+NeutralLoss:68.129990 68.1657 0
+*
+Title:TMAB:2H(9) (N-term)
+Hidden
+Nterm:138.171855 138.2555
+NeutralLoss:68.129990 68.1657 0
+*
+Title:TMPP-Ac (N-term)
+Hidden
+Nterm:573.188959 573.5480
+*
+Title:TMPP-Ac (K)
+Hidden
+Residues:K 700.276097 700.7124
+*
+Title:TMPP-Ac (Y)
+Hidden
+Residues:Y 735.244463 735.7134
+*
+Title:TMPP-Ac:13C(9) (N-term)
+Hidden
+Nterm:582.219153 582.4819
+*
+Title:TMPP-Ac:13C(9) (K)
+Hidden
+Residues:K 709.306291 709.6463
+*
+Title:TMPP-Ac:13C(9) (Y)
+Hidden
+Residues:Y 744.274657 744.6473
+*
+Title:TMT (K)
+Hidden
+Residues:K 352.247441 352.4717
+*
+Title:TMT (N-term)
+Hidden
+Nterm:225.160303 225.3073
+*
+Title:TMT (Protein N-term)
+Hidden
+ProteinNterm:225.160303 225.3073
+*
+Title:TMT (H)
+Hidden
+Residues:H 361.211390 361.4387
+*
+Title:TMT (S)
+Hidden
+Residues:S 311.184506 311.3767
+*
+Title:TMT (T)
+Hidden
+Residues:T 325.200157 325.4033
+*
+Title:TMT2plex (K)
+Residues:K 353.250796 353.4644
+*
+Title:TMT2plex (N-term)
+Nterm:226.163658 226.3000
+*
+Title:TMT2plex (Protein N-term)
+Hidden
+ProteinNterm:226.163658 226.3000
+*
+Title:TMT2plex (H)
+Hidden
+Residues:H 362.214745 362.4314
+*
+Title:TMT2plex (S)
+Hidden
+Residues:S 312.187861 312.3694
+*
+Title:TMT2plex (T)
+Hidden
+Residues:T 326.203512 326.3960
+*
+Title:TMT6plex (K)
+Residues:K 357.257895 357.4357
+*
+Title:TMT6plex (N-term)
+Nterm:230.170757 230.2713
+*
+Title:TMT6plex (Protein N-term)
+Hidden
+ProteinNterm:230.170757 230.2713
+*
+Title:TMT6plex (H)
+Hidden
+Residues:H 366.221844 366.4027
+*
+Title:TMT6plex (S)
+Hidden
+Residues:S 316.194960 316.3407
+*
+Title:TMT6plex (T)
+Hidden
+Residues:T 330.210611 330.3673
+*
+Title:TMTpro (K)
+Residues:K 432.302109 432.4850
+*
+Title:TMTpro (N-term)
+Nterm:305.214971 305.3206
+*
+Title:TMTpro (Protein N-term)
+Hidden
+ProteinNterm:305.214971 305.3206
+*
+Title:TMTpro (H)
+Hidden
+Residues:H 441.266058 441.4520
+*
+Title:TMTpro (S)
+Hidden
+Residues:S 391.239174 391.3900
+*
+Title:TMTpro (T)
+Hidden
+Residues:T 405.254825 405.4166
+*
+Title:TMTpro_zero (K)
+Hidden
+Residues:K 423.284555 423.5496
+*
+Title:TMTpro_zero (N-term)
+Hidden
+Nterm:296.197417 296.3852
+*
+Title:TMTpro_zero (Protein N-term)
+Hidden
+ProteinNterm:296.197417 296.3852
+*
+Title:TMTpro_zero (H)
+Hidden
+Residues:H 432.248504 432.5166
+*
+Title:TMTpro_zero (S)
+Hidden
+Residues:S 382.221620 382.4546
+*
+Title:TMTpro_zero (T)
+Hidden
+Residues:T 396.237271 396.4812
+*
+Title:TNBS (K)
+Hidden
+Residues:K 339.081498 339.2609
+*
+Title:TNBS (N-term)
+Hidden
+Nterm:211.994360 212.0965
+*
+Title:trifluoro (L)
+Hidden
+Residues:L 167.055799 167.1290
+*
+Title:Triiodo (Y)
+Hidden
+Residues:Y 540.753273 540.8629
+*
+Title:Triiodothyronine (Y)
+Hidden
+Residues:Y 632.779488 632.9583
+*
+Title:Trimethyl (K)
+Hidden
+Residues:K 170.141913 170.2520
+NeutralLoss:59.073499 59.1103 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Trimethyl (R)
+Hidden
+Residues:R 198.148061 198.2654
+*
+Title:Trimethyl (N-term A)
+Hidden
+ResiduesNterm:A 43.054775 43.0876
+*
+Title:Trimethyl:13C(3)2H(9) (K)
+Hidden
+Residues:K 182.208468 182.2855
+*
+Title:Trimethyl:13C(3)2H(9) (R)
+Hidden
+Residues:R 210.214616 210.2989
+*
+Title:Trimethyl:2H(9) (K)
+Hidden
+Residues:K 179.198404 179.3075
+*
+Title:Trimethyl:2H(9) (R)
+Hidden
+Residues:R 207.204552 207.3209
+*
+Title:Trioxidation (C)
+Hidden
+Residues:C 150.993929 151.1411
+*
+Title:Trioxidation (W)
+Hidden
+Residues:W 234.064057 234.2081
+*
+Title:Trioxidation (Y)
+Hidden
+Residues:Y 211.048073 211.1715
+*
+Title:Trioxidation (F)
+Hidden
+Residues:F 195.053158 195.1721
+*
+Title:Tripalmitate (N-term C)
+Hidden
+ResiduesNterm:C 789.733602 790.3128
+*
+Title:Tris (N)
+Hidden
+Residues:N 218.114081 218.2303
+*
+Title:Triton (C-term)
+Hidden
+Cterm:205.159241 205.3159
+*
+Title:Triton (N-term)
+Hidden
+Nterm:189.164326 189.3165
+*
+Title:Trp->Hydroxykynurenin (W)
+Hidden
+Residues:W 206.069142 206.1980
+*
+Title:Trp->Kynurenin (W)
+Hidden
+Residues:W 190.074228 190.1986
+*
+Title:Trp->Oxolactone (W)
+Hidden
+Residues:W 200.058578 200.1934
+*
+Title:Tween20 (N-term)
+Hidden
+Nterm:166.172151 166.3030
+*
+Title:Tween80 (C-term)
+Hidden
+Cterm:280.240231 280.4454
+*
+Title:Tyr->Dha (Y)
+Hidden
+Residues:Y 69.021464 69.0621
+*
+Title:Ub-amide (C)
+Hidden
+Residues:C 299.117787 299.3693
+*
+Title:Ub-Br2 (C)
+Hidden
+Residues:C 203.072848 203.2620
+*
+Title:Ub-fluorescein (C)
+Hidden
+Residues:C 700.218957 700.7409
+*
+Title:Ub-VME (C)
+Hidden
+Residues:C 276.101802 276.3326
+*
+Title:UgiJoullie (D)
+Hidden
+Residues:D 1221.516293 1222.2148
+*
+Title:UgiJoullie (E)
+Hidden
+Residues:E 1235.531943 1236.2414
+*
+Title:UgiJoullieProGly (D)
+Hidden
+Residues:D 269.101171 269.2539
+*
+Title:UgiJoullieProGly (E)
+Hidden
+Residues:E 283.116821 283.2805
+*
+Title:UgiJoullieProGlyProGly (D)
+Hidden
+Residues:D 423.175398 423.4204
+*
+Title:UgiJoullieProGlyProGly (E)
+Hidden
+Residues:E 437.191048 437.4470
+*
+Title:Unknown:162 (DE)
+Hidden
+Residues:D 277.152538 277.3141
+Residues:E 291.168188 291.3407
+*
+Title:Unknown:162 (C-term)
+Hidden
+Cterm:179.128335 179.2340
+*
+Title:Unknown:162 (N-term)
+Hidden
+Nterm:163.133420 163.2346
+*
+Title:Unknown:177 (DE)
+Hidden
+Residues:D 291.771900 291.5662
+Residues:E 305.787550 305.5928
+*
+Title:Unknown:177 (C-term)
+Hidden
+Cterm:193.747697 193.4861
+*
+Title:Unknown:177 (N-term)
+Hidden
+Nterm:177.752782 177.4867
+*
+Title:Unknown:210 (DE)
+Hidden
+Residues:D 325.188923 325.4000
+Residues:E 339.204573 339.4266
+*
+Title:Unknown:210 (C-term)
+Hidden
+Cterm:227.164720 227.3199
+*
+Title:Unknown:210 (N-term)
+Hidden
+Nterm:211.169805 211.3205
+*
+Title:Unknown:216 (DE)
+Hidden
+Residues:D 331.126717 331.3184
+Residues:E 345.142367 345.3450
+*
+Title:Unknown:216 (C-term)
+Hidden
+Cterm:233.102514 233.2383
+*
+Title:Unknown:216 (N-term)
+Hidden
+Nterm:217.107599 217.2389
+*
+Title:Unknown:234 (DE)
+Hidden
+Residues:D 349.100896 349.2907
+Residues:E 363.116546 363.3173
+*
+Title:Unknown:234 (C-term)
+Hidden
+Cterm:251.076693 251.2106
+*
+Title:Unknown:234 (N-term)
+Hidden
+Nterm:235.081778 235.2112
+*
+Title:Unknown:248 (DE)
+Hidden
+Residues:D 363.225703 363.4464
+Residues:E 377.241353 377.4730
+*
+Title:Unknown:248 (C-term)
+Hidden
+Cterm:265.201500 265.3663
+*
+Title:Unknown:248 (N-term)
+Hidden
+Nterm:249.206585 249.3669
+*
+Title:Unknown:250 (DE)
+Hidden
+Residues:D 365.007961 365.2949
+Residues:E 379.023611 379.3215
+*
+Title:Unknown:250 (C-term)
+Hidden
+Cterm:266.983758 267.2148
+*
+Title:Unknown:250 (N-term)
+Hidden
+Nterm:250.988843 251.2154
+*
+Title:Unknown:302 (DE)
+Hidden
+Residues:D 417.013457 417.3530
+Residues:E 431.029107 431.3796
+*
+Title:Unknown:302 (C-term)
+Hidden
+Cterm:318.989254 319.2729
+*
+Title:Unknown:302 (N-term)
+Hidden
+Nterm:302.994339 303.2735
+*
+Title:Unknown:306 (DE)
+Hidden
+Residues:D 421.122025 421.3533
+Residues:E 435.137675 435.3799
+*
+Title:Unknown:306 (C-term)
+Hidden
+Cterm:323.097822 323.2732
+*
+Title:Unknown:306 (N-term)
+Hidden
+Nterm:307.102907 307.2738
+*
+Title:Unknown:420 (C-term)
+Hidden
+Cterm:437.054459 437.5961
+NeutralLoss:420.051719 420.5888 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:Unknown:420 (N-term)
+Hidden
+Nterm:421.059544 421.5967
+NeutralLoss:420.051719 420.5888 0
+NeutralLoss:0.000000 0.0000 0
+*
+Title:VFQQQTGG (K)
+Hidden
+Residues:K 973.498129 974.0714
+*
+Title:VIEVYQEQTGG (K)
+Hidden
+Residues:K 1331.672131 1332.4582
+*
+Title:Withaferin (C)
+Hidden
+Residues:C 573.276024 573.7406
+*
+Title:Xlink:B10621 (C)
+Hidden
+Residues:C 816.102264 816.7055
+*
+Title:Xlink:BMOE (C)
+Hidden
+Residues:C 323.057592 323.3244
+*
+Title:Xlink:BS2G[113] (K)
+Hidden
+Residues:K 241.142642 241.2869
+*
+Title:Xlink:BS2G[113] (Protein N-term)
+Hidden
+ProteinNterm:114.055504 114.1225
+*
+Title:Xlink:BS2G[114] (K)
+Hidden
+Residues:K 242.126657 242.2716
+*
+Title:Xlink:BS2G[114] (Protein N-term)
+Hidden
+ProteinNterm:115.039519 115.1072
+*
+Title:Xlink:BS2G[217] (K)
+Hidden
+Residues:K 345.189986 345.3914
+*
+Title:Xlink:BS2G[217] (Protein N-term)
+Hidden
+ProteinNterm:218.102848 218.2270
+*
+Title:Xlink:BS2G[96] (K)
+Hidden
+Residues:K 224.116092 224.2564
+*
+Title:Xlink:BS2G[96] (Protein N-term)
+Hidden
+ProteinNterm:97.028954 97.0920
+*
+Title:Xlink:BuUrBu[111] (K)
+Hidden
+Residues:K 239.126991 239.2710
+*
+Title:Xlink:BuUrBu[111] (Protein N-term)
+Hidden
+ProteinNterm:112.039853 112.1066
+*
+Title:Xlink:BuUrBu[196] (K)
+Hidden
+Residues:K 324.179755 324.3755
+*
+Title:Xlink:BuUrBu[196] (Protein N-term)
+Hidden
+ProteinNterm:197.092617 197.2111
+*
+Title:Xlink:BuUrBu[213] (K)
+Hidden
+Residues:K 341.206304 341.4060
+*
+Title:Xlink:BuUrBu[213] (Protein N-term)
+Hidden
+ProteinNterm:214.119166 214.2416
+*
+Title:Xlink:BuUrBu[214] (K)
+Hidden
+Residues:K 342.190320 342.3908
+*
+Title:Xlink:BuUrBu[214] (Protein N-term)
+Hidden
+ProteinNterm:215.103182 215.2264
+*
+Title:Xlink:BuUrBu[317] (K)
+Hidden
+Residues:K 445.253649 445.5105
+*
+Title:Xlink:BuUrBu[317] (Protein N-term)
+Hidden
+ProteinNterm:318.166511 318.3461
+*
+Title:Xlink:BuUrBu[85] (K)
+Hidden
+Residues:K 213.147727 213.2768
+*
+Title:Xlink:BuUrBu[85] (Protein N-term)
+Hidden
+ProteinNterm:86.060589 86.1124
+*
+Title:Xlink:DFDNB (K)
+Hidden
+Residues:K 292.080770 292.2475
+*
+Title:Xlink:DFDNB (R)
+Hidden
+Residues:R 320.086918 320.2609
+*
+Title:Xlink:DFDNB (Q)
+Hidden
+Residues:Q 292.044385 292.2044
+*
+Title:Xlink:DFDNB (N)
+Hidden
+Residues:N 278.028734 278.1778
+*
+Title:Xlink:DMP[122] (K)
+Hidden
+Residues:K 250.179361 250.3400
+*
+Title:Xlink:DMP[122] (Protein N-term)
+Hidden
+ProteinNterm:123.092223 123.1756
+*
+Title:Xlink:DMP[139] (K)
+Hidden
+Residues:K 267.205910 267.3705
+*
+Title:Xlink:DMP[139] (Protein N-term)
+Hidden
+ProteinNterm:140.118772 140.2061
+*
+Title:Xlink:DMP[140] (K)
+Hidden
+Residues:K 268.189926 268.3553
+*
+Title:Xlink:DMP[140] (Protein N-term)
+Hidden
+ProteinNterm:141.102788 141.1909
+*
+Title:Xlink:DMP[154] (K)
+Hidden
+Residues:K 282.205576 282.3819
+*
+Title:Xlink:DMP[154] (Protein N-term)
+Hidden
+ProteinNterm:155.118438 155.2175
+*
+Title:Xlink:DSSO[104] (K)
+Hidden
+Residues:K 232.088163 232.3000
+*
+Title:Xlink:DSSO[104] (Protein N-term)
+Hidden
+ProteinNterm:105.001025 105.1356
+*
+Title:Xlink:DSSO[158] (K)
+Hidden
+Residues:K 286.098728 286.3473
+*
+Title:Xlink:DSSO[158] (Protein N-term)
+Hidden
+ProteinNterm:159.011590 159.1829
+*
+Title:Xlink:DSSO[175] (K)
+Hidden
+Residues:K 303.125277 303.3779
+*
+Title:Xlink:DSSO[175] (Protein N-term)
+Hidden
+ProteinNterm:176.038139 176.2135
+*
+Title:Xlink:DSSO[176] (K)
+Hidden
+Residues:K 304.109293 304.3626
+*
+Title:Xlink:DSSO[176] (Protein N-term)
+Hidden
+ProteinNterm:177.022155 177.1982
+*
+Title:Xlink:DSSO[279] (K)
+Hidden
+Residues:K 407.172621 407.4824
+*
+Title:Xlink:DSSO[279] (Protein N-term)
+Hidden
+ProteinNterm:280.085483 280.3180
+*
+Title:Xlink:DSSO[54] (K)
+Hidden
+Residues:K 182.105528 182.2197
+*
+Title:Xlink:DSSO[54] (Protein N-term)
+Hidden
+ProteinNterm:55.018390 55.0553
+*
+Title:Xlink:DSSO[86] (K)
+Hidden
+Residues:K 214.077598 214.2847
+*
+Title:Xlink:DSSO[86] (Protein N-term)
+Hidden
+ProteinNterm:86.990460 87.1203
+*
+Title:Xlink:DSS[138] (K)
+Hidden
+Residues:K 266.163043 266.3361
+*
+Title:Xlink:DSS[138] (Protein N-term)
+Hidden
+ProteinNterm:139.075905 139.1717
+*
+Title:Xlink:DSS[155] (K)
+Hidden
+Residues:K 283.189592 283.3666
+*
+Title:Xlink:DSS[155] (Protein N-term)
+Hidden
+ProteinNterm:156.102454 156.2022
+*
+Title:Xlink:DSS[156] (K)
+Hidden
+Residues:K 284.173607 284.3514
+*
+Title:Xlink:DSS[156] (Protein N-term)
+Hidden
+ProteinNterm:157.086469 157.1870
+*
+Title:Xlink:DSS[259] (K)
+Hidden
+Residues:K 387.236936 387.4711
+*
+Title:Xlink:DSS[259] (Protein N-term)
+Hidden
+ProteinNterm:260.149798 260.3067
+*
+Title:Xlink:DST[114] (K)
+Hidden
+Residues:K 242.090272 242.2286
+*
+Title:Xlink:DST[114] (Protein N-term)
+Hidden
+ProteinNterm:115.003134 115.0642
+*
+Title:Xlink:DST[132] (K)
+Hidden
+Residues:K 260.100836 260.2439
+*
+Title:Xlink:DST[132] (Protein N-term)
+Hidden
+ProteinNterm:133.013698 133.0795
+*
+Title:Xlink:DST[56] (K)
+Hidden
+Residues:K 184.084792 184.1925
+*
+Title:Xlink:DST[56] (Protein N-term)
+Hidden
+ProteinNterm:56.997654 57.0281
+*
+Title:Xlink:DTBP[172] (K)
+Hidden
+Residues:K 300.107853 300.4434
+*
+Title:Xlink:DTBP[172] (Protein N-term)
+Hidden
+ProteinNterm:173.020715 173.2790
+*
+Title:Xlink:DTBP[87] (K)
+Hidden
+Residues:K 215.109233 215.3158
+*
+Title:Xlink:DTBP[87] (Protein N-term)
+Hidden
+ProteinNterm:88.022095 88.1514
+*
+Title:Xlink:DTSSP[174] (K)
+Hidden
+Residues:K 302.075884 302.4129
+*
+Title:Xlink:DTSSP[174] (Protein N-term)
+Hidden
+ProteinNterm:174.988746 175.2485
+*
+Title:Xlink:DTSSP[192] (K)
+Hidden
+Residues:K 320.086449 320.4282
+*
+Title:Xlink:DTSSP[192] (Protein N-term)
+Hidden
+ProteinNterm:192.999311 193.2638
+*
+Title:Xlink:DTSSP[88] (K)
+Hidden
+Residues:K 216.093248 216.3006
+*
+Title:Xlink:DTSSP[88] (Protein N-term)
+Hidden
+ProteinNterm:89.006110 89.1362
+*
+Title:Xlink:EGS[115] (K)
+Hidden
+Residues:K 243.121906 243.2597
+*
+Title:Xlink:EGS[115] (Protein N-term)
+Hidden
+ProteinNterm:116.034768 116.0953
+*
+Title:Xlink:EGS[226] (K)
+Hidden
+Residues:K 354.142701 354.3551
+*
+Title:Xlink:EGS[226] (Protein N-term)
+Hidden
+ProteinNterm:227.055563 227.1907
+*
+Title:Xlink:EGS[244] (K)
+Hidden
+Residues:K 372.153266 372.3704
+*
+Title:Xlink:EGS[244] (Protein N-term)
+Hidden
+ProteinNterm:245.066128 245.2060
+*
+Title:Xlink:SMCC[219] (C)
+Hidden
+Residues:C 322.098728 322.3794
+*
+Title:Xlink:SMCC[219] (K)
+Hidden
+Residues:K 347.184506 347.4088
+*
+Title:Xlink:SMCC[219] (Protein N-term)
+Hidden
+ProteinNterm:220.097368 220.2444
+*
+Title:Xlink:SMCC[237] (C)
+Hidden
+Residues:C 340.109293 340.3947
+*
+Title:Xlink:SMCC[237] (K)
+Hidden
+Residues:K 365.195071 365.4241
+*
+Title:Xlink:SMCC[237] (Protein N-term)
+Hidden
+ProteinNterm:238.107933 238.2597
+*
+Title:Xlink:SMCC[321] (C)
+Hidden
+Residues:C 424.214427 424.5575
+*
+Title:ZGB (K)
+Hidden
+Residues:K 886.475804 886.8984
+*
+Title:ZGB (N-term)
+Hidden
+Nterm:759.388666 759.7340
+*
+Title:ZQG (K)
+Hidden
+Residues:K 448.195799 448.4696
+NeutralLoss:134.036779 134.1320 0
+*

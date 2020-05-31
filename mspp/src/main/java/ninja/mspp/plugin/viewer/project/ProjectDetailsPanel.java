@@ -56,6 +56,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -90,6 +92,7 @@ import ninja.mspp.model.entity.Spectrum;
 import ninja.mspp.service.ProjectService;
 import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FXTools;
+import ninja.mspp.view.SpringFXMLLoader;
 import ninja.mspp.view.main.MainFrame;
 
 @Component
@@ -114,6 +117,9 @@ public class ProjectDetailsPanel implements Initializable {
 
 	@FXML
 	private Button importButton;
+
+	@FXML
+	private Button analysisButton;
 
 	/**
 	 * creates table
@@ -415,6 +421,11 @@ public class ProjectDetailsPanel implements Initializable {
 		this.importButton.setText( "" );
 		this.importButton.setGraphic( icon );
 		this.importButton.setTooltip( new Tooltip( "Import pepXML file ..." ) );
+
+		icon = GlyphsDude.createIcon(FontAwesomeIcon.BAR_CHART);
+		this.analysisButton.setText("");
+		this.analysisButton.setGraphic(icon);
+		this.analysisButton.setTooltip(new Tooltip("Identification and Quantitation ..."));
 	}
 
 	/**
@@ -495,6 +506,17 @@ public class ProjectDetailsPanel implements Initializable {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@FXML
+	private void onAnalysis(ActionEvent event) throws Exception {
+		ObjectManager objectManager = ObjectManager.getInstane();
+		SpringFXMLLoader loader = objectManager.getFxmlLoader();
+		Parent parent = loader.load(IdentificationDialog.class, "IdentificationDialog.fxml");
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@Override
