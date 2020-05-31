@@ -41,11 +41,13 @@
  */
 package ninja.mspp.model.dataobject;
 
+import org.apache.commons.lang3.builder.CompareToBuilder;
+
 /**
  *
  * @author masakimu
  */
-public class Range<T extends Number> extends Pair<T> implements RangeProvider<T>{
+public class Range<T extends Number> extends Paired<T> implements RangeProvider<T>{
 
     /**
      * 
@@ -64,6 +66,14 @@ public class Range<T extends Number> extends Pair<T> implements RangeProvider<T>
     @Override
     public T getEnd(){
         return this.getRight();
+    }
+    
+    @Override
+    public int compareTo(Paired<T> other){
+        return new CompareToBuilder()
+                .append( getLeft(),  other.getLeft() )    //ascending order
+                .append( getRight(), other.getRight() )  //ascending order
+                .toComparison();
     }
     
 }

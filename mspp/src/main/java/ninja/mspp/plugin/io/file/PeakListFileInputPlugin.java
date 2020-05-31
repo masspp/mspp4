@@ -1,4 +1,4 @@
-/*
+/**
  * BSD 3-Clause License
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  *
- * @author Mass++ Users Group (https://www.mspp.ninja/)
+ * @author Mass++ Users Group
  * @author Satoshi Tanaka
- * @since Tue Mar 13 18:14:26 JST 2018
+ * @since 2018-03-13 18:14:26+09:00
  *
- * Copyright (c) 2018 Satoshi Tanaka
+ * Copyright (c) 2018, Mass++ Users Group
  * All rights reserved.
  */
 package ninja.mspp.plugin.io.file;
@@ -39,55 +39,65 @@ package ninja.mspp.plugin.io.file;
 import java.io.File;
 import java.util.List;
 
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
-import ninja.mspp.annotation.method.FileInput;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
-import ninja.mspp.model.dataobject.SampleObject;
-//import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FileTool;
+import ninja.mspp.annotation.method.PeaklistFileInput;
 
 
 
-@Plugin( "File IO" )
+@Plugin( "Peaklist File IO" )
 @Component
-public class FileInputPlugin {
-	private static String RECENT_FILE_KEY = "Recent Open File";
+public class PeakListFileInputPlugin {
+    
+
+        
+	private static String RECENT_PEAKLIST_FILE_KEY = "Recent Open Peaklist File";
 
 	//@Autowired
-	//private RawDataService rawDataService;
+	//private PeakListService PeakListService;
+
 
 	/**
-	 * opens file
-	 * @param file file
-	 * @return file data
+	 * save peak list file
+	 * @param file
+         * 
 	 */
-	protected SampleObject openFile( File file ) {
+	protected void savePeakList( File file ) {
 		MsppManager manager = MsppManager.getInstance();
 
 		String path = file.getAbsolutePath();
 		String ext = FileTool.getExtension( path );
-		SampleObject sample = null;
+		//SampleObject sample = null; 
+                // Need to prevent to register file with same path or checksum. 
 
-		List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
+		List< PluginMethod< PeaklistFileInput > > methods = manager.getMethods(PeaklistFileInput.class );
 
-		for( PluginMethod< FileInput > method: methods ) {
+		for( PluginMethod< PeaklistFileInput > method: methods ) {
 			Object plugin = method.getPlugin();
-			FileInput annotation = method.getAnnotation();
-                        for(String annot_ext : annotation.extensions()){
-                            if( sample == null && annot_ext.compareToIgnoreCase( ext ) == 0 ) {
-                                    try {
-                                            sample = (SampleObject)method.getMethod().invoke( plugin,  path );
-                                    }
-                                    catch( Exception e ) {
-                                            e.printStackTrace();
-                                    }
+			PeaklistFileInput annotation = method.getAnnotation();
+                        boolean is_ext_matched=false;
+                        for(String annotation_ext: annotation.extensions()){
+                            if (annotation_ext.compareToIgnoreCase(ext)==0){
+                                is_ext_matched=true;
+                                break;
                             }
                         }
+			if( is_ext_matched ) {
+				try {
+                                    method.getMethod().invoke( plugin,  path );
+				}
+				catch( Exception e ) {
+                                    e.printStackTrace();
+				}
+			}
 		}
-		return sample;
+
 	}
 }

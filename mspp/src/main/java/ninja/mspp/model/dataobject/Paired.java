@@ -50,7 +50,7 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
  *
  * @author masakimu
  */
-public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable, Serializable {
+public class Paired<T extends Number> implements Comparable<Paired<T>>, Cloneable, Serializable {
     private T left;
     private T right;
 
@@ -59,7 +59,7 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable, S
      * @param x The X coordinate of this Point.
      * @param y The Y coordinate of this Point.
      */
-    public Pair(T x, T y){
+    public Paired(T x, T y){
         this.left = x;
         this.right = y;
     }
@@ -70,7 +70,7 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable, S
      * @return
      */
     @Override
-    public int compareTo(Pair<T> other){
+    public int compareTo(Paired<T> other){
         return new CompareToBuilder()
                 .append(getLeft(), other.getLeft())    //ascending order
                 .append(other.getRight(), getRight())  //descending order
@@ -86,8 +86,8 @@ public class Pair<T extends Number> implements Comparable<Pair<T>>, Cloneable, S
     }
 
     @Override
-    public Pair<T> clone() throws CloneNotSupportedException{
-        Pair<T> p = (Pair<T>) super.clone();
+    public Paired<T> clone() throws CloneNotSupportedException{
+        Paired<T> p = (Paired<T>) super.clone();
         p.left = left;
         p.right = right;
         return p;

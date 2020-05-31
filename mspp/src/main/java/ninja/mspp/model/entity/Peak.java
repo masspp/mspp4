@@ -76,7 +76,13 @@ public class Peak implements Serializable {
 
 	@Column
 	private Double intensity;
+        
+        @Column
+        private Double mz;
 
+        /**
+         * TODO: leave this?
+         */
 	@Column
 	private Double peakPosition;
 
@@ -93,7 +99,7 @@ public class Peak implements Serializable {
 	//bi-directional many-to-one association to PeakList
 	@ManyToOne
 	@JoinColumn(name="PEAK_LIST_ID")
-	private PeakList peakList;
+	private PeakList peaklist;
 
 	public Peak() {
 	}
@@ -185,11 +191,39 @@ public class Peak implements Serializable {
 	}
 
 	public PeakList getPeakList() {
-		return this.peakList;
+		return this.getPeaklist();
 	}
 
-	public void setPeakList(PeakList peakList) {
-		this.peakList = peakList;
+	public void setPeakList(PeakList peaklist) {
+            this.setPeaklist(peaklist);
 	}
+
+    /**
+     * @return the peaklist
+     */
+    public PeakList getPeaklist() {
+        return peaklist;
+    }
+
+    /**
+     * @param peaklist the peaklist to set
+     */
+    public void setPeaklist(PeakList peaklist) {
+        this.peaklist = peaklist;
+    }
+
+    /**
+     * @return the mz
+     */
+    public Double getMz() {
+        return mz;
+    }
+
+    /**
+     * @param mz the mz to set
+     */
+    public void setMz(Double mz) {
+        this.mz = mz;
+    }
 
 }
