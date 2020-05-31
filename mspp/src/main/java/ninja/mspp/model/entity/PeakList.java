@@ -121,7 +121,7 @@ public class PeakList implements Serializable {
 	}
 
 	public List<Peak> getPeaks() {
-            this.peaks.sort((p1, p2)-> Double.compare(p1.getPeakPosition(), p2.getPeakPosition()));;
+            this.peaks.sort((p1, p2)-> Double.compare(p1.getMz(), p2.getMz()));;
             return this.peaks;
 	}
 
@@ -131,14 +131,14 @@ public class PeakList implements Serializable {
 
 	public Peak addPeak(Peak peak) {
 		this.getPeaks().add(peak);
-		peak.setPeakList(this);
+		peak.setPeaklist(this);
 
 		return peak;
 	}
 
 	public Peak removePeak(Peak peak) {
 		getPeaks().remove(peak);
-		peak.setPeakList(null);
+		peak.setPeaklist(null);
 
 		return peak;
 	}

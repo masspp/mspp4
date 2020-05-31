@@ -168,7 +168,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                     Logger.getLogger(jmzReaderMGFSpectrumIterator.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                spectrum.setSpectrumId( Integer.toString(2*(props.index-1)) );
+                spectrum.setSpectrumId( Long.toString(2*(props.index-1)) );
                 spectrum.setName( props.title);
                 spectrum.setSample(sample);
                 if (props.rt !=null){
@@ -206,7 +206,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
             
             private Pair<Spectrum, PointList> createPrecursorData(Sample sample, Spectrum spectrum, Property props){
                 Spectrum prec_spec = new Spectrum();
-                prec_spec.setSpectrumId( Integer.toString(2*props.index - 1));
+                prec_spec.setSpectrumId( Long.toString(2*props.index - 1));
                 prec_spec.setName(  "Precursor for " + props.title);
                 prec_spec.setSample(sample);
 
@@ -280,7 +280,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
         if (pos > -1){
             int spec_id_start = pos+spec_id_str.length();
             int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
-            props.index = Integer.parseInt(title.substring(spec_id_start, spec_id_end));
+            props.index = Long.parseLong(title.substring(spec_id_start, spec_id_end));
             //System.out.println("Title: " + title+ "\n");
             //System.out.println(spec_id_str+ props.index );
         }
@@ -339,7 +339,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
     private Property UpdatePropertiesByAPI(Ms2Query q, Property props){
 
         if (props.index ==null){
-            props.index=Integer.parseInt(q.getId());  // Take Care: This is not Scan No
+            props.index=Long.parseLong(q.getId());  // Take Care: This is not Scan No
         }
         if (props.msStage==null){
             props.msStage=q.getMsLevel();
@@ -373,7 +373,7 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
             title=null;
         }
     
-        private Integer index;
+        private Long index;
 
         private Integer msStage;
 
