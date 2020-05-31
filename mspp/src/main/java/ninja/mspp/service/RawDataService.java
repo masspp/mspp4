@@ -184,52 +184,56 @@ public class RawDataService {
          */
 	public void register( AbstractMSDataReader reader, ProgressIndicator progress, double start, double end )  throws Exception {
 		progress.setProgress( start );
-		Sample sample = reader.getSample();
-		sample = this.sampleRepository.save( sample );
+                if (reader!=null){
+                    
+                    Sample sample = reader.getSample();
+                    sample = this.sampleRepository.save( sample );
 
-		Map< String, Spectrum > spectrumMap = new HashMap< >();
-		int total = reader.getNumOfSpectra();
-		int count = 0;
+                    Map< String, Spectrum > spectrumMap = new HashMap< >();
+                    int total = reader.getNumOfSpectra();
+                    int count = 0;
 
-		List< Point< Double > > ticPoints = new ArrayList<>();
+                    List< Point< Double > > ticPoints = new ArrayList<>();
 
-                // TODO: order of  specpiont may not be sorted by scan id. need to check order-dependent GUI behavior.
-		for( Pair<Spectrum, PointList> specpoint: reader.getSpectraPointList(sample, spectrumMap) ) {
-                        
-                    PointList pointList = this.pointRepository.save(specpoint.getRight());  // save spectrum data points into DB
-			
-                    Spectrum spectrum = specpoint.getLeft(); 
-                    spectrum.setPointListId( pointList.getId() );
-                    spectrum = this.spectrumRepository.save( spectrum );
-                    String id = Long.toString( spectrum.getId());                
-                    System.out.println( String.format( "    Registering Spectrum [%s].....", id ) );
-                    spectrumMap.put( id, spectrum ); 
+                    // TODO: order of  specpiont may not be sorted by scan id. need to check order-dependent GUI behavior.
+                    for( Pair<Spectrum, PointList> specpoint: reader.getSpectraPointList(sample, spectrumMap) ) {
 
-                    Point< Double > point = new Point<>( spectrum.getStartRt(), spectrum.getTic() );
-                    ticPoints.add( point );
+                        PointList pointList = this.pointRepository.save(specpoint.getRight());  // save spectrum data points into DB
 
-                    double t = ( double )count / ( double ) total;
-                    double position = ( 1.0 - t ) * start + t * end;
-                    progress.setProgress( position );
-                    count++;
-		}
-                
-                List<Chromatogram> chromatograms = new ArrayList<>();
-                for( Pair<Chromatogram, PointList> chrpoint : reader.getChromatograms(sample)){
-                    chromatograms.add(chrpoint.getLeft());
-                    //TODO: implement to save PointList of chromatogram
-                }
-                
-                if(  chromatograms.isEmpty() ){
+                        Spectrum spectrum = specpoint.getLeft(); 
+                        spectrum.setPointListId( pointList.getId() );
+                        spectrum = this.spectrumRepository.save( spectrum );
+                        String id = Long.toString( spectrum.getId());                
+                        System.out.println( String.format( "    Registering Spectrum [%s].....", id ) );
+                        spectrumMap.put( id, spectrum ); 
 
-                    if( ticPoints.size() > 0 ) {
-                            Chromatogram chromatogram = this.createChromatogram( sample, ticPoints, "TIC", null );
-                            this.chromatogramRepository.save( chromatogram );
+                        Point< Double > point = new Point<>( spectrum.getStartRt(), spectrum.getTic() );
+                        ticPoints.add( point );
+
+                        double t = ( double )count / ( double ) total;
+                        double position = ( 1.0 - t ) * start + t * end;
+                        progress.setProgress( position );
+                        count++;
                     }
-                }
 
-		reader.close();
+                    List<Chromatogram> chromatograms = new ArrayList<>();
+                    for( Pair<Chromatogram, PointList> chrpoint : reader.getChromatograms(sample)){
+                        chromatograms.add(chrpoint.getLeft());
+                        //TODO: implement to save PointList of chromatogram
+                    }
+
+                    if(  chromatograms.isEmpty() ){
+
+                        if( ticPoints.size() > 0 ) {
+                                Chromatogram chromatogram = this.createChromatogram( sample, ticPoints, "TIC", null );
+                                this.chromatogramRepository.save( chromatogram );
+                        }
+                    }
+
+                    reader.close();
+                }
                 progress.setProgress( end );
+                
 	}
 
 	/**

@@ -188,8 +188,13 @@ public class RawDataPanel implements Initializable {
             for( PluginMethod< FileInput > method: methods ) {
                 Object plugin = method.getPlugin();
                 FileInput annotation = method.getAnnotation();
+                boolean is_ext_matched=false;
                 for(String annot_ext: annotation.extensions() ){
                     if( reader == null && annot_ext.compareToIgnoreCase( ext ) == 0 ) {
+                        is_ext_matched = true;
+                        break;
+                    }
+                    if( is_ext_matched){
                         try {
                                 reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
                         }
@@ -200,7 +205,7 @@ public class RawDataPanel implements Initializable {
                 }
             }
             
-            return reader;
+            return reader;  // you need to check reader is null later...
 	}
                   
         
