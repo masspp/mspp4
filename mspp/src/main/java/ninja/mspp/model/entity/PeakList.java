@@ -84,11 +84,13 @@ public class PeakList implements Serializable {
         /**
          * Scan Number of spectrum (start from 1)
          */
+        @Column
         private Long scanNo;
         
         /**
          * peak list internal serial number (start from 1)
          */
+        @Column
         private Long index;
           
         @Column(nullable=true)
