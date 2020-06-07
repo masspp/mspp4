@@ -517,6 +517,9 @@ public class ProjectDetailsPanel implements Initializable {
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.show();
+
+		IdentificationDialog dialog = (IdentificationDialog)loader.getController();
+		dialog.setProject(this.project);
 	}
 
 	@Override
