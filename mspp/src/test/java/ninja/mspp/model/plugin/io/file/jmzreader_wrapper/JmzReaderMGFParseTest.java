@@ -44,10 +44,11 @@ public class JmzReaderMGFParseTest {
     @Test
     public void ParseTestData() throws Exception {
         ArrayList<PeakListObject> peaklists = plugin.openMGF(test_file_path);
-        PeakListObject pl1 = peaklists.get(0);
+        PeakListObject pl1 = peaklists.get(4);
         assertEquals(152,pl1.getIndex());
-        assertEquals(260.19671, pl1.getPeaks().getX(1), 0.00001);
-        assertEquals(19970.9529724121, pl1.getPeaks().getY(1), 0.00001);
+        PeakListObject pl2 = peaklists.get(1);
+        assertEquals(500.5, pl2.getPeaks().getX(1), 0.00001);
+        assertEquals(900.5, pl2.getPeaks().getY(1), 0.00001);
         
 
     }

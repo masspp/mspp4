@@ -7,11 +7,14 @@ package ninja.mspp.model.plugin.io.file.jmzreader_wrapper;
 
 import java.util.ArrayList;
 import java.util.Map.Entry;
-
+import java.util.List;
 import java.io.File;
 import java.net.URL;
-import java.util.List;
-import ninja.mspp.model.entity.Peak;
+import javafx.scene.control.ProgressBar;
+import ninja.mspp.io.msdatareader.AbstractMSDataReader;
+import ninja.mspp.io.peaklistreader.AbstractPeaklistReader;
+import ninja.mspp.model.dataobject.Point;
+import ninja.mspp.model.dataobject.XYData;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,17 +26,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-        
-import ninja.mspp.model.entity.PeakList;
-import ninja.mspp.repository.PeakListRepository;
-import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFInputPlugin;
+
+
 import uk.ac.ebi.pride.tools.mgf_parser.MgfFile;
 import uk.ac.ebi.pride.tools.mgf_parser.model.Ms2Query;
+
+import ninja.mspp.model.entity.Peak;        
+import ninja.mspp.model.entity.PeakList;
+import ninja.mspp.model.entity.PeakListHeader;
+import ninja.mspp.plugin.io.file.PeakListFileInputPlugin;
+//import ninja.mspp.repository.PeakListRepository;
+import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFInputPlugin;
+import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFPeaklistReader;
+import ninja.mspp.repository.PeakListHeaderRepository;
+import ninja.mspp.repository.PeakListRepository;
+import ninja.mspp.service.PeaklistService;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+//import ninja.mspp.service.RawDataService;
+
 
 /**
  *
  * @author masakimu
  */
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class JmzReaderSaveMGFtoDBTest {
@@ -46,8 +64,20 @@ public class JmzReaderSaveMGFtoDBTest {
     private TestEntityManager testEntityManager;
     
     @Autowired
+     private ApplicationContext context;
+    
+    @Autowired
     private PeakListRepository peaklistRepository;
     
+    @Autowired
+    private PeakListHeaderRepository peakilstHeadeRepository;
+    
+//    @Autowired
+//    private PeakListFileInputPlugin  peaklistFileInputPlugin;
+    
+//    @Autowired
+//    private PeaklistService peaklistService;
+
     public JmzReaderSaveMGFtoDBTest(){
     }
     
@@ -64,9 +94,9 @@ public class JmzReaderSaveMGFtoDBTest {
     }
     
     @Test
-    public void savePeakList() throws Exception {
+    public void savePeakListToDB() throws Exception {
         PeakList peaklist = new PeakList();
-        peaklist.setIndex(Long.valueOf(1) );
+        peaklist.setIndex( Long.valueOf(1) );
         peaklist.setMsStage(1);
         peaklist.setTitle("HOGEHOGE");
         peaklist.setScanNo(Long.valueOf(2));
@@ -77,7 +107,7 @@ public class JmzReaderSaveMGFtoDBTest {
     }
     
 
-    //TODO: update for new PeakListHeader nad PeakList entity classes
+    // just for PeakList and Peak entity
     @Test
     public void testGeneratePeaklistfromMGF() throws Exception {      
         MgfFile mgfFile = new MgfFile( new File(test_file_path));
@@ -102,11 +132,10 @@ public class JmzReaderSaveMGFtoDBTest {
             testEntityManager.persist(peaklist);
             
             // Set Peak Data
-            ArrayList<Peak> peaks = new ArrayList<>();
             for( Entry<Double,Double> mgfpeak : q.getPeakList().entrySet() )
             {
                 Peak peak = new Peak();
-                peak.setPeakPosition(mgfpeak.getKey());
+                peak.setMz(mgfpeak.getKey());
                 peak.setIntensity(mgfpeak.getValue());
                 peaklist.addPeak(peak);
             };
@@ -114,15 +143,80 @@ public class JmzReaderSaveMGFtoDBTest {
         }
         
         List<PeakList> pls = peaklistRepository.findAll();
-        assertEquals(4, pls.size());
-        assertEquals(Long.valueOf(152), pls.get(1).getScanNo());
-        List<Peak> peaks2 = pls.get(1).getPeaks();
-        //peaks2.sort((p1, p2)-> Double.compare(p1.getPeakPosition(), p2.getPeakPosition()));
-        assertEquals(260.19671, peaks2.get(1).getPeakPosition(), 0.0);
-        assertEquals(19970.9529724121, peaks2.get(1).getIntensity(), 0.0);
-        assertEquals( (Integer)3, pls.get(1).getPrecursorCharge() );
+        assertEquals(5, pls.size());
+        assertEquals(Long.valueOf(2), pls.get(1).getScanNo());
+        assertEquals(Long.valueOf(152), pls.get(4).getScanNo());
+        PeakList pl1 = pls.get(1);
+        Peak peak1 = pl1.getPeaks().get(1);
+        assertEquals(500.5, peak1.getMz(), 0.0); // sorted by mz in ascedaing order
+        assertEquals(900.5, peak1.getIntensity(), 0.0);
+        assertEquals( (Integer)2, pl1.getPrecursorCharge() );
 
     }
+    
+    @Test
+    public void savePeakListToDBusingPlugin() throws Exception {
+
+        jmzReaderMGFPeaklistReader reader = new jmzReaderMGFPeaklistReader( test_file_path );
+        //peaklistService.register(reader, "Proteo Wizard" , progress, 1.0, 1.0);
+        
+        PeakListHeader header = reader.getPeaklistHeader("Proteo Wizard maybe");
+
+        List<PeakList> peaklists = new ArrayList<>();
+        for( Pair<PeakList, XYData> peakdata : reader.getPeaklists(header)){
+            XYData xydata = peakdata.getRight();
+            List<Peak> peaks = new ArrayList<>();
+            
+            for(Point<Double> p: xydata.getPoints()){
+                Peak peak = new Peak();
+                peak.setMz(p.getX());
+                peak.setIntensity(p.getY());
+                peaks.add(peak);
+            }
+            
+            // save PeakList into DB
+            PeakList peaklist = peakdata.getKey();
+            peaklist.setPeaks(peaks);    
+            //testEntityManager.persist(peaklist);  
+            peaklists.add(peaklist);
+        }
+        header.setPeakLists(peaklists);
+        testEntityManager.persistAndFlush(header);
+        
+        reader.close();
+
+        
+        List<PeakListHeader> headers = peakilstHeadeRepository.findAll();
+        header = headers.get(0);
+        assertEquals("test-mspp.mgf", header.getFileName());
+        assertEquals("dammy File: dammy.raw, not sorted, NativeID:controllerType=0 controllerNumber=1 scan=3",
+                header.getPeaklists().get(1).getTitle());
+        assertEquals( 500.5,   header.getPeaklists().get(1).getPeaks().get(1).getMz(), 0.0);
+        assertEquals( 900.5,   header.getPeaklists().get(1).getPeaks().get(1).getIntensity(), 0.0);
+
+    }
+
+// how to call peaklistService as Beans?    
+//    @Test
+//    public void savePeakListToDBusingService() throws Exception {
+//        ProgressBar progress = new ProgressBar();
+//        
+//        jmzReaderMGFPeaklistReader reader = new jmzReaderMGFPeaklistReader( test_file_path );
+//        
+//
+//        peaklistService.register(reader, "Proteo Wizard maybe", progress, 1.0, 1.0);
+//        
+//        List<PeakListHeader> headers = peakilstHeadeRepository.findAll();
+//        PeakListHeader header = headers.get(0);
+//        assertEquals("test-mspp.mgf", header.getFileName());
+//        assertEquals("dammy File: dammy.raw, not sorted, NativeID:controllerType=0 controllerNumber=1 scan=3",
+//                header.getPeaklists().get(1).getTitle());
+//
+//    }
+    
+    
+    // Companion internal class  
+    // TODO: prepare static companion utility class in jmzreader plugins
     
     protected class Property{
         
@@ -131,6 +225,7 @@ public class JmzReaderSaveMGFtoDBTest {
             msStage=null;
             rt=null;
             precursorMz=null;
+            precursorIntensity=null;
             charge=null;
             title=null;
         }
@@ -142,6 +237,8 @@ public class JmzReaderSaveMGFtoDBTest {
         private String rt;
 
         private Double precursorMz;
+        
+        private Double precursorIntensity;
 
         private Integer charge;
 
@@ -192,9 +289,10 @@ public class JmzReaderSaveMGFtoDBTest {
         
         // extract sepc_id
         String spec_id_str = "spec_id: ";  // TODO: use property file to specify matching strings
-        int spec_id_start = title.indexOf(spec_id_str)+spec_id_str.length();
-        int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
-        if (spec_id_start > -1 && spec_id_end >-1){
+        int pos = title.indexOf(spec_id_str);
+        if (pos > -1){
+            int spec_id_start = pos+spec_id_str.length();
+            int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
             props.index = Long.parseLong(title.substring(spec_id_start, spec_id_end));
             //System.out.println("Title: " + title+ "\n");
             //System.out.println(spec_id_str+ props.index );
@@ -202,27 +300,30 @@ public class JmzReaderSaveMGFtoDBTest {
         
         // extract spec_rt
         String spec_rt_str = "spec_rt: ";
-        int spec_rt_start = title.indexOf(spec_rt_str )+spec_rt_str.length();
-        int spec_rt_end = spec_rt_start + title.substring(spec_rt_start).indexOf(",");
-        if (spec_rt_start > -1 && spec_rt_end>-1){
+        pos = title.indexOf(spec_rt_str );
+        if (pos > -1 ){
+            int spec_rt_start = pos+spec_rt_str.length();
+            int spec_rt_end = spec_rt_start + title.substring(spec_rt_start).indexOf(",");
             props.rt = title.substring(spec_rt_start,spec_rt_end);
             //System.out.println(spec_rt_str + props.rt.toString() );
         }
         
         // extract precursor mz
         String spec_prec_str = "spec_prec: ";
-        int spec_prec_start = title.indexOf(spec_prec_str)+spec_prec_str.length();
-        int spec_prec_end = spec_prec_start + title.substring(spec_prec_start).indexOf(",");
-        if (spec_prec_start > -1 && spec_prec_end > -1){
+        pos = title.indexOf(spec_prec_str);
+        if (pos > -1){
+            int spec_prec_start = pos+spec_prec_str.length();
+            int spec_prec_end = spec_prec_start + title.substring(spec_prec_start).indexOf(",");
             props.precursorMz = Double.parseDouble(title.substring(spec_prec_start,spec_prec_end));
             //System.out.println(spec_prec_str + props.precursorMz.toString());
         }
         
         // extract MS stage
         String spec_stage_str = "spec_stage: ";
-        int spec_stage_start = title.indexOf(spec_stage_str)+spec_stage_str.length();
-        int spec_stage_end = spec_stage_start + title.substring(spec_stage_start).indexOf(",");
-        if (spec_stage_start > -1 && spec_stage_end >-1){
+        pos=title.indexOf(spec_stage_str);
+        if ( pos > -1 ){
+            int spec_stage_start = pos+spec_stage_str.length();
+            int spec_stage_end = spec_stage_start + title.substring(spec_stage_start).indexOf(",");
             props.msStage = Integer.parseInt(title.substring(spec_stage_start,spec_stage_end));
             //System.out.println(spec_stage_str + props.msStage.toString() );
         }
@@ -230,12 +331,13 @@ public class JmzReaderSaveMGFtoDBTest {
         
         // extract precursor charge
         String charge_str = "charge: ";
-        int charge_start = title.indexOf(charge_str)+charge_str.length();
-        int charge_end = charge_start + title.substring(charge_start).indexOf(",");
-        if (charge_start > -1 && charge_end >-1){
+        pos= title.indexOf(charge_str);
+        if (pos > -1 ){
+            int charge_start = pos+charge_str.length();
+            int charge_end = charge_start + title.substring(charge_start).indexOf(",");
             props.charge = Integer.parseInt(title.substring(charge_start,charge_end));
             //System.out.println(charge_str + props.charge );
-        }   
+        }  
         
         return props;
         

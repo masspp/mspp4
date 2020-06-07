@@ -13,7 +13,7 @@ import ninja.mspp.annotation.type.Plugin;
 
 /**
  *
- * @author masaki
+ * @author masakimu
  */
 @Plugin( "MGF Peaklist Import Plugin")
 public class jmzReaderMGFPeaklistImportPlugin {

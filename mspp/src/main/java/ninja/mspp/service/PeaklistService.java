@@ -48,14 +48,10 @@ public class PeaklistService {
         progress.setProgress( start );
         
         PeakListHeader header = reader.getPeaklistHeader(processingSoftware);
-        header = this.peaklistHeaderRepository.save(header);
         
-        
-        
-        // TODO: implement here to save PeakList and Point
+        List<PeakList> peaklists = new ArrayList<>();
         for( Pair<PeakList, XYData> peakdata : reader.getPeaklists(header)){
-            
-                        
+
             // convert extracted peaks(xydata) into List<Peak>
             XYData xydata = peakdata.getRight();
             List<Peak> peaks = new ArrayList<>();
@@ -71,9 +67,11 @@ public class PeaklistService {
             PeakList peaklist = peakdata.getKey();
             peaklist.setPeaks(peaks);          
             peaklistRepository.save(peaklist);  // Does it save all Point into DB?
-            
-            
+            peaklists.add(peaklist);
         }
+        
+        header.setPeakLists(peaklists);
+        peaklistHeaderRepository.save(header);
         
         reader.close();
         progress.setProgress( end );

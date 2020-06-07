@@ -28,10 +28,10 @@ public abstract class AbstractMSDataReader implements IMSDataReader {
     
     /**
      * 
-     * @param path 
+     * @param path Absolute Path
      */
     public AbstractMSDataReader(String path) throws Exception{
-        this.path = Paths.get(path).toAbsolutePath().normalize().toString();
+        this.path = path;
     }
     
     

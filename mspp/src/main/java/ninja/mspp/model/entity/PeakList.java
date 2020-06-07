@@ -48,6 +48,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 
 
@@ -72,6 +73,7 @@ public class PeakList implements Serializable {
 	private List<Peak> peaks;
         
         @ManyToOne
+        @JoinColumn(name="PEAKLIST_HEADER_ID")
         private PeakListHeader peaklistheader;
         
         /**
@@ -121,7 +123,7 @@ public class PeakList implements Serializable {
 	}
 
 	public List<Peak> getPeaks() {
-            this.peaks.sort((p1, p2)-> Double.compare(p1.getPeakPosition(), p2.getPeakPosition()));;
+            this.peaks.sort((p1, p2)-> Double.compare(p1.getMz(), p2.getMz()));;
             return this.peaks;
 	}
 
@@ -131,14 +133,14 @@ public class PeakList implements Serializable {
 
 	public Peak addPeak(Peak peak) {
 		this.getPeaks().add(peak);
-		peak.setPeakList(this);
+		peak.setPeaklist(this);
 
 		return peak;
 	}
 
 	public Peak removePeak(Peak peak) {
 		getPeaks().remove(peak);
-		peak.setPeakList(null);
+		peak.setPeaklist(null);
 
 		return peak;
 	}

@@ -41,41 +41,34 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
 import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.type.Plugin;
 import ninja.mspp.model.PluginMethod;
 import ninja.mspp.tools.FileTool;
 import ninja.mspp.annotation.method.PeaklistFileInput;
+import ninja.mspp.io.peaklistreader.AbstractPeaklistReader;
+
 
 
 
 @Plugin( "Peaklist File IO" )
 @Component
 public class PeakListFileInputPlugin {
-    
-
         
 	private static String RECENT_PEAKLIST_FILE_KEY = "Recent Open Peaklist File";
 
-	//@Autowired
-	//private PeakListService PeakListService;
 
-
-	/**
-	 * save peak list file
-	 * @param file
+        /**
          * 
-	 */
-	protected void savePeakList( File file ) {
+         * @param file
+         * @return AbstractPeaklistReader
+         */
+	public static AbstractPeaklistReader openPeaklistFile( File file ) {
 		MsppManager manager = MsppManager.getInstance();
+                AbstractPeaklistReader reader = null;
 
 		String path = file.getAbsolutePath();
 		String ext = FileTool.getExtension( path );
-		//SampleObject sample = null; 
-                // Need to prevent to register file with same path or checksum. 
 
 		List< PluginMethod< PeaklistFileInput > > methods = manager.getMethods(PeaklistFileInput.class );
 
@@ -84,20 +77,22 @@ public class PeakListFileInputPlugin {
 			PeaklistFileInput annotation = method.getAnnotation();
                         boolean is_ext_matched=false;
                         for(String annotation_ext: annotation.extensions()){
-                            if (annotation_ext.compareToIgnoreCase(ext)==0){
-                                is_ext_matched=true;
+                            if (reader == null && annotation_ext.compareToIgnoreCase(ext) == 0){
+                                is_ext_matched = true;
                                 break;
                             }
-                        }
+                        }                
 			if( is_ext_matched ) {
-				try {
-                                    method.getMethod().invoke( plugin,  path );
-				}
-				catch( Exception e ) {
-                                    e.printStackTrace();
-				}
+                            try {
+                                reader = (AbstractPeaklistReader)method.getMethod().invoke( plugin,  path );
+                            }
+                            catch( Exception e ) {
+                                e.printStackTrace();
+                            }
 			}
 		}
+                
+                return reader;
 
 	}
 }

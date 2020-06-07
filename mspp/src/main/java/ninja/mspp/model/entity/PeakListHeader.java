@@ -213,6 +213,19 @@ public class PeakListHeader implements Serializable {
     public void setPeaklists(List<PeakList> peaklists) {
         this.peaklists = peaklists;
     }
+    
+    
+    public PeakList addPeaklist(PeakList peaklist){
+        this.getPeaklists().add(peaklist);
+        peaklist.setPeakListHeader(this);
+        return peaklist;
+    }
+    
+    public PeakList removePeaklist(PeakList peaklist){
+        getPeaklists().remove(peaklist);
+        peaklist.setPeakListHeader(null);
+        return peaklist;
+    }
 
     /**
      * @param project the project to set

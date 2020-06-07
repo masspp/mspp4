@@ -39,15 +39,13 @@ package ninja.mspp.plugin.io.file;
 import java.io.File;
 import java.util.List;
 
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ninja.mspp.MsppManager;
 import ninja.mspp.annotation.method.FileInput;
 import ninja.mspp.annotation.type.Plugin;
+import ninja.mspp.io.msdatareader.AbstractMSDataReader;
 import ninja.mspp.model.PluginMethod;
-import ninja.mspp.model.dataobject.SampleObject;
-//import ninja.mspp.service.RawDataService;
 import ninja.mspp.tools.FileTool;
 
 
@@ -65,29 +63,34 @@ public class FileInputPlugin {
 	 * @param file file
 	 * @return file data
 	 */
-	protected SampleObject openFile( File file ) {
+	protected AbstractMSDataReader openFile( File file ) {
 		MsppManager manager = MsppManager.getInstance();
 
 		String path = file.getAbsolutePath();
 		String ext = FileTool.getExtension( path );
-		SampleObject sample = null;
+		AbstractMSDataReader reader = null;
 
 		List< PluginMethod< FileInput > > methods = manager.getMethods( FileInput.class );
 
 		for( PluginMethod< FileInput > method: methods ) {
 			Object plugin = method.getPlugin();
 			FileInput annotation = method.getAnnotation();
+                        boolean is_ext_matched=false;
                         for(String annot_ext : annotation.extensions()){
-                            if( sample == null && annot_ext.compareToIgnoreCase( ext ) == 0 ) {
-                                    try {
-                                            sample = (SampleObject)method.getMethod().invoke( plugin,  path );
-                                    }
-                                    catch( Exception e ) {
-                                            e.printStackTrace();
-                                    }
+                            if( reader == null && annot_ext.compareToIgnoreCase( ext ) == 0 ) {
+                                is_ext_matched = true;
+                                break;
+                            }
+                        }
+                        if( is_ext_matched ) {
+                            try {
+                                    reader = (AbstractMSDataReader)method.getMethod().invoke( plugin,  path );
+                            }
+                            catch( Exception e ) {
+                                    e.printStackTrace();
                             }
                         }
 		}
-		return sample;
+		return reader;
 	}
 }

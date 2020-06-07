@@ -69,17 +69,16 @@ public class jmzReaderMGFPeaklistIterator implements Iterable<Pair<PeakList, XYD
                 jmzReaderMGFPeaklistIterator.Property props = getPropertiesbyTitle(q.getTitle());
                 props = UpdatePropertiesByAPI(q, props);
                 
-                peaklist.setIndex( (long) props.index);
-                peaklist.setScanNo((long) props.index); 
+                peaklist.setIndex( props.index);
+                peaklist.setScanNo( props.index); 
                 peaklist.setTitle(props.title);
-                peaklist.setPeakListHeader(header);
+                //header.addPeaklist(peaklist);
                 if (props.rt !=null){
                     peaklist.setRt( props.rt);
                 }
                 peaklist.setMsStage(props.msStage);
                 peaklist.setPrecursorCharge(props.charge);
-                peaklist.setPrecursorMz(props.precursorMz);
-               
+                peaklist.setPrecursorMz(props.precursorMz);               
                 
                 return Pair.of(peaklist, xydata);
 
@@ -113,7 +112,7 @@ public class jmzReaderMGFPeaklistIterator implements Iterable<Pair<PeakList, XYD
         if (pos > -1){
             int spec_id_start = pos+spec_id_str.length();
             int spec_id_end = spec_id_start + title.substring(spec_id_start).indexOf(",");
-            props.index = Integer.parseInt(title.substring(spec_id_start, spec_id_end));
+            props.index = Long.parseLong(title.substring(spec_id_start, spec_id_end));
             //System.out.println("Title: " + title+ "\n");
             //System.out.println(spec_id_str+ props.index );
         }
@@ -175,7 +174,7 @@ public class jmzReaderMGFPeaklistIterator implements Iterable<Pair<PeakList, XYD
     private Property UpdatePropertiesByAPI(Ms2Query q, Property props){
 
         if (props.index ==null){
-            props.index=Integer.parseInt(q.getId());  // Take Care: This is not Scan No
+            props.index=Long.parseLong(q.getId());  // Take Care: This is not Scan No
         }
         if (props.msStage==null){
             props.msStage=q.getMsLevel();
@@ -209,7 +208,7 @@ public class jmzReaderMGFPeaklistIterator implements Iterable<Pair<PeakList, XYD
             title=null;
         }
     
-        private Integer index;
+        private Long index;
 
         private Integer msStage;
 
