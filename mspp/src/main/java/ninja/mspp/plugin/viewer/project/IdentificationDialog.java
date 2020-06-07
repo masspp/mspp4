@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -96,10 +97,10 @@ public class IdentificationDialog implements Initializable {
 	private ChoiceBox<String> terminalCombo;
 
 	@FXML
-	private ListView<String> fixedModList;
+	private ListView<Modification> fixedModList;
 
 	@FXML
-	private ListView<String> variableModList;
+	private ListView<Modification> variableModList;
 
 	@FXML
 	private ChoiceBox<String> tolUnitCombo;
@@ -260,13 +261,13 @@ public class IdentificationDialog implements Initializable {
 		String enzyme = this.enzymeCombo.getValue();
 		String enzymeTerminal = this.terminalCombo.getValue();
 
-		List<String> fixedMods = new ArrayList<String>();
-		for(String item : this.fixedModList.getSelectionModel().getSelectedItems()) {
+		List<Modification> fixedMods = new ArrayList<Modification>();
+		for(Modification item : this.fixedModList.getSelectionModel().getSelectedItems()) {
 			fixedMods.add(item);
 		}
 
-		List<String> variableMods = new ArrayList<String>();
-		for(String item : this.variableModList.getSelectionModel().getSelectedItems()) {
+		List<Modification> variableMods = new ArrayList<Modification>();
+		for(Modification item : this.variableModList.getSelectionModel().getSelectedItems()) {
 			variableMods.add(item);
 		}
 
@@ -378,23 +379,59 @@ public class IdentificationDialog implements Initializable {
 
 	private List<Modification> loadModifications() {
 		List<Modification> list = new ArrayList<Modification>();
-		InputStream stream = getClass().getResourceAsStream("/identification/mod_file");
+		InputStream stream = getClass().getResourceAsStream("/identification/unimod-mascot-sorted.csv");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
 		try {
-			String line = null;
-			Modification modification = null;
+			String line = reader.readLine();
 			while((line = reader.readLine()) != null) {
-				if(line.startsWith("Title:")) {
-					String title = line.replace("Title:",  "");
-					modification = new Modification();
-					modification.setTitle(title);
-					modification.setHidden(false);
-					list.add(modification);
+				Modification modification = new Modification();
+				StringTokenizer tokenizer = new StringTokenizer(line, ",");
+
+				boolean inDoubleQuote = false;
+				int index = 0;
+				String prevToken = null;
+				while(tokenizer.hasMoreTokens()) {
+					String token = tokenizer.nextToken();
+					if(inDoubleQuote) {
+						token = prevToken + "," + token;
+					}
+					else {
+						index++;
+					}
+
+					if(token.startsWith("\"")) {
+						inDoubleQuote = true;
+						token = token.replace("\"", "");
+					}
+					else if(token.endsWith("\"")) {
+						inDoubleQuote = false;
+						token = token.replace("\"", "");
+					}
+
+					if(index == 1) {
+						modification.setModificationName(token);
+					}
+					else if(index == 2) {
+						modification.setName(token);
+					}
+					else if(index == 3) {
+						modification.setResidue(token);
+					}
+					else if(index == 4) {
+						modification.setPosition(token);
+					}
+					else if(index == 5) {
+						modification.setClassification(token);
+					}
+					else if(index == 6) {
+						modification.setDeltaMass(Double.parseDouble(token));
+					}
+					else if(index == 7) {
+						modification.setHidden(token.equalsIgnoreCase("FALSE") ? false : true);
+					}
 				}
-				else if(line.equalsIgnoreCase("hidden")) {
-					modification.setHidden(true);
-				}
+				list.add(modification);
 			}
 			stream.close();
 			reader.close();
@@ -485,8 +522,8 @@ public class IdentificationDialog implements Initializable {
 		List<Modification> modifications = this.loadModifications();
 		for(Modification modification: modifications) {
 			if(!modification.isHidden()) {
-				this.fixedModList.getItems().add(modification.getTitle());
-				this.variableModList.getItems().add(modification.getTitle());
+				this.fixedModList.getItems().add(modification);
+				this.variableModList.getItems().add(modification);
 			}
 		}
 

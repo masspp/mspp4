@@ -1,0 +1,1046 @@
+﻿Modification Name,Name,Residue,Position,Classification,Delta Mass (Monoisotopic),Hidden
+15dB-biotin (C),15dB-biotin,C,Anywhere,Other,626.386577,TRUE
+2HPG (R),2HPG,R,Anywhere,Chemical derivative,282.052824,TRUE
+2-succinyl (C),2-succinyl,C,Anywhere,Chemical derivative,116.010959,TRUE
+3-deoxyglucosone (R),3-deoxyglucosone,R,Anywhere,Multiple,144.042259,TRUE
+3sulfo (N-term),3sulfo,N-term,Any N-term,Chemical derivative,183.983029,TRUE
+4AcAllylGal (C),4AcAllylGal,C,Anywhere,Chemical derivative,372.142033,TRUE
+4-ONE (C),4-ONE,C,Anywhere,Chemical derivative,154.09938,TRUE
+4-ONE (H),4-ONE,H,Anywhere,Chemical derivative,154.09938,TRUE
+4-ONE (K),4-ONE,K,Anywhere,Chemical derivative,154.09938,TRUE
+4-ONE+Delta:H(-2)O(-1) (C),4-ONE+Delta:H(-2)O(-1),C,Anywhere,Chemical derivative,136.088815,TRUE
+4-ONE+Delta:H(-2)O(-1) (H),4-ONE+Delta:H(-2)O(-1),H,Anywhere,Chemical derivative,136.088815,TRUE
+4-ONE+Delta:H(-2)O(-1) (K),4-ONE+Delta:H(-2)O(-1),K,Anywhere,Chemical derivative,136.088815,TRUE
+AccQTag (K),AccQTag,K,Anywhere,Chemical derivative,170.048013,TRUE
+AccQTag (N-term),AccQTag,N-term,Any N-term,Chemical derivative,170.048013,TRUE
+Acetyl (A),Acetyl,A,Anywhere,-,42.010565,FALSE
+Acetyl (C),Acetyl,C,Anywhere,Post-translational,42.010565,TRUE
+Acetyl (H),Acetyl,H,Anywhere,Chemical derivative,42.010565,TRUE
+Acetyl (K),Acetyl,K,Anywhere,Multiple,42.010565,FALSE
+Acetyl (N-term),Acetyl,N-term,Any N-term,Multiple,42.010565,FALSE
+Acetyl (Protein N-term),Acetyl,N-term,Protein N-term,Post-translational,42.010565,FALSE
+Acetyl (S),Acetyl,S,Anywhere,Post-translational,42.010565,TRUE
+Acetyl (T),Acetyl,T,Anywhere,Post-translational,42.010565,TRUE
+Acetyl (Y),Acetyl,Y,Anywhere,Chemical derivative,42.010565,TRUE
+Acetyl:2H(3) (K),Acetyl:2H(3),K,Anywhere,Isotopic label,45.029395,TRUE
+Acetyl:2H(3) (N-term),Acetyl:2H(3),N-term,Any N-term,Isotopic label,45.029395,TRUE
+ADP-Ribosyl (C),ADP-Ribosyl,C,Anywhere,Other glycosylation,541.06111,TRUE
+ADP-Ribosyl (E),ADP-Ribosyl,E,Anywhere,Other glycosylation,541.06111,TRUE
+ADP-Ribosyl (N),ADP-Ribosyl,N,Anywhere,Other glycosylation,541.06111,TRUE
+ADP-Ribosyl (R),ADP-Ribosyl,R,Anywhere,Other glycosylation,541.06111,TRUE
+ADP-Ribosyl (S),ADP-Ribosyl,S,Anywhere,Other glycosylation,541.06111,TRUE
+AEBS (H),AEBS,H,Anywhere,Artefact,183.035399,TRUE
+AEBS (K),AEBS,K,Anywhere,Artefact,183.035399,TRUE
+AEBS (Protein N-term),AEBS,N-term,Protein N-term,Artefact,183.035399,TRUE
+AEBS (S),AEBS,S,Anywhere,Artefact,183.035399,TRUE
+AEBS (Y),AEBS,Y,Anywhere,Artefact,183.035399,TRUE
+AEC-MAEC (S),AEC-MAEC,S,Anywhere,Chemical derivative,59.019355,TRUE
+AEC-MAEC (T),AEC-MAEC,T,Anywhere,Chemical derivative,59.019355,TRUE
+AEC-MAEC:2H(4) (S),AEC-MAEC:2H(4),S,Anywhere,Isotopic label,63.044462,TRUE
+AEC-MAEC:2H(4) (T),AEC-MAEC:2H(4),T,Anywhere,Isotopic label,63.044462,TRUE
+Ala->Asp (A),Ala->Asp,A,Anywhere,AA substitution,43.989829,TRUE
+Ala->Glu (A),Ala->Glu,A,Anywhere,AA substitution,58.005479,TRUE
+Ala->Gly (A),Ala->Gly,A,Anywhere,AA substitution,-14.01565,TRUE
+Ala->Pro (A),Ala->Pro,A,Anywhere,AA substitution,26.01565,TRUE
+Ala->Ser (A),Ala->Ser,A,Anywhere,AA substitution,15.994915,TRUE
+Ala->Thr (A),Ala->Thr,A,Anywhere,AA substitution,30.010565,TRUE
+Ala->Val (A),Ala->Val,A,Anywhere,AA substitution,28.0313,TRUE
+Amidated (C-term),Amidated,C-term,Any C-term,Artefact,-0.984016,FALSE
+Amidated (Protein C-term),Amidated,C-term,Protein C-term,Post-translational,-0.984016,FALSE
+Amidine (K),Amidine,K,Anywhere,Chemical derivative,41.026549,TRUE
+Amidine (N-term),Amidine,N-term,Any N-term,Chemical derivative,41.026549,TRUE
+Amidino (C),Amidino,C,Anywhere,Post-translational,42.021798,TRUE
+Amino (Y),Amino,Y,Anywhere,Chemical derivative,15.010899,TRUE
+Ammonia-loss (C),Ammonia-loss,C,Any N-term,Artefact,-17.026549,FALSE
+Ammonia-loss (N),Ammonia-loss,N,Anywhere,Chemical derivative,-17.026549,TRUE
+Ammonia-loss (Protein N-term S),Ammonia-loss,S,Protein N-term,Post-translational,-17.026549,TRUE
+Ammonia-loss (Protein N-term T),Ammonia-loss,T,Protein N-term,Post-translational,-17.026549,TRUE
+Archaeol (C),Archaeol,C,Anywhere,Post-translational,634.662782,TRUE
+Arg->Cys (R),Arg->Cys,R,Anywhere,AA substitution,-53.091927,TRUE
+Arg->Gln (R),Arg->Gln,R,Anywhere,AA substitution,-28.042534,TRUE
+Arg->GluSA (R),Arg->GluSA,R,Anywhere,Chemical derivative,-43.053433,TRUE
+Arg->Gly (R),Arg->Gly,R,Anywhere,AA substitution,-99.079647,TRUE
+Arg->His (R),Arg->His,R,Anywhere,AA substitution,-19.042199,TRUE
+Arg->Ile (R),Arg->Ile,R,Anywhere,AA substitution,-43.017047,TRUE
+Arg->Lys (R),Arg->Lys,R,Anywhere,AA substitution,-28.006148,TRUE
+Arg->Met (R),Arg->Met,R,Anywhere,AA substitution,-25.060626,TRUE
+Arg->Npo (R),Arg->Npo,R,Anywhere,Chemical derivative,80.985078,TRUE
+Arg->Orn (R),Arg->Orn,R,Anywhere,Artefact,-42.021798,TRUE
+Arg->Pro (R),Arg->Pro,R,Anywhere,AA substitution,-59.048347,TRUE
+Arg->Ser (R),Arg->Ser,R,Anywhere,AA substitution,-69.069083,TRUE
+Arg->Thr (R),Arg->Thr,R,Anywhere,AA substitution,-55.053433,TRUE
+Arg->Trp (R),Arg->Trp,R,Anywhere,AA substitution,29.978202,TRUE
+Arg2PG (R),Arg2PG,R,Anywhere,Chemical derivative,266.057909,TRUE
+Argbiotinhydrazide (R),Argbiotinhydrazide,R,Anywhere,Chemical derivative,199.066699,TRUE
+AROD (C),AROD,C,Anywhere,Chemical derivative,820.336015,TRUE
+Asn->Asp (N),Asn->Asp,N,Anywhere,AA substitution,0.984016,TRUE
+Asn->His (N),Asn->His,N,Anywhere,AA substitution,23.015984,TRUE
+Asn->Ile (N),Asn->Ile,N,Anywhere,AA substitution,-0.958863,TRUE
+Asn->Lys (N),Asn->Lys,N,Anywhere,AA substitution,14.052036,TRUE
+Asn->Ser (N),Asn->Ser,N,Anywhere,AA substitution,-27.010899,TRUE
+Asn->Thr (N),Asn->Thr,N,Anywhere,AA substitution,-12.995249,TRUE
+Asn->Tyr (N),Asn->Tyr,N,Anywhere,AA substitution,49.020401,TRUE
+Asp->Ala (D),Asp->Ala,D,Anywhere,AA substitution,-43.989829,TRUE
+Asp->Asn (D),Asp->Asn,D,Anywhere,AA substitution,-0.984016,TRUE
+Asp->Glu (D),Asp->Glu,D,Anywhere,AA substitution,14.01565,TRUE
+Asp->Gly (D),Asp->Gly,D,Anywhere,AA substitution,-58.005479,TRUE
+Asp->His (D),Asp->His,D,Anywhere,AA substitution,22.031969,TRUE
+Asp->Tyr (D),Asp->Tyr,D,Anywhere,AA substitution,48.036386,TRUE
+Asp->Val (D),Asp->Val,D,Anywhere,AA substitution,-15.958529,TRUE
+Atto495Maleimide (C),Atto495Maleimide,C,Anywhere,Chemical derivative,474.250515,TRUE
+a-type-ion (C-term),a-type-ion,C-term,Any C-term,Other,-29.00274,TRUE
+Bacillosamine (N),Bacillosamine,N,Anywhere,N-linked glycosylation,228.111007,TRUE
+BADGE (C),BADGE,C,Anywhere,Non-standard residue,340.167459,TRUE
+BDMAPP (H),BDMAPP,H,Anywhere,Artefact,253.010225,TRUE
+BDMAPP (K),BDMAPP,K,Anywhere,Chemical derivative,253.010225,TRUE
+BDMAPP (Protein N-term),BDMAPP,N-term,Protein N-term,Chemical derivative,253.010225,TRUE
+BDMAPP (W),BDMAPP,W,Anywhere,Artefact,253.010225,TRUE
+BDMAPP (Y),BDMAPP,Y,Anywhere,Artefact,253.010225,TRUE
+Benzoyl (K),Benzoyl,K,Anywhere,Isotopic label,104.026215,TRUE
+Benzoyl (N-term),Benzoyl,N-term,Any N-term,Isotopic label,104.026215,TRUE
+BHT (C),BHT,C,Anywhere,Other,218.167065,TRUE
+BHT (H),BHT,H,Anywhere,Other,218.167065,TRUE
+BHT (K),BHT,K,Anywhere,Other,218.167065,TRUE
+BHTOH (C),BHTOH,C,Anywhere,Other,234.16198,TRUE
+BHTOH (H),BHTOH,H,Anywhere,Other,234.16198,TRUE
+BHTOH (K),BHTOH,K,Anywhere,Other,234.16198,TRUE
+Biotin (K),Biotin,K,Anywhere,Post-translational,226.077598,FALSE
+Biotin (N-term),Biotin,N-term,Any N-term,Chemical derivative,226.077598,FALSE
+Biotin-HPDP (C),Biotin-HPDP,C,Anywhere,Chemical derivative,428.191582,TRUE
+Biotin-PEG-PRA (M),Biotin-PEG-PRA,M,Anywhere,Chemical derivative,578.317646,TRUE
+Biotin-PEO4-hydrazide (C-term),Biotin-PEO4-hydrazide,C-term,Anywhere,Chemical derivative,487.246455,TRUE
+Biotin-PEO-Amine (D),Biotin-PEO-Amine,D,Anywhere,Chemical derivative,356.188212,TRUE
+Biotin-PEO-Amine (E),Biotin-PEO-Amine,E,Anywhere,Chemical derivative,356.188212,TRUE
+Biotin-PEO-Amine (Protein C-term),Biotin-PEO-Amine,C-term,Protein C-term,Chemical derivative,356.188212,TRUE
+Biotin-phenacyl (C),Biotin-phenacyl,C,Anywhere,Chemical derivative,626.263502,TRUE
+Biotin-phenacyl (H),Biotin-phenacyl,H,Anywhere,Chemical derivative,626.263502,TRUE
+Biotin-phenacyl (S),Biotin-phenacyl,S,Anywhere,Chemical derivative,626.263502,TRUE
+BisANS (K),BisANS,K,Anywhere,Chemical derivative,592.076278,TRUE
+BMOE (C),BMOE,C,Anywhere,Chemical derivative,220.048407,TRUE
+Bodipy (C),Bodipy,C,Anywhere,Chemical derivative,414.167478,TRUE
+Bromo (F),Bromo,F,Anywhere,Post-translational,77.910511,TRUE
+Bromo (H),Bromo,H,Anywhere,Post-translational,77.910511,TRUE
+Bromo (W),Bromo,W,Anywhere,Post-translational,77.910511,TRUE
+Bromobimane (C),Bromobimane,C,Anywhere,Chemical derivative,190.074228,TRUE
+C8-QAT (K),C8-QAT,K,Anywhere,Chemical derivative,227.224915,TRUE
+C8-QAT (N-term),C8-QAT,N-term,Any N-term,Chemical derivative,227.224915,TRUE
+CAF (N-term),CAF,N-term,Any N-term,Chemical derivative,135.983029,TRUE
+CAMthiopropanoyl (K),CAMthiopropanoyl,K,Anywhere,Chemical derivative,145.019749,TRUE
+CAMthiopropanoyl (Protein N-term),CAMthiopropanoyl,N-term,Protein N-term,Chemical derivative,145.019749,TRUE
+Can-FP-biotin (S),Can-FP-biotin,S,Anywhere,Chemical derivative,447.195679,TRUE
+Can-FP-biotin (T),Can-FP-biotin,T,Anywhere,Chemical derivative,447.195679,TRUE
+Can-FP-biotin (Y),Can-FP-biotin,Y,Anywhere,Chemical derivative,447.195679,TRUE
+Carbamidomethyl (C),Carbamidomethyl,C,Anywhere,Chemical derivative,57.021464,FALSE
+Carbamidomethyl (D),Carbamidomethyl,D,Anywhere,Artefact,57.021464,TRUE
+Carbamidomethyl (E),Carbamidomethyl,E,Anywhere,Artefact,57.021464,TRUE
+Carbamidomethyl (H),Carbamidomethyl,H,Anywhere,Artefact,57.021464,TRUE
+Carbamidomethyl (K),Carbamidomethyl,K,Anywhere,Artefact,57.021464,TRUE
+Carbamidomethyl (N-term),Carbamidomethyl,N-term,Any N-term,Artefact,57.021464,TRUE
+CarbamidomethylDTT (C),CarbamidomethylDTT,C,Anywhere,Artefact,209.018035,TRUE
+Carbamyl (C),Carbamyl,C,Anywhere,Artefact,43.005814,TRUE
+Carbamyl (K),Carbamyl,K,Anywhere,Multiple,43.005814,FALSE
+Carbamyl (M),Carbamyl,M,Anywhere,Artefact,43.005814,TRUE
+Carbamyl (N-term),Carbamyl,N-term,Any N-term,Multiple,43.005814,FALSE
+Carbamyl (R),Carbamyl,R,Anywhere,Artefact,43.005814,TRUE
+Carboxy (D),Carboxy,D,Anywhere,Post-translational,43.989829,TRUE
+Carboxy (E),Carboxy,E,Anywhere,Post-translational,43.989829,TRUE
+Carboxy (K),Carboxy,K,Anywhere,Post-translational,43.989829,TRUE
+Carboxy (Protein N-term M),Carboxy,M,Protein N-term,Post-translational,43.989829,TRUE
+Carboxy (W),Carboxy,W,Anywhere,Chemical derivative,43.989829,TRUE
+Carboxy->Thiocarboxy (Protein C-term G),Carboxy->Thiocarboxy,G,Protein C-term,Post-translational,15.977156,TRUE
+Carboxyethyl (K),Carboxyethyl,K,Anywhere,Post-translational,72.021129,TRUE
+Carboxymethyl (C),Carboxymethyl,C,Anywhere,Chemical derivative,58.005479,FALSE
+Carboxymethyl (K),Carboxymethyl,K,Anywhere,Artefact,58.005479,TRUE
+Carboxymethyl (N-term),Carboxymethyl,N-term,Any N-term,Artefact,58.005479,TRUE
+Carboxymethyl (W),Carboxymethyl,W,Anywhere,Chemical derivative,58.005479,TRUE
+Carboxymethyl:13C(2) (C),Carboxymethyl:13C(2),C,Anywhere,Chemical derivative,60.012189,TRUE
+CarboxymethylDTT (C),CarboxymethylDTT,C,Anywhere,Artefact,210.00205,TRUE
+Cation:Ag (C-term),Cation:Ag,C-term,Any C-term,Artefact,105.897267,TRUE
+Cation:Ag (DE),Cation:Ag,"D,E",Anywhere,Artefact,105.897267,TRUE
+Cation:Ca[II] (C-term),Cation:Ca[II],C-term,Any C-term,Artefact,37.946941,TRUE
+Cation:Ca[II] (DE),Cation:Ca[II],"D,E",Anywhere,Artefact,37.946941,TRUE
+Cation:Cu[I] (C-term),Cation:Cu[I],C-term,Any C-term,Artefact,61.921774,TRUE
+Cation:Cu[I] (DE),Cation:Cu[I],"D,E",Anywhere,Artefact,61.921774,TRUE
+Cation:Fe[II] (C-term),Cation:Fe[II],C-term,Any C-term,Artefact,53.919289,TRUE
+Cation:Fe[II] (DE),Cation:Fe[II],"D,E",Anywhere,Artefact,53.919289,TRUE
+Cation:K (C-term),Cation:K,C-term,Any C-term,Artefact,37.955882,TRUE
+Cation:K (DE),Cation:K,"D,E",Anywhere,Artefact,37.955882,TRUE
+Cation:Li (C-term),Cation:Li,C-term,Any C-term,Artefact,6.008178,TRUE
+Cation:Li (DE),Cation:Li,"D,E",Anywhere,Artefact,6.008178,TRUE
+Cation:Mg[II] (C-term),Cation:Mg[II],C-term,Any C-term,Artefact,21.969392,TRUE
+Cation:Mg[II] (DE),Cation:Mg[II],"D,E",Anywhere,Artefact,21.969392,TRUE
+Cation:Na (C-term),Cation:Na,C-term,Any C-term,Artefact,21.981943,FALSE
+Cation:Na (DE),Cation:Na,"D,E",Anywhere,Artefact,21.981943,FALSE
+Cation:Ni[II] (C-term),Cation:Ni[II],C-term,Any C-term,Artefact,55.919696,TRUE
+Cation:Ni[II] (DE),Cation:Ni[II],"D,E",Anywhere,Artefact,55.919696,TRUE
+Cation:Zn[II] (C-term),Cation:Zn[II],C-term,Any C-term,Artefact,61.913495,TRUE
+Cation:Zn[II] (DE),Cation:Zn[II],"D,E",Anywhere,Artefact,61.913495,TRUE
+cGMP (C),cGMP,C,Anywhere,Post-translational,344.03961,TRUE
+cGMP (S),cGMP,S,Anywhere,Post-translational,344.03961,TRUE
+cGMP+RMP-loss (C),cGMP+RMP-loss,C,Anywhere,Post-translational,150.041585,TRUE
+cGMP+RMP-loss (S),cGMP+RMP-loss,S,Anywhere,Post-translational,150.041585,TRUE
+CHDH (D),CHDH,D,Anywhere,Post-translational,294.183109,TRUE
+Chlorination (Y),Chlorination,Y,Anywhere,Artefact,34.968853,TRUE
+Cholesterol (Protein C-term),Cholesterol,C-term,Protein C-term,Post-translational,368.344302,TRUE
+ChromoBiotin (K),ChromoBiotin,K,Anywhere,Chemical derivative,695.310118,TRUE
+Citrulline (R),Citrulline,R,Anywhere,-,1.007825,FALSE
+Citrulline-NL (R),Citrulline-NL,R,Anywhere,Artefact,-42.021798,FALSE
+CLIP_TRAQ_1 (K),CLIP_TRAQ_1,K,Anywhere,Isotopic label,140.094963,TRUE
+CLIP_TRAQ_1 (N-term),CLIP_TRAQ_1,N-term,Any N-term,Isotopic label,140.094963,TRUE
+CLIP_TRAQ_1 (Y),CLIP_TRAQ_1,Y,Anywhere,Isotopic label,140.094963,TRUE
+CLIP_TRAQ_2 (K),CLIP_TRAQ_2,K,Anywhere,Isotopic label,141.098318,TRUE
+CLIP_TRAQ_2 (N-term),CLIP_TRAQ_2,N-term,Any N-term,Isotopic label,141.098318,TRUE
+CLIP_TRAQ_2 (Y),CLIP_TRAQ_2,Y,Anywhere,Isotopic label,141.098318,TRUE
+CLIP_TRAQ_3 (K),CLIP_TRAQ_3,K,Anywhere,Isotopic label,271.148736,TRUE
+CLIP_TRAQ_3 (N-term),CLIP_TRAQ_3,N-term,Any N-term,Isotopic label,271.148736,TRUE
+CLIP_TRAQ_3 (Y),CLIP_TRAQ_3,Y,Anywhere,Isotopic label,271.148736,TRUE
+CLIP_TRAQ_4 (K),CLIP_TRAQ_4,K,Anywhere,Isotopic label,244.101452,TRUE
+CLIP_TRAQ_4 (N-term),CLIP_TRAQ_4,N-term,Any N-term,Isotopic label,244.101452,TRUE
+CLIP_TRAQ_4 (Y),CLIP_TRAQ_4,Y,Anywhere,Isotopic label,244.101452,TRUE
+CoenzymeA (C),CoenzymeA,C,Anywhere,Post-translational,765.09956,TRUE
+Crotonaldehyde (C),Crotonaldehyde,C,Anywhere,Other,70.041865,TRUE
+Crotonaldehyde (H),Crotonaldehyde,H,Anywhere,Other,70.041865,TRUE
+Crotonaldehyde (K),Crotonaldehyde,K,Anywhere,Other,70.041865,TRUE
+CuSMo (C),CuSMo,C,Anywhere,Post-translational,922.834855,TRUE
+Cy3b-maleimide (C),Cy3b-maleimide,C,Anywhere,Chemical derivative,796.238984,TRUE
+Cyano (C),Cyano,C,Anywhere,Post-translational,24.995249,TRUE
+CyDye-Cy3 (C),CyDye-Cy3,C,Anywhere,Chemical derivative,672.298156,TRUE
+CyDye-Cy5 (C),CyDye-Cy5,C,Anywhere,Chemical derivative,684.298156,TRUE
+Cys->Arg (C),Cys->Arg,C,Anywhere,AA substitution,53.091927,TRUE
+Cys->Dha (C),Cys->Dha,C,Anywhere,Chemical derivative,-33.987721,TRUE
+Cys->ethylaminoAla (C),Cys->ethylaminoAla,C,Anywhere,Chemical derivative,11.070128,TRUE
+Cys->Gly (C),Cys->Gly,C,Anywhere,AA substitution,-45.987721,TRUE
+Cys->methylaminoAla (C),Cys->methylaminoAla,C,Anywhere,Chemical derivative,-2.945522,TRUE
+Cys->Oxoalanine (C),Cys->Oxoalanine,C,Anywhere,Post-translational,-17.992806,TRUE
+Cys->Phe (C),Cys->Phe,C,Anywhere,AA substitution,44.059229,TRUE
+Cys->PyruvicAcid (Protein N-term C),Cys->PyruvicAcid,C,Protein N-term,Post-translational,-33.003705,TRUE
+Cys->Ser (C),Cys->Ser,C,Anywhere,AA substitution,-15.977156,TRUE
+Cys->Trp (C),Cys->Trp,C,Anywhere,AA substitution,83.070128,TRUE
+Cys->Tyr (C),Cys->Tyr,C,Anywhere,AA substitution,60.054144,TRUE
+Cysteinyl (C),Cysteinyl,C,Anywhere,Multiple,119.004099,TRUE
+Cytopiloyne (C),Cytopiloyne,C,Anywhere,Chemical derivative,362.136553,TRUE
+Cytopiloyne (K),Cytopiloyne,K,Anywhere,Chemical derivative,362.136553,TRUE
+Cytopiloyne (N-term),Cytopiloyne,N-term,Any N-term,Chemical derivative,362.136553,TRUE
+Cytopiloyne (P),Cytopiloyne,P,Anywhere,Chemical derivative,362.136553,TRUE
+Cytopiloyne (R),Cytopiloyne,R,Anywhere,Chemical derivative,362.136553,TRUE
+Cytopiloyne (S),Cytopiloyne,S,Anywhere,Chemical derivative,362.136553,TRUE
+Cytopiloyne (Y),Cytopiloyne,Y,Anywhere,Chemical derivative,362.136553,TRUE
+Cytopiloyne+water (C),Cytopiloyne+water,C,Anywhere,Chemical derivative,380.147118,TRUE
+Cytopiloyne+water (K),Cytopiloyne+water,K,Anywhere,Chemical derivative,380.147118,TRUE
+Cytopiloyne+water (N-term),Cytopiloyne+water,N-term,Any N-term,Chemical derivative,380.147118,TRUE
+Cytopiloyne+water (R),Cytopiloyne+water,R,Anywhere,Chemical derivative,380.147118,TRUE
+Cytopiloyne+water (S),Cytopiloyne+water,S,Anywhere,Chemical derivative,380.147118,TRUE
+Cytopiloyne+water (T),Cytopiloyne+water,T,Anywhere,Chemical derivative,380.147118,TRUE
+Cytopiloyne+water (Y),Cytopiloyne+water,Y,Anywhere,Chemical derivative,380.147118,TRUE
+DAET (S),DAET,S,Anywhere,Chemical derivative,87.050655,TRUE
+DAET (T),DAET,T,Anywhere,Chemical derivative,87.050655,TRUE
+Dansyl (K),Dansyl,K,Anywhere,Chemical derivative,233.051049,TRUE
+Dansyl (N-term),Dansyl,N-term,Any N-term,Chemical derivative,233.051049,TRUE
+Deamidated (NQ),Deamidated,"N,Q",Anywhere,Artefact,0.984016,FALSE
+Deamidated (Protein N-term F),Deamidated,F,Protein N-term,Post-translational,0.984016,TRUE
+Deamidated (R),Deamidated,R,Anywhere,Post-translational,0.984016,TRUE
+Deamidated:18O(1) (NQ),Deamidated:18O(1),"N,Q",Anywhere,Isotopic label,2.988261,TRUE
+Decanoyl (S),Decanoyl,S,Anywhere,Post-translational,154.135765,TRUE
+Decanoyl (T),Decanoyl,T,Anywhere,Post-translational,154.135765,TRUE
+Dehydrated (C),Dehydrated,C,Any N-term,Artefact,-18.010565,FALSE
+Dehydrated (D),Dehydrated,D,Anywhere,Chemical derivative,-18.010565,TRUE
+Dehydrated (Protein C-term N),Dehydrated,N,Protein C-term,Post-translational,-18.010565,TRUE
+Dehydrated (Protein C-term Q),Dehydrated,Q,Protein C-term,Post-translational,-18.010565,TRUE
+Dehydrated (S),Dehydrated,S,Anywhere,Post-translational,-18.010565,TRUE
+Dehydrated (T),Dehydrated,T,Anywhere,Post-translational,-18.010565,TRUE
+Dehydrated (Y),Dehydrated,Y,Anywhere,Post-translational,-18.010565,TRUE
+Dehydro (C),Dehydro,C,Anywhere,Multiple,-1.007825,FALSE
+Delta:H(1)O(-1)18O(1) (N),Delta:H(1)O(-1)18O(1),N,Anywhere,Isotopic label,2.988261,TRUE
+Delta:H(2)C(2) (H),Delta:H(2)C(2),H,Anywhere,Other,26.01565,TRUE
+Delta:H(2)C(2) (K),Delta:H(2)C(2),K,Anywhere,Other,26.01565,TRUE
+Delta:H(2)C(3) (K),Delta:H(2)C(3),K,Anywhere,Other,38.01565,TRUE
+Delta:H(2)C(3)O(1) (K),Delta:H(2)C(3)O(1),K,Anywhere,Chemical derivative,54.010565,TRUE
+Delta:H(2)C(3)O(1) (R),Delta:H(2)C(3)O(1),R,Anywhere,Chemical derivative,54.010565,TRUE
+Delta:H(2)C(5) (K),Delta:H(2)C(5),K,Anywhere,Chemical derivative,62.01565,TRUE
+Delta:H(4)C(2) (H),Delta:H(4)C(2),H,Anywhere,Other,28.0313,TRUE
+Delta:H(4)C(2) (K),Delta:H(4)C(2),K,Anywhere,Other,28.0313,TRUE
+Delta:H(4)C(2)O(-1)S(1) (S),Delta:H(4)C(2)O(-1)S(1),S,Anywhere,Chemical derivative,44.008456,TRUE
+Delta:H(4)C(3) (H),Delta:H(4)C(3),H,Anywhere,Other,40.0313,TRUE
+Delta:H(4)C(3) (K),Delta:H(4)C(3),K,Anywhere,Other,40.0313,TRUE
+Delta:H(4)C(3)O(1) (C),Delta:H(4)C(3)O(1),C,Anywhere,Other,56.026215,TRUE
+Delta:H(4)C(3)O(1) (H),Delta:H(4)C(3)O(1),H,Anywhere,Other,56.026215,TRUE
+Delta:H(4)C(3)O(1) (K),Delta:H(4)C(3)O(1),K,Anywhere,Other,56.026215,TRUE
+Delta:H(4)C(6) (K),Delta:H(4)C(6),K,Anywhere,Other,76.0313,TRUE
+Delta:H(5)C(2) (P),Delta:H(5)C(2),P,Anywhere,Post-translational,29.039125,TRUE
+Delta:H(6)C(6)O(1) (K),Delta:H(6)C(6)O(1),K,Anywhere,Other,94.041865,TRUE
+Delta:H(8)C(6)O(2) (K),Delta:H(8)C(6)O(2),K,Anywhere,Other,112.05243,TRUE
+Delta:Hg(1) (C),Delta:Hg(1),C,Anywhere,Chemical derivative,201.970617,TRUE
+Delta:S(-1)Se(1) (C),Delta:S(-1)Se(1),C,Anywhere,Non-standard residue,47.944449,TRUE
+Delta:S(-1)Se(1) (M),Delta:S(-1)Se(1),M,Anywhere,Non-standard residue,47.944449,TRUE
+Delta:Se(1) (C),Delta:Se(1),C,Anywhere,Post-translational,79.91652,TRUE
+Deoxy (D),Deoxy,D,Anywhere,Post-translational,-15.994915,TRUE
+Deoxy (S),Deoxy,S,Anywhere,Chemical derivative,-15.994915,TRUE
+Deoxy (T),Deoxy,T,Anywhere,Chemical derivative,-15.994915,TRUE
+DeStreak (C),DeStreak,C,Anywhere,Chemical derivative,75.998285,TRUE
+Dethiomethyl (M),Dethiomethyl,M,Anywhere,Artefact,-48.003371,TRUE
+DFDNB (K),DFDNB,K,Anywhere,Chemical derivative,203.998263,TRUE
+DFDNB (N),DFDNB,N,Anywhere,Chemical derivative,203.998263,TRUE
+DFDNB (Q),DFDNB,Q,Anywhere,Chemical derivative,203.998263,TRUE
+DFDNB (R),DFDNB,R,Anywhere,Chemical derivative,203.998263,TRUE
+DHB-H2O (ACDENR),DHB-H2O,"A,C,D,E,N,R",Anywhere,Artefact,136.016044,TRUE
+DHB-H2O (FMPSTVWY),DHB-H2O,"F,M,P,S,T,V,W,Y",Anywhere,Artefact,136.016044,TRUE
+DHB-H2O (GHIKLQ),DHB-H2O,"G,H,I,K,L,Q",Anywhere,Artefact,136.016044,TRUE
+dHex (S),dHex,S,Anywhere,O-linked glycosylation,146.057909,TRUE
+dHex (T),dHex,T,Anywhere,O-linked glycosylation,146.057909,TRUE
+dHex(1)Hex(3)HexNAc(4) (N),dHex(1)Hex(3)HexNAc(4),N,Anywhere,N-linked glycosylation,1444.53387,TRUE
+dHex(1)Hex(4)HexNAc(4) (N),dHex(1)Hex(4)HexNAc(4),N,Anywhere,N-linked glycosylation,1606.586693,TRUE
+dHex(1)Hex(5)HexNAc(4) (N),dHex(1)Hex(5)HexNAc(4),N,Anywhere,N-linked glycosylation,1768.639517,TRUE
+DHP (C),DHP,C,Anywhere,Chemical derivative,118.065674,TRUE
+Diacylglycerol (C),Diacylglycerol,C,Anywhere,Post-translational,576.511761,TRUE
+Dibromo (Y),Dibromo,Y,Anywhere,Chemical derivative,155.821022,TRUE
+dichlorination (Y),dichlorination,Y,Anywhere,Artefact,69.937705,TRUE
+Didehydro (K),Didehydro,K,Any C-term,Artefact,-2.01565,TRUE
+Didehydro (S),Didehydro,S,Anywhere,Post-translational,-2.01565,TRUE
+Didehydro (T),Didehydro,T,Anywhere,Chemical derivative,-2.01565,TRUE
+Didehydro (Y),Didehydro,Y,Anywhere,Post-translational,-2.01565,TRUE
+Didehydroretinylidene (K),Didehydroretinylidene,K,Anywhere,Post-translational,264.187801,TRUE
+Diethyl (K),Diethyl,K,Anywhere,Chemical derivative,56.0626,TRUE
+Diethyl (N-term),Diethyl,N-term,Any N-term,Chemical derivative,56.0626,TRUE
+Dihydroxyimidazolidine (R),Dihydroxyimidazolidine,R,Anywhere,Multiple,72.021129,TRUE
+Diiodo (Y),Diiodo,Y,Anywhere,Chemical derivative,251.793296,TRUE
+Diironsubcluster (C),Diironsubcluster,C,Anywhere,Post-translational,342.786916,TRUE
+Diisopropylphosphate (K),Diisopropylphosphate,K,Anywhere,Chemical derivative,164.060231,TRUE
+Diisopropylphosphate (S),Diisopropylphosphate,S,Anywhere,Chemical derivative,164.060231,TRUE
+Diisopropylphosphate (T),Diisopropylphosphate,T,Anywhere,Chemical derivative,164.060231,TRUE
+Diisopropylphosphate (Y),Diisopropylphosphate,Y,Anywhere,Chemical derivative,164.060231,TRUE
+Dimethyl (K),Dimethyl,K,Anywhere,Post-translational,28.0313,TRUE
+Dimethyl (N),Dimethyl,N,Anywhere,Post-translational,28.0313,TRUE
+Dimethyl (N-term),Dimethyl,N-term,Any N-term,Chemical derivative,28.0313,TRUE
+Dimethyl (Protein N-term P),Dimethyl,P,Protein N-term,Post-translational,28.0313,TRUE
+Dimethyl (R),Dimethyl,R,Anywhere,Post-translational,28.0313,TRUE
+Dimethyl:2H(4) (K),Dimethyl:2H(4),K,Anywhere,Isotopic label,32.056407,TRUE
+Dimethyl:2H(4) (N-term),Dimethyl:2H(4),N-term,Any N-term,Isotopic label,32.056407,TRUE
+Dimethyl:2H(4) (Protein N-term),Dimethyl:2H(4),N-term,Protein N-term,Isotopic label,32.056407,TRUE
+Dimethyl:2H(4)13C(2) (K),Dimethyl:2H(4)13C(2),K,Anywhere,Isotopic label,34.063117,TRUE
+Dimethyl:2H(4)13C(2) (N-term),Dimethyl:2H(4)13C(2),N-term,Any N-term,Isotopic label,34.063117,TRUE
+Dimethyl:2H(6)13C(2) (K),Dimethyl:2H(6)13C(2),K,Anywhere,Isotopic label,36.07567,TRUE
+Dimethyl:2H(6)13C(2) (N-term),Dimethyl:2H(6)13C(2),N-term,Any N-term,Isotopic label,36.07567,TRUE
+Dimethyl:2H(6)13C(2) (R),Dimethyl:2H(6)13C(2),R,Anywhere,Isotopic label,36.07567,TRUE
+DimethylamineGMBS (C),DimethylamineGMBS,C,Anywhere,Chemical derivative,267.158292,TRUE
+DimethylArsino (C),DimethylArsino,C,Anywhere,Post-translational,103.960719,TRUE
+DimethylpyrroleAdduct (K),DimethylpyrroleAdduct,K,Anywhere,Chemical derivative,78.04695,TRUE
+Dioxidation (C),Dioxidation,C,Anywhere,Post-translational,31.989829,TRUE
+Dioxidation (F),Dioxidation,F,Anywhere,Chemical derivative,31.989829,TRUE
+Dioxidation (K),Dioxidation,K,Anywhere,Post-translational,31.989829,TRUE
+Dioxidation (M),Dioxidation,M,Anywhere,Post-translational,31.989829,FALSE
+Dioxidation (P),Dioxidation,P,Anywhere,Post-translational,31.989829,TRUE
+Dioxidation (R),Dioxidation,R,Anywhere,Post-translational,31.989829,TRUE
+Dioxidation (W),Dioxidation,W,Anywhere,Chemical derivative,31.989829,TRUE
+Dioxidation (Y),Dioxidation,Y,Anywhere,Post-translational,31.989829,TRUE
+Diphthamide (H),Diphthamide,H,Anywhere,Post-translational,143.118438,TRUE
+Dipyrrolylmethanemethyl (C),Dipyrrolylmethanemethyl,C,Anywhere,Post-translational,418.137616,TRUE
+dNIC (N-term),dNIC,N-term,Any N-term,Isotopic label,109.048119,TRUE
+DNPS (C),DNPS,C,Anywhere,Chemical derivative,198.981352,TRUE
+DNPS (W),DNPS,W,Anywhere,Chemical derivative,198.981352,TRUE
+DTBP (K),DTBP,K,Anywhere,Chemical derivative,87.01427,TRUE
+DTBP (N),DTBP,N,Anywhere,Chemical derivative,87.01427,TRUE
+DTBP (Protein N-term),DTBP,N-term,Protein N-term,Chemical derivative,87.01427,TRUE
+DTBP (Q),DTBP,Q,Anywhere,Chemical derivative,87.01427,TRUE
+DTBP (R),DTBP,R,Anywhere,Chemical derivative,87.01427,TRUE
+DTT_C (C),DTT_C,C,Anywhere,Chemical derivative,120.0245,TRUE
+DTT_C:2H(6) (C),DTT_C:2H(6),C,Anywhere,Isotopic label,126.062161,TRUE
+DTT_ST (S),DTT_ST,S,Anywhere,Chemical derivative,136.001656,TRUE
+DTT_ST (T),DTT_ST,T,Anywhere,Chemical derivative,136.001656,TRUE
+DTT_ST:2H(6) (S),DTT_ST:2H(6),S,Anywhere,Isotopic label,142.039317,TRUE
+DTT_ST:2H(6) (T),DTT_ST:2H(6),T,Anywhere,Isotopic label,142.039317,TRUE
+DyLight-maleimide (C),DyLight-maleimide,C,Anywhere,Chemical derivative,940.1999,TRUE
+EDT-iodoacetyl-PEO-biotin (S),EDT-iodoacetyl-PEO-biotin,S,Anywhere,Chemical derivative,490.174218,TRUE
+EDT-iodoacetyl-PEO-biotin (T),EDT-iodoacetyl-PEO-biotin,T,Anywhere,Chemical derivative,490.174218,TRUE
+EDT-maleimide-PEO-biotin (S),EDT-maleimide-PEO-biotin,S,Anywhere,Chemical derivative,601.206246,TRUE
+EDT-maleimide-PEO-biotin (T),EDT-maleimide-PEO-biotin,T,Anywhere,Chemical derivative,601.206246,TRUE
+EQAT (C),EQAT,C,Anywhere,Chemical derivative,184.157563,TRUE
+EQAT:2H(5) (C),EQAT:2H(5),C,Anywhere,Isotopic label,189.188947,TRUE
+EQIGG (K),EQIGG,K,Anywhere,Other,484.228162,TRUE
+ESP (K),ESP,K,Anywhere,Isotopic label,338.177647,TRUE
+ESP (N-term),ESP,N-term,Any N-term,Isotopic label,338.177647,TRUE
+ESP:2H(10) (K),ESP:2H(10),K,Anywhere,Isotopic label,348.240414,TRUE
+ESP:2H(10) (N-term),ESP:2H(10),N-term,Any N-term,Isotopic label,348.240414,TRUE
+Ethanedithiol (S),Ethanedithiol,S,Anywhere,Chemical derivative,75.980527,TRUE
+Ethanedithiol (T),Ethanedithiol,T,Anywhere,Chemical derivative,75.980527,TRUE
+Ethanolamine (C-term),Ethanolamine,C-term,Any C-term,Chemical derivative,43.042199,TRUE
+Ethanolamine (D),Ethanolamine,D,Anywhere,Chemical derivative,43.042199,TRUE
+Ethanolamine (E),Ethanolamine,E,Anywhere,Chemical derivative,43.042199,TRUE
+Ethanolyl (C),Ethanolyl,C,Anywhere,Chemical derivative,44.026215,FALSE
+Ethoxyformyl (H),Ethoxyformyl,H,Anywhere,Chemical derivative,73.028954,TRUE
+Ethyl (C-term),Ethyl,C-term,Any C-term,Chemical derivative,28.0313,TRUE
+Ethyl (D),Ethyl,D,Anywhere,Chemical derivative,28.0313,TRUE
+Ethyl (E),Ethyl,E,Anywhere,Artefact,28.0313,TRUE
+Ethyl (K),Ethyl,K,Anywhere,Multiple,28.0313,TRUE
+Ethyl (N-term),Ethyl,N-term,Any N-term,Multiple,28.0313,TRUE
+Ethyl (Protein N-term),Ethyl,N-term,Protein N-term,Chemical derivative,28.0313,TRUE
+EthylAmide (N),EthylAmide,N,Anywhere,Chemical derivative,29.039125,TRUE
+EthylAmide (Q),EthylAmide,Q,Anywhere,Chemical derivative,29.039125,TRUE
+ethylamino (S),ethylamino,S,Anywhere,Chemical derivative,27.047285,TRUE
+ethylamino (T),ethylamino,T,Anywhere,Chemical derivative,27.047285,TRUE
+ExacTagAmine (K),ExacTagAmine,K,Anywhere,Isotopic label,1046.347854,FALSE
+ExacTagThiol (C),ExacTagThiol,C,Anywhere,Isotopic label,972.365219,FALSE
+FAD (C),FAD,C,Anywhere,Post-translational,783.141486,TRUE
+FAD (H),FAD,H,Anywhere,Post-translational,783.141486,TRUE
+FAD (Y),FAD,Y,Anywhere,Post-translational,783.141486,TRUE
+Farnesyl (C),Farnesyl,C,Anywhere,Post-translational,204.187801,TRUE
+Fluorescein (C),Fluorescein,C,Anywhere,Chemical derivative,388.082112,TRUE
+Fluoro (F),Fluoro,F,Anywhere,Non-standard residue,17.990578,TRUE
+Fluoro (W),Fluoro,W,Anywhere,Non-standard residue,17.990578,TRUE
+Fluoro (Y),Fluoro,Y,Anywhere,Non-standard residue,17.990578,TRUE
+FMN (S),FMN,S,Anywhere,Post-translational,438.094051,TRUE
+FMN (T),FMN,T,Anywhere,Post-translational,438.094051,TRUE
+FMNC (C),FMNC,C,Anywhere,Post-translational,456.104615,TRUE
+FMNH (C),FMNH,C,Anywhere,Post-translational,454.088965,TRUE
+FMNH (H),FMNH,H,Anywhere,Post-translational,454.088965,TRUE
+FNEM (C),FNEM,C,Anywhere,Chemical derivative,427.069202,TRUE
+Formyl (K),Formyl,K,Anywhere,Artefact,27.994915,TRUE
+Formyl (N-term),Formyl,N-term,Any N-term,Artefact,27.994915,FALSE
+Formyl (Protein N-term),Formyl,N-term,Protein N-term,Post-translational,27.994915,FALSE
+Formyl (S),Formyl,S,Anywhere,Artefact,27.994915,TRUE
+Formyl (T),Formyl,T,Anywhere,Artefact,27.994915,TRUE
+FormylMet (Protein N-term),FormylMet,N-term,Protein N-term,Pre-translational,159.035399,TRUE
+FP-Biotin (K),FP-Biotin,K,Anywhere,Chemical derivative,572.316129,TRUE
+FP-Biotin (S),FP-Biotin,S,Anywhere,Chemical derivative,572.316129,TRUE
+FP-Biotin (T),FP-Biotin,T,Anywhere,Chemical derivative,572.316129,TRUE
+FP-Biotin (Y),FP-Biotin,Y,Anywhere,Chemical derivative,572.316129,TRUE
+FTC (C),FTC,C,Anywhere,Chemical derivative,421.073241,TRUE
+FTC (K),FTC,K,Anywhere,Chemical derivative,421.073241,TRUE
+FTC (P),FTC,P,Anywhere,Chemical derivative,421.073241,TRUE
+FTC (R),FTC,R,Anywhere,Chemical derivative,421.073241,TRUE
+FTC (S),FTC,S,Anywhere,Chemical derivative,421.073241,TRUE
+Galactosyl (K),Galactosyl,K,Anywhere,O-linked glycosylation,178.047738,TRUE
+GalNAzBiotin (N),GalNAzBiotin,N,Anywhere,Chemical derivative,502.202341,TRUE
+GalNAzBiotin (S),GalNAzBiotin,S,Anywhere,Chemical derivative,502.202341,TRUE
+GalNAzBiotin (T),GalNAzBiotin,T,Anywhere,Chemical derivative,502.202341,TRUE
+GeranylGeranyl (C),GeranylGeranyl,C,Anywhere,Post-translational,272.250401,TRUE
+G-H1 (R),G-H1,R,Anywhere,Other,39.994915,TRUE
+GIST-Quat (K),GIST-Quat,K,Anywhere,Isotopic label,127.099714,TRUE
+GIST-Quat (N-term),GIST-Quat,N-term,Any N-term,Isotopic label,127.099714,TRUE
+GIST-Quat:2H(3) (K),GIST-Quat:2H(3),K,Anywhere,Isotopic label,130.118544,TRUE
+GIST-Quat:2H(3) (N-term),GIST-Quat:2H(3),N-term,Any N-term,Isotopic label,130.118544,TRUE
+GIST-Quat:2H(6) (K),GIST-Quat:2H(6),K,Anywhere,Isotopic label,133.137375,TRUE
+GIST-Quat:2H(6) (N-term),GIST-Quat:2H(6),N-term,Any N-term,Isotopic label,133.137375,TRUE
+GIST-Quat:2H(9) (K),GIST-Quat:2H(9),K,Anywhere,Isotopic label,136.156205,TRUE
+GIST-Quat:2H(9) (N-term),GIST-Quat:2H(9),N-term,Any N-term,Isotopic label,136.156205,TRUE
+Gln->Arg (Q),Gln->Arg,Q,Anywhere,AA substitution,28.042534,TRUE
+Gln->Glu (Q),Gln->Glu,Q,Anywhere,AA substitution,0.984016,TRUE
+Gln->His (Q),Gln->His,Q,Anywhere,AA substitution,9.000334,TRUE
+Gln->Leu (Q),Gln->Leu,Q,Anywhere,AA substitution,-14.974514,TRUE
+Gln->Lys (Q),Gln->Lys,Q,Anywhere,AA substitution,0.036386,TRUE
+Gln->Pro (Q),Gln->Pro,Q,Anywhere,AA substitution,-31.005814,TRUE
+Gln->pyro-Glu (Q),Gln->pyro-Glu,Q,Any N-term,Artefact,-17.026549,FALSE
+Glu (E),Glu,E,Anywhere,Post-translational,129.042593,TRUE
+Glu (Protein C-term),Glu,C-term,Protein C-term,Chemical derivative,129.042593,TRUE
+Glu->Ala (E),Glu->Ala,E,Anywhere,AA substitution,-58.005479,TRUE
+Glu->Asp (E),Glu->Asp,E,Anywhere,AA substitution,-14.01565,TRUE
+Glu->Gln (E),Glu->Gln,E,Anywhere,AA substitution,-0.984016,TRUE
+Glu->Gly (E),Glu->Gly,E,Anywhere,AA substitution,-72.021129,TRUE
+Glu->Lys (E),Glu->Lys,E,Anywhere,AA substitution,-0.94763,TRUE
+Glu->pyro-Glu (E),Glu->pyro-Glu,E,Any N-term,Artefact,-18.010565,FALSE
+Glu->Val (E),Glu->Val,E,Anywhere,AA substitution,-29.974179,TRUE
+Glucosylgalactosyl (K),Glucosylgalactosyl,K,Anywhere,O-linked glycosylation,340.100562,TRUE
+Glucuronyl (Protein N-term),Glucuronyl,N-term,Protein N-term,Post-translational,176.032088,TRUE
+Glucuronyl (S),Glucuronyl,S,Anywhere,Post-translational,176.032088,TRUE
+GluGlu (E),GluGlu,E,Anywhere,Post-translational,258.085186,TRUE
+GluGlu (Protein C-term),GluGlu,C-term,Protein C-term,Post-translational,258.085186,TRUE
+GluGluGlu (E),GluGluGlu,E,Anywhere,Post-translational,387.127779,TRUE
+GluGluGlu (Protein C-term),GluGluGlu,C-term,Protein C-term,Post-translational,387.127779,TRUE
+GluGluGluGlu (E),GluGluGluGlu,E,Anywhere,Post-translational,516.170373,TRUE
+GluGluGluGlu (Protein C-term),GluGluGluGlu,C-term,Protein C-term,Post-translational,516.170373,TRUE
+Glutathione (C),Glutathione,C,Anywhere,Post-translational,305.068156,TRUE
+Gly->Ala (G),Gly->Ala,G,Anywhere,AA substitution,14.01565,TRUE
+Gly->Arg (G),Gly->Arg,G,Anywhere,AA substitution,99.079647,TRUE
+Gly->Asp (G),Gly->Asp,G,Anywhere,AA substitution,58.005479,TRUE
+Gly->Cys (G),Gly->Cys,G,Anywhere,AA substitution,45.987721,TRUE
+Gly->Glu (G),Gly->Glu,G,Anywhere,AA substitution,72.021129,TRUE
+Gly->Ser (G),Gly->Ser,G,Anywhere,AA substitution,30.010565,TRUE
+Gly->Trp (G),Gly->Trp,G,Anywhere,AA substitution,129.057849,TRUE
+Gly->Val (G),Gly->Val,G,Anywhere,AA substitution,42.04695,TRUE
+Glycerophospho (S),Glycerophospho,S,Anywhere,Post-translational,154.00311,TRUE
+GlycerylPE (E),GlycerylPE,E,Anywhere,Post-translational,197.04531,TRUE
+Glycosyl (P),Glycosyl,P,Anywhere,O-linked glycosylation,148.037173,TRUE
+GlyGly (C),GlyGly,C,Anywhere,Other,114.042927,TRUE
+GlyGly (K),GlyGly,K,Anywhere,Other,114.042927,TRUE
+GlyGly (S),GlyGly,S,Anywhere,Other,114.042927,TRUE
+GlyGly (T),GlyGly,T,Anywhere,Other,114.042927,TRUE
+Gly-loss+Amide (G),Gly-loss+Amide,G,Any C-term,Post-translational,-58.005479,TRUE
+GPIanchor (Protein C-term),GPIanchor,C-term,Protein C-term,Post-translational,123.00853,TRUE
+Guanidinyl (K),Guanidinyl,K,Anywhere,Chemical derivative,42.021798,FALSE
+Heme (C),Heme,C,Anywhere,Post-translational,616.177295,TRUE
+Heme (H),Heme,H,Anywhere,Post-translational,616.177295,TRUE
+Hep (K),Hep,K,Anywhere,N-linked glycosylation,192.063388,TRUE
+Hep (N),Hep,N,Anywhere,N-linked glycosylation,192.063388,TRUE
+Hep (Q),Hep,Q,Anywhere,N-linked glycosylation,192.063388,TRUE
+Hep (R),Hep,R,Anywhere,N-linked glycosylation,192.063388,TRUE
+Hep (S),Hep,S,Anywhere,O-linked glycosylation,192.063388,TRUE
+Hep (T),Hep,T,Anywhere,O-linked glycosylation,192.063388,TRUE
+Hex (C),Hex,C,Anywhere,Other glycosylation,162.052824,TRUE
+Hex (K),Hex,K,Anywhere,Other glycosylation,162.052824,TRUE
+Hex (N),Hex,N,Anywhere,N-linked glycosylation,162.052824,TRUE
+Hex (N-term),Hex,N-term,Any N-term,Other glycosylation,162.052824,TRUE
+Hex (R),Hex,R,Anywhere,Other glycosylation,162.052824,TRUE
+Hex (T),Hex,T,Anywhere,Other glycosylation,162.052824,TRUE
+Hex (W),Hex,W,Anywhere,Other glycosylation,162.052824,TRUE
+Hex (Y),Hex,Y,Anywhere,Other glycosylation,162.052824,TRUE
+Hex(1)HexNAc(1)dHex(1) (N),Hex(1)HexNAc(1)dHex(1),N,Anywhere,N-linked glycosylation,511.190105,TRUE
+Hex(1)HexNAc(1)NeuAc(1) (N),Hex(1)HexNAc(1)NeuAc(1),N,Anywhere,N-linked glycosylation,656.227613,TRUE
+Hex(1)HexNAc(1)NeuAc(1) (S),Hex(1)HexNAc(1)NeuAc(1),S,Anywhere,O-linked glycosylation,656.227613,TRUE
+Hex(1)HexNAc(1)NeuAc(1) (T),Hex(1)HexNAc(1)NeuAc(1),T,Anywhere,O-linked glycosylation,656.227613,TRUE
+Hex(1)HexNAc(1)NeuAc(2) (N),Hex(1)HexNAc(1)NeuAc(2),N,Anywhere,N-linked glycosylation,947.323029,TRUE
+Hex(1)HexNAc(1)NeuAc(2) (S),Hex(1)HexNAc(1)NeuAc(2),S,Anywhere,O-linked glycosylation,947.323029,TRUE
+Hex(1)HexNAc(1)NeuAc(2) (T),Hex(1)HexNAc(1)NeuAc(2),T,Anywhere,O-linked glycosylation,947.323029,TRUE
+Hex(1)HexNAc(2) (N),Hex(1)HexNAc(2),N,Anywhere,N-linked glycosylation,568.211569,TRUE
+Hex(1)HexNAc(2)dHex(1) (N),Hex(1)HexNAc(2)dHex(1),N,Anywhere,N-linked glycosylation,714.269478,TRUE
+Hex(1)HexNAc(2)dHex(1)Pent(1) (N),Hex(1)HexNAc(2)dHex(1)Pent(1),N,Anywhere,N-linked glycosylation,846.311736,TRUE
+Hex(1)HexNAc(2)dHex(2) (N),Hex(1)HexNAc(2)dHex(2),N,Anywhere,N-linked glycosylation,860.327386,TRUE
+Hex(1)HexNAc(2)Pent(1) (N),Hex(1)HexNAc(2)Pent(1),N,Anywhere,N-linked glycosylation,700.253828,TRUE
+Hex(2) (K),Hex(2),K,Anywhere,Other glycosylation,324.105647,TRUE
+Hex(2) (R),Hex(2),R,Anywhere,Other glycosylation,324.105647,TRUE
+Hex(2)HexNAc(2) (N),Hex(2)HexNAc(2),N,Anywhere,N-linked glycosylation,730.264392,TRUE
+Hex(2)HexNAc(2)dHex(1) (N),Hex(2)HexNAc(2)dHex(1),N,Anywhere,N-linked glycosylation,876.322301,TRUE
+Hex(2)HexNAc(2)Pent(1) (N),Hex(2)HexNAc(2)Pent(1),N,Anywhere,N-linked glycosylation,862.306651,TRUE
+Hex(3) (N),Hex(3),N,Anywhere,N-linked glycosylation,486.158471,TRUE
+Hex(3)HexNAc(1)Pent(1) (N),Hex(3)HexNAc(1)Pent(1),N,Anywhere,N-linked glycosylation,821.280102,TRUE
+Hex(3)HexNAc(2) (N),Hex(3)HexNAc(2),N,Anywhere,N-linked glycosylation,892.317216,TRUE
+Hex(3)HexNAc(2)P(1) (N),Hex(3)HexNAc(2)P(1),N,Anywhere,N-linked glycosylation,923.290978,TRUE
+Hex(3)HexNAc(4) (N),Hex(3)HexNAc(4),N,Anywhere,N-linked glycosylation,1298.475961,TRUE
+Hex(4)HexNAc(4) (N),Hex(4)HexNAc(4),N,Anywhere,N-linked glycosylation,1460.528784,TRUE
+Hex(5)HexNAc(2) (N),Hex(5)HexNAc(2),N,Anywhere,N-linked glycosylation,1216.422863,TRUE
+Hex(5)HexNAc(4) (N),Hex(5)HexNAc(4),N,Anywhere,N-linked glycosylation,1622.581608,TRUE
+Hex1HexNAc1 (S),Hex1HexNAc1,S,Anywhere,O-linked glycosylation,365.132196,TRUE
+Hex1HexNAc1 (T),Hex1HexNAc1,T,Anywhere,O-linked glycosylation,365.132196,TRUE
+HexN (K),HexN,K,Anywhere,Synth. pep. protect. gp.,161.068808,TRUE
+HexN (N),HexN,N,Anywhere,N-linked glycosylation,161.068808,TRUE
+HexN (T),HexN,T,Anywhere,O-linked glycosylation,161.068808,TRUE
+HexN (W),HexN,W,Anywhere,N-linked glycosylation,161.068808,TRUE
+HexNAc (N),HexNAc,N,Anywhere,N-linked glycosylation,203.079373,FALSE
+HexNAc (S),HexNAc,S,Anywhere,Other glycosylation,203.079373,TRUE
+HexNAc (T),HexNAc,T,Anywhere,Other glycosylation,203.079373,TRUE
+HexNAc(1)dHex(1) (N),HexNAc(1)dHex(1),N,Anywhere,N-linked glycosylation,349.137281,TRUE
+HexNAc(1)dHex(2) (N),HexNAc(1)dHex(2),N,Anywhere,N-linked glycosylation,495.19519,TRUE
+HexNAc(2) (N),HexNAc(2),N,Anywhere,N-linked glycosylation,406.158745,TRUE
+HexNAc(2)dHex(1) (N),HexNAc(2)dHex(1),N,Anywhere,N-linked glycosylation,552.216654,TRUE
+HexNAc(2)dHex(2) (N),HexNAc(2)dHex(2),N,Anywhere,N-linked glycosylation,698.274563,TRUE
+His->Arg (H),His->Arg,H,Anywhere,AA substitution,19.042199,TRUE
+His->Asn (H),His->Asn,H,Anywhere,AA substitution,-23.015984,TRUE
+His->Asp (H),His->Asp,H,Anywhere,AA substitution,-22.031969,TRUE
+His->Gln (H),His->Gln,H,Anywhere,AA substitution,-9.000334,TRUE
+His->Leu (H),His->Leu,H,Anywhere,AA substitution,-23.974848,TRUE
+His->Pro (H),His->Pro,H,Anywhere,AA substitution,-40.006148,TRUE
+His->Tyr (H),His->Tyr,H,Anywhere,AA substitution,26.004417,TRUE
+HMVK (C),HMVK,C,Anywhere,Chemical derivative,86.036779,TRUE
+HNE (CHK),HNE,"C,H,K",Anywhere,Post-translational,156.11503,TRUE
+HNE+Delta:H(2) (C),HNE+Delta:H(2),C,Anywhere,Chemical derivative,158.13068,TRUE
+HNE+Delta:H(2) (H),HNE+Delta:H(2),H,Anywhere,Chemical derivative,158.13068,TRUE
+HNE+Delta:H(2) (K),HNE+Delta:H(2),K,Anywhere,Chemical derivative,158.13068,TRUE
+HNE-BAHAH (C),HNE-BAHAH,C,Anywhere,Chemical derivative,511.319226,TRUE
+HNE-BAHAH (H),HNE-BAHAH,H,Anywhere,Chemical derivative,511.319226,TRUE
+HNE-BAHAH (K),HNE-BAHAH,K,Anywhere,Chemical derivative,511.319226,TRUE
+HNE-Delta:H(2)O (C),HNE-Delta:H(2)O,C,Anywhere,Chemical derivative,138.104465,TRUE
+HNE-Delta:H(2)O (H),HNE-Delta:H(2)O,H,Anywhere,Chemical derivative,138.104465,TRUE
+HNE-Delta:H(2)O (K),HNE-Delta:H(2)O,K,Anywhere,Chemical derivative,138.104465,TRUE
+HPG (R),HPG,R,Anywhere,Chemical derivative,132.021129,TRUE
+Hydroxycinnamyl (C),Hydroxycinnamyl,C,Anywhere,Post-translational,146.036779,TRUE
+Hydroxyfarnesyl (C),Hydroxyfarnesyl,C,Anywhere,Post-translational,220.182715,TRUE
+Hydroxyheme (E),Hydroxyheme,E,Anywhere,Post-translational,614.161645,TRUE
+Hydroxymethyl (N),Hydroxymethyl,N,Anywhere,Post-translational,30.010565,TRUE
+HydroxymethylOP (K),HydroxymethylOP,K,Anywhere,Other,108.021129,TRUE
+Hydroxytrimethyl (K),Hydroxytrimethyl,K,Anywhere,Post-translational,59.04969,TRUE
+Hypusine (K),Hypusine,K,Anywhere,Post-translational,87.068414,TRUE
+IBTP (C),IBTP,C,Anywhere,Chemical derivative,316.138088,TRUE
+ICAT-C (C),ICAT-C,C,Anywhere,Isotopic label,227.126991,FALSE
+ICAT-C:13C(9) (C),ICAT-C:13C(9),C,Anywhere,Isotopic label,236.157185,FALSE
+ICAT-D (C),ICAT-D,C,Anywhere,Isotopic label,442.224991,TRUE
+ICAT-D:2H(8) (C),ICAT-D:2H(8),C,Anywhere,Isotopic label,450.275205,TRUE
+ICAT-G (C),ICAT-G,C,Anywhere,Isotopic label,486.251206,TRUE
+ICAT-G:2H(8) (C),ICAT-G:2H(8),C,Anywhere,Isotopic label,494.30142,TRUE
+ICAT-H (C),ICAT-H,C,Anywhere,Isotopic label,345.097915,TRUE
+ICAT-H:13C(6) (C),ICAT-H:13C(6),C,Anywhere,Isotopic label,351.118044,TRUE
+ICPL (K),ICPL,K,Anywhere,Isotopic label,105.021464,FALSE
+ICPL (N-term),ICPL,N-term,Any N-term,Isotopic label,105.021464,TRUE
+ICPL (Protein N-term),ICPL,N-term,Protein N-term,Isotopic label,105.021464,FALSE
+ICPL:13C(6) (K),ICPL:13C(6),K,Anywhere,Isotopic label,111.041593,FALSE
+ICPL:13C(6) (N-term),ICPL:13C(6),N-term,Any N-term,Isotopic label,111.041593,TRUE
+ICPL:13C(6) (Protein N-term),ICPL:13C(6),N-term,Protein N-term,Isotopic label,111.041593,FALSE
+ICPL:13C(6)2H(4) (K),ICPL:13C(6)2H(4),K,Anywhere,Isotopic label,115.0667,FALSE
+ICPL:13C(6)2H(4) (N-term),ICPL:13C(6)2H(4),N-term,Any N-term,Isotopic label,115.0667,FALSE
+ICPL:13C(6)2H(4) (Protein N-term),ICPL:13C(6)2H(4),N-term,Protein N-term,Isotopic label,115.0667,FALSE
+ICPL:2H(4) (K),ICPL:2H(4),K,Anywhere,Isotopic label,109.046571,FALSE
+ICPL:2H(4) (N-term),ICPL:2H(4),N-term,Any N-term,Isotopic label,109.046571,TRUE
+ICPL:2H(4) (Protein N-term),ICPL:2H(4),N-term,Protein N-term,Isotopic label,109.046571,FALSE
+IDEnT (C),IDEnT,C,Anywhere,Isotopic label,214.990469,TRUE
+IED-Biotin (C),IED-Biotin,C,Anywhere,Chemical derivative,326.141261,TRUE
+IGBP (C),IGBP,C,Anywhere,Isotopic label,296.016039,TRUE
+IGBP:13C(2) (C),IGBP:13C(2),C,Anywhere,Isotopic label,298.022748,TRUE
+Ile->Arg (I),Ile->Arg,I,Anywhere,AA substitution,43.017047,TRUE
+Ile->Asn (I),Ile->Asn,I,Anywhere,AA substitution,0.958863,TRUE
+Ile->Lys (I),Ile->Lys,I,Anywhere,AA substitution,15.010899,TRUE
+Ile->Met (I),Ile->Met,I,Anywhere,AA substitution,17.956421,TRUE
+Ile->Phe (I),Ile->Phe,I,Anywhere,AA substitution,33.98435,TRUE
+Ile->Ser (I),Ile->Ser,I,Anywhere,AA substitution,-26.052036,TRUE
+Ile->Thr (I),Ile->Thr,I,Anywhere,AA substitution,-12.036386,TRUE
+Ile->Val (I),Ile->Val,I,Anywhere,AA substitution,-14.01565,TRUE
+IMID (K),IMID,K,Anywhere,Isotopic label,68.037448,TRUE
+IMID:2H(4) (K),IMID:2H(4),K,Anywhere,Isotopic label,72.062555,TRUE
+Iminobiotin (K),Iminobiotin,K,Anywhere,Chemical derivative,225.093583,TRUE
+Iminobiotin (N-term),Iminobiotin,N-term,Any N-term,Chemical derivative,225.093583,TRUE
+Iodo (H),Iodo,H,Anywhere,Chemical derivative,125.896648,TRUE
+Iodo (Y),Iodo,Y,Anywhere,Chemical derivative,125.896648,TRUE
+IodoU-AMP (F),IodoU-AMP,F,Anywhere,Chemical derivative,322.020217,TRUE
+IodoU-AMP (W),IodoU-AMP,W,Anywhere,Chemical derivative,322.020217,TRUE
+IodoU-AMP (Y),IodoU-AMP,Y,Anywhere,Chemical derivative,322.020217,TRUE
+Isopropylphospho (S),Isopropylphospho,S,Anywhere,Chemical derivative,122.013281,TRUE
+Isopropylphospho (T),Isopropylphospho,T,Anywhere,Chemical derivative,122.013281,TRUE
+Isopropylphospho (Y),Isopropylphospho,Y,Anywhere,Chemical derivative,122.013281,TRUE
+iTRAQ4plex (K),iTRAQ4plex,K,Anywhere,Isotopic label,144.102063,FALSE
+iTRAQ4plex (N-term),iTRAQ4plex,N-term,Any N-term,Isotopic label,144.102063,FALSE
+iTRAQ4plex (Y),iTRAQ4plex,Y,Anywhere,Isotopic label,144.102063,FALSE
+iTRAQ4plex114 (K),iTRAQ4plex114,K,Anywhere,Isotopic label,144.105918,TRUE
+iTRAQ4plex114 (N-term),iTRAQ4plex114,N-term,Any N-term,Isotopic label,144.105918,TRUE
+iTRAQ4plex114 (Y),iTRAQ4plex114,Y,Anywhere,Isotopic label,144.105918,TRUE
+iTRAQ4plex115 (K),iTRAQ4plex115,K,Anywhere,Isotopic label,144.099599,TRUE
+iTRAQ4plex115 (N-term),iTRAQ4plex115,N-term,Any N-term,Isotopic label,144.099599,TRUE
+iTRAQ4plex115 (Y),iTRAQ4plex115,Y,Anywhere,Isotopic label,144.099599,TRUE
+iTRAQ8plex (K),iTRAQ8plex,K,Anywhere,Isotopic label,304.20536,FALSE
+iTRAQ8plex (N-term),iTRAQ8plex,N-term,Any N-term,Isotopic label,304.20536,FALSE
+iTRAQ8plex (Y),iTRAQ8plex,Y,Anywhere,Isotopic label,304.20536,FALSE
+iTRAQ8plex:13C(6)15N(2) (K),iTRAQ8plex:13C(6)15N(2),K,Anywhere,Isotopic label,304.19904,TRUE
+iTRAQ8plex:13C(6)15N(2) (N-term),iTRAQ8plex:13C(6)15N(2),N-term,Any N-term,Isotopic label,304.19904,TRUE
+iTRAQ8plex:13C(6)15N(2) (Y),iTRAQ8plex:13C(6)15N(2),Y,Anywhere,Isotopic label,304.19904,TRUE
+Label:13C(1)2H(3) (M),Label:13C(1)2H(3),M,Anywhere,Isotopic label,4.022185,TRUE
+Label:13C(1)2H(3)+Oxidation (M),Label:13C(1)2H(3)+Oxidation,M,Anywhere,Multiple,20.0171,TRUE
+Label:13C(4)15N(2)+GlyGly (K),Label:13C(4)15N(2)+GlyGly,K,Anywhere,Isotopic label,120.050417,TRUE
+Label:13C(5) (P),Label:13C(5),P,Anywhere,Isotopic label,5.016774,TRUE
+Label:13C(5)15N(1) (M),Label:13C(5)15N(1),M,Anywhere,Isotopic label,6.013809,TRUE
+Label:13C(5)15N(1) (P),Label:13C(5)15N(1),P,Anywhere,Isotopic label,6.013809,TRUE
+Label:13C(5)15N(1) (V),Label:13C(5)15N(1),V,Anywhere,Isotopic label,6.013809,TRUE
+Label:13C(6) (I),Label:13C(6),I,Anywhere,Isotopic label,6.020129,TRUE
+Label:13C(6) (K),Label:13C(6),K,Anywhere,Isotopic label,6.020129,TRUE
+Label:13C(6) (L),Label:13C(6),L,Anywhere,Isotopic label,6.020129,TRUE
+Label:13C(6) (R),Label:13C(6),R,Anywhere,Isotopic label,6.020129,TRUE
+Label:13C(6)+Acetyl (K),Label:13C(6)+Acetyl,K,Anywhere,Isotopic label,48.030694,TRUE
+Label:13C(6)+GlyGly (K),Label:13C(6)+GlyGly,K,Anywhere,Isotopic label,120.063056,TRUE
+Label:13C(6)15N(1) (I),Label:13C(6)15N(1),I,Anywhere,Isotopic label,7.017164,TRUE
+Label:13C(6)15N(1) (L),Label:13C(6)15N(1),L,Anywhere,Isotopic label,7.017164,TRUE
+Label:13C(6)15N(2) (K),Label:13C(6)15N(2),K,Anywhere,Isotopic label,8.014199,TRUE
+Label:13C(6)15N(2)+Acetyl (K),Label:13C(6)15N(2)+Acetyl,K,Anywhere,Isotopic label,50.024764,TRUE
+Label:13C(6)15N(2)+GlyGly (K),Label:13C(6)15N(2)+GlyGly,K,Anywhere,Isotopic label,122.057126,TRUE
+Label:13C(6)15N(4) (R),Label:13C(6)15N(4),R,Anywhere,Isotopic label,10.008269,TRUE
+Label:13C(8)15N(2) (R),Label:13C(8)15N(2),R,Anywhere,Isotopic label,10.020909,TRUE
+Label:13C(9) (F),Label:13C(9),F,Anywhere,Isotopic label,9.030193,TRUE
+Label:13C(9) (Y),Label:13C(9),Y,Anywhere,Isotopic label,9.030193,TRUE
+Label:13C(9)+Phospho (Y),Label:13C(9)+Phospho,Y,Anywhere,Isotopic label,88.996524,TRUE
+Label:13C(9)15N(1) (F),Label:13C(9)15N(1),F,Anywhere,Isotopic label,10.027228,TRUE
+Label:15N(2)2H(9) (K),Label:15N(2)2H(9),K,Anywhere,Isotopic label,11.050561,TRUE
+Label:15N(4) (R),Label:15N(4),R,Anywhere,Isotopic label,3.98814,TRUE
+Label:18O(1) (C-term),Label:18O(1),C-term,Any C-term,Isotopic label,2.004246,FALSE
+Label:18O(1) (S),Label:18O(1),S,Anywhere,Isotopic label,2.004246,TRUE
+Label:18O(1) (T),Label:18O(1),T,Anywhere,Isotopic label,2.004246,TRUE
+Label:18O(1) (Y),Label:18O(1),Y,Anywhere,Isotopic label,2.004246,TRUE
+Label:18O(2) (C-term),Label:18O(2),C-term,Any C-term,Isotopic label,4.008491,FALSE
+Label:2H(3) (L),Label:2H(3),L,Anywhere,Isotopic label,3.01883,TRUE
+Label:2H(4) (K),Label:2H(4),K,Anywhere,Isotopic label,4.025107,TRUE
+Label:2H(4)+Acetyl (K),Label:2H(4)+Acetyl,K,Anywhere,Isotopic label,46.035672,TRUE
+Label:2H(4)+GlyGly (K),Label:2H(4)+GlyGly,K,Anywhere,Post-translational,118.068034,TRUE
+Label:2H(9)13C(6)15N(2) (K),Label:2H(9)13C(6)15N(2),K,Anywhere,Isotopic label,17.07069,TRUE
+lapachenole (C),lapachenole,C,Anywhere,Chemical derivative,240.11503,TRUE
+Leu->Arg (L),Leu->Arg,L,Anywhere,AA substitution,43.017047,TRUE
+Leu->Gln (L),Leu->Gln,L,Anywhere,AA substitution,14.974514,TRUE
+Leu->His (L),Leu->His,L,Anywhere,AA substitution,23.974848,TRUE
+Leu->Met (L),Leu->Met,L,Anywhere,AA substitution,17.956421,TRUE
+Leu->MetOx (L),Leu->MetOx,L,Anywhere,Pre-translational,33.951335,TRUE
+Leu->Phe (L),Leu->Phe,L,Anywhere,AA substitution,33.98435,TRUE
+Leu->Pro (L),Leu->Pro,L,Anywhere,AA substitution,-16.0313,TRUE
+Leu->Ser (L),Leu->Ser,L,Anywhere,AA substitution,-26.052036,TRUE
+Leu->Trp (L),Leu->Trp,L,Anywhere,AA substitution,72.995249,TRUE
+Leu->Val (L),Leu->Val,L,Anywhere,AA substitution,-14.01565,TRUE
+LeuArgGlyGly (K),LeuArgGlyGly,K,Anywhere,Chemical derivative,383.228103,TRUE
+LG-anhydrolactam (K),LG-anhydrolactam,K,Anywhere,Post-translational,314.188195,TRUE
+LG-anhydrolactam (N-term),LG-anhydrolactam,N-term,Any N-term,Post-translational,314.188195,TRUE
+LG-anhyropyrrole (K),LG-anhyropyrrole,K,Anywhere,Post-translational,298.19328,TRUE
+LG-anhyropyrrole (N-term),LG-anhyropyrrole,N-term,Any N-term,Post-translational,298.19328,TRUE
+LG-Hlactam-K (K),LG-Hlactam-K,K,Anywhere,Post-translational,348.193674,TRUE
+LG-Hlactam-K (Protein N-term),LG-Hlactam-K,N-term,Protein N-term,Post-translational,348.193674,TRUE
+LG-Hlactam-R (R),LG-Hlactam-R,R,Anywhere,Post-translational,306.171876,TRUE
+LG-lactam-K (K),LG-lactam-K,K,Anywhere,Post-translational,332.19876,TRUE
+LG-lactam-K (Protein N-term),LG-lactam-K,N-term,Protein N-term,Post-translational,332.19876,TRUE
+LG-lactam-R (R),LG-lactam-R,R,Anywhere,Post-translational,290.176961,TRUE
+LG-pyrrole (K),LG-pyrrole,K,Anywhere,Post-translational,316.203845,TRUE
+LG-pyrrole (N-term),LG-pyrrole,N-term,Any N-term,Post-translational,316.203845,TRUE
+Lipoyl (K),Lipoyl,K,Anywhere,Post-translational,188.032956,TRUE
+Lys->Allysine (K),Lys->Allysine,K,Anywhere,Post-translational,-1.031634,TRUE
+Lys->AminoadipicAcid (K),Lys->AminoadipicAcid,K,Anywhere,Post-translational,14.96328,TRUE
+Lys->Arg (K),Lys->Arg,K,Anywhere,AA substitution,28.006148,TRUE
+Lys->Asn (K),Lys->Asn,K,Anywhere,AA substitution,-14.052036,TRUE
+Lys->CamCys (K),Lys->CamCys,K,Anywhere,Pre-translational,31.935685,TRUE
+Lys->Gln (K),Lys->Gln,K,Anywhere,AA substitution,-0.036386,TRUE
+Lys->Glu (K),Lys->Glu,K,Anywhere,AA substitution,0.94763,TRUE
+Lys->Ile (K),Lys->Ile,K,Anywhere,AA substitution,-15.010899,TRUE
+Lys->Met (K),Lys->Met,K,Anywhere,AA substitution,2.945522,TRUE
+Lys->MetOx (K),Lys->MetOx,K,Anywhere,Pre-translational,18.940436,TRUE
+Lys->Thr (K),Lys->Thr,K,Anywhere,AA substitution,-27.047285,TRUE
+Lysbiotinhydrazide (K),Lysbiotinhydrazide,K,Anywhere,Chemical derivative,241.088497,TRUE
+Lys-loss (Protein C-term K),Lys-loss,K,Protein C-term,Post-translational,-128.094963,TRUE
+maleimide (C),maleimide,C,Anywhere,Chemical derivative,97.016378,TRUE
+maleimide (K),maleimide,K,Anywhere,Chemical derivative,97.016378,TRUE
+maleimide-3-saccharide (C),maleimide-3-saccharide,C,Anywhere,Post-translational,969.366232,TRUE
+maleimide-3-saccharide (K),maleimide-3-saccharide,K,Anywhere,Post-translational,969.366232,TRUE
+maleimide-5-saccharide (C),maleimide-5-saccharide,C,Anywhere,Post-translational,1293.471879,TRUE
+maleimide-5-saccharide (K),maleimide-5-saccharide,K,Anywhere,Post-translational,1293.471879,TRUE
+Maleimide-PEO2-Biotin (C),Maleimide-PEO2-Biotin,C,Anywhere,Chemical derivative,525.225719,TRUE
+Malonyl (C),Malonyl,C,Anywhere,Chemical derivative,86.000394,TRUE
+Malonyl (S),Malonyl,S,Anywhere,Chemical derivative,86.000394,TRUE
+MDCC (C),MDCC,C,Anywhere,Chemical derivative,383.148121,TRUE
+Menadione (C),Menadione,C,Anywhere,Chemical derivative,170.036779,TRUE
+Menadione (K),Menadione,K,Anywhere,Chemical derivative,170.036779,TRUE
+Menadione-HQ (C),Menadione-HQ,C,Anywhere,Chemical derivative,172.05243,TRUE
+Menadione-HQ (K),Menadione-HQ,K,Anywhere,Chemical derivative,172.05243,TRUE
+MercaptoEthanol (S),MercaptoEthanol,S,Anywhere,Chemical derivative,60.003371,TRUE
+MercaptoEthanol (T),MercaptoEthanol,T,Anywhere,Chemical derivative,60.003371,TRUE
+Met->Aha (M),Met->Aha,M,Anywhere,Non-standard residue,-4.986324,TRUE
+Met->Arg (M),Met->Arg,M,Anywhere,AA substitution,25.060626,TRUE
+Met->Hpg (M),Met->Hpg,M,Anywhere,Non-standard residue,-21.987721,TRUE
+Met->Hse (M),Met->Hse,M,Any C-term,Chemical derivative,-29.992806,FALSE
+Met->Hsl (M),Met->Hsl,M,Any C-term,Chemical derivative,-48.003371,FALSE
+Met->Ile (M),Met->Ile,M,Anywhere,AA substitution,-17.956421,TRUE
+Met->Leu (M),Met->Leu,M,Anywhere,AA substitution,-17.956421,TRUE
+Met->Lys (M),Met->Lys,M,Anywhere,AA substitution,-2.945522,TRUE
+Met->Thr (M),Met->Thr,M,Anywhere,AA substitution,-29.992806,TRUE
+Met->Val (M),Met->Val,M,Anywhere,AA substitution,-31.972071,TRUE
+Methyl (C),Methyl,C,Anywhere,Post-translational,14.01565,TRUE
+Methyl (C-term),Methyl,C-term,Any C-term,Multiple,14.01565,FALSE
+Methyl (DE),Methyl,"D,E",Anywhere,Post-translational,14.01565,FALSE
+Methyl (H),Methyl,H,Anywhere,Post-translational,14.01565,TRUE
+Methyl (I),Methyl,I,Anywhere,Post-translational,14.01565,TRUE
+Methyl (K),Methyl,K,Anywhere,Post-translational,14.01565,TRUE
+Methyl (L),Methyl,L,Anywhere,Post-translational,14.01565,TRUE
+Methyl (N),Methyl,N,Anywhere,Post-translational,14.01565,TRUE
+Methyl (N-term),Methyl,N-term,Any N-term,Chemical derivative,14.01565,TRUE
+Methyl (Protein N-term),Methyl,N-term,Protein N-term,Post-translational,14.01565,TRUE
+Methyl (Q),Methyl,Q,Anywhere,Post-translational,14.01565,TRUE
+Methyl (R),Methyl,R,Anywhere,Post-translational,14.01565,TRUE
+Methyl (S),Methyl,S,Anywhere,Post-translational,14.01565,TRUE
+Methyl (T),Methyl,T,Anywhere,Post-translational,14.01565,TRUE
+Methyl:2H(2) (K),Methyl:2H(2),K,Anywhere,Isotopic label,16.028204,TRUE
+Methyl:2H(3) (C-term),Methyl:2H(3),C-term,Anywhere,Isotopic label,17.03448,TRUE
+Methyl:2H(3) (D),Methyl:2H(3),D,Anywhere,Isotopic label,17.03448,TRUE
+Methyl:2H(3) (E),Methyl:2H(3),E,Anywhere,Isotopic label,17.03448,TRUE
+Methyl:2H(3)13C(1) (R),Methyl:2H(3)13C(1),R,Anywhere,Isotopic label,18.037835,TRUE
+Methyl+Acetyl:2H(3) (K),Methyl+Acetyl:2H(3),K,Anywhere,Isotopic label,59.045045,TRUE
+Methyl+Deamidated (N),Methyl+Deamidated,N,Anywhere,Chemical derivative,14.999666,TRUE
+Methyl+Deamidated (Q),Methyl+Deamidated,Q,Anywhere,Post-translational,14.999666,TRUE
+Methylamine (S),Methylamine,S,Anywhere,Artefact,13.031634,TRUE
+Methylamine (T),Methylamine,T,Anywhere,Artefact,13.031634,TRUE
+Methylmalonylation (S),Methylmalonylation,S,Anywhere,Chemical derivative,100.016044,TRUE
+Methyl-PEO12-Maleimide (C),Methyl-PEO12-Maleimide,C,Anywhere,Chemical derivative,710.383719,TRUE
+Methylphosphonate (S),Methylphosphonate,S,Anywhere,Chemical derivative,77.987066,TRUE
+Methylphosphonate (T),Methylphosphonate,T,Anywhere,Chemical derivative,77.987066,TRUE
+Methylphosphonate (Y),Methylphosphonate,Y,Anywhere,Chemical derivative,77.987066,TRUE
+Methylpyrroline (K),Methylpyrroline,K,Anywhere,Post-translational,109.052764,TRUE
+Methylthio (C),Methylthio,C,Anywhere,Multiple,45.987721,FALSE
+Methylthio (D),Methylthio,D,Anywhere,Post-translational,45.987721,TRUE
+Methylthio (N),Methylthio,N,Anywhere,Post-translational,45.987721,TRUE
+Met-loss (Protein N-term M),Met-loss,M,Protein N-term,Co-translational,-131.040485,TRUE
+Met-loss+Acetyl (Protein N-term M),Met-loss+Acetyl,M,Protein N-term,Co-translational,-89.02992,TRUE
+MG-H1 (R),MG-H1,R,Anywhere,Other,54.010565,TRUE
+Microcin (Protein C-term),Microcin,C-term,Protein C-term,Post-translational,831.197041,TRUE
+MicrocinC7 (Protein C-term),MicrocinC7,C-term,Protein C-term,Post-translational,386.110369,TRUE
+Molybdopterin (C),Molybdopterin,C,Anywhere,Post-translational,521.884073,TRUE
+MolybdopterinGD (C),MolybdopterinGD,C,Anywhere,Post-translational,1572.985775,TRUE
+MolybdopterinGD (D),MolybdopterinGD,D,Anywhere,Post-translational,1572.985775,TRUE
+MolybdopterinGD+Delta:S(-1)Se(1) (C),MolybdopterinGD+Delta:S(-1)Se(1),C,Anywhere,Post-translational,1620.930224,TRUE
+mTRAQ (K),mTRAQ,K,Anywhere,Isotopic label,140.094963,FALSE
+mTRAQ (N-term),mTRAQ,N-term,Any N-term,Isotopic label,140.094963,FALSE
+mTRAQ (Y),mTRAQ,Y,Anywhere,Isotopic label,140.094963,FALSE
+mTRAQ:13C(3)15N(1) (K),mTRAQ:13C(3)15N(1),K,Anywhere,Isotopic label,144.102063,FALSE
+mTRAQ:13C(3)15N(1) (N-term),mTRAQ:13C(3)15N(1),N-term,Any N-term,Isotopic label,144.102063,FALSE
+mTRAQ:13C(3)15N(1) (Y),mTRAQ:13C(3)15N(1),Y,Anywhere,Isotopic label,144.102063,FALSE
+MTSL (C),MTSL,C,Anywhere,Chemical derivative,184.07961,TRUE
+Myristoleyl (Protein N-term G),Myristoleyl,G,Protein N-term,Co-translational,208.182715,TRUE
+Myristoyl (C),Myristoyl,C,Anywhere,Post-translational,210.198366,TRUE
+Myristoyl (G),Myristoyl,G,Any N-term,Post-translational,210.198366,TRUE
+Myristoyl (K),Myristoyl,K,Anywhere,Post-translational,210.198366,TRUE
+Myristoyl+Delta:H(-4) (Protein N-term G),Myristoyl+Delta:H(-4),G,Protein N-term,Co-translational,206.167065,TRUE
+NA-LNO2 (C),NA-LNO2,C,Anywhere,Post-translational,325.225309,TRUE
+NA-LNO2 (H),NA-LNO2,H,Anywhere,Post-translational,325.225309,TRUE
+NA-OA-NO2 (C),NA-OA-NO2,C,Anywhere,Post-translational,327.240959,TRUE
+NA-OA-NO2 (H),NA-OA-NO2,H,Anywhere,Post-translational,327.240959,TRUE
+NBS (W),NBS,W,Anywhere,Chemical derivative,152.988449,TRUE
+NBS:13C(6) (W),NBS:13C(6),W,Anywhere,Chemical derivative,159.008578,TRUE
+NDA (K),NDA,K,Anywhere,Chemical derivative,175.042199,TRUE
+NDA (N-term),NDA,N-term,Any N-term,Chemical derivative,175.042199,TRUE
+NEIAA (C),NEIAA,C,Anywhere,Isotopic label,85.052764,TRUE
+NEIAA (Y),NEIAA,Y,Anywhere,Isotopic label,85.052764,TRUE
+NEIAA:2H(5) (C),NEIAA:2H(5),C,Anywhere,Isotopic label,90.084148,TRUE
+NEIAA:2H(5) (Y),NEIAA:2H(5),Y,Anywhere,Isotopic label,90.084148,TRUE
+NEM:2H(5) (C),NEM:2H(5),C,Anywhere,Chemical derivative,130.079062,TRUE
+Nethylmaleimide (C),Nethylmaleimide,C,Anywhere,Chemical derivative,125.047679,TRUE
+Nethylmaleimide+water (C),Nethylmaleimide+water,C,Anywhere,Chemical derivative,143.058243,TRUE
+Nethylmaleimide+water (K),Nethylmaleimide+water,K,Anywhere,Chemical derivative,143.058243,TRUE
+NHS-LC-Biotin (K),NHS-LC-Biotin,K,Anywhere,Chemical derivative,339.161662,TRUE
+NHS-LC-Biotin (N-term),NHS-LC-Biotin,N-term,Any N-term,Chemical derivative,339.161662,TRUE
+NIC (N-term),NIC,N-term,Any N-term,Isotopic label,105.021464,TRUE
+NIPCAM (C),NIPCAM,C,Anywhere,Chemical derivative,99.068414,FALSE
+Nitro (W),Nitro,W,Anywhere,Chemical derivative,44.985078,TRUE
+Nitro (Y),Nitro,Y,Anywhere,Chemical derivative,44.985078,TRUE
+Nitrosyl (C),Nitrosyl,C,Anywhere,Post-translational,28.990164,TRUE
+NL_added_HexNAc (N),NL_added_HexNAc,N,Anywhere,N-linked glycosylation,203.079373,TRUE
+NL_added_HexNAc (S),NL_added_HexNAc,S,Anywhere,Other glycosylation,203.079373,TRUE
+NL_added_HexNAc (T),NL_added_HexNAc,T,Anywhere,Other glycosylation,203.079373,TRUE
+Nmethylmaleimide (C),Nmethylmaleimide,C,Anywhere,Chemical derivative,111.032028,TRUE
+Nmethylmaleimide (K),Nmethylmaleimide,K,Anywhere,Chemical derivative,111.032028,TRUE
+Nmethylmaleimide+water (C),Nmethylmaleimide+water,C,Anywhere,Chemical derivative,129.042593,TRUE
+NO_SMX_SEMD (C),NO_SMX_SEMD,C,Anywhere,Chemical derivative,252.044287,TRUE
+NO_SMX_SIMD (C),NO_SMX_SIMD,C,Anywhere,Chemical derivative,267.031377,TRUE
+NO_SMX_SMCT (C),NO_SMX_SMCT,C,Anywhere,Chemical derivative,268.039202,TRUE
+Octanoyl (S),Octanoyl,S,Anywhere,Post-translational,126.104465,TRUE
+Octanoyl (T),Octanoyl,T,Anywhere,Post-translational,126.104465,TRUE
+O-Diethylphosphate (K),O-Diethylphosphate,K,Anywhere,Chemical derivative,136.028931,TRUE
+O-Diethylphosphate (S),O-Diethylphosphate,S,Anywhere,Chemical derivative,136.028931,TRUE
+O-Diethylphosphate (T),O-Diethylphosphate,T,Anywhere,Chemical derivative,136.028931,TRUE
+O-Diethylphosphate (Y),O-Diethylphosphate,Y,Anywhere,Chemical derivative,136.028931,TRUE
+O-Dimethylphosphate (S),O-Dimethylphosphate,S,Anywhere,Chemical derivative,107.997631,TRUE
+O-Dimethylphosphate (T),O-Dimethylphosphate,T,Anywhere,Chemical derivative,107.997631,TRUE
+O-Dimethylphosphate (Y),O-Dimethylphosphate,Y,Anywhere,Chemical derivative,107.997631,TRUE
+O-Ethylphosphate (S),O-Ethylphosphate,S,Anywhere,Chemical derivative,107.997631,TRUE
+O-Ethylphosphate (T),O-Ethylphosphate,T,Anywhere,Chemical derivative,107.997631,TRUE
+O-Ethylphosphate (Y),O-Ethylphosphate,Y,Anywhere,Chemical derivative,107.997631,TRUE
+O-Isopropylmethylphosphonate (S),O-Isopropylmethylphosphonate,S,Anywhere,Chemical derivative,120.034017,TRUE
+O-Isopropylmethylphosphonate (T),O-Isopropylmethylphosphonate,T,Anywhere,Chemical derivative,120.034017,TRUE
+O-Isopropylmethylphosphonate (Y),O-Isopropylmethylphosphonate,Y,Anywhere,Chemical derivative,120.034017,TRUE
+O-Methylphosphate (S),O-Methylphosphate,S,Anywhere,Chemical derivative,93.981981,TRUE
+O-Methylphosphate (T),O-Methylphosphate,T,Anywhere,Chemical derivative,93.981981,TRUE
+O-Methylphosphate (Y),O-Methylphosphate,Y,Anywhere,Chemical derivative,93.981981,TRUE
+O-pinacolylmethylphosphonate (S),O-pinacolylmethylphosphonate,S,Anywhere,Chemical derivative,162.080967,TRUE
+O-pinacolylmethylphosphonate (T),O-pinacolylmethylphosphonate,T,Anywhere,Chemical derivative,162.080967,TRUE
+O-pinacolylmethylphosphonate (Y),O-pinacolylmethylphosphonate,Y,Anywhere,Chemical derivative,162.080967,TRUE
+OxArgBiotin (R),OxArgBiotin,R,Anywhere,Chemical derivative,310.135113,TRUE
+OxArgBiotinRed (R),OxArgBiotinRed,R,Anywhere,Chemical derivative,312.150763,TRUE
+Oxidation (C),Oxidation,C,Anywhere,Post-translational,15.994915,TRUE
+Oxidation (D),Oxidation,D,Anywhere,Post-translational,15.994915,TRUE
+Oxidation (F),Oxidation,F,Anywhere,Artefact,15.994915,TRUE
+Oxidation (G),Oxidation,G,Any C-term,Pre-translational,15.994915,TRUE
+Oxidation (HW),Oxidation,"H,W",Anywhere,Artefact,15.994915,FALSE
+Oxidation (K),Oxidation,K,Anywhere,Post-translational,15.994915,TRUE
+Oxidation (M),Oxidation,M,Anywhere,Artefact,15.994915,FALSE
+Oxidation (N),Oxidation,N,Anywhere,Post-translational,15.994915,TRUE
+Oxidation (P),Oxidation,P,Anywhere,Post-translational,15.994915,TRUE
+Oxidation (R),Oxidation,R,Anywhere,Post-translational,15.994915,TRUE
+Oxidation (Y),Oxidation,Y,Anywhere,Post-translational,15.994915,TRUE
+OxLysBiotin (K),OxLysBiotin,K,Anywhere,Chemical derivative,352.156911,TRUE
+OxLysBiotinRed (K),OxLysBiotinRed,K,Anywhere,Chemical derivative,354.172562,TRUE
+OxProBiotin (P),OxProBiotin,P,Anywhere,Chemical derivative,369.183461,TRUE
+OxProBiotinRed (P),OxProBiotinRed,P,Anywhere,Chemical derivative,371.199111,TRUE
+Palmitoleyl (C),Palmitoleyl,C,Anywhere,Post-translational,236.214016,TRUE
+Palmitoleyl (S),Palmitoleyl,S,Anywhere,Post-translational,236.214016,TRUE
+Palmitoleyl (T),Palmitoleyl,T,Anywhere,Pre-translational,236.214016,TRUE
+Palmitoyl (C),Palmitoyl,C,Anywhere,Post-translational,238.229666,TRUE
+Palmitoyl (K),Palmitoyl,K,Anywhere,Post-translational,238.229666,TRUE
+Palmitoyl (Protein N-term),Palmitoyl,N-term,Protein N-term,Post-translational,238.229666,TRUE
+Palmitoyl (S),Palmitoyl,S,Anywhere,Post-translational,238.229666,TRUE
+Palmitoyl (T),Palmitoyl,T,Anywhere,Post-translational,238.229666,TRUE
+Pentylamine (Q),Pentylamine,Q,Anywhere,Chemical derivative,85.089149,TRUE
+PentylamineBiotin (Q),PentylamineBiotin,Q,Anywhere,Chemical derivative,311.166748,TRUE
+PEO-Iodoacetyl-LC-Biotin (C),PEO-Iodoacetyl-LC-Biotin,C,Anywhere,Chemical derivative,414.193691,TRUE
+PET (S),PET,S,Anywhere,Chemical derivative,121.035005,TRUE
+PET (T),PET,T,Anywhere,Chemical derivative,121.035005,TRUE
+PGA1-biotin (C),PGA1-biotin,C,Anywhere,Other,660.428442,TRUE
+Phe->CamCys (F),Phe->CamCys,F,Anywhere,Pre-translational,12.962234,TRUE
+Phe->Cys (F),Phe->Cys,F,Anywhere,AA substitution,-44.059229,TRUE
+Phe->Ile (F),Phe->Ile,F,Anywhere,AA substitution,-33.98435,TRUE
+Phe->Ser (F),Phe->Ser,F,Anywhere,AA substitution,-60.036386,TRUE
+Phe->Tyr (F),Phe->Tyr,F,Anywhere,AA substitution,15.994915,TRUE
+Phe->Val (F),Phe->Val,F,Anywhere,AA substitution,-48,TRUE
+Phenylisocyanate (N-term),Phenylisocyanate,N-term,Any N-term,Chemical derivative,119.037114,TRUE
+Phenylisocyanate:2H(5) (N-term),Phenylisocyanate:2H(5),N-term,Any N-term,Chemical derivative,124.068498,TRUE
+Phospho (C),Phospho,C,Anywhere,Post-translational,79.966331,TRUE
+Phospho (D),Phospho,D,Anywhere,Post-translational,79.966331,TRUE
+Phospho (H),Phospho,H,Anywhere,Post-translational,79.966331,TRUE
+Phospho (R),Phospho,R,Anywhere,Post-translational,79.966331,TRUE
+Phospho (ST),Phospho,"S,T",Anywhere,Post-translational,79.966331,FALSE
+Phospho (Y),Phospho,Y,Anywhere,Post-translational,79.966331,FALSE
+Phosphoadenosine (H),Phosphoadenosine,H,Anywhere,Post-translational,329.05252,TRUE
+Phosphoadenosine (K),Phosphoadenosine,K,Anywhere,Post-translational,329.05252,TRUE
+Phosphoadenosine (T),Phosphoadenosine,T,Anywhere,Post-translational,329.05252,TRUE
+Phosphoadenosine (Y),Phosphoadenosine,Y,Anywhere,Post-translational,329.05252,TRUE
+Phosphoguanosine (H),Phosphoguanosine,H,Anywhere,Post-translational,345.047435,TRUE
+Phosphoguanosine (K),Phosphoguanosine,K,Anywhere,Post-translational,345.047435,TRUE
+PhosphoHex (S),PhosphoHex,S,Anywhere,Other glycosylation,242.019154,TRUE
+PhosphoHexNAc (S),PhosphoHexNAc,S,Anywhere,Other glycosylation,283.045704,TRUE
+Phosphopantetheine (S),Phosphopantetheine,S,Anywhere,Post-translational,340.085794,TRUE
+Phosphopropargyl (S),Phosphopropargyl,S,Anywhere,Multiple,116.997965,TRUE
+Phosphopropargyl (T),Phosphopropargyl,T,Anywhere,Multiple,116.997965,TRUE
+Phosphopropargyl (Y),Phosphopropargyl,Y,Anywhere,Multiple,116.997965,TRUE
+PhosphoribosyldephosphoCoA (S),PhosphoribosyldephosphoCoA,S,Anywhere,Post-translational,881.146904,TRUE
+PhosphoUridine (H),PhosphoUridine,H,Anywhere,Post-translational,306.025302,TRUE
+PhosphoUridine (Y),PhosphoUridine,Y,Anywhere,Post-translational,306.025302,TRUE
+Phycocyanobilin (C),Phycocyanobilin,C,Anywhere,Post-translational,586.279135,TRUE
+Phycoerythrobilin (C),Phycoerythrobilin,C,Anywhere,Post-translational,588.294785,TRUE
+Phytochromobilin (C),Phytochromobilin,C,Anywhere,Post-translational,584.263485,TRUE
+Piperidine (K),Piperidine,K,Anywhere,Chemical derivative,68.0626,TRUE
+Piperidine (N-term),Piperidine,N-term,Any N-term,Chemical derivative,68.0626,TRUE
+Pro->Ala (P),Pro->Ala,P,Anywhere,AA substitution,-26.01565,TRUE
+Pro->Arg (P),Pro->Arg,P,Anywhere,AA substitution,59.048347,TRUE
+Pro->Gln (P),Pro->Gln,P,Anywhere,AA substitution,31.005814,TRUE
+Pro->His (P),Pro->His,P,Anywhere,AA substitution,40.006148,TRUE
+Pro->Leu (P),Pro->Leu,P,Anywhere,AA substitution,16.0313,TRUE
+Pro->pyro-Glu (P),Pro->pyro-Glu,P,Anywhere,Chemical derivative,13.979265,TRUE
+Pro->Pyrrolidinone (P),Pro->Pyrrolidinone,P,Anywhere,Chemical derivative,-30.010565,TRUE
+Pro->Pyrrolidone (P),Pro->Pyrrolidone,P,Anywhere,Chemical derivative,-27.994915,TRUE
+Pro->Ser (P),Pro->Ser,P,Anywhere,AA substitution,-10.020735,TRUE
+Pro->Thr (P),Pro->Thr,P,Anywhere,AA substitution,3.994915,TRUE
+probiotinhydrazide (P),probiotinhydrazide,P,Anywhere,Chemical derivative,258.115047,TRUE
+Propargylamine (C-term),Propargylamine,C-term,Any C-term,Chemical derivative,37.031634,TRUE
+Propargylamine (D),Propargylamine,D,Anywhere,Chemical derivative,37.031634,TRUE
+Propargylamine (E),Propargylamine,E,Anywhere,Chemical derivative,37.031634,TRUE
+Propionamide (C),Propionamide,C,Anywhere,Artefact,71.037114,FALSE
+Propionamide:2H(3) (C),Propionamide:2H(3),C,Anywhere,Isotopic label,74.055944,TRUE
+Propionyl (K),Propionyl,K,Anywhere,Isotopic label,56.026215,TRUE
+Propionyl (N-term),Propionyl,N-term,Any N-term,Isotopic label,56.026215,TRUE
+Propionyl (S),Propionyl,S,Anywhere,Chemical derivative,56.026215,TRUE
+Propionyl:13C(3) (K),Propionyl:13C(3),K,Anywhere,Isotopic label,59.036279,TRUE
+Propionyl:13C(3) (N-term),Propionyl:13C(3),N-term,Any N-term,Isotopic label,59.036279,TRUE
+PropylNAGthiazoline (C),PropylNAGthiazoline,C,Anywhere,Other glycosylation,232.064354,TRUE
+Puromycin (N-term),Puromycin,N-term,Any C-term,Co-translational,453.212452,TRUE
+PyMIC (N-term),PyMIC,N-term,Any N-term,Chemical derivative,134.048013,TRUE
+PyridoxalPhosphate (K),PyridoxalPhosphate,K,Anywhere,Post-translational,229.014009,TRUE
+Pyridylacetyl (K),Pyridylacetyl,K,Anywhere,Chemical derivative,119.037114,TRUE
+Pyridylacetyl (N-term),Pyridylacetyl,N-term,Any N-term,Chemical derivative,119.037114,TRUE
+Pyridylethyl (C),Pyridylethyl,C,Anywhere,Chemical derivative,105.057849,FALSE
+Pyro-carbamidomethyl (C),Pyro-carbamidomethyl,C,Any N-term,Artefact,39.994915,FALSE
+pyrophospho (S),pyrophospho,S,Anywhere,Post-translational,159.932662,TRUE
+pyrophospho (T),pyrophospho,T,Anywhere,Post-translational,159.932662,TRUE
+PyruvicAcidIminyl (K),PyruvicAcidIminyl,K,Anywhere,Post-translational,70.005479,TRUE
+PyruvicAcidIminyl (Protein N-term C),PyruvicAcidIminyl,C,Protein N-term,Post-translational,70.005479,TRUE
+PyruvicAcidIminyl (Protein N-term V),PyruvicAcidIminyl,V,Protein N-term,Post-translational,70.005479,TRUE
+QAT (C),QAT,C,Anywhere,Chemical derivative,171.149738,TRUE
+QAT:2H(3) (C),QAT:2H(3),C,Anywhere,Isotopic label,174.168569,TRUE
+QEQTGG (K),QEQTGG,K,Anywhere,Other,600.250354,TRUE
+QQQTGG (K),QQQTGG,K,Anywhere,Other,599.266339,TRUE
+Quinone (W),Quinone,W,Anywhere,Post-translational,29.974179,TRUE
+Quinone (Y),Quinone,Y,Anywhere,Post-translational,29.974179,TRUE
+Retinylidene (K),Retinylidene,K,Anywhere,Post-translational,266.203451,TRUE
+Ser->Ala (S),Ser->Ala,S,Anywhere,AA substitution,-15.994915,TRUE
+Ser->Arg (S),Ser->Arg,S,Anywhere,AA substitution,69.069083,TRUE
+Ser->Asn (S),Ser->Asn,S,Anywhere,AA substitution,27.010899,TRUE
+Ser->Cys (S),Ser->Cys,S,Anywhere,AA substitution,15.977156,TRUE
+Ser->Gly (S),Ser->Gly,S,Anywhere,AA substitution,-30.010565,TRUE
+Ser->Ile (S),Ser->Ile,S,Anywhere,AA substitution,26.052036,TRUE
+Ser->LacticAcid (Protein N-term S),Ser->LacticAcid,S,Protein N-term,Post-translational,-15.010899,TRUE
+Ser->Phe (S),Ser->Phe,S,Anywhere,AA substitution,60.036386,TRUE
+Ser->Pro (S),Ser->Pro,S,Anywhere,AA substitution,10.020735,TRUE
+Ser->Thr (S),Ser->Thr,S,Anywhere,AA substitution,14.01565,TRUE
+Ser->Trp (S),Ser->Trp,S,Anywhere,AA substitution,99.047285,TRUE
+Ser->Tyr (S),Ser->Tyr,S,Anywhere,AA substitution,76.0313,TRUE
+SerTyr (N-term),SerTyr,N-term,Any N-term,Chemical derivative,250.095357,TRUE
+SMA (K),SMA,K,Anywhere,Chemical derivative,127.063329,TRUE
+SMA (N-term),SMA,N-term,Any N-term,Chemical derivative,127.063329,TRUE
+SMCC-maleimide (C),SMCC-maleimide,C,Anywhere,Chemical derivative,321.205242,TRUE
+S-metyl (C),S-metyl,C,Anywhere,-,148.996905,FALSE
+SPITC (K),SPITC,K,Anywhere,Chemical derivative,214.971084,TRUE
+SPITC (N-term),SPITC,N-term,Any N-term,Chemical derivative,214.971084,TRUE
+SPITC:13C(6) (K),SPITC:13C(6),K,Anywhere,Chemical derivative,220.991213,TRUE
+SPITC:13C(6) (N-term),SPITC:13C(6),N-term,Any N-term,Chemical derivative,220.991213,TRUE
+Succinyl (K),Succinyl,K,Anywhere,Isotopic label,100.016044,TRUE
+Succinyl (N-term),Succinyl,N-term,Any N-term,Isotopic label,100.016044,TRUE
+Succinyl (Protein N-term),Succinyl,N-term,Protein N-term,Post-translational,100.016044,TRUE
+Succinyl:13C(4) (K),Succinyl:13C(4),K,Anywhere,Isotopic label,104.029463,TRUE
+Succinyl:13C(4) (N-term),Succinyl:13C(4),N-term,Any N-term,Isotopic label,104.029463,TRUE
+Succinyl:2H(4) (K),Succinyl:2H(4),K,Anywhere,Isotopic label,104.041151,TRUE
+Succinyl:2H(4) (N-term),Succinyl:2H(4),N-term,Any N-term,Isotopic label,104.041151,TRUE
+SulfanilicAcid (C-term),SulfanilicAcid,C-term,Any C-term,Isotopic label,155.004099,TRUE
+SulfanilicAcid (D),SulfanilicAcid,D,Anywhere,Isotopic label,155.004099,TRUE
+SulfanilicAcid (E),SulfanilicAcid,E,Anywhere,Isotopic label,155.004099,TRUE
+SulfanilicAcid:13C(6) (C-term),SulfanilicAcid:13C(6),C-term,Any C-term,Chemical derivative,161.024228,TRUE
+SulfanilicAcid:13C(6) (D),SulfanilicAcid:13C(6),D,Anywhere,Chemical derivative,161.024228,TRUE
+SulfanilicAcid:13C(6) (E),SulfanilicAcid:13C(6),E,Anywhere,Chemical derivative,161.024228,TRUE
+Sulfide (C),Sulfide,C,Anywhere,Post-translational,31.972071,TRUE
+Sulfide (D),Sulfide,D,Anywhere,Post-translational,31.972071,TRUE
+Sulfo (C),Sulfo,C,Anywhere,Post-translational,79.956815,TRUE
+Sulfo (S),Sulfo,S,Anywhere,Post-translational,79.956815,FALSE
+Sulfo (T),Sulfo,T,Anywhere,Post-translational,79.956815,FALSE
+Sulfo (Y),Sulfo,Y,Anywhere,Post-translational,79.956815,FALSE
+SulfoGMBS (C),SulfoGMBS,C,Anywhere,Other,458.162391,TRUE
+Sulfo-NHS-LC-LC-Biotin (K),Sulfo-NHS-LC-LC-Biotin,K,Anywhere,Chemical derivative,452.245726,TRUE
+Sulfo-NHS-LC-LC-Biotin (N-term),Sulfo-NHS-LC-LC-Biotin,N-term,Any N-term,Chemical derivative,452.245726,TRUE
+SUMO2135 (K),SUMO2135,K,Anywhere,Other,2135.920496,TRUE
+SUMO3549 (K),SUMO3549,K,Anywhere,Other,3549.536568,TRUE
+testCitrulline (R),testCitrulline,R,Anywhere,-,1.007825,FALSE
+testHexNAc (N),testHexNAc,N,Anywhere,Post-translational,203.079373,FALSE
+testHexNAc (S),testHexNAc,S,Anywhere,Post-translational,203.079373,TRUE
+testHexNAc (T),testHexNAc,T,Anywhere,Post-translational,203.079373,TRUE
+Thioacyl (K),Thioacyl,K,Anywhere,Other,87.998285,TRUE
+Thioacyl (N-term),Thioacyl,N-term,Anywhere,Other,87.998285,TRUE
+thioacylpropionamide (K),thioacylpropionamide,K,Anywhere,Chemical derivative,159.035399,TRUE
+Thiocarbamidomethylation (D),Thiocarbamidomethylation,D,Anywhere,Chemical derivative,88.993534,TRUE
+Thiophospho (S),Thiophospho,S,Anywhere,Other,95.943487,TRUE
+Thiophospho (T),Thiophospho,T,Anywhere,Other,95.943487,TRUE
+Thiophospho (Y),Thiophospho,Y,Anywhere,Other,95.943487,TRUE
+Thiophos-S-S-biotin (S),Thiophos-S-S-biotin,S,Anywhere,Chemical derivative,525.142894,TRUE
+Thiophos-S-S-biotin (T),Thiophos-S-S-biotin,T,Anywhere,Chemical derivative,525.142894,TRUE
+Thiophos-S-S-biotin (Y),Thiophos-S-S-biotin,Y,Anywhere,Chemical derivative,525.142894,TRUE
+Thr->Ala (T),Thr->Ala,T,Anywhere,AA substitution,-30.010565,TRUE
+Thr->Arg (T),Thr->Arg,T,Anywhere,AA substitution,55.053433,TRUE
+Thr->Asn (T),Thr->Asn,T,Anywhere,AA substitution,12.995249,TRUE
+Thr->Ile (T),Thr->Ile,T,Anywhere,AA substitution,12.036386,TRUE
+Thr->Lys (T),Thr->Lys,T,Anywhere,AA substitution,27.047285,TRUE
+Thr->Met (T),Thr->Met,T,Anywhere,AA substitution,29.992806,TRUE
+Thr->Pro (T),Thr->Pro,T,Anywhere,AA substitution,-3.994915,TRUE
+Thr->Ser (T),Thr->Ser,T,Anywhere,AA substitution,-14.01565,TRUE
+Thrbiotinhydrazide (T),Thrbiotinhydrazide,T,Anywhere,Chemical derivative,240.104482,TRUE
+Thyroxine (Y),Thyroxine,Y,Anywhere,Post-translational,595.612807,TRUE
+TMAB (K),TMAB,K,Anywhere,Isotopic label,128.107539,TRUE
+TMAB (N-term),TMAB,N-term,Any N-term,Isotopic label,128.107539,TRUE
+TMAB:2H(9) (K),TMAB:2H(9),K,Anywhere,Isotopic label,137.16403,TRUE
+TMAB:2H(9) (N-term),TMAB:2H(9),N-term,Any N-term,Isotopic label,137.16403,TRUE
+TMPP-Ac (N-term),TMPP-Ac,N-term,Any N-term,Chemical derivative,572.181134,TRUE
+TMPP-Ac (Protein N-term),TMPP-Ac,N-term,Protein N-term,Chemical derivative,572.181134,TRUE
+TMT (K),TMT,K,Anywhere,Chemical derivative,224.152478,FALSE
+TMT (N-term),TMT,N-term,Any N-term,Chemical derivative,224.152478,FALSE
+TMT2plex (K),TMT2plex,K,Anywhere,Isotopic label,225.155833,FALSE
+TMT2plex (N-term),TMT2plex,N-term,Any N-term,Isotopic label,225.155833,FALSE
+TMT6plex (K),TMT6plex,K,Anywhere,Isotopic label,229.162932,FALSE
+TMT6plex (N-term),TMT6plex,N-term,Any N-term,Isotopic label,229.162932,FALSE
+TNBS (K),TNBS,K,Anywhere,Chemical derivative,210.986535,TRUE
+TNBS (N-term),TNBS,N-term,Any N-term,Chemical derivative,210.986535,TRUE
+trifluoro (L),trifluoro,L,Anywhere,Non-standard residue,53.971735,TRUE
+Triiodo (Y),Triiodo,Y,Anywhere,Chemical derivative,377.689944,TRUE
+Triiodothyronine (Y),Triiodothyronine,Y,Anywhere,Post-translational,469.716159,TRUE
+Trimethyl (K),Trimethyl,K,Anywhere,Post-translational,42.04695,TRUE
+Trimethyl (Protein N-term A),Trimethyl,A,Protein N-term,Post-translational,42.04695,TRUE
+Trimethyl (R),Trimethyl,R,Anywhere,Chemical derivative,42.04695,TRUE
+Trioxidation (C),Trioxidation,C,Anywhere,Chemical derivative,47.984744,TRUE
+Tripalmitate (Protein N-term C),Tripalmitate,C,Protein N-term,Post-translational,788.725777,TRUE
+Trp->Arg (W),Trp->Arg,W,Anywhere,AA substitution,-29.978202,TRUE
+Trp->Cys (W),Trp->Cys,W,Anywhere,AA substitution,-83.070128,TRUE
+Trp->Gly (W),Trp->Gly,W,Anywhere,AA substitution,-129.057849,TRUE
+Trp->Hydroxykynurenin (W),Trp->Hydroxykynurenin,W,Anywhere,Chemical derivative,19.989829,TRUE
+Trp->Kynurenin (W),Trp->Kynurenin,W,Anywhere,Chemical derivative,3.994915,TRUE
+Trp->Leu (W),Trp->Leu,W,Anywhere,AA substitution,-72.995249,TRUE
+Trp->Oxolactone (W),Trp->Oxolactone,W,Anywhere,Chemical derivative,13.979265,TRUE
+Trp->Ser (W),Trp->Ser,W,Anywhere,AA substitution,-99.047285,TRUE
+Tyr->Asn (Y),Tyr->Asn,Y,Anywhere,AA substitution,-49.020401,TRUE
+Tyr->Asp (Y),Tyr->Asp,Y,Anywhere,AA substitution,-48.036386,TRUE
+Tyr->Cys (Y),Tyr->Cys,Y,Anywhere,AA substitution,-60.054144,TRUE
+Tyr->Dha (Y),Tyr->Dha,Y,Anywhere,Post-translational,-94.041865,TRUE
+Tyr->His (Y),Tyr->His,Y,Anywhere,AA substitution,-26.004417,TRUE
+Tyr->Phe (Y),Tyr->Phe,Y,Anywhere,AA substitution,-15.994915,TRUE
+Tyr->Ser (Y),Tyr->Ser,Y,Anywhere,AA substitution,-76.0313,TRUE
+Val->Ala (V),Val->Ala,V,Anywhere,AA substitution,-28.0313,TRUE
+Val->Asp (V),Val->Asp,V,Anywhere,AA substitution,15.958529,TRUE
+Val->Glu (V),Val->Glu,V,Anywhere,AA substitution,29.974179,TRUE
+Val->Gly (V),Val->Gly,V,Anywhere,AA substitution,-42.04695,TRUE
+Val->Ile (V),Val->Ile,V,Anywhere,AA substitution,14.01565,TRUE
+Val->Met (V),Val->Met,V,Anywhere,AA substitution,31.972071,TRUE
+Val->Phe (V),Val->Phe,V,Anywhere,AA substitution,48,TRUE
+VFQQQTGG (K),VFQQQTGG,K,Anywhere,Other,845.403166,TRUE
+VIEVYQEQTGG (K),VIEVYQEQTGG,K,Anywhere,Other,1203.577168,TRUE
+Xlink:B10621 (C),Xlink:B10621,C,Anywhere,Chemical derivative,713.093079,TRUE
+Xlink:DMP (K),Xlink:DMP,K,Anywhere,Chemical derivative,122.084398,TRUE
+Xlink:DMP (Protein N-term),Xlink:DMP,N-term,Protein N-term,Chemical derivative,122.084398,TRUE
+Xlink:DMP-s (K),Xlink:DMP-s,K,Anywhere,Chemical derivative,154.110613,TRUE
+Xlink:DMP-s (Protein N-term),Xlink:DMP-s,N-term,Protein N-term,Chemical derivative,154.110613,TRUE
+Xlink:novobiocin (N-term),Xlink:novobiocin,N-term,Any N-term,Chemical derivative,527.153994,TRUE
+Xlink:SSD (K),Xlink:SSD,K,Anywhere,Chemical derivative,253.095023,TRUE
+ZGB (K),ZGB,K,Anywhere,Other,758.380841,TRUE
+ZGB (N-term),ZGB,N-term,Any N-term,Other,758.380841,TRUE

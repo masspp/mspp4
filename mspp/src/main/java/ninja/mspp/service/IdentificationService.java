@@ -6,12 +6,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 
+import ninja.mspp.model.dataobject.Modification;
 import ninja.mspp.model.entity.Group;
 import ninja.mspp.model.entity.GroupSample;
 import ninja.mspp.model.entity.Project;
@@ -118,8 +120,8 @@ public class IdentificationService {
 			List<File> taxons,
 			String enzyme,
 			String enzymeTerminal,
-			List<String> fixedMods,
-			List<String> variableMods,
+			List<Modification> fixedMods,
+			List<Modification> variableMods,
 			int maxVariableMods,
 			int requireVariableMods,
 			int maxParentCharge,
@@ -176,8 +178,8 @@ public class IdentificationService {
 			List<File> taxons,
 			String enzyme,
 			String enzymeTerminal,
-			List<String> fixedMods,
-			List<String> variableModes,
+			List<Modification> fixedMods,
+			List<Modification> variableMods,
 			int maxVariableMods,
 			int requireVariableMods,
 			int maxParentCharge,
@@ -204,7 +206,7 @@ public class IdentificationService {
 		PrintWriter writer = new PrintWriter(new FileWriter(file));
 
 		writer.println("# comet_version 2019.01 rev. 5");
-		writer.println("num_threads = -2");
+		writer.println("num_threads = 1");
 		writer.println("max_index_runtime = 0");
 
 		List<String> elements = new ArrayList<String>();
@@ -255,46 +257,161 @@ public class IdentificationService {
 		writer.println("search_enzyme2_number = 0");
 		writer.println("allowed_missed_cleavage=1");
 
-		writer.println("add_A_alanine=0.000000");
-		writer.println("add_B_user_amino_acid=0.000000");
-		writer.println("add_C_cysteine=57.021464  # \"Carbamidomethyl (C)\"");
-		writer.println("add_Cterm_peptide=0.000000");
-		writer.println("add_Cterm_protein=0.000000");
-		writer.println("add_D_aspartic_acid=0.000000");
-		writer.println("add_E_glutamic_acid=0.000000");
-		writer.println("add_F_phenylalanine=0.000000");
-		writer.println("add_G_glycine=0.000000");
-		writer.println("add_H_histidine=0.000000");
-		writer.println("add_I_isoleucine=0.000000");
-		writer.println("add_J_user_amino_acid=0.000000");
-		writer.println("add_K_lysine=0.000000");
-		writer.println("add_L_leucine=0.000000");
-		writer.println("add_M_methionine=0.000000");
-		writer.println("add_N_asparagine=0.000000");
-		writer.println("add_Nterm_peptide=0.000000");
-		writer.println("add_Nterm_protein=0.000000");
-		writer.println("add_O_ornithine=0.000000");
-		writer.println("add_P_proline=0.000000");
-		writer.println("add_Q_glutamine=0.000000");
-		writer.println("add_R_arginine=0.000000");
-		writer.println("add_S_serine=0.000000");
-		writer.println("add_T_threonine=0.000000");
-		writer.println("add_U_user_amino_acid=0.000000");
-		writer.println("add_V_valine=0.000000");
-		writer.println("add_W_tryptophan=0.000000");
-		writer.println("add_X_user_amino_acid=0.000000");
-		writer.println("add_Y_tyrosine=0.000000");
-		writer.println("add_Z_user_amino_acid=0.000000");
+		for(Modification modification : fixedMods) {
+			StringTokenizer tokenizer = new StringTokenizer(modification.getResidue(), ",");
+			boolean protein = (modification.getPosition().toLowerCase().indexOf("protein") > 0);
+			double mass = modification.getDeltaMass();
+			while(tokenizer.hasMoreTokens()) {
+				String token = tokenizer.nextToken();
+				if(token.equalsIgnoreCase("C-term")) {
+					if(protein) {
+						writer.println(String.format("add_Cterm_protein=%.6f", mass));
+					}
+					else {
+						writer.println(String.format("add_Cterm_peptide=%.6f", mass));
+					}
+				}
+				else if(token.equalsIgnoreCase("N-term")) {
+					if(protein) {
+						writer.println(String.format("add_Nterm_peptide=%.6f", mass));
+					}
+					else {
+						writer.println(String.format("add_Nterm_protein=%.6f", mass));
+					}
+				}
+				else if(token.equals("A")) {
+					writer.println(String.format("add_A_alanine=%.6f", mass));
+				}
+				else if(token.equals("B")) {
+					writer.println(String.format("add_B_user_amino_acid=%.6f", mass));
+				}
+				else if(token.equals("C")) {
+					writer.println(String.format("add_C_cysteine=%.6f", mass));
+				}
+				else if(token.equals("D")) {
+					writer.println(String.format("add_D_aspartic_acid=%.6f", mass));
+				}
+				else if(token.equals("E")) {
+					writer.println(String.format("add_E_glutamic_acid=%.6f", mass));
+				}
+				else if(token.equals("F")) {
+					writer.println(String.format("add_F_phenylalanine=%.6f", mass));
+				}
+				else if(token.equals("G")) {
+					writer.println(String.format("add_G_glycine=%.6f", mass));
+				}
+				else if(token.equals("H")) {
+					writer.println(String.format("add_H_histidine=%.6f", mass));
+				}
+				else if(token.equals("I")) {
+					writer.println(String.format("add_I_isoleucine=%.6f", mass));
+				}
+				else if(token.equals("J")) {
+					writer.println(String.format("add_J_user_amino_acid=%.6f", mass));
+				}
+				else if(token.equals("K")) {
+					writer.println(String.format("add_K_lysine=%.6f", mass));
+				}
+				else if(token.equals("L")) {
+					writer.println(String.format("add_L_leucine=%.6f", mass));
+				}
+				else if(token.equals("M")) {
+					writer.println(String.format("add_M_methionine=%.6f", mass));
+				}
+				else if(token.equals("N")) {
+					writer.println(String.format("add_N_asparagine=%.6f", mass));
+				}
+				else if(token.equals("O")) {
+					writer.println(String.format("add_O_ornithine=%.6f", mass));
+				}
+				else if(token.equals("P")) {
+					writer.println(String.format("add_P_proline=%.6f", mass));
+				}
+				else if(token.equals("Q")) {
+					writer.println(String.format("add_Q_glutamine=%.6f", mass));
+				}
+				else if(token.equals("R")) {
+					writer.println(String.format("add_R_arginine=%.6f", mass));
+				}
+				else if(token.equals("S")) {
+					writer.println(String.format("add_S_serine=%.6f", mass));
+				}
+				else if(token.equals("T")) {
+					writer.println(String.format("add_T_threonine=%.6f", mass));
+				}
+				else if(token.equals("U")) {
+					writer.println(String.format("add_U_user_amino_acid=%.6f", mass));
+				}
+				else if(token.equals("V")) {
+					writer.println(String.format("add_V_valine=%.6f", mass));
+				}
+				else if(token.equals("W")) {
+					writer.println(String.format("add_W_tryptophan=%.6f", mass));
+				}
+				else if(token.equals("X")) {
+					writer.println(String.format("add_X_user_amino_acid=%.6f", mass));
+				}
+				else if(token.equals("Y")) {
+					writer.println(String.format("add_Y_tyrosine=%.6f", mass));
+				}
+				else if(token.equals("Z")) {
+					writer.println(String.format("add_Z_user_amino_acid=%.6f", mass));
+				}
+			}
+		}
 
-		writer.println("variable_mod01=15.994915 M 0 5 -1 0 0  # 'Oxidation (M)'");
-		writer.println("variable_mod02=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod03=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod04=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod05=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod06=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod07=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod08=0.000000 X 0 3 -1 0 0");
-		writer.println("variable_mod09=0.000000 X 0 3 -1 0 0");
+		int count = 1;
+		for(Modification modification : variableMods) {
+			String aa = "";
+			StringTokenizer tokenizer = new StringTokenizer(modification.getResidue(), ",");
+			boolean cTerm = false;
+			boolean nTerm = false;
+			boolean protein = (modification.getPosition().toLowerCase().indexOf("protein") > 0);
+			while(tokenizer.hasMoreTokens()) {
+				String token = tokenizer.nextToken();
+				if(token.equalsIgnoreCase("C-term")) {
+					token = "c";
+					cTerm = true;
+				}
+				else if(token.equalsIgnoreCase("N-term")) {
+					token = "n";
+					nTerm = true;
+				}
+				aa = aa + token;
+			}
+			int term = 0;
+			if(cTerm) {
+				if(protein) {
+					term = 2;
+				}
+				else {
+					term = 3;
+				}
+			}
+			else if(nTerm) {
+				if(protein) {
+					term = 1;
+				}
+				else {
+					term = 4;
+				}
+			}
+			writer.println(
+					String.format(
+							"variable_mod%02d=%.6f %s %d %d %d %d %d    # %s",
+							count,
+							modification.getDeltaMass(),
+							aa,
+							0,
+							5,
+							((cTerm || nTerm) ? 0 : -1),
+							term,
+							0,
+							modification.getModificationName()
+					)
+			);
+			count++;
+		}
 
 		writer.println("max_variable_mods_in_peptide=" + maxVariableMods);
 		writer.println("require_variable_mod = " + requireVariableMods);
@@ -378,7 +495,7 @@ public class IdentificationService {
 		writer.println("max_duplicate_proteins = 0");
 		writer.println("nucleotide_reading_frame=0");
 		writer.println("peff_verbose_output  = 0");
-		writer.println("spectrum_batch_size=20000");
+		writer.println("spectrum_batch_size=3000");
 		writer.println("");
 		writer.println("[COMET_ENZYME_INFO]");
 		writer.println("\t0.  No_enzyme              0      -           -");

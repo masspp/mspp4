@@ -298,18 +298,19 @@ public class ProjectDetailsPanel implements Initializable {
 					Color color = Color.valueOf( group.getColor() );
 					for( GroupSample groupSample : group.getGroupSamples() ) {
 
-
 						Sample sample = groupSample.getSample();
 						List< Spectrum > spectra = this.getSpectra( sample, rt );
 						for( Spectrum spectrum : spectra ) {
-							if( spectrum.getMsStage() == 1 ) {
-								msSpectra.add( spectrum );
-								msColorMap.put( spectrum, color );
-							}
-							else if( spectrum.getPrecursor() != null
-									&& Math.abs( spectrum.getPrecursor() - mz ) <= 0.1 ) {
-								msmsSpectra.add( spectrum );
-								msmsColorMap.put( spectrum, color );
+							if(spectrum != null) {
+								if( spectrum.getMsStage() == 1 ) {
+									msSpectra.add( spectrum );
+									msColorMap.put( spectrum, color );
+								}
+								else if( spectrum.getPrecursor() != null
+										&& Math.abs( spectrum.getPrecursor() - mz ) <= 0.1 ) {
+									msmsSpectra.add( spectrum );
+									msmsColorMap.put( spectrum, color );
+								}
 							}
 						}
 					}
