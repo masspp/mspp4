@@ -460,7 +460,7 @@ public class ProjectDetailsPanel implements Initializable {
 	/**
 	 * update tables
 	 */
-	private void updateTables() {
+	void updateTables() {
 		this.table.getItems().clear();
 
 		List< PeakPosition > positions = this.service.findPeakPositions( this.project );
@@ -520,6 +520,7 @@ public class ProjectDetailsPanel implements Initializable {
 
 		IdentificationDialog dialog = (IdentificationDialog)loader.getController();
 		dialog.setProject(this.project);
+		dialog.setParentPanel(this);
 	}
 
 	@Override

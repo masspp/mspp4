@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -19,11 +20,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -35,6 +39,7 @@ import ninja.mspp.MsppManager;
 import ninja.mspp.model.dataobject.Modification;
 import ninja.mspp.model.entity.Project;
 import ninja.mspp.service.IdentificationService;
+import ninja.mspp.service.ProjectService;
 
 @Component
 public class IdentificationDialog implements Initializable {
@@ -57,7 +62,11 @@ public class IdentificationDialog implements Initializable {
 	@Autowired
 	private IdentificationService service;
 
+	@Autowired
+	private ProjectService projectService;
+
 	private Project project;
+	private ProjectDetailsPanel parentPanel;
 
 	@FXML
 	private ChoiceBox<String> peaksCombo;
@@ -102,7 +111,7 @@ public class IdentificationDialog implements Initializable {
 	private ChoiceBox<String> isotopeCombo;
 
 	@FXML
-	private ChoiceBox<String> cleavageCombo;
+	private ChoiceBox<Integer> cleavageCombo;
 
 	@FXML
 	private TextField proteoWizardText;
@@ -119,6 +128,57 @@ public class IdentificationDialog implements Initializable {
 	@FXML
 	private BorderPane pane;
 
+	@FXML
+	private CheckBox decoyCheck;
+
+	@FXML
+	private TextField maxVariableModsText;
+
+	@FXML
+	private TextField requireVariableModText;
+
+	@FXML
+	private TextField maxParentChargeText;
+
+	@FXML
+	private TextField maxFragmentChargeText;
+
+	@FXML
+	private TextField termDistanceText;
+
+	@FXML
+	private TextField minParentMzText;
+
+	@FXML
+	private TextField maxParentMzText;
+
+	@FXML
+	private TextField pepTolText;
+
+	@FXML
+	private TextField fragmentBinTolText;
+
+	@FXML
+	private TextField fragmentBinOffsetText;
+
+	@FXML
+	private CheckBox aIonCheck;
+
+	@FXML
+	private CheckBox bIonCheck;
+
+	@FXML
+	private CheckBox cIonCheck;
+
+	@FXML
+	private CheckBox xIonCheck;
+
+	@FXML
+	private CheckBox yIonCheck;
+
+	@FXML
+	private CheckBox zIonCheck;
+
 	public Project getProject() {
 		return project;
 	}
@@ -127,13 +187,19 @@ public class IdentificationDialog implements Initializable {
 		this.project = project;
 	}
 
+	public void setParentPanel(ProjectDetailsPanel parentPanel) {
+		this.parentPanel = parentPanel;
+	}
+
 	private void setPath(TextField text) {
 		String path = text.getText();
 		FileChooser chooser = new FileChooser();
 		if(path != null && path.length() > 0) {
 			File file = new File(path);
-			chooser.setInitialDirectory(file.getParentFile());
-			chooser.setInitialFileName(file.getName());
+			if(file.exists()) {
+				chooser.setInitialDirectory(file.getParentFile());
+				chooser.setInitialFileName(file.getName());
+			}
 		}
 
 		File file = chooser.showOpenDialog(new Stage());
@@ -143,7 +209,11 @@ public class IdentificationDialog implements Initializable {
 	}
 
 	private File detectPeaks(List<File> files, ProgressBar progress, double end) throws Exception {
+		MsppManager manager = MsppManager.getInstance();
+
 		String command = this.proteoWizardText.getText();
+		manager.saveString(IdentificationDialog.KEY_PROTEOWIZARD, command);
+
 		String method = this.methodCombo.getValue();
 		boolean deisotope = this.deisotopeCheck.isSelected();
 		double spacing = Double.parseDouble(this.peakSpacingText.getText());
@@ -152,7 +222,6 @@ public class IdentificationDialog implements Initializable {
 		File merged = File.createTempFile("merged_peaks",  ".mgf");
 		PrintWriter writer = new PrintWriter(new FileWriter(merged));
 
-		System.out.println(merged.getAbsolutePath());
 
 		int count = 0;
 		for(File file : files) {
@@ -162,14 +231,9 @@ public class IdentificationDialog implements Initializable {
 				String line;
 				while((line = reader.readLine()) != null) {
 					writer.println(line);
-					System.out.println(line);
 				}
 				reader.close();
 				writer.println("");
-				System.out.println("aaaaaaaaaaa");
-			}
-			else {
-				System.out.println("hogehogheoge");
 			}
 
 			count++;
@@ -181,24 +245,97 @@ public class IdentificationDialog implements Initializable {
 		return merged;
 	}
 
+	private File identify(File mgfFile) throws IOException, InterruptedException {
+		MsppManager manager = MsppManager.getInstance();
+
+		String command = this.cometText.getText();
+		manager.saveString(IdentificationDialog.KEY_COMET, command);
+
+		List<File> taxons = new ArrayList<File>();
+		for(TreeItem<File> item : this.taxonView.getSelectionModel().getSelectedItems()) {
+			taxons.add(item.getValue());
+		}
+
+		boolean decoy = this.decoyCheck.isSelected();
+		String enzyme = this.enzymeCombo.getValue();
+		String enzymeTerminal = this.terminalCombo.getValue();
+
+		List<String> fixedMods = new ArrayList<String>();
+		for(String item : this.fixedModList.getSelectionModel().getSelectedItems()) {
+			fixedMods.add(item);
+		}
+
+		List<String> variableMods = new ArrayList<String>();
+		for(String item : this.variableModList.getSelectionModel().getSelectedItems()) {
+			variableMods.add(item);
+		}
+
+		int maxVariableMods = Integer.parseInt(this.maxVariableModsText.getText());
+		int requireVariableMods = Integer.parseInt(this.requireVariableModText.getText());
+		int maxParentCharge = Integer.parseInt(this.maxParentChargeText.getText());
+		int maxFragmentCharge = Integer.parseInt(this.maxFragmentChargeText.getText());
+		int termDistance = Integer.parseInt(this.termDistanceText.getText());
+		double minParentMz = Double.parseDouble(this.minParentMzText.getText());
+		double maxParentMz = Double.parseDouble(this.maxParentMzText.getText());
+		double peptideTol = Double.parseDouble(this.pepTolText.getText());
+		String unit = this.tolUnitCombo.getValue();
+		double fragmentBinTol = Double.parseDouble(this.fragmentBinTolText.getText());
+		double fragmentBinOffset = Double.parseDouble(this.fragmentBinOffsetText.getText());
+		String theoreticalFragmentIons = this.theoriticalCombo.getValue();
+		String isotopeError = this.isotopeCombo.getValue();
+		int minCleavage = this.cleavageCombo.getValue();
+		boolean aIon = this.aIonCheck.isSelected();
+		boolean bIon = this.bIonCheck.isSelected();
+		boolean cIon = this.cIonCheck.isSelected();
+		boolean xIon = this.xIonCheck.isSelected();
+		boolean yIon = this.yIonCheck.isSelected();
+		boolean zIon = this.zIonCheck.isSelected();
+
+		File file = this.service.processCometSearch(
+				command, mgfFile, decoy, taxons, enzyme, enzymeTerminal, fixedMods, variableMods, maxVariableMods,
+				requireVariableMods, maxParentCharge, maxFragmentCharge, termDistance, minParentMz, maxParentMz,
+				peptideTol, unit, fragmentBinTol, fragmentBinOffset, theoreticalFragmentIons, isotopeError,
+				minCleavage, aIon, bIon, cIon, xIon, yIon, zIon
+		);
+		System.out.println(file.getAbsolutePath());
+		return file;
+	}
+
+	private boolean checkParameters() {
+		if(this.taxonView.getSelectionModel().getSelectedItems().size() == 0) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setHeaderText("No taxons are selected.");
+			alert.setContentText("Select one or more taxons.");
+			alert.showAndWait();
+			return false;
+		}
+		return true;
+	}
+
 	@FXML
 	private void onOK(ActionEvent evnet) {
-		MsppManager manager = MsppManager.getInstance();
-		List<File> files = this.service.getRawDataFiles(this.project);
-		this.progress.setProgress(0.0);
+		boolean checked = this.checkParameters();
+		if(checked) {
+			List<File> files = this.service.getRawDataFiles(this.project);
+			this.progress.setProgress(0.0);
 
-		try {
-			File mgfFile = this.detectPeaks(files, this.progress, 0.5);
+			try {
+				System.out.println("Detecting Peaks ...");
+				File mgfFile = this.detectPeaks(files, this.progress, 0.5);
+				System.out.println("Identification ...");
+				File pepXmlFile = this.identify(mgfFile);
+				this.progress.setProgress(0.75);
+				this.projectService.importPepxml( this.project, pepXmlFile.getAbsolutePath());
+				this.parentPanel.updateTables();
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				this.progress.setProgress(1.0);
+			}
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			this.progress.setProgress(1.0);
-		}
-
-		// part of the way
-
 	}
 
 	@FXML
@@ -221,7 +358,9 @@ public class IdentificationDialog implements Initializable {
 
 	@FXML
 	private void onDb(ActionEvent event) {
+		MsppManager manager = MsppManager.getInstance();
 		String path = this.dbText.getText();
+
 		DirectoryChooser chooser = new DirectoryChooser();
 		if(path != null && path.length() > 0) {
 			File dir = new File(path);
@@ -234,6 +373,7 @@ public class IdentificationDialog implements Initializable {
 		if(dir != null) {
 			this.dbText.setText(dir.getAbsolutePath());
 		}
+		manager.saveString(IdentificationDialog.KEY_DATABASE_DIR, dir.getAbsolutePath());
 	}
 
 	private List<Modification> loadModifications() {
@@ -293,7 +433,6 @@ public class IdentificationDialog implements Initializable {
 	}
 
 	private void onChangeDb(String dir) {
-		System.out.println(dir);
 		File file = new SimpleFile(dir);
 		TreeItem<File> root = new TreeItem<File>(file);
 		this.taxonView.setRoot(root);
@@ -319,14 +458,26 @@ public class IdentificationDialog implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.setFileAndFolders();
 
+		this.taxonView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
 		this.peaksCombo.getItems().add("ProteoWizard");
 		this.peaksCombo.getSelectionModel().select(0);
 
 		this.identificationCombo.getItems().add("Comet");
 		this.identificationCombo.getSelectionModel().select(0);
 
+		this.enzymeCombo.getItems().add("No Enzyme");
+		this.enzymeCombo.getItems().add("Trypsin");
 		this.enzymeCombo.getItems().add("Trypsin/P");
-		this.enzymeCombo.getSelectionModel().select(0);
+		this.enzymeCombo.getItems().add("Lys C");
+		this.enzymeCombo.getItems().add("Lys N");
+		this.enzymeCombo.getItems().add("Arg C");
+		this.enzymeCombo.getItems().add("Asp N");
+		this.enzymeCombo.getItems().add("CNBr");
+		this.enzymeCombo.getItems().add("Glu C");
+		this.enzymeCombo.getItems().add("PepsinA");
+		this.enzymeCombo.getItems().add("NoCleavage");
+		this.enzymeCombo.getSelectionModel().select(1);
 
 		this.terminalCombo.getItems().add("Fully Digested");
 		this.terminalCombo.getSelectionModel().select(0);
@@ -339,6 +490,8 @@ public class IdentificationDialog implements Initializable {
 			}
 		}
 
+		this.tolUnitCombo.getItems().add("amu");
+		this.tolUnitCombo.getItems().add("mmu");
 		this.tolUnitCombo.getItems().add("ppm");
 		this.tolUnitCombo.getSelectionModel().select(0);
 
@@ -346,9 +499,17 @@ public class IdentificationDialog implements Initializable {
 		this.theoriticalCombo.getSelectionModel().select(0);
 
 		this.isotopeCombo.getItems().add("Standard C13 Error");
+		this.isotopeCombo.getItems().add("0, +1, +2 Isotope Offsets");
+		this.isotopeCombo.getItems().add("0, +1, +2, +3 Isotope Offsets");
+		this.isotopeCombo.getItems().add("Searches -8, -4, 0, +4, +8 Isotope Offsets");
+		this.isotopeCombo.getItems().add("-1, 0, +1, +2, +3 Isotope Offsets");
 		this.isotopeCombo.getSelectionModel().select(0);
 
-		this.cleavageCombo.getItems().add("1");
+
+		this.cleavageCombo.getItems().addAll(1);
+		this.cleavageCombo.getItems().addAll(2);
+		this.cleavageCombo.getItems().addAll(3);
+		this.cleavageCombo.getItems().addAll(4);
 		this.cleavageCombo.getSelectionModel().clearAndSelect(0);
 
 		methodCombo.getItems().add("cwt");
@@ -359,5 +520,23 @@ public class IdentificationDialog implements Initializable {
 					this.progress.setPrefWidth(newValue.doubleValue());
 				}
 		);
+
+		MsppManager manager = MsppManager.getInstance();
+
+		String file = manager.loadString(IdentificationDialog.KEY_PROTEOWIZARD, null);
+		if(file != null) {
+			this.proteoWizardText.setText(file);
+		}
+
+		file = manager.loadString(IdentificationDialog.KEY_COMET, null);
+		if(file != null) {
+			this.cometText.setText(file);
+		}
+
+		file = manager.loadString(IdentificationDialog.KEY_DATABASE_DIR, null);
+		if(file != null) {
+			this.dbText.setText(file);
+			this.onChangeDb(file);
+		}
 	}
 }

@@ -90,7 +90,7 @@
                                        <children>
                                           <Label text="Decoy Search" />
                                           <Label text="Taxon" GridPane.rowIndex="1" />
-                                          <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" />
+                                          <CheckBox fx:id="decoyCheck" mnemonicParsing="false" GridPane.columnIndex="1" />
                                           <TreeView fx:id="taxonView" prefHeight="160.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label text="Enzyme" GridPane.rowIndex="2" />
                                           <Label text="Enzyme Terminal" GridPane.rowIndex="3" />
@@ -156,32 +156,32 @@
                                           <Label text="Isotope Error" GridPane.rowIndex="11" />
                                           <Label prefHeight="21.0" prefWidth="133.0" text="Min Cleavage" GridPane.rowIndex="12" />
                                           <Label text="Ion Type" GridPane.rowIndex="13" />
-                                          <TextField text="5" GridPane.columnIndex="1" />
-                                          <TextField text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField text="6" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <TextField text="3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <TextField text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <TextField text="600.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <TextField text="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="maxVariableModsText" text="5" GridPane.columnIndex="1" />
+                                          <TextField fx:id="requireVariableModText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="maxParentChargeText" text="6" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="maxFragmentChargeText" text="3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="termDistanceText" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="minParentMzText" text="600.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="maxParentMzText" text="5000.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                              <children>
-                                                <TextField prefHeight="31.0" prefWidth="152.0" text="10.0" />
+                                                <TextField fx:id="pepTolText" prefHeight="31.0" prefWidth="152.0" text="10.0" />
                                                 <ChoiceBox fx:id="tolUnitCombo" prefHeight="31.0" prefWidth="85.0" />
                                              </children>
                                           </HBox>
-                                          <TextField text="0.02" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                          <TextField text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                          <TextField fx:id="fragmentBinTolText" text="0.02" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                          <TextField fx:id="fragmentBinOffsetText" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                                           <ChoiceBox fx:id="theoriticalCombo" prefHeight="31.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                           <ChoiceBox fx:id="isotopeCombo" prefHeight="31.0" prefWidth="262.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                                           <ChoiceBox fx:id="cleavageCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
                                              <children>
-                                                <CheckBox mnemonicParsing="false" text="a" />
-                                                <CheckBox mnemonicParsing="false" selected="true" text="b" />
-                                                <CheckBox mnemonicParsing="false" text="c" />
-                                                <CheckBox mnemonicParsing="false" text="x" />
-                                                <CheckBox mnemonicParsing="false" selected="true" text="y" />
-                                                <CheckBox mnemonicParsing="false" text="z" />
+                                                <CheckBox fx:id="aIonCheck" mnemonicParsing="false" text="a" />
+                                                <CheckBox fx:id="bIonCheck" mnemonicParsing="false" selected="true" text="b" />
+                                                <CheckBox fx:id="cIonCheck" mnemonicParsing="false" text="c" />
+                                                <CheckBox mnemonicParsing="false" text="x" fx:id="xIonCheck" />
+                                                <CheckBox fx:id="yIonCheck" mnemonicParsing="false" selected="true" text="y" />
+                                                <CheckBox fx:id="zIonCheck" mnemonicParsing="false" text="z" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -215,7 +215,7 @@
                                           <Button mnemonicParsing="false" onAction="#onProteoWizard" text="Refer..." GridPane.columnIndex="2" />
                                           <Label text="Comet:" GridPane.rowIndex="1" />
                                           <TextField fx:id="cometText" onAction="#onComet" text="C:\opt\comet\comet.2019015.win64.exe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Button mnemonicParsing="false" text="Refer..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Button mnemonicParsing="false" onAction="#onComet" text="Refer..." GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                           <Label text="Database Folder:" GridPane.rowIndex="2" />
                                           <TextField fx:id="dbText" text="C:\database" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Button mnemonicParsing="false" onAction="#onDb" text="Refer..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
