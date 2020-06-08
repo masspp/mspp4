@@ -495,7 +495,7 @@ public class IdentificationService {
 		writer.println("max_duplicate_proteins = 0");
 		writer.println("nucleotide_reading_frame=0");
 		writer.println("peff_verbose_output  = 0");
-		writer.println("spectrum_batch_size=3000");
+		writer.println("spectrum_batch_size=5000");
 		writer.println("");
 		writer.println("[COMET_ENZYME_INFO]");
 		writer.println("\t0.  No_enzyme              0      -           -");

@@ -41,12 +41,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-        
+
         <inceptionYear>2018</inceptionYear>
         <url>https://www.mspp.ninja/</url>
 	<groupId>ninja.mspp</groupId>
 	<artifactId>mspp</artifactId>
-	<version>4.0.0_alpha</version>
+	<version>4.0.0_beta</version>
 	<packaging>jar</packaging>
 
 	<name>mspp</name>
@@ -187,7 +187,7 @@
 			</plugin>
                         <!-- DON'T REMOVE FOLLOWING COMMENT OF LICNESE-MAVEN-PLUGIN -->
                         <!-- customized edition of license maven plugin is used to insert author
-                        information into license header.  configuration of this plugin is 
+                        information into license header.  configuration of this plugin is
                         commented out, since binary package of the plugin is not available now.
                         source package of the plugin is available at:
                             https://github.com/masakimu/license-maven-plugin -->

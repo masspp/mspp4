@@ -1,9 +1,9 @@
-#define JarFile     "mspp-4.0.0_alpha.jar"
+#define JarFile     "mspp-4.0.0_beta.jar"
 
 [Setup]
 AppName=Mass++ 4
-AppVersion=4.0.0 alpha
-DefaultDirName={commonpf}\mspp4
+AppVersion=4.0.0 beta
+DefaultDirName={commonpf64}\mspp4
 DefaultGroupName=Mass++ 4
 Compression=lzma2
 SolidCompression=yes
@@ -17,4 +17,4 @@ Source: "mspp4.bat"; DestDir: "{app}"
 
 
 [Icons]
-Name: "{group}\Mass++ 4"; Filename: "{app}\mspp4.bat"; WorkingDir: "{app}"
+Name: "{group}\Mass++ 4"; Filename: "{app}\jre8\bin\java.exe"; Parameters: "-Xms512M -Xmx1024M -jar ""{app}\mspp-4.0.0_beta.jar"""; WorkingDir: "{userdocs}"

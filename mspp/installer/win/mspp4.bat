@@ -35,4 +35,4 @@
 @REM All rights reserved.
 @REM
 
-jre8\bin\java.exe -Xms512m -Xmx1024m -jar mspp-4.0.0_alpha.jar
+"C:\Program Files\mspp4\jre8\bin\java.exe" -Xms1024m -Xmx2048m -jar "C:\Program Files\mspp4\mspp-4.0.0_beta.jar"
