@@ -217,6 +217,9 @@
 					<header>${project.basedir}/LICENSE</header>
 					<properties>
                                             <owner>Mass++ Users Group</owner>
+                                            <license.git.copyrightLastYearMaxCommitsLookup>
+                                                1000
+                                            </license.git.copyrightLastYearMaxCommitsLookup>
 					</properties>
                                         
 					<excludes>
