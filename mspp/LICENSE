@@ -28,7 +28,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 @author ${owner} (${project.url})
 @author ${license.git.CreationAuthorName}
-@since ${license.git.copyrightCreationDate}
+@since ${license.git.copyrightCreationYear}
 
 Copyright (c) ${license.git.copyrightCreationYear} ${license.git.CreationAuthorName}
 All rights reserved.
