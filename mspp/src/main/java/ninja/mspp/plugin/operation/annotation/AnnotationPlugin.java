@@ -29,7 +29,7 @@
  *
  * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author Satoshi Tanaka
- * @since Fri Jun 01 07:49:50 JST 2018
+ * @since 2018
  *
  * Copyright (c) 2018 Satoshi Tanaka
  * All rights reserved.

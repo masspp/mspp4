@@ -29,7 +29,7 @@
  *
  * @author Mass++ Users Group (https://www.mspp.ninja/)
  * @author satstnka
- * @since Tue Sep 03 15:57:17 JST 2019
+ * @since 2019
  *
  * Copyright (c) 2019 satstnka
  * All rights reserved.
