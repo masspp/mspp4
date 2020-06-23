@@ -65,6 +65,7 @@
 		<java.version>1.8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+                <license.git.copyrightLastYearMaxCommitsLookup>1000</license.git.copyrightLastYearMaxCommitsLookup>
 	</properties>
 
 	<repositories>
@@ -72,8 +73,16 @@
 			<id>genesis-maven2-repository</id>
 			<name>Genesis maven2 repository</name>
 			<url>http://genesis.UGent.be/maven2</url>
-		</repository>
-
+                </repository>
+                
+                <!-- <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository> -->
+                
 		<!-- EBI repo -->
 		<repository>
 			<id>nexus-ebi-release-repo</id>
@@ -82,6 +91,16 @@
 		</repository>
 
 	</repositories>
+        
+        <pluginRepositories>
+            <pluginRepository>
+                <id>central</id>
+                <url>https://repo1.maven.org/maven2/</url>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+            </pluginRepository>
+        </pluginRepositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -96,7 +115,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-                <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -191,15 +209,16 @@
                         commented out, since binary package of the plugin is not available now.
                         source package of the plugin is available at:
                             https://github.com/masakimu/license-maven-plugin -->
-<!--			<plugin>
+			<plugin>
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
-				<version>3.1-SNAPSHOT_author</version>
+				<version>4.0.rc1</version>
 				<configuration>
 					<header>${project.basedir}/LICENSE</header>
 					<properties>
-						<owner>Mass++ Users Group</owner>
+                                            <owner>Mass++ Users Group</owner>
 					</properties>
+                                        
 					<excludes>
 						<exclude>**/README</exclude>
 						<exclude>**/LICENSE</exclude>
@@ -214,18 +233,18 @@
                                 <dependencies>
                                     <dependency>
                                         <groupId>com.mycila</groupId>
-                                        <artifactId>license-maven-plugin-git</artifactId>
-                                        <version>3.1-SNAPSHOT_author</version>
+                                        <artifactId>license-maven-plugin-git</artifactId>                          
+                                        <version>4.0.rc1</version>                   
                                     </dependency>
                                 </dependencies>
-				<executions>
+				<!-- <executions>
 					<execution>
 						<goals>
-							<goal>check</goal>
+						<goal>format</goal>
 						</goals>
 					</execution>
-				</executions>
-			</plugin>-->
+				</executions> -->
+			</plugin>
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
 				<artifactId>apt-maven-plugin</artifactId>
