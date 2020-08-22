@@ -130,6 +130,8 @@ public class MsftbxMzMLSpectrumIterator implements Iterable<Pair<Spectrum,PointL
                 if (polarity != null) {
                     spectrum.setPolarity(polarity.getSign());
                     
+                }else{
+                    spectrum.setPolarity(0);
                 }
 
                 // assumed that each precursor spectrum is ahead of child spectra in this iterator.

@@ -89,12 +89,16 @@ public class SpectrumTableView extends TableView< Spectrum > {
 			( cellData ) -> {
 				Spectrum spectrum = cellData.getValue();
 				String string = "";
-				int polarity = spectrum.getPolarity();
-				if( polarity > 0 ) {
-					string = "+";
-				}
-				else if( polarity < 0 ) {
-					string = "-";
+				if (spectrum.getPolarity()!=null){
+				    int polarity = spectrum.getPolarity();
+				    if( polarity > 0 ) {
+				            string = "+";
+				     }
+				    else if( polarity < 0 ) {
+				            string = "-";
+				    }
+				}else{
+				    string = "unknown";
 				}
 				return new ReadOnlyStringWrapper( string );
 			}

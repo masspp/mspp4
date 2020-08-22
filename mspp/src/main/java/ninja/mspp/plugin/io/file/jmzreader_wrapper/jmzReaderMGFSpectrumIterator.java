@@ -234,6 +234,8 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                 }
                 if(  (props.charge != null)){
                     spectrum.setPolarity( (props.charge > 0)?1:-1) ;
+                }else{
+                    spectrum.setPolarity(0);
                 }
                 spectrum.setPrecursor(  props.precursorMz );                
                 
