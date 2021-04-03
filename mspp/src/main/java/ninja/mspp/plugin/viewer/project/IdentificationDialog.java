@@ -256,7 +256,7 @@ public class IdentificationDialog implements Initializable {
 		double spacing = Double.parseDouble(this.peakSpacingText.getText());
 		double sn = Double.parseDouble(this.peakSnText.getText());
 
-		File merged = File.createTempFile("merged_peaks",  ".mgf");
+		File merged = File.createTempFile("merged_peaks_",  ".mgf");
 		PrintWriter writer = new PrintWriter(new FileWriter(merged));
 
 

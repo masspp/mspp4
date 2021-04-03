@@ -17,4 +17,4 @@ Source: "mspp4.bat"; DestDir: "{app}"
 
 
 [Icons]
-Name: "{group}\Mass++ 4"; Filename: "{app}\jre8\bin\java.exe"; Parameters: "-Xms512M -Xmx1024M -jar ""{app}\mspp-4.0.0_beta.jar"""; WorkingDir: "{userdocs}"
+Name: "{group}\Mass++ 4"; Filename: "{app}\jre8\bin\java.exe"; Parameters: "-Xms512M -Xmx4g -jar ""{app}\mspp-4.0.0_beta.jar"""; WorkingDir: "{userdocs}"

@@ -67,7 +67,7 @@ fi
 
 if [ -n "$jdk_version_OK" ]; then
     echo 'Starting to create installer for rpm package'
-    (cd  $script_dir/../../target ; $_packager -deploy -native rpm -outdir rpm_installer -outfile Mass++ -srcdir . -srcfiles mspp-4.0.0_beta.jar -appclass org.springframework.boot.loader.JarLauncher -BsystemWide=false -name Mass++ -title Mass++ -BjvmOptions=-Xmx2g  -Bicon=../src/main/resources/images/MS_icon_128.png -BappVersion=$app_version -Bruntime=$JAVA_HOME/jre )
+    (cd  $script_dir/../../target ; $_packager -deploy -native rpm -outdir rpm_installer -outfile Mass++ -srcdir . -srcfiles mspp-4.0.0_beta.jar -appclass org.springframework.boot.loader.JarLauncher -BsystemWide=false -name Mass++ -title Mass++ -BjvmOptions=-Xmx4g  -Bicon=../src/main/resources/images/MS_icon_128.png -BappVersion=$app_version -Bruntime=$JAVA_HOME/jre )
 else
     echo 'Sorry, use JDK 1.8'
 fi

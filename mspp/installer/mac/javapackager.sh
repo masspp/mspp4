@@ -67,7 +67,7 @@ fi
 
 if [ -n "$jdk_version_OK" ]; then
     echo 'Starting to create installer for MacOSX'
-    (cd  $script_dir/../../target ; $_packager -deploy -native dmg -outdir mac_installer -outfile Mass++  -srcdir . -srcfiles mspp-4.0.0_alpha.jar -appclass org.springframework.boot.loader.JarLauncher -name Mass++ -title Mass++  -BjvmOptions=-Xmx2g -Bicon=../src/main/resources/images/mspp4.icns -BappVersion=$app_version -Bruntime=$JAVA_HOME ) 
+    (cd  $script_dir/../../target ; $_packager -deploy -native dmg -outdir mac_installer -outfile Mass++  -srcdir . -srcfiles mspp-4.0.0_beta.jar -appclass org.springframework.boot.loader.JarLauncher -name Mass++ -title Mass++  -BjvmOptions=-Xmx4g -Bicon=../src/main/resources/images/mspp4.icns -BappVersion=$app_version -Bruntime=$JAVA_HOME ) 
 else 
     echo 'Sorry, use JDK 1.8'
 fi
