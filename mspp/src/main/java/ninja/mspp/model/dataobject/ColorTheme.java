@@ -39,18 +39,22 @@ package ninja.mspp.model.dataobject;
 /**
  * color theme
  */
-public interface ColorTheme {
+public abstract class ColorTheme {
 	/**
 	 * gets the theme name
 	 * @return color theme name
 	 */
-	public String getName();
+	public abstract String getName();
 
 	/**
 	 * gets the color
 	 * @param value value
 	 * @return color
 	 */
-	public Rgba getColor( double value );
+	public abstract Rgba getColor(double value);
 
+	@Override
+	public String toString() {
+		return this.getName();
+	}
 }

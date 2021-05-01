@@ -53,6 +53,8 @@ import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
@@ -93,13 +95,26 @@ public class ThreeDPanel implements Initializable {
 	private double zAngle;
 	private List<TextInfo> textArray;
 
-	private ColorTheme theme;
-
 	@FXML
 	private BorderPane pane;
 
 	@FXML
 	private Slider slider;
+
+	@FXML
+	private ChoiceBox<ColorTheme> themeChoice;
+
+	@FXML
+	private CheckBox axisCheck;
+
+	@FXML
+	private CheckBox rtCheck;
+
+	@FXML
+	private CheckBox mzCheck;
+
+	@FXML
+	private CheckBox intCheck;
 
 	enum HAlign {
 		LEFT,
@@ -128,7 +143,7 @@ public class ThreeDPanel implements Initializable {
 	 * @param width width
 	 * @param height height
 	 */
-	private void onSize(Group group, PerspectiveCamera camera, double width, double height ) {
+	private void onSize(Group group, PerspectiveCamera camera, double width, double height) {
 		group.getTransforms().clear();
 		double scale = height / 100.0;
 		this.scale = scale;
@@ -162,38 +177,38 @@ public class ThreeDPanel implements Initializable {
 
 		double[][] data = heatmap.getData();
 
-		for( int i = 0; i <= 2000; i++ ) {
-			mesh.getTexCoords().addAll( ( float )( ( double )i / 2000.0 ), 0.0f );
+		for(int i = 0; i <= 2000; i++) {
+			mesh.getTexCoords().addAll((float)((double)i / 2000.0), 0.0f);
 		}
 
-		List< Integer > textures = new ArrayList< Integer >();
+		List<Integer> textures = new ArrayList<Integer>();
 
 		for( int i = 0; i < rtCount; i++ ) {
-			double x = ( ( double )i / ( double )rtCount - 0.5 ) * 200.0;
+			double x = ((double)i / (double)rtCount - 0.5) * 200.0;
 			for( int j = 0; j < mzCount; j++ ) {
-				double y = ( ( double )( mzCount - 1 - j ) / ( double )mzCount - 0.5 ) * 200.0;
+				double y = ((double)(mzCount - 1 - j) / (double)mzCount - 0.5) * 200.0;
 				double intensity = data[ i ][ j ];
 
 				double z = - 50.0 * intensity;
 
-				mesh.getPoints().addAll( ( float )x, ( float )y, ( float )z );
+				mesh.getPoints().addAll((float)x, (float)y, (float)z);
 
-				int texture = ( int )Math.round( Math.sqrt( intensity ) * 1000.0 + 500.0 );
-				textures.add( texture );
+				int texture = (int)Math.round(Math.sqrt(intensity) * 1000.0 + 500.0);
+				textures.add(texture);
 			}
 		}
 
-		for( int i = 0; i < rtCount - 1; i++ ) {
-			for( int j = 0; j < mzCount - 1; j++ ) {
+		for(int i = 0; i < rtCount - 1; i++) {
+			for(int j = 0; j < mzCount - 1; j++) {
 				int index0 = i * mzCount + j;
 				int index1 = index0 + 1;
-				int index2 = ( i + 1 ) * mzCount + j;
+				int index2 = (i + 1) * mzCount + j;
 				int index3 = index2 + 1;
 
-				int texture0 = textures.get( index0 );
-				int texture1 = textures.get( index1 );
-				int texture2 = textures.get( index2 );
-				int texture3 = textures.get( index3 );
+				int texture0 = textures.get(index0);
+				int texture1 = textures.get(index1);
+				int texture2 = textures.get(index2);
+				int texture3 = textures.get(index3);
 
 				mesh.getFaces().addAll(
 					index2, texture2, index1, texture1, index0, texture0,
@@ -203,8 +218,8 @@ public class ThreeDPanel implements Initializable {
 		}
 
 		MeshView view = new MeshView();
-		view.setMaterial( material );
-		view.setMesh( mesh );
+		view.setMaterial(material);
+		view.setMesh(mesh);
 
 		group.getChildren().add(view);
 	}
@@ -217,9 +232,11 @@ public class ThreeDPanel implements Initializable {
 	}
 
 	private void addAxes(Heatmap heatmap, Group group) {
-		this.addXAxis(heatmap, group);
-		this.addYAxis(heatmap, group);
-		this.addZAxis(heatmap, group);
+		if(this.axisCheck.isSelected()) {
+			this.addXAxis(heatmap, group);
+			this.addYAxis(heatmap, group);
+			this.addZAxis(heatmap, group);
+		}
 	}
 
 	private void addText(String string, double x, double y, double z, HAlign hAlign, VAlign vAlign) {
@@ -282,31 +299,33 @@ public class ThreeDPanel implements Initializable {
 
 		this.addText("RT",  100.0 * rate + 10.0,  100.0 * rate, 0.0, HAlign.LEFT,  VAlign.CENTER);
 
-		double start = heatmap.getRtRange().getStart();
-		double end = heatmap.getRtRange().getEnd();
-		double range = this.getMeasureRange(end - start);
-		String format = this.getMeasureFormat(end - start);
+		if(this.rtCheck.isSelected()) {
+			double start = heatmap.getRtRange().getStart();
+			double end = heatmap.getRtRange().getEnd();
+			double range = this.getMeasureRange(end - start);
+			String format = this.getMeasureFormat(end - start);
 
-		int startIndex = (int)Math.ceil(start / range);
-		int endIndex = (int)Math.floor(end / range);
+			int startIndex = (int)Math.ceil(start / range);
+			int endIndex = (int)Math.floor(end / range);
 
-		for(int i = startIndex; i <= endIndex; i++) {
-			double value = range * (double)i;
-			double pos = (value - start) / (end - start) * 200.0 - 100.0;
-			this.addText(
-				String.format(format, value),
-				pos,
-				100.0 * rate + MEASURE_LENGTH,
-				0.0,
-				HAlign.CENTER,
-				VAlign.TOP
-			);
+			for(int i = startIndex; i <= endIndex; i++) {
+				double value = range * (double)i;
+				double pos = (value - start) / (end - start) * 200.0 - 100.0;
+				this.addText(
+					String.format(format, value),
+					pos,
+					100.0 * rate + MEASURE_LENGTH,
+					0.0,
+					HAlign.CENTER,
+					VAlign.TOP
+				);
 
-			cylinder = new Cylinder(0.5, MEASURE_LENGTH);
-			cylinder.setMaterial(material);
-			cylinder.setTranslateX(pos);
-			cylinder.setTranslateY(100.0 * rate + MEASURE_LENGTH / 2.0);
-			group.getChildren().add(cylinder);
+				cylinder = new Cylinder(0.5, MEASURE_LENGTH);
+				cylinder.setMaterial(material);
+				cylinder.setTranslateX(pos);
+				cylinder.setTranslateY(100.0 * rate + MEASURE_LENGTH / 2.0);
+				group.getChildren().add(cylinder);
+			}
 		}
 	}
 
@@ -320,33 +339,35 @@ public class ThreeDPanel implements Initializable {
 
 		this.addText("m/z",  -100.0 * rate,  -100.0 * rate - 10.0, 0.0, HAlign.CENTER, VAlign.BOTTOM);
 
-		double start = heatmap.getMzRange().getStart();
-		double end = heatmap.getMzRange().getEnd();
-		double range = this.getMeasureRange(end - start);
-		String format = this.getMeasureFormat(end - start);
+		if(this.mzCheck.isSelected()) {
+			double start = heatmap.getMzRange().getStart();
+			double end = heatmap.getMzRange().getEnd();
+			double range = this.getMeasureRange(end - start);
+			String format = this.getMeasureFormat(end - start);
 
-		int startIndex = (int)Math.ceil(start / range);
-		int endIndex = (int)Math.floor(end / range);
+			int startIndex = (int)Math.ceil(start / range);
+			int endIndex = (int)Math.floor(end / range);
 
-		for(int i = startIndex; i <= endIndex; i++) {
-			double value = range * (double)i;
-			double pos = - (value - start) / (end - start) * 200.0 + 100.0;
-			this.addText(
-				String.format(format, value),
-				-100.0 * rate - MEASURE_LENGTH,
-				pos,
-				0.0,
-				HAlign.RIGHT,
-				VAlign.CENTER
-			);
+			for(int i = startIndex; i <= endIndex; i++) {
+				double value = range * (double)i;
+				double pos = - (value - start) / (end - start) * 200.0 + 100.0;
+				this.addText(
+					String.format(format, value),
+					-100.0 * rate - MEASURE_LENGTH,
+					pos,
+					0.0,
+					HAlign.RIGHT,
+					VAlign.CENTER
+				);
 
-			cylinder = new Cylinder(0.5, MEASURE_LENGTH);
-			cylinder.setMaterial(material);
-			cylinder.setRotationAxis(new Point3D(0.0, 0.0, 1.0));
-			cylinder.setRotate(90.0);
-			cylinder.setTranslateX(- 100.0 * rate - MEASURE_LENGTH / 2.0);
-			cylinder.setTranslateY(pos);
-			group.getChildren().add(cylinder);
+				cylinder = new Cylinder(0.5, MEASURE_LENGTH);
+				cylinder.setMaterial(material);
+				cylinder.setRotationAxis(new Point3D(0.0, 0.0, 1.0));
+				cylinder.setRotate(90.0);
+				cylinder.setTranslateX(- 100.0 * rate - MEASURE_LENGTH / 2.0);
+				cylinder.setTranslateY(pos);
+				group.getChildren().add(cylinder);
+			}
 		}
 	}
 
@@ -365,34 +386,36 @@ public class ThreeDPanel implements Initializable {
 
 		this.addText("Int.", -100.0 * rate, 100.0 * rate, -length - 10.0, HAlign.CENTER, VAlign.BOTTOM);
 
-		double start = 0.0;
-		double end = heatmap.getMaxIntensity() * 1.25;
-		double range = this.getMeasureRange(end - start);
-		String format = this.getMeasureFormat(end - start);
+		if(this.intCheck.isSelected()) {
+			double start = 0.0;
+			double end = heatmap.getMaxIntensity() * 1.25;
+			double range = this.getMeasureRange(end - start);
+			String format = this.getMeasureFormat(end - start);
 
-		int startIndex = (int)Math.ceil(start / range);
-		int endIndex = (int)Math.floor(end / range);
+			int startIndex = (int)Math.ceil(start / range);
+			int endIndex = (int)Math.floor(end / range);
 
-		for(int i = startIndex; i <= endIndex; i++) {
-			double value = range * (double)i;
-			double pos = - (value - start) / (end - start) * 75.0;
-			this.addText(
-				String.format(format, value),
-				-100.0 * rate - MEASURE_LENGTH,
-				100.0 * rate + MEASURE_LENGTH,
-				pos,
-				HAlign.RIGHT,
-				VAlign.CENTER
-			);
+			for(int i = startIndex; i <= endIndex; i++) {
+				double value = range * (double)i;
+				double pos = - (value - start) / (end - start) * 75.0;
+				this.addText(
+					String.format(format, value),
+					-100.0 * rate - MEASURE_LENGTH,
+					100.0 * rate + MEASURE_LENGTH,
+					pos,
+					HAlign.RIGHT,
+					VAlign.CENTER
+				);
 
-			cylinder = new Cylinder(0.5, MEASURE_LENGTH);
-			cylinder.setMaterial(material);
-			cylinder.setRotationAxis(new Point3D(0.0, 0.0, 1.0));
-			cylinder.setRotate(45.0);
-			cylinder.setTranslateX(- 100.0 * rate - MEASURE_LENGTH / 2.0 / 1.414);
-			cylinder.setTranslateY(100.0 * rate + MEASURE_LENGTH / 2.0 / 1.414);
-			cylinder.setTranslateZ(pos);
-			group.getChildren().add(cylinder);
+				cylinder = new Cylinder(0.5, MEASURE_LENGTH);
+				cylinder.setMaterial(material);
+				cylinder.setRotationAxis(new Point3D(0.0, 0.0, 1.0));
+				cylinder.setRotate(45.0);
+				cylinder.setTranslateX(- 100.0 * rate - MEASURE_LENGTH / 2.0 / 1.414);
+				cylinder.setTranslateY(100.0 * rate + MEASURE_LENGTH / 2.0 / 1.414);
+				cylinder.setTranslateZ(pos);
+				group.getChildren().add(cylinder);
+			}
 		}
 	}
 
@@ -452,21 +475,23 @@ public class ThreeDPanel implements Initializable {
 		WritablePixelFormat< IntBuffer > format = WritablePixelFormat.getIntArgbInstance();
 		int[] pixels = new int[ 2000 ];
 
-		for( int i = 0; i < 2000; i++ ) {
+		ColorTheme theme = this.themeChoice.getSelectionModel().getSelectedItem();
+
+		for(int i = 0; i < 2000; i++) {
 			int pixel = 0;
-			if( i < 500 ) {
-				pixel = this.theme.getColor( 0.0 ).getPixel();
+			if(i < 500) {
+				pixel = theme.getColor(0.0).getPixel();
 			}
-			else if( i > 1500 ) {
-				pixel = this.theme.getColor( 1.0 ).getPixel();
+			else if(i > 1500) {
+				pixel = theme.getColor(1.0).getPixel();
 			}
 			else {
-				double value = ( double )( i - 500 ) / 1000.0;
-				pixel = this.theme.getColor( value ).getPixel();
+				double value = (double)(i - 500) / 1000.0;
+				pixel = theme.getColor(value).getPixel();
 			}
 			pixels[ i ] = pixel;
 		}
-		image.getPixelWriter().setPixels( 0,  0,  2000,  1,  format,  pixels, 0, 2000 );
+		image.getPixelWriter().setPixels(0,  0,  2000,  1,  format,  pixels, 0, 2000);
 
 		return image;
 	}
@@ -497,7 +522,7 @@ public class ThreeDPanel implements Initializable {
 	 * sets the heat map
 	 * @param heatmap
 	 */
-	public void setHeatmap( Heatmap heatmap ) {
+	public void setHeatmap(Heatmap heatmap) {
 		this.heatmap = heatmap;
 
 		this.textArray = new ArrayList<TextInfo>();
@@ -530,7 +555,7 @@ public class ThreeDPanel implements Initializable {
 		scene.setCamera(camera);
 
 		scene.widthProperty().bind(this.pane.widthProperty().subtract(20.0));
-		scene.heightProperty().bind(this.pane.heightProperty());
+		scene.heightProperty().bind(this.pane.heightProperty().subtract(50.0));
 		scene.widthProperty().addListener(
 			(observable, oldValue, newValue) -> {
 				double width = newValue.doubleValue();
@@ -569,7 +594,7 @@ public class ThreeDPanel implements Initializable {
 	 * on mouse pressed
 	 * @param event mouse event
 	 */
-	private void onMousePressed( MouseEvent event ) {
+	private void onMousePressed(MouseEvent event) {
 		this.px = event.getX();
 		this.py = event.getY();
 	}
@@ -578,7 +603,7 @@ public class ThreeDPanel implements Initializable {
 	 * on mouse drag
 	 * @param event mouse event
 	 */
-	private void onMouseDrag( MouseEvent event ) {
+	private void onMouseDrag(MouseEvent event) {
 		double x = event.getX();
 		double y = event.getY();
 
@@ -638,7 +663,28 @@ public class ThreeDPanel implements Initializable {
 
 		this.root = null;
 
-		this.theme = ColorManager.getInstance().getThemes().get(0);
+		for(ColorTheme theme : ColorManager.getInstance().getThemes()) {
+			this.themeChoice.getItems().add(theme);
+		}
+		this.themeChoice.getSelectionModel().select(0);
+		this.themeChoice.getSelectionModel().selectedItemProperty().addListener(
+			(observable, oldVal, newVal) -> {
+				me.onUpdateConfig();
+			}
+		);
+
+		CheckBox[] checks = {this.axisCheck, this.rtCheck, this.mzCheck, this.intCheck};
+		for(CheckBox check : checks) {
+			check.selectedProperty().addListener(
+				(observable, oldVal, newVal) -> {
+					me.onUpdateConfig();
+				}
+			);
+		}
 	}
 
+	private void onUpdateConfig() {
+		this.pane.setCenter(null);
+		this.setHeatmap(this.heatmap);
+	}
 }
