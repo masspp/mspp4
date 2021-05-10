@@ -283,9 +283,11 @@ public class jmzReaderMGFSpectrumIterator implements Iterable<Pair<Spectrum, Poi
                 }else{
                     prec_spec.setUpperMz( 0.0 );
                 }
-                if(  (props.charge != null)){
+                if( spectrum.getPolarity() != null){
                     prec_spec.setPolarity( spectrum.getPolarity() ) ;
-                }                    
+                }else{
+                    prec_spec.setPolarity(0);
+                }                   
                     
                 return Pair.of(prec_spec, prec_pointList);                  
             

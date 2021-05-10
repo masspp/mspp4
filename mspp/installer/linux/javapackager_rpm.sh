@@ -29,19 +29,19 @@
 #
 #
 # @author Mass++ Users Group (https://www.mspp.ninja/)
-# @author Masayo Kimura
-# @since 2019
+# @author Masaki Kato
+# @since Tue Nov 3 16:35:59 JST 2020
 #
-# Copyright (c) 2019 Masayo Kimura
+# Copyright (c) 2020 Masaki Kato
 # All rights reserved.
 #
 
-# To build MacOS installer,  execute following commands: 
-#   1. export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# To build MacOS installer,  execute following commands:
+#   1. export JAVA_HOME=/usr/java/default/
 #   2. mvn clean install -Dlicense.skip=true
-#   3. sh ${mspp_source_top}/mspp/installer/mac/javapackager.sh
+#   3. sh ${mspp_source_top}/mspp/installer/linux/javapackager_deb.sh
 
-app_version=4.0.0_alpha_20191005
+app_version=4.0.0_beta_20201102
 script_dir=`dirname $0`
 
 
@@ -66,11 +66,8 @@ fi
 
 
 if [ -n "$jdk_version_OK" ]; then
-    echo 'Starting to create installer for MacOSX'
-    (cd  $script_dir/../../target ; $_packager -deploy -native dmg -outdir mac_installer -outfile Mass++  -srcdir . -srcfiles mspp-4.0.0_beta.jar -appclass org.springframework.boot.loader.JarLauncher -name Mass++ -title Mass++  -BjvmOptions=-Xmx4g -Bicon=../src/main/resources/images/mspp4.icns -BappVersion=$app_version -Bruntime=$JAVA_HOME ) 
-else 
+    echo 'Starting to create installer for rpm package'
+    (cd  $script_dir/../../target ; $_packager -deploy -native rpm -outdir rpm_installer -outfile Mass++ -srcdir . -srcfiles mspp-4.0.0_beta.jar -appclass org.springframework.boot.loader.JarLauncher -BsystemWide=false -name Mass++ -title Mass++ -BjvmOptions=-Xmx4g  -Bicon=../src/main/resources/images/MS_icon_128.png -BappVersion=$app_version -Bruntime=$JAVA_HOME/jre )
+else
     echo 'Sorry, use JDK 1.8'
 fi
-
-
-
