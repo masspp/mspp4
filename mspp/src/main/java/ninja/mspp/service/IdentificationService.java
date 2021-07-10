@@ -110,14 +110,16 @@ public class IdentificationService {
 			double minSpacing,
 			double snRatio
 	) throws Exception {
-		File file = File.createTempFile(rawData.getName(), ".mgf", new File("."));
+		File file = File.createTempFile(rawData.getName(), ".mgf");
 
 		List<String> list = new ArrayList<String>();
 		list.add(command);
 		list.add("-v");
 		list.add("--mgf");
+		list.add("-o");
+		list.add(file.getParent());
 		list.add("--outfile");
-		list.add(file.getAbsolutePath());
+		list.add(file.getName());
 		list.add("--filter");
 		list.add("msLevel 2-2");
 		list.add("--filter");
@@ -237,7 +239,7 @@ public class IdentificationService {
 			boolean yIon,
 			boolean zIon
 	) throws IOException {
-		File file = File.createTempFile("coment_parameters", ".txt");
+		File file = File.createTempFile("comet_search_parameters_", ".txt");
 
 		PrintWriter writer = new PrintWriter(new FileWriter(file));
 

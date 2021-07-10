@@ -136,11 +136,14 @@ public class MsftbxMzMLSpectrumIterator implements Iterable<Pair<Spectrum,PointL
 
                 // assumed that each precursor spectrum is ahead of child spectra in this iterator.
                 // TODO: check this.
-                PrecursorInfo precursor = scan.getPrecursor();
-                if (precursor != null) {
-                    Spectrum parent = spectrumMap.get(precursor.getParentScanRefRaw());
-                    if (parent != null) {
-                        spectrum.setParentSpectrumId(parent.getId());
+                if (spectrum.getMsStage()!=null && spectrum.getMsStage()>1 ){
+                    PrecursorInfo precursor = scan.getPrecursor();
+                    if (precursor != null) {
+                        Spectrum parent = spectrumMap.get(precursor.getParentScanRefRaw());
+                        if (parent != null) {
+                            spectrum.setParentSpectrumId(parent.getId());
+                        }
+                        
                         Double precursorMz = precursor.getMzTargetMono();
                         if (precursorMz == null) {
                             precursorMz = precursor.getMzTarget();

@@ -53,7 +53,7 @@ public class ColorManager {
 	/**
 	 * thermograhy
 	 */
-	class ThermographyTheme implements ColorTheme {
+	class ThermographyTheme extends ColorTheme {
 		@Override
 		public String getName() {
 			return "Thermography";
@@ -99,7 +99,7 @@ public class ColorManager {
 	/**
 	 * grayscale theme
 	 */
-	class GrayScaleTheme implements ColorTheme {
+	class GrayScaleTheme extends ColorTheme {
 		@Override
 		public String getName() {
 			return "GrayScale";

@@ -203,9 +203,9 @@ public class RawDataService {
                         Spectrum spectrum = specpoint.getLeft(); 
                         spectrum.setPointListId( pointList.getId() );
                         spectrum = this.spectrumRepository.save( spectrum );
-                        String id = Long.toString( spectrum.getId());                
-                        System.out.println( String.format( "    Registering Spectrum [%s].....", id ) );
-                        spectrumMap.put( id, spectrum ); 
+                        String spec_id = spectrum.getSpectrumId();                
+                        System.out.println( String.format( "    Registering Spectrum [%s].....", spec_id ) );
+                        spectrumMap.put( spec_id, spectrum ); 
 
                         Point< Double > point = new Point<>( spectrum.getStartRt(), spectrum.getTic() );
                         ticPoints.add( point );

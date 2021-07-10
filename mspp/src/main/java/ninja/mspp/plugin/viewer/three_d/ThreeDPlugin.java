@@ -56,26 +56,26 @@ public class ThreeDPlugin {
 		this.panel = null;
 	}
 
-	@SamplePanel( "3D" )
-	public Node createPanel( @FxmlLoaderParam SpringFXMLLoader loader ) throws Exception {
-		Node node = loader.load( ThreeDPanel.class, "ThreeDPanel.fxml" );
-		this.panel = ( ThreeDPanel )loader.getController();
+	@SamplePanel("3D")
+	public Node createPanel(@FxmlLoaderParam SpringFXMLLoader loader) throws Exception {
+		Node node = loader.load(ThreeDPanel.class, "ThreeDPanel.fxml");
+		this.panel = (ThreeDPanel)loader.getController();
 
 		return node;
 	}
 
 	@OnHeatmap
-	public void onHeatmap( Heatmap heatmap ) {
-		if( this.panel != null ) {
-			this.panel.setHeatmap( heatmap );
+	public void onHeatmap(Heatmap heatmap) {
+		if(this.panel != null) {
+			this.panel.setHeatmap(heatmap);
 		}
 	}
 
 	@OnHeatmapRange
-	public void onHeatmapRange( Heatmap heatmap ) {
-		if( this.panel != null ) {
-			if( this.panel.getHeatmap() == heatmap ) {
-				this.panel.setHeatmap( heatmap );
+	public void onHeatmapRange(Heatmap heatmap) {
+		if(this.panel != null) {
+			if(this.panel.getHeatmap() == heatmap) {
+				this.panel.setHeatmap(heatmap);
 			}
 		}
 	}
