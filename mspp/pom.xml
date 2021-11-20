@@ -73,7 +73,11 @@
 		<repository>
 			<id>genesis-maven2-repository</id>
 			<name>Genesis maven2 repository</name>
-			<url>http://genesis.UGent.be/maven2</url>
+			<url>http://genesis.UGent.be/maven2/</url>
+                </repository>
+                <repository>
+                    <id>sammoa-group</id>
+                    <url>https://nexus.nuiton.org/nexus/content/repositories/sammoa-group/</url>
                 </repository>
                 
                 <!-- <repository>
