@@ -36,6 +36,7 @@
  */
 package ninja.mspp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -50,37 +51,37 @@ import ninja.mspp.view.main.MainFrame;
 
 @SpringBootApplication
 public class MsppApplication extends Application {
-    // context
+	// context
 	private static ConfigurableApplicationContext context;
-
+	
 	/**
 	 * main method
+	 * 
 	 * @param args arguments
 	 */
-	public static void main(String[] args) {
-		MsppApplication.context = SpringApplication.run( MsppApplication.class, args );
-		launch( args );
+	public static void start(String[] args) {
+		MsppApplication.context = SpringApplication.run(MsppApplication.class, args);
 	}
 
 	@Override
-	public void start( Stage stage ) throws Exception {
-		MsppManager manager = MsppApplication.context.getBean( MsppManager.class );
+	public void start(Stage stage) throws Exception {
 		ObjectManager objectManager = ObjectManager.getInstane();
-
+		
+		MsppManager manager = MsppApplication.context.getBean(MsppManager.class);
 		manager.initialize();
 
 		SpringFXMLLoader loader = manager.getFxmlLoader();
-		objectManager.setFxmlLoader( loader );
-		Parent parent = loader.load( MainFrame.class,  "MainFrame.fxml" );
+		objectManager.setFxmlLoader(loader);
+		Parent parent = loader.load(MainFrame.class, "MainFrame.fxml");
 
-		String title = manager.getConfig().getString( "mspp.title" );
-		stage.setTitle( title );
+		String title = manager.getConfig().getString("mspp.title");
+		stage.setTitle(title);
 
-		Image icon = new Image( getClass().getResourceAsStream( "/images/MS_icon_24.png" ) );
-		stage.getIcons().add( icon );
+		Image icon = new Image(getClass().getResourceAsStream("/images/MS_icon_24.png"));
+		stage.getIcons().add(icon);
 
-		Scene scene = new Scene( parent );
-		stage.setScene( scene );;
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
 
 		stage.show();
 	}

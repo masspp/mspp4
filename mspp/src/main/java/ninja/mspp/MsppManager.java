@@ -50,6 +50,7 @@ import java.util.prefs.Preferences;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.stereotype.Component;
@@ -63,7 +64,7 @@ import ninja.mspp.view.SpringFXMLLoader;
  * Mass++ manager (Singleton class)
  */
 @Component
-public class MsppManager implements Iterable< Object > {
+public class MsppManager implements Iterable<Object> {
 	@Autowired
 	private ApplicationContext context;
 
@@ -80,7 +81,7 @@ public class MsppManager implements Iterable< Object > {
 	private ResourceBundle messages;
 
 	// plugins
-	private List< Object > plugins;
+	private List<Object> plugins;
 
 	// preferences
 	private Preferences preferences;
@@ -97,15 +98,15 @@ public class MsppManager implements Iterable< Object > {
 	public void initialize() {
 		MsppManager.instance = this;
 
-		this.config = ResourceBundle.getBundle( "config" );
-		this.messages = ResourceBundle.getBundle( "messages" );
+		this.config = ResourceBundle.getBundle("config");
+		this.messages = ResourceBundle.getBundle("messages");
 		this.plugins = this.createPluginArray();
-		this.preferences = Preferences.userRoot().node( "mspp4/parameters" );
+		this.preferences = Preferences.userRoot().node("mspp4/parameters");
 	}
 
 	/**
 	 * gets the config properties
-         * 
+	 * 
 	 * @return config properties
 	 */
 	public ResourceBundle getConfig() {
@@ -114,6 +115,7 @@ public class MsppManager implements Iterable< Object > {
 
 	/**
 	 * gets the messages
+	 * 
 	 * @return messages
 	 */
 	public ResourceBundle getMessages() {
@@ -126,91 +128,91 @@ public class MsppManager implements Iterable< Object > {
 
 	/**
 	 * save string value
-	 * @param name parameter name
+	 * 
+	 * @param name  parameter name
 	 * @param value parameter value
 	 */
-	public void saveString( String name, String value ) {
-		this.preferences.put( name, value );
+	public void saveString(String name, String value) {
+		this.preferences.put(name, value);
 	}
 
 	/**
 	 * loads string value
-	 * @param name parameter name
+	 * 
+	 * @param name         parameter name
 	 * @param defaultValue default value
 	 * @return parameter value
 	 */
-	public String loadString( String name, String defaultValue ) {
-		return this.preferences.get( name,  defaultValue );
+	public String loadString(String name, String defaultValue) {
+		return this.preferences.get(name, defaultValue);
 	}
 
 	// array list
-	private List< Object > createPluginArray() {
-		List< Object > array = this.searchPlugins();
+	private List<Object> createPluginArray() {
+		List<Object> array = this.searchPlugins();
 
 		return array;
 	}
 
 	/**
 	 * search plugins
+	 * 
 	 * @param files files
 	 * @return plugins
 	 */
-	private List< Object > searchPlugins() {
-		List< Object > list = new ArrayList< Object >();
-		ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider( false );
-		provider.addIncludeFilter( new AnnotationTypeFilter( Plugin.class ) );
-		Set< BeanDefinition > beans = provider.findCandidateComponents( "ninja.mspp" );
+	private List<Object> searchPlugins() {
+		List<Object> list = new ArrayList<Object>();
+		ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(false);
+		provider.addIncludeFilter(new AnnotationTypeFilter(Plugin.class));
+		Set<BeanDefinition> beans = provider.findCandidateComponents("ninja.mspp");
 
-		Map< Object, Integer > orderMap = new HashMap< Object, Integer >();;
-		for( BeanDefinition bean : beans ) {
+		Map<Object, Integer> orderMap = new HashMap<Object, Integer>();
+		;
+		for (BeanDefinition bean : beans) {
 			Object object = null;
 			try {
-				Class< ? > clazz = Class.forName( bean.getBeanClassName() );
-				Plugin annotation = clazz.getDeclaredAnnotation( Plugin.class );
+				Class<?> clazz = Class.forName(bean.getBeanClassName());
+				Plugin annotation = clazz.getDeclaredAnnotation(Plugin.class);
 				try {
-					object = this.context.getBean( clazz );
-				}
-				catch( Exception e1 ) {
+					object = this.context.getBean(clazz);
+				} catch (Exception e1) {
 					try {
 						object = clazz.newInstance();
-					}
-					catch( Exception e2 ) {
+					} catch (Exception e2) {
 						e1.printStackTrace();
 						e2.printStackTrace();
 					}
 				}
-				if( object != null ) {
-					orderMap.put( object,  annotation.order() );
-					list.add( object );
+				if (object != null) {
+					orderMap.put(object, annotation.order());
+					list.add(object);
 				}
-			}
-			catch( Exception e ) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		list.sort(
-			( object1, object2 ) -> {
-				int order1 = orderMap.get( object1 );
-				int order2 = orderMap.get( object2 );
-				return ( order1 - order2 );
-			}
-		);
+		list.sort((object1, object2) -> {
+			int order1 = orderMap.get(object1);
+			int order2 = orderMap.get(object2);
+			return (order1 - order2);
+		});
 		return list;
 	}
 
 	/**
 	 * gets specified plug-ins
+	 * 
 	 * @param clazz annotation class
 	 * @return plug-in array
 	 */
-	public < A extends Annotation > List< PluginObject< A > > getPlugins( Class< A > clazz ) {
-		ArrayList< PluginObject< A > > array = new ArrayList< PluginObject< A > >();
-		for( Object plugin : this.plugins ) {
-			A annotation = plugin.getClass().getAnnotation( clazz );
-			if( annotation != null ) {
-				PluginObject< A > object = new PluginObject< A >( plugin, annotation );
-				array.add( object );
+	public <A extends Annotation> List<PluginObject<A>> getPlugins(Class<A> clazz) {
+		ArrayList<PluginObject<A>> array = new ArrayList<PluginObject<A>>();
+		for (Object plugin : this.plugins) {
+			A annotation = plugin.getClass().getAnnotation(clazz);
+			if (annotation != null) {
+				PluginObject<A> object = new PluginObject<A>(plugin, annotation);
+				array.add(object);
 			}
 		}
 
@@ -219,18 +221,19 @@ public class MsppManager implements Iterable< Object > {
 
 	/**
 	 * gets plug-in methods
+	 * 
 	 * @param clazz class
 	 * @return plug-in methods
 	 */
-	public < A extends Annotation > List< PluginMethod< A > > getMethods( Class< A > clazz ) {
-		ArrayList< PluginMethod< A > > array = new ArrayList< PluginMethod< A > >();
-		for( Object plugin : this.plugins ) {
+	public <A extends Annotation> List<PluginMethod<A>> getMethods(Class<A> clazz) {
+		ArrayList<PluginMethod<A>> array = new ArrayList<PluginMethod<A>>();
+		for (Object plugin : this.plugins) {
 			Method[] methods = plugin.getClass().getDeclaredMethods();
-			for( Method method : methods ) {
-				A annotation = method.getAnnotation( clazz );
-				if( annotation != null ) {
-					PluginMethod< A > pluginMethod = new PluginMethod< A >( plugin, method, annotation );
-					array.add( pluginMethod );
+			for (Method method : methods) {
+				A annotation = method.getAnnotation(clazz);
+				if (annotation != null) {
+					PluginMethod<A> pluginMethod = new PluginMethod<A>(plugin, method, annotation);
+					array.add(pluginMethod);
 				}
 			}
 		}
@@ -241,10 +244,10 @@ public class MsppManager implements Iterable< Object > {
 	/**
 	 * invokes methods
 	 */
-	public < A extends Annotation > void invokeAll( Class< A > clazz, Object... args ) {
-		List< PluginMethod< A > > methods = this.getMethods( clazz );
-		for( PluginMethod< A > method : methods ) {
-			method.invoke( args );
+	public <A extends Annotation> void invokeAll(Class<A> clazz, Object... args) {
+		List<PluginMethod<A>> methods = this.getMethods(clazz);
+		for (PluginMethod<A> method : methods) {
+			method.invoke(args);
 		}
 	}
 
@@ -252,12 +255,8 @@ public class MsppManager implements Iterable< Object > {
 	public Iterator<Object> iterator() {
 		return this.plugins.iterator();
 	}
-
-	/**
-	 * gets the instance
-	 * @return MsppManager instance (This is the only object.)
-	 */
+	
 	public static MsppManager getInstance() {
-		return MsppManager.instance;
+		return MsppManager.instance;		
 	}
 }
