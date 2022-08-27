@@ -1,5 +1,10 @@
 target/
-!.mvn/wrapper/maven-wrapper.jar
+
+### Maven ###
+.mvn
+#!.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
 
 ### STS ###
 .apt_generated
@@ -8,12 +13,14 @@ target/
 .project
 .settings
 .springBeans
+.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+
 
 ### NetBeans ###
 nbproject/private/
