@@ -175,7 +175,7 @@ public class jmzMLSpectrum extends ninja.mspp.model.dataobject.SpectrumObject{
         }
 
         for(int i = 0; i < xarray.length; i++){
-            Point p = new Point(xarray[i],yarray[i]);
+            Point<Double> p = new Point<>(xarray[i],yarray[i]);
             points.add(p);
         }
 

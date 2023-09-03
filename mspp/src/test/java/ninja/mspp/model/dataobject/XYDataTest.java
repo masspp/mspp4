@@ -38,13 +38,12 @@ package ninja.mspp.model.dataobject;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  * @author masakimu
@@ -57,29 +56,29 @@ public class XYDataTest {
     public XYDataTest() {
     }
     
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
  
     }
     
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
     }
     
-    @Before
+    @BeforeEach
     public void setUp() {
-       points = new ArrayList<Point<Double>>(){
+       this.points = new ArrayList<Point<Double>>(){
                 {
-                    add(new Point((double)16.6, (double)10.0));
-                    add(new Point((double)1.0, (double)15.1));
-                    add(new Point((double)1.2, (double)142.9));
-                    add(new Point((double)1.2, (double)18.2));
-                    add(new Point((double)23.8, (double)18.2)); //23.3
-                    add(new Point((double)3.3, (double)56.4));
-                    add(new Point((double)10.4, (double)84.5)); 
-                    add(new Point((double)15.5, (double)93.6));
-                    add(new Point((double)22.7, (double)121.7));
-                    add(new Point((double)29.9, (double)130.8));
+                    add(new Point<>((double)16.6, (double)10.0));
+                    add(new Point<>((double)1.0, (double)15.1));
+                    add(new Point<>((double)1.2, (double)142.9));
+                    add(new Point<>((double)1.2, (double)18.2));
+                    add(new Point<>((double)23.8, (double)18.2)); //23.3
+                    add(new Point<>((double)3.3, (double)56.4));
+                    add(new Point<>((double)10.4, (double)84.5)); 
+                    add(new Point<>((double)15.5, (double)93.6));
+                    add(new Point<>((double)22.7, (double)121.7));
+                    add(new Point<>((double)29.9, (double)130.8));
                 }
         };
         //points.add(new Point( (double)1.0, (double)100.2));
@@ -87,7 +86,7 @@ public class XYDataTest {
         xydata = new XYData(points, true);
     }
     
-    @After
+    @AfterEach
     public void tearDown() {
     }
 
@@ -212,16 +211,16 @@ public class XYDataTest {
         XYData instance = xydata;
         List<Point<Double>> points_sorted_by_x=new ArrayList<Point<Double>>(){
                 {
-                    add(new Point((double)1.0, (double)15.1));
-                    add(new Point((double)1.2, (double)142.9));
-                    add(new Point((double)1.2, (double)18.2));
-                    add(new Point((double)3.3, (double)56.4));
-                    add(new Point((double)10.4, (double)84.5));
-                    add(new Point((double)15.5, (double)93.6));
-                    add(new Point((double)16.6, (double)10.0));
-                    add(new Point((double)22.7, (double)121.7));
-                    add(new Point((double)23.8, (double)18.2));
-                    add(new Point((double)29.9, (double)130.8));                    
+                    add(new Point<>((double)1.0, (double)15.1));
+                    add(new Point<>((double)1.2, (double)142.9));
+                    add(new Point<>((double)1.2, (double)18.2));
+                    add(new Point<>((double)3.3, (double)56.4));
+                    add(new Point<>((double)10.4, (double)84.5));
+                    add(new Point<>((double)15.5, (double)93.6));
+                    add(new Point<>((double)16.6, (double)10.0));
+                    add(new Point<>((double)22.7, (double)121.7));
+                    add(new Point<>((double)23.8, (double)18.2));
+                    add(new Point<>((double)29.9, (double)130.8));                    
                 }
         };
         List<Point<Double>> expResult = points_sorted_by_x; 
@@ -383,13 +382,13 @@ public class XYDataTest {
         XYData instance = xydata;
         List<Point<Double>> expResult = new ArrayList<Point<Double>>(){
                 {
-                    add(new Point((double)1.2, (double)142.9));
-                    add(new Point((double)1.2, (double)18.2));
-                    add(new Point((double)3.3, (double)56.4));
-                    add(new Point((double)10.4, (double)84.5));
-                    add(new Point((double)15.5, (double)93.6));
-                    add(new Point((double)16.6, (double)10.0));
-                    add(new Point((double)22.7, (double)121.7));
+                    add(new Point<>((double)1.2, (double)142.9));
+                    add(new Point<>((double)1.2, (double)18.2));
+                    add(new Point<>((double)3.3, (double)56.4));
+                    add(new Point<>((double)10.4, (double)84.5));
+                    add(new Point<>((double)15.5, (double)93.6));
+                    add(new Point<>((double)16.6, (double)10.0));
+                    add(new Point<>((double)22.7, (double)121.7));
                 }
         };
         List<Point<Double>> result = instance.filter_by_X(min_x, max_x);
@@ -439,16 +438,16 @@ public class XYDataTest {
         XYData instance = xydata;
         List<Point<Double>> points_sorted_by_y = new ArrayList<Point<Double>>(){
                 {
-                    add(new Point((double)16.6, (double)10.0));
-                    add(new Point((double)1.0, (double)15.1));
-                    add(new Point((double)1.2, (double)18.2));
-                    add(new Point((double)23.8, (double)18.2));
-                    add(new Point((double)3.3, (double)56.4));
-                    add(new Point((double)10.4, (double)84.5));
-                    add(new Point((double)15.5, (double)93.6));
-                    add(new Point((double)22.7, (double)121.7));
-                    add(new Point((double)29.9, (double)130.8));               
-                    add(new Point((double)1.2, (double)142.9));                 
+                    add(new Point<>((double)16.6, (double)10.0));
+                    add(new Point<>((double)1.0, (double)15.1));
+                    add(new Point<>((double)1.2, (double)18.2));
+                    add(new Point<>((double)23.8, (double)18.2));
+                    add(new Point<>((double)3.3, (double)56.4));
+                    add(new Point<>((double)10.4, (double)84.5));
+                    add(new Point<>((double)15.5, (double)93.6));
+                    add(new Point<>((double)22.7, (double)121.7));
+                    add(new Point<>((double)29.9, (double)130.8));               
+                    add(new Point<>((double)1.2, (double)142.9));                 
                 }
         };
         List<Point<Double>> expResult = points_sorted_by_y;

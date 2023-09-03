@@ -44,11 +44,10 @@ package ninja.mspp.model.plugin.io.file.jmzreader_wrapper;
 import java.util.ArrayList;
 import java.net.URL;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-   
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import ninja.mspp.model.dataobject.PeakListObject;
 import ninja.mspp.plugin.io.file.jmzreader_wrapper.jmzReaderMGFInputPlugin;
 
@@ -65,15 +64,16 @@ public class JmzReaderMGFParseTest {
     public JmzReaderMGFParseTest(){
     }
     
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         loadTestFile();
         plugin = new jmzReaderMGFInputPlugin();
     }
     
-    private void loadTestFile() throws Exception {
+    @Test
+    public void loadTestFile() throws Exception {
         URL testFile=getClass().getClassLoader().getResource("msdata/test-mspp.mgf");
-        Assert.assertNotNull("Error loading mgf test file", testFile);
+        assertNotNull(testFile);
         test_file_path = testFile.getPath();
     }
     

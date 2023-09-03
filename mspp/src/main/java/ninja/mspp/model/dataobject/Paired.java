@@ -86,8 +86,11 @@ public class Paired<T extends Number> implements Comparable<Paired<T>>, Cloneabl
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Paired<T> clone() throws CloneNotSupportedException{
-        Paired<T> p = (Paired<T>) super.clone();
+        Paired<T> p;
+        
+        p = (Paired<T>) super.clone();
         p.left = left;
         p.right = right;
         return p;

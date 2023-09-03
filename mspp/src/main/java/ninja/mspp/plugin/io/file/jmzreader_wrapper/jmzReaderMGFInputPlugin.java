@@ -102,7 +102,7 @@ public class jmzReaderMGFInputPlugin {
             // Obtain Peaks
             ArrayList<Point<Double>> points = new ArrayList<>();
             q.getPeakList().entrySet().forEach((mgfpeak) -> {
-                points.add(new Point(mgfpeak.getKey(), mgfpeak.getValue()));
+                points.add(new Point<>(mgfpeak.getKey(), mgfpeak.getValue()));
             });
             peaklist.setPeaks(new XYData(points, true));
             

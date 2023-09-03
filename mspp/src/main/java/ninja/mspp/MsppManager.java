@@ -177,7 +177,7 @@ public class MsppManager implements Iterable<Object> {
 					object = this.context.getBean(clazz);
 				} catch (Exception e1) {
 					try {
-						object = clazz.newInstance();
+						object = clazz.getDeclaredConstructor().newInstance();
 					} catch (Exception e2) {
 						e1.printStackTrace();
 						e2.printStackTrace();

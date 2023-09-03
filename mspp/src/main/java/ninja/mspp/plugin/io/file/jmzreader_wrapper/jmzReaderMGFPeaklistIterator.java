@@ -93,7 +93,7 @@ public class jmzReaderMGFPeaklistIterator implements Iterable<Pair<PeakList, XYD
                 
                 ArrayList<Point<Double>> points = new ArrayList<>();
                 for(int i =0 ; i < count ; i++){
-                    Point p = new Point(mzArray[i],intArray[i]);
+                    Point<Double> p = new Point<>(mzArray[i],intArray[i]);
                     points.add(p);
                 }
                 XYData xydata = new XYData(points, true);
